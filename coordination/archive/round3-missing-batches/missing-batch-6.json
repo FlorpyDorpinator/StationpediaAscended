@@ -1,0 +1,843 @@
+﻿[
+    {
+        "value":  "ThingItemLaptop",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  146
+    },
+    {
+        "value":  "ThingStructureLogicSwitch",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  147
+    },
+    {
+        "value":  "ThingStructureLightRound",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  148
+    },
+    {
+        "value":  "ThingStructureRobotArmDoor",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  149
+    },
+    {
+        "value":  "ThingStructureCapsuleTankLiquid",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  150
+    },
+    {
+        "value":  "ThingItemLiquidVacuum",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  151
+    },
+    {
+        "value":  "ThingStructureLogicWriterSwitch",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  152
+    },
+    {
+        "value":  "ThingStructureSatelliteDish",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  153
+    },
+    {
+        "value":  "ThingStructurePowerTransmitterReceiver",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  154
+    },
+    {
+        "value":  "ThingStructurePowerTransmitter",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  155
+    },
+    {
+        "value":  "ThingItemMiningBeltMKII",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  156
+    },
+    {
+        "value":  "ThingItemMiningDrill",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  157
+    },
+    {
+        "value":  "ThingItemMiningDrillHeavy",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  158
+    },
+    {
+        "value":  "ThingItemMKIIAngleGrinder",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  159
+    },
+    {
+        "value":  "ThingItemMKIIArcWelder",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  160
+    },
+    {
+        "value":  "ThingItemMKIIDrill",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  161
+    },
+    {
+        "value":  "ThingItemMKIIMiningDrill",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  162
+    },
+    {
+        "value":  "ThingItemNVG",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  163
+    },
+    {
+        "value":  "ThingStructurePipeRadiator",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  164
+    },
+    {
+        "value":  "ThingStructurePipeRadiatorFlat",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  165
+    },
+    {
+        "value":  "ThingStructurePipeRadiatorFlatLiquid",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  166
+    },
+    {
+        "value":  "ThingItemPlantSampler",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  167
+    },
+    {
+        "value":  "ThingStructurePortablesConnector",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  168
+    },
+    {
+        "value":  "ThingStructurePowerConnector",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  169
+    },
+    {
+        "value":  "ThingStructurePowerTransmitterOmni",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  170
+    },
+    {
+        "value":  "ThingStructureBench",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  171
+    },
+    {
+        "value":  "ThingStructurePressurantValve",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  172
+    },
+    {
+        "value":  "ThingStructurePressureFedGasEngine",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  173
+    },
+    {
+        "value":  "ThingStructurePressureFedLiquidEngine",
+        "PSPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs\\still-missing-devices.txt",
+        "PSParentPath":  "C:\\Dev\\12-17-25 Stationeers Respawn Update Code\\StationpediaPlus\\coordination\\outputs",
+        "PSChildName":  "still-missing-devices.txt",
+        "PSDrive":  {
+                        "CurrentLocation":  "Dev\\12-17-25 Stationeers Respawn Update Code",
+                        "Name":  "C",
+                        "Provider":  "Microsoft.PowerShell.Core\\FileSystem",
+                        "Root":  "C:\\",
+                        "Description":  "",
+                        "MaximumSize":  null,
+                        "Credential":  "System.Management.Automation.PSCredential",
+                        "DisplayRoot":  null
+                    },
+        "PSProvider":  {
+                           "ImplementingType":  "Microsoft.PowerShell.Commands.FileSystemProvider",
+                           "HelpFile":  "System.Management.Automation.dll-Help.xml",
+                           "Name":  "FileSystem",
+                           "PSSnapIn":  "Microsoft.PowerShell.Core",
+                           "ModuleName":  "Microsoft.PowerShell.Core",
+                           "Module":  null,
+                           "Description":  "",
+                           "Capabilities":  52,
+                           "Home":  "C:\\Users\\marka",
+                           "Drives":  "C D"
+                       },
+        "ReadCount":  174
+    }
+]

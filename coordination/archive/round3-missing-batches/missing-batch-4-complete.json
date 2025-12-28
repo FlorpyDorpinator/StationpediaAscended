@@ -1,0 +1,453 @@
+[
+  {
+    "deviceKey": "ThingStructureConsoleFlat3x2Double",
+    "displayName": "Console Flat 3x2 Double",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleFlatCornerInner",
+    "displayName": "Console Flat Corner Inner",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleFlatCornerInnerDoubleCenter",
+    "displayName": "Console Flat Corner Inner Center",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleFlatCornerInnerDouble",
+    "displayName": "Console Flat Corner Inner Double",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleMonitor",
+    "displayName": "Console Monitor",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if monitor interface is open/active." },
+      "Error": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device has an error condition." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to trigger monitor activation." },
+      "Setting": { "dataType": "Float", "range": "0+", "description": "Current setting value for monitor configuration." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleTerminal",
+    "displayName": "Console Terminal",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleTerminal2",
+    "displayName": "Console Terminal 2",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleWallMount1",
+    "displayName": "Console Wall Mount 1",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureConsoleWallMount2",
+    "displayName": "Console Wall Mount 2",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCornerLocker",
+    "displayName": "Corner Locker",
+    "logicDescriptions": {
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if locker is open." },
+      "Lock": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to lock the locker, preventing opening." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructurePassthroughHeatExchangerLiquidToLiquid",
+    "displayName": "CounterFlow Heat Exchanger - Liquid + Liquid",
+    "logicDescriptions": {
+      "Setting": { "dataType": "Float", "range": "0+", "description": "Heat exchange rate or efficiency setting." },
+      "Maximum": { "dataType": "Float", "range": "0+", "description": "Maximum heat exchange capacity." },
+      "Ratio": { "dataType": "Float", "range": "0-1", "description": "Current heat exchange ratio or efficiency." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCryoTubeHorizontal",
+    "displayName": "Cryo Tube Horizontal",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if cryo tube is open." },
+      "Mode": { "dataType": "Integer", "range": "0-1", "description": "Cryo tube operation mode. 0=Standby, 1=Active cryogenic suspension." },
+      "Error": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device has an error condition." },
+      "Pressure": { "dataType": "Float", "range": "0+", "description": "Internal atmosphere pressure in kPa." },
+      "Temperature": { "dataType": "Float", "range": "0+", "description": "Internal atmosphere temperature in Kelvin." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to activate cryo tube." },
+      "Lock": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to lock the tube, preventing opening." },
+      "Setting": { "dataType": "Float", "range": "0+", "description": "Target temperature setting for cryogenic operation." },
+      "Maximum": { "dataType": "Float", "range": "0+", "description": "Maximum pressure or temperature threshold." },
+      "Ratio": { "dataType": "Float", "range": "0-1", "description": "Current operational efficiency or fill ratio." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "EntityState": { "dataType": "Integer", "range": "0+", "description": "State of entity inside tube (alive, suspended, etc)." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCryoTubeVertical",
+    "displayName": "Cryo Tube Vertical",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if cryo tube is open." },
+      "Mode": { "dataType": "Integer", "range": "0-1", "description": "Cryo tube operation mode. 0=Standby, 1=Active cryogenic suspension." },
+      "Error": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device has an error condition." },
+      "Pressure": { "dataType": "Float", "range": "0+", "description": "Internal atmosphere pressure in kPa." },
+      "Temperature": { "dataType": "Float", "range": "0+", "description": "Internal atmosphere temperature in Kelvin." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to activate cryo tube." },
+      "Lock": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to lock the tube, preventing opening." },
+      "Setting": { "dataType": "Float", "range": "0+", "description": "Target temperature setting for cryogenic operation." },
+      "Maximum": { "dataType": "Float", "range": "0+", "description": "Maximum pressure or temperature threshold." },
+      "Ratio": { "dataType": "Float", "range": "0-1", "description": "Current operational efficiency or fill ratio." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "EntityState": { "dataType": "Integer", "range": "0+", "description": "State of entity inside tube (alive, suspended, etc)." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureDrinkingFountain2x1",
+    "displayName": "Drinking Fountain",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "Error": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if fountain has an error (no water, etc)." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureElevatorLevelIndustrial",
+    "displayName": "Elevator Level",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if elevator doors are open." },
+      "Error": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if elevator has an error condition." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to call elevator to this level." },
+      "Lock": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to lock this level, preventing access." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "ElevatorSpeed": { "dataType": "Float", "range": "0+", "description": "Current speed of elevator movement in m/s." },
+      "ElevatorLevel": { "dataType": "Integer", "range": "0+", "description": "Current floor level of elevator (0=ground floor)." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureElevatorLevelFront",
+    "displayName": "Elevator Level (Cabled)",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if elevator doors are open." },
+      "Error": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if elevator has an error condition." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to call elevator to this level." },
+      "Lock": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to lock this level, preventing access." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "ElevatorSpeed": { "dataType": "Float", "range": "0+", "description": "Current speed of elevator movement in m/s." },
+      "ElevatorLevel": { "dataType": "Integer", "range": "0+", "description": "Current floor level of elevator (0=ground floor)." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureElevatorShaftIndustrial",
+    "displayName": "Elevator Shaft",
+    "logicDescriptions": {
+      "ElevatorSpeed": { "dataType": "Float", "range": "0+", "description": "Current speed of elevator movement in m/s." },
+      "ElevatorLevel": { "dataType": "Integer", "range": "0+", "description": "Current floor level of elevator (0=ground floor)." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureElevatorShaft",
+    "displayName": "Elevator Shaft (Cabled)",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is receiving power." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Device on/off state." },
+      "RequiredPower": { "dataType": "Float", "range": "0+", "description": "Power required by device in watts." },
+      "ElevatorSpeed": { "dataType": "Float", "range": "0+", "description": "Current speed of elevator movement in m/s." },
+      "ElevatorLevel": { "dataType": "Integer", "range": "0+", "description": "Current floor level of elevator (0=ground floor)." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingItemEmergencyAngleGrinder",
+    "displayName": "Emergency Angle Grinder",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if tool has battery power." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 when tool is being activated/used." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific item instance." }
+    }
+  },
+  {
+    "deviceKey": "ThingItemEmergencyArcWelder",
+    "displayName": "Emergency Arc Welder",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if tool has battery power." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 when tool is being activated/used." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific item instance." }
+    }
+  },
+  {
+    "deviceKey": "ThingItemEmergencyDrill",
+    "displayName": "Emergency Drill",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if tool has battery power." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 when tool is being activated/used." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific item instance." }
+    }
+  },
+  {
+    "deviceKey": "ThingItemEmergencySpaceHelmet",
+    "displayName": "Emergency Space Helmet",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if helmet has battery power." },
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if helmet visor is open." },
+      "Pressure": { "dataType": "Float", "range": "0+", "description": "Internal pressure in kPa." },
+      "Temperature": { "dataType": "Float", "range": "0+", "description": "Internal temperature in Kelvin." },
+      "Lock": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to lock the helmet." },
+      "RatioOxygen": { "dataType": "Float", "range": "0-1", "description": "Ratio of oxygen in internal atmosphere." },
+      "RatioCarbonDioxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of carbon dioxide in internal atmosphere." },
+      "RatioNitrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrogen in internal atmosphere." },
+      "RatioPollutant": { "dataType": "Float", "range": "0-1", "description": "Ratio of pollutants in internal atmosphere." },
+      "RatioVolatiles": { "dataType": "Float", "range": "0-1", "description": "Ratio of volatiles in internal atmosphere." },
+      "RatioWater": { "dataType": "Float", "range": "0-1", "description": "Ratio of water vapor in internal atmosphere." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Helmet on/off state." },
+      "TotalMoles": { "dataType": "Float", "range": "0+", "description": "Total moles of gas in internal atmosphere." },
+      "Volume": { "dataType": "Float", "range": "0+", "description": "Internal volume in liters." },
+      "RatioNitrousOxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrous oxide in internal atmosphere." },
+      "Combustion": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if combustion is occurring." },
+      "Flush": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to flush internal atmosphere." },
+      "SoundAlert": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if helmet sound alert is active." },
+      "RatioLiquidNitrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid nitrogen." },
+      "RatioLiquidOxygen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid oxygen." },
+      "RatioLiquidVolatiles": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid volatiles." },
+      "RatioSteam": { "dataType": "Float", "range": "0-1", "description": "Ratio of steam in internal atmosphere." },
+      "RatioLiquidCarbonDioxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid CO2." },
+      "RatioLiquidPollutant": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid pollutants." },
+      "RatioLiquidNitrousOxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid N2O." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific item instance." },
+      "RatioHydrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of hydrogen in internal atmosphere." },
+      "RatioLiquidHydrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid hydrogen." },
+      "RatioPollutedWater": { "dataType": "Float", "range": "0-1", "description": "Ratio of polluted water." }
+    }
+  },
+  {
+    "deviceKey": "ThingItemFlashlight",
+    "displayName": "Flashlight",
+    "logicDescriptions": {
+      "Power": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if flashlight has battery power." },
+      "Mode": { "dataType": "Integer", "range": "0-2", "description": "Light mode. 0=Off, 1=Low, 2=High." },
+      "On": { "dataType": "Boolean", "range": "0-1", "description": "Flashlight on/off state." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific item instance." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureFurnace",
+    "displayName": "Furnace",
+    "logicDescriptions": {
+      "Open": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if furnace door is open." },
+      "Mode": { "dataType": "Integer", "range": "0-1", "description": "Furnace mode. 0=Invalid recipe/conditions, 1=Valid recipe ready to smelt." },
+      "Pressure": { "dataType": "Float", "range": "0+", "description": "Internal atmosphere pressure in kPa." },
+      "Temperature": { "dataType": "Float", "range": "0+", "description": "Internal atmosphere temperature in Kelvin." },
+      "Activate": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to ignite furnace and start smelting." },
+      "Lock": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to lock the furnace, preventing opening." },
+      "Setting": { "dataType": "Float", "range": "0+", "description": "Target temperature or pressure setting." },
+      "Reagents": { "dataType": "Float", "range": "0+", "description": "Total reagents (ores) loaded in furnace." },
+      "RatioOxygen": { "dataType": "Float", "range": "0-1", "description": "Ratio of oxygen in internal atmosphere." },
+      "RatioCarbonDioxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of carbon dioxide in internal atmosphere." },
+      "RatioNitrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrogen in internal atmosphere." },
+      "RatioPollutant": { "dataType": "Float", "range": "0-1", "description": "Ratio of pollutants in internal atmosphere." },
+      "RatioVolatiles": { "dataType": "Float", "range": "0-1", "description": "Ratio of volatiles in internal atmosphere." },
+      "RatioWater": { "dataType": "Float", "range": "0-1", "description": "Ratio of water vapor in internal atmosphere." },
+      "Maximum": { "dataType": "Float", "range": "0+", "description": "Maximum pressure or temperature threshold." },
+      "Ratio": { "dataType": "Float", "range": "0-1", "description": "Current smelting progress ratio." },
+      "RecipeHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of current recipe output (ingot type)." },
+      "ClearMemory": { "dataType": "Boolean", "range": "0-1", "description": "Set to 1 to clear recipe memory." },
+      "ExportCount": { "dataType": "Integer", "range": "0+", "description": "Number of items in export slot." },
+      "ImportCount": { "dataType": "Integer", "range": "0+", "description": "Number of items in import slot." },
+      "TotalMoles": { "dataType": "Float", "range": "0+", "description": "Total moles of gas in internal atmosphere." },
+      "RatioNitrousOxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrous oxide in internal atmosphere." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "Combustion": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if combustion is occurring." },
+      "RatioLiquidNitrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid nitrogen." },
+      "RatioLiquidOxygen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid oxygen." },
+      "RatioLiquidVolatiles": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid volatiles." },
+      "RatioSteam": { "dataType": "Float", "range": "0-1", "description": "Ratio of steam in internal atmosphere." },
+      "RatioLiquidCarbonDioxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid CO2." },
+      "RatioLiquidPollutant": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid pollutants." },
+      "RatioLiquidNitrousOxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid N2O." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "RatioHydrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of hydrogen in internal atmosphere." },
+      "RatioLiquidHydrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid hydrogen." },
+      "RatioPollutedWater": { "dataType": "Float", "range": "0-1", "description": "Ratio of polluted water." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCableFuse100k",
+    "displayName": "Fuse (100kW)",
+    "logicDescriptions": {
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCableFuse1k",
+    "displayName": "Fuse (1kW)",
+    "logicDescriptions": {
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCableFuse50k",
+    "displayName": "Fuse (50kW)",
+    "logicDescriptions": {
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCableFuse5k",
+    "displayName": "Fuse (5kW)",
+    "logicDescriptions": {
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureCapsuleTankGas",
+    "displayName": "Gas Capsule Tank Small",
+    "logicDescriptions": {
+      "Pressure": { "dataType": "Float", "range": "0+", "description": "Input network pressure in kPa." },
+      "Temperature": { "dataType": "Float", "range": "0+", "description": "Input network temperature in Kelvin." },
+      "Setting": { "dataType": "Float", "range": "0+", "description": "Target pressure or flow rate setting." },
+      "RatioOxygen": { "dataType": "Float", "range": "0-1", "description": "Ratio of oxygen in input network." },
+      "RatioCarbonDioxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of carbon dioxide in input network." },
+      "RatioNitrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrogen in input network." },
+      "RatioPollutant": { "dataType": "Float", "range": "0-1", "description": "Ratio of pollutants in input network." },
+      "RatioVolatiles": { "dataType": "Float", "range": "0-1", "description": "Ratio of volatiles in input network." },
+      "RatioWater": { "dataType": "Float", "range": "0-1", "description": "Ratio of water vapor in input network." },
+      "Maximum": { "dataType": "Float", "range": "0+", "description": "Maximum capacity or pressure threshold." },
+      "Ratio": { "dataType": "Float", "range": "0-1", "description": "Fill ratio of tank (0=empty, 1=full)." },
+      "TotalMoles": { "dataType": "Float", "range": "0+", "description": "Total moles of gas in input network." },
+      "Volume": { "dataType": "Float", "range": "0+", "description": "Internal volume in liters." },
+      "RatioNitrousOxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrous oxide in input network." },
+      "PrefabHash": { "dataType": "Integer", "range": "N/A", "description": "Unique identifier hash for this device prefab." },
+      "Combustion": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if combustion is occurring in input." },
+      "PressureOutput": { "dataType": "Float", "range": "0+", "description": "Output network pressure in kPa." },
+      "TemperatureOutput": { "dataType": "Float", "range": "0+", "description": "Output network temperature in Kelvin." },
+      "RatioOxygenOutput": { "dataType": "Float", "range": "0-1", "description": "Ratio of oxygen in output network." },
+      "RatioCarbonDioxideOutput": { "dataType": "Float", "range": "0-1", "description": "Ratio of carbon dioxide in output network." },
+      "RatioNitrogenOutput": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrogen in output network." },
+      "RatioPollutantOutput": { "dataType": "Float", "range": "0-1", "description": "Ratio of pollutants in output network." },
+      "RatioVolatilesOutput": { "dataType": "Float", "range": "0-1", "description": "Ratio of volatiles in output network." },
+      "RatioWaterOutput": { "dataType": "Float", "range": "0-1", "description": "Ratio of water vapor in output network." },
+      "RatioNitrousOxideOutput": { "dataType": "Float", "range": "0-1", "description": "Ratio of nitrous oxide in output network." },
+      "TotalMolesOutput": { "dataType": "Float", "range": "0+", "description": "Total moles of gas in output network." },
+      "CombustionOutput": { "dataType": "Boolean", "range": "0-1", "description": "Returns 1 if combustion is occurring in output." },
+      "RatioLiquidNitrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid nitrogen in tank." },
+      "VolumeOfLiquid": { "dataType": "Float", "range": "0+", "description": "Volume of liquid in tank in liters." },
+      "RatioLiquidOxygen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid oxygen in tank." },
+      "RatioLiquidVolatiles": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid volatiles in tank." },
+      "RatioSteam": { "dataType": "Float", "range": "0-1", "description": "Ratio of steam in tank." },
+      "RatioLiquidCarbonDioxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid CO2 in tank." },
+      "RatioLiquidPollutant": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid pollutants in tank." },
+      "RatioLiquidNitrousOxide": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid N2O in tank." },
+      "ReferenceId": { "dataType": "Integer", "range": "N/A", "description": "Unique reference ID for this specific device instance." },
+      "RatioHydrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of hydrogen in input network." },
+      "RatioLiquidHydrogen": { "dataType": "Float", "range": "0-1", "description": "Ratio of liquid hydrogen in tank." },
+      "RatioPollutedWater": { "dataType": "Float", "range": "0-1", "description": "Ratio of polluted water in tank." },
+      "NameHash": { "dataType": "Integer", "range": "N/A", "description": "Hash of the device's custom name if set." }
+    }
+  }
+]

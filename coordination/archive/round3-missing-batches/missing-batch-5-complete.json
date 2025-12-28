@@ -1,0 +1,2816 @@
+[
+    {
+        "logicDescriptions":  {
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Flush":  {
+                                                "range":  "0-1",
+                                                "description":  "Trigger to flush contents.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "SoundAlert":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if sound alert is active.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "Volume":  {
+                                                 "range":  "0+",
+                                                 "description":  "Current volume in liters.",
+                                                 "dataType":  "Float"
+                                             },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           }
+                              },
+        "deviceKey":  "ThingItemGasMask",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "SoundAlert":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if sound alert is active.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Volume":  {
+                                                 "range":  "0+",
+                                                 "description":  "Current volume in liters.",
+                                                 "dataType":  "Float"
+                                             },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Flush":  {
+                                                "range":  "0-1",
+                                                "description":  "Trigger to flush contents.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingItemSuitHelmetHARM",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "TemperatureSetting":  {
+                                                             "range":  "0+ K",
+                                                             "description":  "Target temperature setting.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "VelocityRelativeY":  {
+                                                            "range":  "Any",
+                                                            "description":  "Relative Y velocity component.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "ForwardX":  {
+                                                   "range":  "-1 to 1",
+                                                   "description":  "Forward vector X component.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "EntityState":  {
+                                                      "range":  "0+",
+                                                      "description":  "Current entity state code.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "AirRelease":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Air release valve state.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "Activate":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Trigger to activate device.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "PositionZ":  {
+                                                    "range":  "Any",
+                                                    "description":  "Z coordinate position.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "VelocityZ":  {
+                                                    "range":  "Any",
+                                                    "description":  "Z velocity component.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "PositionX":  {
+                                                    "range":  "Any",
+                                                    "description":  "X coordinate position.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "VelocityRelativeX":  {
+                                                            "range":  "Any",
+                                                            "description":  "Relative X velocity component.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "ForwardY":  {
+                                                   "range":  "-1 to 1",
+                                                   "description":  "Forward vector Y component.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "Volume":  {
+                                                 "range":  "0+",
+                                                 "description":  "Current volume in liters.",
+                                                 "dataType":  "Float"
+                                             },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "VelocityY":  {
+                                                    "range":  "Any",
+                                                    "description":  "Y velocity component.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "VelocityRelativeZ":  {
+                                                            "range":  "Any",
+                                                            "description":  "Relative Z velocity component.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "TemperatureExternal":  {
+                                                              "range":  "0+ K",
+                                                              "description":  "External temperature reading.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "PressureSetting":  {
+                                                          "range":  "0+ kPa",
+                                                          "description":  "Target pressure setting.",
+                                                          "dataType":  "Float"
+                                                      },
+                                  "SoundAlert":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if sound alert is active.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "VelocityMagnitude":  {
+                                                            "range":  "0+",
+                                                            "description":  "Magnitude of velocity vector.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "PressureExternal":  {
+                                                           "range":  "0+ kPa",
+                                                           "description":  "External pressure reading.",
+                                                           "dataType":  "Float"
+                                                       },
+                                  "PositionY":  {
+                                                    "range":  "Any",
+                                                    "description":  "Y coordinate position.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Filtration":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Filtration system on/off state.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "Orientation":  {
+                                                      "range":  "0-360",
+                                                      "description":  "Orientation angle in degrees.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "ForwardZ":  {
+                                                   "range":  "-1 to 1",
+                                                   "description":  "Forward vector Z component.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "VelocityX":  {
+                                                    "range":  "Any",
+                                                    "description":  "X velocity component.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingItemSuitHARM",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Activate":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Trigger to activate device.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  }
+                              },
+        "deviceKey":  "ThingItemDrill",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         }
+                              },
+        "deviceKey":  "ThingItemTablet",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         }
+                              },
+        "deviceKey":  "ThingItemHardHat",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "TemperatureSetting":  {
+                                                             "range":  "0+ K",
+                                                             "description":  "Target temperature setting.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "VelocityRelativeY":  {
+                                                            "range":  "Any",
+                                                            "description":  "Relative Y velocity component.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "ForwardX":  {
+                                                   "range":  "-1 to 1",
+                                                   "description":  "Forward vector X component.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "EntityState":  {
+                                                      "range":  "0+",
+                                                      "description":  "Current entity state code.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "AirRelease":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Air release valve state.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "Activate":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Trigger to activate device.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "PositionZ":  {
+                                                    "range":  "Any",
+                                                    "description":  "Z coordinate position.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "VelocityZ":  {
+                                                    "range":  "Any",
+                                                    "description":  "Z velocity component.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "PositionX":  {
+                                                    "range":  "Any",
+                                                    "description":  "X coordinate position.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "VelocityRelativeX":  {
+                                                            "range":  "Any",
+                                                            "description":  "Relative X velocity component.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "ForwardY":  {
+                                                   "range":  "-1 to 1",
+                                                   "description":  "Forward vector Y component.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "Volume":  {
+                                                 "range":  "0+",
+                                                 "description":  "Current volume in liters.",
+                                                 "dataType":  "Float"
+                                             },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "VelocityY":  {
+                                                    "range":  "Any",
+                                                    "description":  "Y velocity component.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "VelocityRelativeZ":  {
+                                                            "range":  "Any",
+                                                            "description":  "Relative Z velocity component.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "TemperatureExternal":  {
+                                                              "range":  "0+ K",
+                                                              "description":  "External temperature reading.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "PressureSetting":  {
+                                                          "range":  "0+ kPa",
+                                                          "description":  "Target pressure setting.",
+                                                          "dataType":  "Float"
+                                                      },
+                                  "SoundAlert":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if sound alert is active.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "VelocityMagnitude":  {
+                                                            "range":  "0+",
+                                                            "description":  "Magnitude of velocity vector.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "PressureExternal":  {
+                                                           "range":  "0+ kPa",
+                                                           "description":  "External pressure reading.",
+                                                           "dataType":  "Float"
+                                                       },
+                                  "PositionY":  {
+                                                    "range":  "Any",
+                                                    "description":  "Y coordinate position.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Filtration":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Filtration system on/off state.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "Orientation":  {
+                                                      "range":  "0-360",
+                                                      "description":  "Orientation angle in degrees.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "ForwardZ":  {
+                                                   "range":  "-1 to 1",
+                                                   "description":  "Forward vector Z component.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "VelocityX":  {
+                                                    "range":  "Any",
+                                                    "description":  "X velocity component.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingItemHardSuit",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  }
+                              },
+        "deviceKey":  "ThingItemHardBackpack",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "SoundAlert":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if sound alert is active.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Volume":  {
+                                                 "range":  "0+",
+                                                 "description":  "Current volume in liters.",
+                                                 "dataType":  "Float"
+                                             },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Flush":  {
+                                                "range":  "0-1",
+                                                "description":  "Trigger to flush contents.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingItemHardsuitHelmet",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Activate":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Trigger to activate device.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         }
+                              },
+        "deviceKey":  "ThingItemHardJetpack",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         }
+                              },
+        "deviceKey":  "ThingItemWearLamp",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Throttle":  {
+                                                   "range":  "0-100",
+                                                   "description":  "Throttle percentage.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "PassedMoles":  {
+                                                      "range":  "0+",
+                                                      "description":  "Total moles passed through.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingStructurePressureFedGasEngineHeavy",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Ratio":  {
+                                                "range":  "0-1",
+                                                "description":  "Generic ratio value.",
+                                                "dataType":  "Float"
+                                            },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Throttle":  {
+                                                   "range":  "0-100",
+                                                   "description":  "Throttle percentage.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "Maximum":  {
+                                                  "range":  "0+",
+                                                  "description":  "Maximum capacity or value.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "PassedMoles":  {
+                                                      "range":  "0+",
+                                                      "description":  "Total moles passed through.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingStructurePressureFedLiquidEngineHeavy",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "0+",
+                                               "description":  "Operating mode. Check device source code for mode values.",
+                                               "dataType":  "Integer"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "LineNumber":  {
+                                                     "range":  "0+",
+                                                     "description":  "Current line number for programmable devices.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "StackSize":  {
+                                                    "range":  "0+",
+                                                    "description":  "Size of stack in programmable device.",
+                                                    "dataType":  "Integer"
+                                                },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureCircuitHousing",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "SoundAlert":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if sound alert is active.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Volume":  {
+                                                 "range":  "0+",
+                                                 "description":  "Current volume in liters.",
+                                                 "dataType":  "Float"
+                                             },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "Flush":  {
+                                                "range":  "0-1",
+                                                "description":  "Trigger to flush contents.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingItemIcarusHelmet",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "LineNumber":  {
+                                                     "range":  "0+",
+                                                     "description":  "Current line number for programmable devices.",
+                                                     "dataType":  "Integer"
+                                                 }
+                              },
+        "deviceKey":  "ThingItemIntegratedCircuit10",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Activate":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Trigger to activate device.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         }
+                              },
+        "deviceKey":  "ThingItemJetpackBasic",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Extended":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Returns 1 if device is extended.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "PositionX":  {
+                                                    "range":  "Any",
+                                                    "description":  "X coordinate position.",
+                                                    "dataType":  "Float"
+                                                },
+                                  "Idle":  {
+                                               "range":  "0-1",
+                                               "description":  "Returns 1 if device is idle.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Activate":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Trigger to activate device.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  }
+                              },
+        "deviceKey":  "ThingStructureRoboticArmDock",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "0+",
+                                               "description":  "Operating mode. Check device source code for mode values.",
+                                               "dataType":  "Integer"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Color":  {
+                                                "range":  "0+",
+                                                "description":  "Current color value or code.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleLED1x3",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "0+",
+                                               "description":  "Operating mode. Check device source code for mode values.",
+                                               "dataType":  "Integer"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Color":  {
+                                                "range":  "0+",
+                                                "description":  "Current color value or code.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleLED1x2",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "0+",
+                                               "description":  "Operating mode. Check device source code for mode values.",
+                                               "dataType":  "Integer"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Color":  {
+                                                "range":  "0+",
+                                                "description":  "Current color value or code.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleLED5",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         }
+                              },
+        "deviceKey":  "ThingItemLabeller",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "Activate":  {
+                                                   "range":  "0-1",
+                                                   "description":  "Trigger to activate device.",
+                                                   "dataType":  "Boolean"
+                                               },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "Vertical":  {
+                                                   "range":  "Any",
+                                                   "description":  "Vertical position or angle.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "ContactTypeId":  {
+                                                        "range":  "Any",
+                                                        "description":  "Type ID of contacted entity.",
+                                                        "dataType":  "Integer"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Mode":  {
+                                               "range":  "0+",
+                                               "description":  "Operating mode. Check device source code for mode values.",
+                                               "dataType":  "Integer"
+                                           },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingLandingpad_DataConnectionPiece",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Ratio":  {
+                                                "range":  "0-1",
+                                                "description":  "Generic ratio value.",
+                                                "dataType":  "Float"
+                                            },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "Maximum":  {
+                                                  "range":  "0+",
+                                                  "description":  "Maximum capacity or value.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingLandingpad_GasConnectorInwardPiece",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Ratio":  {
+                                                "range":  "0-1",
+                                                "description":  "Generic ratio value.",
+                                                "dataType":  "Float"
+                                            },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "Maximum":  {
+                                                  "range":  "0+",
+                                                  "description":  "Maximum capacity or value.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingLandingpad_GasConnectorOutwardPiece",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Ratio":  {
+                                                "range":  "0-1",
+                                                "description":  "Generic ratio value.",
+                                                "dataType":  "Float"
+                                            },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "Maximum":  {
+                                                  "range":  "0+",
+                                                  "description":  "Maximum capacity or value.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingLandingpad_LiquidConnectorInwardPiece",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Ratio":  {
+                                                "range":  "0-1",
+                                                "description":  "Generic ratio value.",
+                                                "dataType":  "Float"
+                                            },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of carbon dioxide in gas mixture.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of pollutants in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of steam.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of liquid nitrous oxide.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+ K",
+                                                      "description":  "Current temperature reading.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid nitrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of volatiles in gas mixture.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "Setting":  {
+                                                  "range":  "Any",
+                                                  "description":  "Device-specific setting value. Check source code for usage.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of liquid hydrogen.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of oxygen in gas mixture.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of liquid carbon dioxide.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if actively combusting.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of nitrous oxide in gas mixture.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of nitrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid pollutant.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "Maximum":  {
+                                                  "range":  "0+",
+                                                  "description":  "Maximum capacity or value.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of liquid volatiles.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of polluted water.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+ kPa",
+                                                   "description":  "Current pressure reading.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of liquid oxygen.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of hydrogen in gas mixture.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of water vapor in gas mixture.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingLandingpad_LiquidConnectorOutwardPiece",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "0+",
+                                               "description":  "Operating mode. Check device source code for mode values.",
+                                               "dataType":  "Integer"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingLandingpad_GasTankConnectorPiece",
+        "displayName":  null
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "0+",
+                                               "description":  "Operating mode. Check device source code for mode values.",
+                                               "dataType":  "Integer"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "0+",
+                                                "description":  "Error state code. 0=No error. Check source code for error codes.",
+                                                "dataType":  "Integer"
+                                            },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+ W",
+                                                        "description":  "Required power consumption in watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingLandingpad_LiquidTankConnectorPiece",
+        "displayName":  null
+    }
+]

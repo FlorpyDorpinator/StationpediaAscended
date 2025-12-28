@@ -1,0 +1,474 @@
+[
+  {
+    "deviceKey": "ThingBattery_Wireless_cell",
+    "displayName": "Battery Wireless Cell",
+    "logicDescriptions": {
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-6",
+        "description": "Battery charge level. 0=Empty, 1=Critical, 2=VeryLow, 3=Low, 4=Medium, 5=High, 6=Full."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this battery."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingBattery_Wireless_cell_Big",
+    "displayName": "Battery Wireless Cell (Big)",
+    "logicDescriptions": {
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-6",
+        "description": "Battery charge level. 0=Empty, 1=Critical, 2=VeryLow, 3=Low, 4=Medium, 5=High, 6=Full."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this battery."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingCartridgeDebugAnalyzer",
+    "displayName": "Cartridge (IC10 Inspector)",
+    "logicDescriptions": {
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this cartridge."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingCompositeRollCover",
+    "displayName": "Composite Roll Cover",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Cover is open, 0 = Cover is closed."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "Operating mode. 0=Operate, 1=Override."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Locked (prevents manual interaction), 0 = Unlocked."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-100",
+        "description": "Target setting percentage for operation."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Device is powered on, 0 = Device is off."
+      },
+      "Idle": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Device is idle (not currently operating), 0 = Device is active."
+      },
+      "PrefabHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's prefab type."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this device."
+      },
+      "NameHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's custom name."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingDeviceLfoVolume",
+    "displayName": "Low Frequency Oscillator",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-4",
+        "description": "LFO speed. 0=Whole Note, 1=Half Note, 2=Quarter Note, 3=Eighth Note, 4=Sixteenth Note."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Error state (invalid audio output or loop detected), 0 = No error."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = LFO is actively processing, 0 = Inactive."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Device is powered on, 0 = Device is off."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required for operation in watts."
+      },
+      "Time": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Current playback time position. Written from stopwatch or other source."
+      },
+      "Bpm": {
+        "dataType": "Integer",
+        "range": "15-180",
+        "description": "Beats per minute for LFO oscillation speed."
+      },
+      "PrefabHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's prefab type."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this device."
+      },
+      "NameHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's custom name."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingDeviceStepUnit",
+    "displayName": "Device Step Unit",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-127",
+        "description": "MIDI note pitch. 0=C-2, 127=G8. Each value represents a semitone."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Error state, 0 = No error."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Trigger to play the current step. Write 1 to play note."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Device is powered on, 0 = Device is off."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required for operation in watts."
+      },
+      "Volume": {
+        "dataType": "Integer",
+        "range": "0-127",
+        "description": "MIDI velocity (volume). 0=Silent, 127=Max volume."
+      },
+      "PrefabHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's prefab type."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this device."
+      },
+      "NameHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's custom name."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingDynamicGPR",
+    "displayName": "Dynamic GPR",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power draw from battery in watts."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = GPR is actively scanning, 0 = Inactive."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Device is powered on, 0 = Device is off."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this device."
+      }
+    },
+    "slotDescriptions": {
+      "Battery": {
+        "slotType": "Battery",
+        "description": "Battery cell slot for powering the GPR."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingDynamicLight",
+    "displayName": "Portable Light",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power draw from battery in watts."
+      },
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Light is extended/open, 0 = Retracted/closed."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Locked (prevents manual interaction), 0 = Unlocked."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Light is on, 0 = Light is off."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this device."
+      }
+    },
+    "slotDescriptions": {
+      "Battery": {
+        "slotType": "Battery",
+        "description": "Battery cell slot for powering the light."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingH2Combustor",
+    "displayName": "H2 Combustor",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Access panel is open, 0 = Closed."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "Operating mode. 0=Off, 1=Combust (burns volatiles + O2 to create water)."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Error state (low input gas, etc.), 0 = No error."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal chamber pressure in kPa."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal chamber temperature in Kelvin."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Actively combusting, 0 = Idle."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Locked (prevents manual interaction), 0 = Unlocked."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Target pressure setting for operation in kPa."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Device is powered on, 0 = Device is off."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required for operation in watts."
+      },
+      "RatioOxygen": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of oxygen in internal atmosphere."
+      },
+      "RatioCarbonDioxide": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of CO2 in internal atmosphere."
+      },
+      "RatioNitrogen": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of nitrogen in internal atmosphere."
+      },
+      "RatioPollutant": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of pollutants in internal atmosphere."
+      },
+      "RatioVolatiles": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of volatiles in internal atmosphere."
+      },
+      "RatioWater": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of water in internal atmosphere."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Maximum pressure capacity in kPa."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Pressure ratio (current/maximum)."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Total moles in internal atmosphere."
+      },
+      "RatioNitrousOxide": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of N2O in internal atmosphere."
+      },
+      "PrefabHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's prefab type."
+      },
+      "Combustion": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = Combustion is occurring, 0 = No combustion."
+      },
+      "PressureInput": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Pressure from input network in kPa."
+      },
+      "TemperatureInput": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Temperature from input network in Kelvin."
+      },
+      "RatioOxygenInput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of oxygen in input network."
+      },
+      "RatioCarbonDioxideInput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of CO2 in input network."
+      },
+      "RatioNitrogenInput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of nitrogen in input network."
+      },
+      "RatioPollutantInput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of pollutants in input network."
+      },
+      "RatioVolatilesInput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of volatiles in input network."
+      },
+      "RatioWaterInput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of water in input network."
+      },
+      "RatioNitrousOxideInput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Ratio of N2O in input network."
+      },
+      "TotalMolesInput": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Total moles in input network."
+      },
+      "PressureOutput": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Pressure in output network in kPa."
+      },
+      "ReferenceId": {
+        "dataType": "Hash",
+        "range": "Unique ID",
+        "description": "Unique reference identifier for this device."
+      },
+      "NameHash": {
+        "dataType": "Hash",
+        "range": "CRC32",
+        "description": "Hash of the device's custom name."
+      }
+    },
+    "slotDescriptions": {
+      "Programmable Chip": {
+        "slotType": "Programmable Chip",
+        "description": "Slot for IC10 chip to control combustor operations."
+      }
+    }
+  }
+]

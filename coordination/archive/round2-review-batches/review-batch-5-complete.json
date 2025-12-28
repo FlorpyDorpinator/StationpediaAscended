@@ -1,0 +1,1287 @@
+[
+  {
+    "prefabName": "ThingStructureAirConditioner",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "Mode",
+        "accessMode": "ReadWrite",
+        "description": "Current operating mode. 0 for cooling mode (removes heat from input gas), 1 for heating mode (adds heat to input gas)."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "Horizontal",
+        "accessMode": "Read",
+        "description": "Horizontal viewing angle of the device."
+      },
+      {
+        "logicType": "Vertical",
+        "accessMode": "Read",
+        "description": "Vertical viewing angle of the device."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "TemperatureSetting",
+        "accessMode": "ReadWrite",
+        "description": "Target temperature for the air conditioner. Measured in Kelvin."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "Temperature",
+        "accessMode": "Read",
+        "description": "Current temperature of the device. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureInput",
+        "accessMode": "Read",
+        "description": "Temperature of the gas entering the air conditioner from the input pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureOutput",
+        "accessMode": "Read",
+        "description": "Temperature of the gas exiting the air conditioner to the output pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureExternal",
+        "accessMode": "Read",
+        "description": "Temperature of the external atmosphere surrounding the device. Measured in Kelvin."
+      },
+      {
+        "logicType": "PressureInput",
+        "accessMode": "Read",
+        "description": "Pressure of the gas entering the air conditioner from the input pipe. Measured in kilopascals."
+      },
+      {
+        "logicType": "PressureOutput",
+        "accessMode": "Read",
+        "description": "Pressure of the gas exiting the air conditioner to the output pipe. Measured in kilopascals."
+      },
+      {
+        "logicType": "RatioOxygen",
+        "accessMode": "Read",
+        "description": "Ratio of oxygen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioCarbonDioxide",
+        "accessMode": "Read",
+        "description": "Ratio of carbon dioxide in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioNitrogen",
+        "accessMode": "Read",
+        "description": "Ratio of nitrogen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioPollutant",
+        "accessMode": "Read",
+        "description": "Ratio of pollutant (Volatiles) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioVolatiles",
+        "accessMode": "Read",
+        "description": "Ratio of volatiles in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioWater",
+        "accessMode": "Read",
+        "description": "Ratio of water vapor (steam) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioNitrousOxide",
+        "accessMode": "Read",
+        "description": "Ratio of nitrous oxide (X) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioPollutedWater",
+        "accessMode": "Read",
+        "description": "Ratio of polluted water vapor in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioSteam",
+        "accessMode": "Read",
+        "description": "Ratio of steam (H2O gas) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidNitrogen",
+        "accessMode": "Read",
+        "description": "Ratio of liquid nitrogen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidOxygen",
+        "accessMode": "Read",
+        "description": "Ratio of liquid oxygen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidVolatiles",
+        "accessMode": "Read",
+        "description": "Ratio of liquid volatiles in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidCarbonDioxide",
+        "accessMode": "Read",
+        "description": "Ratio of liquid carbon dioxide in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidPollutant",
+        "accessMode": "Read",
+        "description": "Ratio of liquid pollutant in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidNitrousOxide",
+        "accessMode": "Read",
+        "description": "Ratio of liquid nitrous oxide in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioHydrogen",
+        "accessMode": "Read",
+        "description": "Ratio of hydrogen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidHydrogen",
+        "accessMode": "Read",
+        "description": "Ratio of liquid hydrogen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioOxygenInput",
+        "accessMode": "Read",
+        "description": "Ratio of oxygen in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioCarbonDioxideInput",
+        "accessMode": "Read",
+        "description": "Ratio of carbon dioxide in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioNitrogenInput",
+        "accessMode": "Read",
+        "description": "Ratio of nitrogen in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioPollutantInput",
+        "accessMode": "Read",
+        "description": "Ratio of pollutant (Volatiles) in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioVolatilesInput",
+        "accessMode": "Read",
+        "description": "Ratio of volatiles in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioWaterInput",
+        "accessMode": "Read",
+        "description": "Ratio of water vapor (steam) in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioNitrousOxideInput",
+        "accessMode": "Read",
+        "description": "Ratio of nitrous oxide (X) in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioPollutedWaterInput",
+        "accessMode": "Read",
+        "description": "Ratio of polluted water vapor in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioSteamInput",
+        "accessMode": "Read",
+        "description": "Ratio of steam (H2O gas) in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioHydrogenInput",
+        "accessMode": "Read",
+        "description": "Ratio of hydrogen in the gas entering from the input pipe."
+      },
+      {
+        "logicType": "RatioOxygenOutput",
+        "accessMode": "Read",
+        "description": "Ratio of oxygen in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioCarbonDioxideOutput",
+        "accessMode": "Read",
+        "description": "Ratio of carbon dioxide in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioNitrogenOutput",
+        "accessMode": "Read",
+        "description": "Ratio of nitrogen in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioPollutantOutput",
+        "accessMode": "Read",
+        "description": "Ratio of pollutant (Volatiles) in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioVolatilesOutput",
+        "accessMode": "Read",
+        "description": "Ratio of volatiles in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioWaterOutput",
+        "accessMode": "Read",
+        "description": "Ratio of water vapor (steam) in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioNitrousOxideOutput",
+        "accessMode": "Read",
+        "description": "Ratio of nitrous oxide (X) in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioPollutedWaterOutput",
+        "accessMode": "Read",
+        "description": "Ratio of polluted water vapor in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioSteamOutput",
+        "accessMode": "Read",
+        "description": "Ratio of steam (H2O gas) in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "RatioHydrogenOutput",
+        "accessMode": "Read",
+        "description": "Ratio of hydrogen in the gas exiting to the output pipe."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureFurnace",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "Mode",
+        "accessMode": "ReadWrite",
+        "description": "Operating mode for what the furnace is currently smelting. Values correspond to the selected recipe mode."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "Horizontal",
+        "accessMode": "Read",
+        "description": "Horizontal viewing angle of the device."
+      },
+      {
+        "logicType": "Vertical",
+        "accessMode": "Read",
+        "description": "Vertical viewing angle of the device."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "Setting",
+        "accessMode": "ReadWrite",
+        "description": "Target pressure setting for the furnace. Measured in kilopascals."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "Pressure",
+        "accessMode": "Read",
+        "description": "Current internal pressure of the device. Measured in kilopascals."
+      },
+      {
+        "logicType": "Temperature",
+        "accessMode": "Read",
+        "description": "Current temperature of the device. Measured in Kelvin."
+      },
+      {
+        "logicType": "PressureInput",
+        "accessMode": "Read",
+        "description": "Pressure of the gas entering the furnace from the input pipe. Measured in kilopascals."
+      },
+      {
+        "logicType": "PressureOutput",
+        "accessMode": "Read",
+        "description": "Pressure of the gas exiting the furnace to the output pipe. Measured in kilopascals."
+      },
+      {
+        "logicType": "PressureWaste",
+        "accessMode": "Read",
+        "description": "Pressure of the gas in the waste output pipe. Measured in kilopascals."
+      },
+      {
+        "logicType": "TemperatureInput",
+        "accessMode": "Read",
+        "description": "Temperature of the gas entering the furnace from the input pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureOutput",
+        "accessMode": "Read",
+        "description": "Temperature of the gas exiting the furnace to the output pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureWaste",
+        "accessMode": "Read",
+        "description": "Temperature of the gas in the waste output pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "RecipeHash",
+        "accessMode": "Read",
+        "description": "Hash identifier for the currently selected recipe being processed."
+      },
+      {
+        "logicType": "TotalMoles",
+        "accessMode": "Read",
+        "description": "Total moles of gas contained in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioOxygen",
+        "accessMode": "Read",
+        "description": "Ratio of oxygen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioCarbonDioxide",
+        "accessMode": "Read",
+        "description": "Ratio of carbon dioxide in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioNitrogen",
+        "accessMode": "Read",
+        "description": "Ratio of nitrogen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioPollutant",
+        "accessMode": "Read",
+        "description": "Ratio of pollutant (Volatiles) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioVolatiles",
+        "accessMode": "Read",
+        "description": "Ratio of volatiles in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioWater",
+        "accessMode": "Read",
+        "description": "Ratio of water vapor (steam) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioNitrousOxide",
+        "accessMode": "Read",
+        "description": "Ratio of nitrous oxide (X) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioPollutedWater",
+        "accessMode": "Read",
+        "description": "Ratio of polluted water vapor in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioSteam",
+        "accessMode": "Read",
+        "description": "Ratio of steam (H2O gas) in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioHydrogen",
+        "accessMode": "Read",
+        "description": "Ratio of hydrogen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidNitrogen",
+        "accessMode": "Read",
+        "description": "Ratio of liquid nitrogen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidOxygen",
+        "accessMode": "Read",
+        "description": "Ratio of liquid oxygen in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidVolatiles",
+        "accessMode": "Read",
+        "description": "Ratio of liquid volatiles in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidCarbonDioxide",
+        "accessMode": "Read",
+        "description": "Ratio of liquid carbon dioxide in the device's internal atmosphere."
+      },
+      {
+        "logicType": "RatioLiquidPollutant",
+        "accessMode": "Read",
+        "description": "Ratio of liquid pollutant in the device's internal atmosphere."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureToolManufactory",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "Horizontal",
+        "accessMode": "Read",
+        "description": "Horizontal viewing angle of the device."
+      },
+      {
+        "logicType": "Vertical",
+        "accessMode": "Read",
+        "description": "Vertical viewing angle of the device."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "Activate",
+        "accessMode": "ReadWrite",
+        "description": "Trigger signal to activate or start the device's operation. 1 to activate."
+      },
+      {
+        "logicType": "ExportCount",
+        "accessMode": "ReadWrite",
+        "description": "Number of items to export when triggered. Controls batch size for output."
+      },
+      {
+        "logicType": "ImportCount",
+        "accessMode": "ReadWrite",
+        "description": "Number of items to import when triggered. Controls batch size for input."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "RecipeHash",
+        "accessMode": "ReadWrite",
+        "description": "Hash identifier for the currently selected recipe being processed."
+      },
+      {
+        "logicType": "Reagents",
+        "accessMode": "Read",
+        "description": "Number of reagent items currently loaded in the input slots for the active recipe."
+      },
+      {
+        "logicType": "ClearMemory",
+        "accessMode": "Write",
+        "description": "Write 1 to clear the device's stored settings or memory."
+      },
+      {
+        "logicType": "Completion",
+        "accessMode": "Read",
+        "description": "Progress toward completing the current recipe, as a ratio from 0 to 1."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureAreaPowerControlReversed",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "Mode",
+        "accessMode": "ReadWrite",
+        "description": "Operating mode. Values determine how the APC manages power distribution and battery charging."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "Charge",
+        "accessMode": "Read",
+        "description": "Current charge stored in the device's battery. Measured in joules."
+      },
+      {
+        "logicType": "Maximum",
+        "accessMode": "Read",
+        "description": "Maximum charge capacity of the device's battery. Measured in joules."
+      },
+      {
+        "logicType": "Ratio",
+        "accessMode": "Read",
+        "description": "Current charge level as a ratio of maximum capacity, from 0 to 1."
+      },
+      {
+        "logicType": "PowerPotential",
+        "accessMode": "Read",
+        "description": "Total available power that can be supplied from the input power network. Measured in watts."
+      },
+      {
+        "logicType": "PowerActual",
+        "accessMode": "Read",
+        "description": "Actual power currently being consumed from the input power network. Measured in watts."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureUnloader",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "Mode",
+        "accessMode": "ReadWrite",
+        "description": "Output mode. 0 for exporting main item, 1 for exporting items inside then main item."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "Activate",
+        "accessMode": "ReadWrite",
+        "description": "Trigger signal to activate or start the device's operation. 1 to activate."
+      },
+      {
+        "logicType": "ExportCount",
+        "accessMode": "ReadWrite",
+        "description": "Number of items to export when triggered. Controls batch size for output."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureTransformer",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Setting",
+        "accessMode": "ReadWrite",
+        "description": "Maximum power output setting in watts. Range 0 to 50000 watts."
+      },
+      {
+        "logicType": "Maximum",
+        "accessMode": "Read",
+        "description": "Maximum power capacity. Always 50000 watts for transformers."
+      },
+      {
+        "logicType": "Ratio",
+        "accessMode": "Read",
+        "description": "Current power output as a ratio of maximum capacity, from 0 to 1."
+      },
+      {
+        "logicType": "PowerPotential",
+        "accessMode": "Read",
+        "description": "Total available power that can be supplied from the input power network. Measured in watts."
+      },
+      {
+        "logicType": "PowerActual",
+        "accessMode": "Read",
+        "description": "Actual power currently being consumed from the input power network. Measured in watts."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureCircuitHousing",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Activate",
+        "accessMode": "ReadWrite",
+        "description": "Trigger signal to activate or start the device's operation. 1 to activate."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "ClearMemory",
+        "accessMode": "Write",
+        "description": "Write 1 to clear the device's stored settings or memory."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureLogicWriterSwitch",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "Activate",
+        "accessMode": "ReadWrite",
+        "description": "Trigger signal to activate or start the device's operation. 1 to activate."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ForceWrite",
+        "accessMode": "Write",
+        "description": "Write 1 to force an immediate logic write operation."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStopWatch",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "Activate",
+        "accessMode": "ReadWrite",
+        "description": "Trigger signal to activate or start the device's operation. 1 to activate."
+      },
+      {
+        "logicType": "Setting",
+        "accessMode": "ReadWrite",
+        "description": "Current stopwatch time setting or reading. Measured in seconds."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "ClearMemory",
+        "accessMode": "Write",
+        "description": "Write 1 to clear the device's stored settings or memory."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureBasketHoop",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "Setting",
+        "accessMode": "ReadWrite",
+        "description": "Current score counter. Increments by 2 each time a ball passes through the hoop from top to bottom."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingModularDeviceComputer",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureLightRound",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Lock",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is locked. 1 for locked, 0 for unlocked."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureLiquidUmbilicalFemaleSide",
+    "logicTypes": [
+      {
+        "logicType": "Setting",
+        "accessMode": "ReadWrite",
+        "description": "Current setting or configuration value for the umbilical connection."
+      },
+      {
+        "logicType": "Maximum",
+        "accessMode": "Read",
+        "description": "Maximum liquid transfer capacity or pressure limit. Measured in kilopascals."
+      },
+      {
+        "logicType": "Ratio",
+        "accessMode": "Read",
+        "description": "Current flow ratio as a value from 0 to 1 representing transfer rate efficiency."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructurePassthroughHeatExchangerLiquidToLiquid",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Open",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is open or closed. 1 for open, 0 for closed."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "Temperature",
+        "accessMode": "Read",
+        "description": "Current temperature of the device. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureInput",
+        "accessMode": "Read",
+        "description": "Temperature of the liquid entering from the input pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureOutput",
+        "accessMode": "Read",
+        "description": "Temperature of the liquid exiting to the output pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureInput2",
+        "accessMode": "Read",
+        "description": "Temperature of the secondary liquid entering from the second input pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "TemperatureOutput2",
+        "accessMode": "Read",
+        "description": "Temperature of the secondary liquid exiting to the second output pipe. Measured in Kelvin."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructureLogicSwitch",
+    "logicTypes": [
+      {
+        "logicType": "Power",
+        "accessMode": "Read",
+        "description": "Current power being received. Measured in watts."
+      },
+      {
+        "logicType": "Error",
+        "accessMode": "Read",
+        "description": "Whether the device is in an error state. 1 for error, 0 for normal operation."
+      },
+      {
+        "logicType": "On",
+        "accessMode": "ReadWrite",
+        "description": "Whether the device is turned on. 1 for on, 0 for off."
+      },
+      {
+        "logicType": "RequiredPower",
+        "accessMode": "Read",
+        "description": "Current power required for the device to operate. Measured in watts."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingStructurePressurePlateLarge",
+    "logicTypes": [
+      {
+        "logicType": "Setting",
+        "accessMode": "Read",
+        "description": "Current activation state. 1 when an object is on the pressure plate, 0 when empty."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      },
+      {
+        "logicType": "NameHash",
+        "accessMode": "Read",
+        "description": "Hash of the custom name assigned to this device."
+      }
+    ]
+  },
+  {
+    "prefabName": "ThingBattery_Wireless_cell",
+    "logicTypes": [
+      {
+        "logicType": "Charge",
+        "accessMode": "Read",
+        "description": "Current charge stored in the battery. Measured in joules."
+      },
+      {
+        "logicType": "Setting",
+        "accessMode": "ReadWrite",
+        "description": "Target charge level setting for the battery. Measured in joules."
+      },
+      {
+        "logicType": "Maximum",
+        "accessMode": "Read",
+        "description": "Maximum charge capacity of the battery. Measured in joules."
+      },
+      {
+        "logicType": "Ratio",
+        "accessMode": "Read",
+        "description": "Current charge level as a ratio of maximum capacity, from 0 to 1."
+      },
+      {
+        "logicType": "Mode",
+        "accessMode": "Read",
+        "description": "Current charge state. 0 for Empty, 1 for Quarter, 2 for Half, 3 for ThreeQuarter, 4 for Full, 5 for Charge, 6 for Discharging."
+      },
+      {
+        "logicType": "PrefabHash",
+        "accessMode": "Read",
+        "description": "Unique hash identifier for this device's type."
+      },
+      {
+        "logicType": "Quantity",
+        "accessMode": "Read",
+        "description": "Stack quantity if this is a stackable item. Always 1 for battery cells."
+      },
+      {
+        "logicType": "Damage",
+        "accessMode": "Read",
+        "description": "Damage state of the battery. 0 for undamaged, 1 for damaged."
+      },
+      {
+        "logicType": "MaxQuantity",
+        "accessMode": "Read",
+        "description": "Maximum stack size. Always 1 for battery cells."
+      },
+      {
+        "logicType": "ReferenceId",
+        "accessMode": "Read",
+        "description": "Unique reference ID assigned to this device instance."
+      }
+    ]
+  }
+]

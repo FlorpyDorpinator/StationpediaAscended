@@ -1,0 +1,2379 @@
+[
+  {
+    "deviceKey": "ThingStructureSolarPanel",
+    "displayName": "Solar Panel",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolarPanel45",
+    "displayName": "Solar Panel (Angled)",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolarPanel45Reinforced",
+    "displayName": "Solar Panel (Heavy Angled)",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolarPanelDual",
+    "displayName": "Solar Panel (Dual)",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolarPanelDualReinforced",
+    "displayName": "Solar Panel (Heavy Dual)",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolarPanelFlat",
+    "displayName": "Solar Panel (Flat)",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolarPanelFlatReinforced",
+    "displayName": "Solar Panel (Heavy Flat)",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolarPanelReinforced",
+    "displayName": "Solar Panel (Heavy)",
+    "logicDescriptions": {
+      "Charge": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation in watts."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle. Adjustable via logic."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "15-165 degrees",
+        "description": "Vertical tilt angle. Adjustable via logic."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum possible power generation at optimal angle."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSmallDirectHeatExchangeGastoGas",
+    "displayName": "Small Direct Heat Exchanger - Gas + Gas",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Heat exchange area multiplier."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Maximum heat exchange area capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current heat exchange efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSmallDirectHeatExchangeLiquidtoGas",
+    "displayName": "Small Direct Heat Exchanger - Liquid + Gas",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Heat exchange area multiplier."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Maximum heat exchange area capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current heat exchange efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSmallDirectHeatExchangeLiquidtoLiquid",
+    "displayName": "Small Direct Heat Exchanger - Liquid + Liquid",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Heat exchange area multiplier."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Maximum heat exchange area capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current heat exchange efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSuperLargeDirectHeatExchangeGastoGas",
+    "displayName": "Super-Large Direct Heat Exchanger (Gases)",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Heat exchange area multiplier."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Maximum heat exchange area capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current heat exchange efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSuperLargeDirectHeatExchangeGastoLiquid",
+    "displayName": "Super-Large Direct Heat Exchanger (Gas to Liquid)",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Heat exchange area multiplier."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Maximum heat exchange area capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current heat exchange efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSuperLargeDirectHeatExchangeLiquidToLiquid",
+    "displayName": "Super-Large Direct Heat Exchanger (Liquids)",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Heat exchange area multiplier."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Maximum heat exchange area capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current heat exchange efficiency ratio."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSleeperVerticalDroid",
+    "displayName": "Droid Sleeper Vertical",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = sleeper door is open, 0 = closed."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active (no power or atmosphere unsafe)."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Trigger to eject occupant."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents entry/exit."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state. 1 = powered on, 0 = off."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSmallSatelliteDish",
+    "displayName": "Small Satellite Dish",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Trigger to contact/interrogate strongest signal."
+      },
+      "Setting": {
+        "dataType": "Integer",
+        "range": "50-200 W",
+        "description": "Output power in watts for signal transmission."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "0-360 degrees",
+        "description": "Horizontal rotation angle."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "0-90 degrees",
+        "description": "Vertical tilt angle."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      },
+      "Idle": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = dish is idle (not moving)."
+      },
+      "SignalStrength": {
+        "dataType": "Float",
+        "range": "-1 or 0-180 degrees",
+        "description": "Angle offset from strongest contact. -1 = no contact or resolving."
+      },
+      "SignalID": {
+        "dataType": "Hash",
+        "range": "-1 or hash",
+        "description": "Reference ID of strongest contact. -1 = no contact."
+      },
+      "InterrogationProgress": {
+        "dataType": "Float",
+        "range": "-1 or 0-1",
+        "description": "Contact interrogation progress. -1 = no contact, 1 = contacted."
+      },
+      "TargetPadIndex": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Index of target landing pad for trader."
+      },
+      "SizeX": {
+        "dataType": "Integer",
+        "range": "-1 or 0+",
+        "description": "Trader's required pad size X. -1 = no resolved contact."
+      },
+      "SizeZ": {
+        "dataType": "Integer",
+        "range": "-1 or 0+",
+        "description": "Trader's required pad size Z. -1 = no resolved contact."
+      },
+      "MinimumWattsToContact": {
+        "dataType": "Float",
+        "range": "-1 or 0+ W",
+        "description": "Minimum watts needed to contact trader. -1 = no resolved contact."
+      },
+      "WattsReachingContact": {
+        "dataType": "Float",
+        "range": "-1 or 0+ W",
+        "description": "Actual watts reaching contact. -1 = no resolved contact."
+      },
+      "ContactTypeId": {
+        "dataType": "Hash",
+        "range": "0 or hash",
+        "description": "Trader type ID hash. 0 = no contact."
+      },
+      "BestContactFilter": {
+        "dataType": "Hash",
+        "range": "-1 or hash",
+        "description": "Filter to specific contact by ReferenceId. -1 = no filter."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSorter",
+    "displayName": "Sorter",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-2",
+        "description": "Sorter mode. 0 = Quantity, 1 = PrefabHash, 2 = Class."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents operation."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Write 1 to clear sorter filters."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total items exported through filtered output."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total items imported."
+      },
+      "Output": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "Which output last used. 0 = straight, 1 = filtered."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureStacker",
+    "displayName": "Stacker",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "0 = Stack mode, 1 = Unstack/split mode."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Trigger to process item."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents operation."
+      },
+      "Setting": {
+        "dataType": "Integer",
+        "range": "1-50",
+        "description": "Target quantity for stacking/splitting."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Write 1 to clear counters."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total items exported."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total items imported."
+      },
+      "Output": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "Last output status."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureStackerReverse",
+    "displayName": "Stacker (Reverse)",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "0 = Stack mode, 1 = Unstack/split mode."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Trigger to process item."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents operation."
+      },
+      "Setting": {
+        "dataType": "Integer",
+        "range": "1-50",
+        "description": "Target quantity for stacking/splitting."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Write 1 to clear counters."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total items exported."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total items imported."
+      },
+      "Output": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "Last output status."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureStirlingEngine",
+    "displayName": "Stirling Engine",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power being generated."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal working gas pressure."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal working gas temperature."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Power output throttle (0-100%)."
+      },
+      "RatioOxygen": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Working gas oxygen mole ratio."
+      },
+      "RatioCarbonDioxide": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Working gas CO2 mole ratio."
+      },
+      "RatioNitrogen": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Working gas nitrogen mole ratio."
+      },
+      "RatioPollutant": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Working gas pollutant mole ratio."
+      },
+      "RatioVolatiles": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Working gas volatiles mole ratio."
+      },
+      "RatioWater": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Working gas water vapor mole ratio."
+      },
+      "RatioNitrousOxide": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Working gas N2O mole ratio."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum power generation capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current generation efficiency ratio."
+      },
+      "Quantity": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items in working gas slot."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Idle power consumption."
+      },
+      "PowerGeneration": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power generation rate."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+ mol",
+        "description": "Total moles of working gas."
+      },
+      "Volume": {
+        "dataType": "Float",
+        "range": "0+ L",
+        "description": "Internal volume in liters."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTankSmall",
+    "displayName": "Small Tank",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = tank open/venting, 0 = closed."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal pressure."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal temperature."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for regulation."
+      },
+      "RatioOxygen": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Oxygen mole ratio in tank."
+      },
+      "RatioCarbonDioxide": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "CO2 mole ratio in tank."
+      },
+      "RatioNitrogen": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Nitrogen mole ratio in tank."
+      },
+      "RatioPollutant": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Pollutant mole ratio in tank."
+      },
+      "RatioVolatiles": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Volatiles mole ratio in tank."
+      },
+      "RatioWater": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Water vapor mole ratio in tank."
+      },
+      "RatioNitrousOxide": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "N2O mole ratio in tank."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Maximum pressure capacity (60795 kPa)."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current pressure/maximum pressure ratio."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+ mol",
+        "description": "Total moles of gas in tank."
+      },
+      "Volume": {
+        "dataType": "Float",
+        "range": "0+ L",
+        "description": "Internal volume in liters."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTankSmallAir",
+    "displayName": "Small Tank (Air)",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = tank open/venting, 0 = closed."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal pressure."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal temperature."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for regulation."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+ mol",
+        "description": "Total moles of gas in tank."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTankSmallFuel",
+    "displayName": "Small Tank (Fuel)",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = tank open/venting, 0 = closed."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal pressure."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal temperature."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for regulation."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+ mol",
+        "description": "Total moles of gas in tank."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTankSmallInsulated",
+    "displayName": "Small Tank (Insulated)",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = tank open/venting, 0 = closed."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal pressure."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal temperature."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for regulation."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+ mol",
+        "description": "Total moles of gas in tank."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTankBig",
+    "displayName": "Large Tank",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = tank open/venting, 0 = closed."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal pressure."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal temperature."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for regulation."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+ mol",
+        "description": "Total moles of gas in tank."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTankBigInsulated",
+    "displayName": "Large Tank (Insulated)",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = tank open/venting, 0 = closed."
+      },
+      "Pressure": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Internal pressure."
+      },
+      "Temperature": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Internal temperature."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for regulation."
+      },
+      "TotalMoles": {
+        "dataType": "Float",
+        "range": "0+ mol",
+        "description": "Total moles of gas in tank."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTransformer",
+    "displayName": "Transformer (Large)",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power passing through."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents setting changes."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-50000 W",
+        "description": "Maximum power allowed to pass through."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "50000 W",
+        "description": "Maximum transformer capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current power/setting ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Idle power consumption."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTransformerMedium",
+    "displayName": "Transformer (Medium)",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power passing through."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents setting changes."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-5000 W",
+        "description": "Maximum power allowed to pass through."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "5000 W",
+        "description": "Maximum transformer capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current power/setting ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Idle power consumption."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTransformerSmall",
+    "displayName": "Transformer (Small)",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power passing through."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents setting changes."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-1000 W",
+        "description": "Maximum power allowed to pass through."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "1000 W",
+        "description": "Maximum transformer capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current power/setting ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Idle power consumption."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTransformerSmallReversed",
+    "displayName": "Transformer (Small Reversed)",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power passing through."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents setting changes."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-1000 W",
+        "description": "Maximum power allowed to pass through."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "1000 W",
+        "description": "Maximum transformer capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current power/setting ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Idle power consumption."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureValve",
+    "displayName": "Valve (Gas)",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for valve regulation."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "60795 kPa",
+        "description": "Maximum pressure capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current flow ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = valve open, 0 = closed."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureVolumePump",
+    "displayName": "Volume Pump",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents operation."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-100 L/s",
+        "description": "Target pump rate in liters per second."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "100 L/s",
+        "description": "Maximum pump capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current pumping ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTurboVolumePump",
+    "displayName": "Turbo Volume Pump",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents operation."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-1000 L/s",
+        "description": "Target pump rate in liters per second."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "1000 L/s",
+        "description": "Maximum pump capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current pumping ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWallCooler",
+    "displayName": "Wall Cooler",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active (no pipes/gas/atmosphere)."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents operation."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Cooling power setting (0-100%)."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum cooling capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current cooling efficiency ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      },
+      "PressureOutput": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Pipe network pressure."
+      },
+      "TemperatureOutput": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Pipe network temperature."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWallHeater",
+    "displayName": "Wall Heater",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = error state active (no pipes/gas/atmosphere)."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 = locked, prevents operation."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Heating power setting (0-100%)."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Maximum heating capacity."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current heating efficiency ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate."
+      },
+      "PressureOutput": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Pipe network pressure."
+      },
+      "TemperatureOutput": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Pipe network temperature."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSolidFuelGenerator",
+    "displayName": "Generator (Solid Fuel)",
+    "logicDescriptions": {
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents manual interaction."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Generator running state. When on, consumes fuel and generates power."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Clears import/export counters when set to 1."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items imported via chutes."
+      },
+      "PowerGeneration": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power output. Produces 20kW when running."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSpotlight",
+    "displayName": "Spotlight",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-10",
+        "description": "Rotation speed. 0 = stationary, 1-10 = increasing sweep speed."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "Horizontal": {
+        "dataType": "Float",
+        "range": "-180 to 180",
+        "description": "Horizontal rotation angle in degrees."
+      },
+      "Vertical": {
+        "dataType": "Float",
+        "range": "-90 to 90",
+        "description": "Vertical rotation angle in degrees."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Light power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (80W)."
+      },
+      "PositionX": {
+        "dataType": "Float",
+        "range": "Any",
+        "description": "World position X coordinate."
+      },
+      "PositionY": {
+        "dataType": "Float",
+        "range": "Any",
+        "description": "World position Y coordinate."
+      },
+      "PositionZ": {
+        "dataType": "Float",
+        "range": "Any",
+        "description": "World position Z coordinate."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureStorageLocker",
+    "displayName": "Locker",
+    "logicDescriptions": {
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Door open state."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents opening."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSuitStorage",
+    "displayName": "Suit Storage",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when pipes not connected."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-100 kPa",
+        "description": "Target pressure for suit recharge."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Maximum achievable pressure."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Charging progress ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (50W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSuitStorageFrame",
+    "displayName": "Suit Storage Frame",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when pipes not connected."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-100 kPa",
+        "description": "Target pressure for suit recharge."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Maximum achievable pressure."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Charging progress ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (50W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureSuitStorageLocker",
+    "displayName": "Suit Storage Locker",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when pipes not connected."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-100 kPa",
+        "description": "Target pressure for suit recharge."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Maximum achievable pressure."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Charging progress ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (50W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureToolManufactory",
+    "displayName": "Tool Manufactory",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Fabricator door open state."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when resources missing or unpowered."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Fabrication active state."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents manual interaction."
+      },
+      "Reagents": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Total reagent quantity available."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (100W)."
+      },
+      "RecipeHash": {
+        "dataType": "Integer",
+        "range": "Any",
+        "description": "Hash of currently selected recipe."
+      },
+      "CompletionRatio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Fabrication progress (0=not started, 1=complete)."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Clears import/export counters when set to 1."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items exported via chutes."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items imported via chutes."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureTraderWaypoint",
+    "displayName": "Trader Waypoint",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (10W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureUnloader",
+    "displayName": "Unloader",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "Unload mode. 0 = empty contents only, 1 = empty contents then export container."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered or jammed."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents operation."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (50W)."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Clears import/export counters when set to 1."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items exported via chutes."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items imported via chutes."
+      },
+      "Output": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "Output mode. 0 = export main item, 1 = export contents then main item."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureUprightWindTurbine",
+    "displayName": "Upright Wind Turbine",
+    "logicDescriptions": {
+      "PowerGeneration": {
+        "dataType": "Float",
+        "range": "0-800 W",
+        "description": "Current power output. Varies with wind speed (normal: 200W, storm: up to 800W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureVendingMachine",
+    "displayName": "Vending Machine",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Trade transaction in progress."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents trading."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Storage capacity ratio (used/total slots)."
+      },
+      "Quantity": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total quantity of items stored."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (5W)."
+      },
+      "RequestHash": {
+        "dataType": "Integer",
+        "range": "Any",
+        "description": "Hash of requested item for trading."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Clears import/export counters when set to 1."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items exported via chutes."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items imported via chutes."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureVendingMachineSmall",
+    "displayName": "Vending Machine Small",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Trade transaction in progress."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents trading."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Storage capacity ratio (used/total slots)."
+      },
+      "Quantity": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Total quantity of items stored."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (5W)."
+      },
+      "RequestHash": {
+        "dataType": "Integer",
+        "range": "Any",
+        "description": "Hash of requested item for trading."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Clears import/export counters when set to 1."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items exported via chutes."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items imported via chutes."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureVeryImportantButton",
+    "displayName": "Very Important Button",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Open": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Cover open state."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Button pressed state. 1 when button is pushed."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents button press."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "Any",
+        "description": "Custom setting value for button."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (50W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWallLight",
+    "displayName": "Wall Light",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents manual toggle."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Light power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (50W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWallLightBattery",
+    "displayName": "Wall Light (Battery)",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power draw from battery."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents manual toggle."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Light power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (25W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWaterBottleFillerPowered",
+    "displayName": "Waterbottle Filler",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered or no water."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Filling in progress."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (10W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWaterBottleFillerPoweredBottom",
+    "displayName": "Waterbottle Filler",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered or no water."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Filling in progress."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (10W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWaterDigitalValve",
+    "displayName": "Liquid Digital Valve",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents adjustment."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-100 L/s",
+        "description": "Target flow rate setting."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ L/s",
+        "description": "Maximum achievable flow rate."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current flow ratio (actual/maximum)."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (5W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWaterPipeMeter",
+    "displayName": "Liquid Pipe Meter",
+    "logicDescriptions": {}
+  },
+  {
+    "deviceKey": "ThingStructureWaterPurifier",
+    "displayName": "Water Purifier",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered or no charcoal."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents operation."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (50W)."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Clears import counter when set to 1."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of charcoal items imported via chutes."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWaterWallCooler",
+    "displayName": "Liquid Wall Cooler",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents adjustment."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Target temperature setting."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Maximum achievable temperature differential."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current cooling efficiency ratio."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (10W)."
+      },
+      "PressureOutput": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Pipe network pressure."
+      },
+      "TemperatureOutput": {
+        "dataType": "Float",
+        "range": "0+ K",
+        "description": "Pipe network temperature."
+      },
+      "RatioOxygenOutput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Oxygen ratio in atmosphere around cooler."
+      },
+      "RatioCarbonDioxideOutput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "CO2 ratio in atmosphere around cooler."
+      },
+      "RatioNitrogenOutput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Nitrogen ratio in atmosphere around cooler."
+      },
+      "RatioPollutantOutput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Pollutant ratio in atmosphere around cooler."
+      },
+      "RatioVolatilesOutput": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Volatiles ratio in atmosphere around cooler."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWeatherStation",
+    "displayName": "Weather Station",
+    "logicDescriptions": {
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-2",
+        "description": "Weather state. 0 = no storm, 1 = storm incoming, 2 = in storm."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Error state. 1 when unpowered."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Measurement in progress."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Lock state. When locked, prevents manual interaction."
+      },
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Power state."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required to operate (10W)."
+      },
+      "NextWeatherEventTime": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Time in seconds until next weather event."
+      },
+      "NextWeatherHash": {
+        "dataType": "Integer",
+        "range": "Any",
+        "description": "Hash of next weather type."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureWindTurbine",
+    "displayName": "Wind Turbine",
+    "logicDescriptions": {
+      "PowerGeneration": {
+        "dataType": "Float",
+        "range": "0-10000 W",
+        "description": "Current power output. Varies with wind speed (normal: up to 500W, storm: up to 10,000W)."
+      }
+    }
+  }
+]

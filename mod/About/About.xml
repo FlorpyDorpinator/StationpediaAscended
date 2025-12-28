@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>StationpediaPlus</Name>
+  <Author>FlorpyDorp</Author>
+  <Version>1.0.0</Version>
+  <Description>Adds context-specific hover tooltips to Stationpedia logic types, providing detailed descriptions of what each logic value means for specific devices.</Description>
+  <ChangeLog xsi:nil="true" />
+  <Tags />
+  <InGameDescription xsi:nil="true" />
+</ModMetadata>

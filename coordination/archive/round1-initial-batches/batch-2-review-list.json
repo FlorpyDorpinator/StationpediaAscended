@@ -1,0 +1,202 @@
+﻿[
+    {
+        "deviceKey":  "ThingLaunchSilo",
+        "reviewTypes":  "Lock, Setting"
+    },
+    {
+        "deviceKey":  "ThingLogicStepSequencer8",
+        "reviewTypes":  "Mode, Error, Activate"
+    },
+    {
+        "deviceKey":  "ThingRobot",
+        "reviewTypes":  "Mode, Error"
+    },
+    {
+        "deviceKey":  "ThingStopWatch",
+        "reviewTypes":  "Setting, Activate"
+    },
+    {
+        "deviceKey":  "ThingStructureActiveVent",
+        "reviewTypes":  "Mode, Lock, Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureAirConditioner",
+        "reviewTypes":  "Mode, Lock, Setting, Error"
+    },
+    {
+        "deviceKey":  "ThingStructureAirlock",
+        "reviewTypes":  "Mode, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureBattery",
+        "reviewTypes":  "Setting, Mode"
+    },
+    {
+        "deviceKey":  "ThingStructureBatteryLarge",
+        "reviewTypes":  "Setting, Mode"
+    },
+    {
+        "deviceKey":  "ThingStructureAutolathe",
+        "reviewTypes":  "Activate, Error"
+    },
+    {
+        "deviceKey":  "ThingStructureAdvancedFurnace",
+        "reviewTypes":  "Setting, Mode, Activate, Error"
+    },
+    {
+        "deviceKey":  "ThingStructureArcFurnace",
+        "reviewTypes":  "Setting, Mode, Activate, Error"
+    },
+    {
+        "deviceKey":  "ThingStructureBackPressureRegulator",
+        "reviewTypes":  "Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceDial",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceSlider",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceSwitch",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceButton",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceLEDdisplay2",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceLEDdisplay3",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceGauge2x2",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceMeter3x3",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceAlarm",
+        "reviewTypes":  "Mode"
+    },
+    {
+        "deviceKey":  "ThingStructureBatteryCharger",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureAdvancedComposter",
+        "reviewTypes":  "Activate"
+    },
+    {
+        "deviceKey":  "ThingStructureAutomatedOven",
+        "reviewTypes":  "Activate, Error"
+    },
+    {
+        "deviceKey":  "ThingStructureAccessBridge",
+        "reviewTypes":  "Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureAirlockGate",
+        "reviewTypes":  "Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureAdvancedPackagingMachine",
+        "reviewTypes":  "Activate, Error"
+    },
+    {
+        "deviceKey":  "ThingStructureBackLiquidPressureRegulator",
+        "reviewTypes":  "Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureAutoMinerSmall",
+        "reviewTypes":  "Activate, Error"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceBigLever",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceCardReader",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceComputer",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceDialSmall",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceEmergencyButton3x3",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceFlipCoverSwitch",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceFlipSwitch",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceGauge3x3",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceNumpad",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceRoundButton",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceSliderDiode1",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceSliderDiode2",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceSquareButton",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceThrottle3x2",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingModularDeviceUtilityButton2x2",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingMotherboardDebugAnalyzer",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingRover_MkI",
+        "reviewTypes":  "Activate, Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureAirlockWide",
+        "reviewTypes":  "Mode, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureBasketHoop",
+        "reviewTypes":  "Activate, Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureBatteryChargerSmall",
+        "reviewTypes":  "Setting"
+    }
+]
