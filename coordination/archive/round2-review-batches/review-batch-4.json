@@ -1,0 +1,24 @@
+﻿{
+    "devices":  [
+                    "ThingH2Combustor",
+                    "ThingStructureGasGenerator",
+                    "ThingStructureSmallSatelliteDish",
+                    "ThingStructureGasUmbilicalMale",
+                    "ThingStructureHorizontalAutoMiner",
+                    "ThingStructureAirlock",
+                    "ThingLogicStepSequencer8",
+                    "ThingStructureLogicMath",
+                    "ThingStructureKlaxon",
+                    "ThingStructureDiodeSlide",
+                    "ThingStructureWallLightBattery",
+                    "ThingStructureLightLongWide",
+                    "ThingStructureSmallDirectHeatExchangeLiquidtoGas",
+                    "ThingStructurePassthroughHeatExchangerGasToGas",
+                    "ThingStructureLogicSwitch2",
+                    "ThingStructurePressurePlateMedium",
+                    "ThingBattery_Wireless_cell_Big"
+                ],
+    "missingEntries":  237,
+    "batchNumber":  4,
+    "deviceCount":  17
+}

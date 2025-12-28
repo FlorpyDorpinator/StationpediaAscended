@@ -1,0 +1,245 @@
+[
+  {
+    "deviceKey": "ThingStructurePoweredVent",
+    "displayName": "Powered Vent",
+    "logicDescriptions": {
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Enable/disable the vent. When on and powered, actively exchanges atmosphere."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "0 = Inward (pull gas from world into pipe), 1 = Outward (push gas from pipe to world)."
+      },
+      "PressureExternal": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for the external (world) side. Vent stops when pressure reaches this value."
+      },
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 if device has an error, 0 otherwise."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 if device is locked, preventing manual interaction."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required for device operation (250W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructurePoweredVentLarge",
+    "displayName": "Powered Vent (Large)",
+    "logicDescriptions": {
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Enable/disable the vent. When on and powered, actively exchanges atmosphere."
+      },
+      "Mode": {
+        "dataType": "Integer",
+        "range": "0-1",
+        "description": "0 = Inward (pull gas from world into pipe), 1 = Outward (push gas from pipe to world)."
+      },
+      "PressureExternal": {
+        "dataType": "Float",
+        "range": "0-60795 kPa",
+        "description": "Target pressure for the external (world) side. Vent stops when pressure reaches this value."
+      },
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 if device has an error, 0 otherwise."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 if device is locked, preventing manual interaction."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required for device operation."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureProximitySensor",
+    "displayName": "Proximity Sensor",
+    "logicDescriptions": {
+      "Activate": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of players detected within the sensor's range."
+      },
+      "Setting": {
+        "dataType": "Integer",
+        "range": "0-250",
+        "description": "Detection radius in meters. Players within this distance trigger the sensor."
+      },
+      "Quantity": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of players currently detected (same as Activate)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructureRecycler",
+    "displayName": "Recycler",
+    "logicDescriptions": {
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Enable/disable the recycler."
+      },
+      "Activate": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 when actively recycling an item, 0 otherwise."
+      },
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 if device has an error, 0 otherwise."
+      },
+      "Reagents": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Total reagents (in grams) currently stored from recycled items."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required for operation (100W)."
+      },
+      "ClearMemory": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Write 1 to clear reagent memory."
+      },
+      "ExportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items in export slot."
+      },
+      "ImportCount": {
+        "dataType": "Integer",
+        "range": "0+",
+        "description": "Number of items in import slot."
+      }
+    },
+    "slotDescriptions": {
+      "Import": {
+        "slotType": "Import",
+        "description": "Input slot for items to be recycled."
+      },
+      "Export": {
+        "slotType": "Export",
+        "description": "Output slot for reagent mix ore produced from recycling."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructurePressureRegulator",
+    "displayName": "Pressure Regulator",
+    "logicDescriptions": {
+      "On": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "Enable/disable the regulator."
+      },
+      "Setting": {
+        "dataType": "Float",
+        "range": "0-20684 kPa",
+        "description": "Target output pressure in kPa. Regulator maintains this pressure on output side."
+      },
+      "Maximum": {
+        "dataType": "Float",
+        "range": "0+ kPa",
+        "description": "Maximum possible setting value (20684 kPa)."
+      },
+      "Ratio": {
+        "dataType": "Float",
+        "range": "0-1",
+        "description": "Current flow rate ratio (0 = no flow, 1 = maximum flow)."
+      },
+      "Power": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Current power consumption in watts."
+      },
+      "Error": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 if device has an error, 0 otherwise."
+      },
+      "Lock": {
+        "dataType": "Boolean",
+        "range": "0-1",
+        "description": "1 if device is locked, preventing manual interaction."
+      },
+      "RequiredPower": {
+        "dataType": "Float",
+        "range": "0+ W",
+        "description": "Power required for operation (100W)."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructurePressurePlateLarge",
+    "displayName": "Trigger Plate (Large)",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Current weight/pressure on the plate in kilograms."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructurePressurePlateMedium",
+    "displayName": "Trigger Plate (Medium)",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Current weight/pressure on the plate in kilograms."
+      }
+    }
+  },
+  {
+    "deviceKey": "ThingStructurePressurePlateSmall",
+    "displayName": "Trigger Plate (Small)",
+    "logicDescriptions": {
+      "Setting": {
+        "dataType": "Float",
+        "range": "0+",
+        "description": "Current weight/pressure on the plate in kilograms."
+      }
+    }
+  }
+]

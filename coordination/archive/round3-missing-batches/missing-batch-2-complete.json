@@ -1,0 +1,1346 @@
+[
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               }
+                              },
+        "deviceKey":  "ThingStructureChairBoothMiddle",
+        "displayName":  "Chair (Booth Middle)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               }
+                              },
+        "deviceKey":  "ThingStructureChairRectangleDouble",
+        "displayName":  "Chair (Rectangle Double)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               }
+                              },
+        "deviceKey":  "ThingStructureChairRectangleSingle",
+        "displayName":  "Chair (Rectangle Single)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               }
+                              },
+        "deviceKey":  "ThingStructureChairThickDouble",
+        "displayName":  "Chair (Thick Double)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               }
+                              },
+        "deviceKey":  "ThingStructureChairThickSingle",
+        "displayName":  "Chair (Thick Single)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "Unknown",
+                                               "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterLeft",
+                                               "dataType":  "Unknown"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "SettingOutput":  {
+                                                        "range":  "Unknown",
+                                                        "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterLeft",
+                                                        "dataType":  "Unknown"
+                                                    },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterLeft",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Quantity":  {
+                                                   "range":  "Unknown",
+                                                   "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterLeft",
+                                                   "dataType":  "Unknown"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureChuteDigitalFlipFlopSplitterLeft",
+        "displayName":  "Chute Digital Flip Flop Splitter Left"
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "Unknown",
+                                               "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterRight",
+                                               "dataType":  "Unknown"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "SettingOutput":  {
+                                                        "range":  "Unknown",
+                                                        "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterRight",
+                                                        "dataType":  "Unknown"
+                                                    },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterRight",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Quantity":  {
+                                                   "range":  "Unknown",
+                                                   "description":  "TODO: Review source code for ThingStructureChuteDigitalFlipFlopSplitterRight",
+                                                   "dataType":  "Unknown"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureChuteDigitalFlipFlopSplitterRight",
+        "displayName":  "Chute Digital Flip Flop Splitter Right"
+    },
+    {
+        "logicDescriptions":  {
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureChuteDigitalValveLeft",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Quantity":  {
+                                                   "range":  "Unknown",
+                                                   "description":  "TODO: Review source code for ThingStructureChuteDigitalValveLeft",
+                                                   "dataType":  "Unknown"
+                                               },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureChuteDigitalValveLeft",
+        "displayName":  "Chute Digital Valve Left"
+    },
+    {
+        "logicDescriptions":  {
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureChuteDigitalValveRight",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Quantity":  {
+                                                   "range":  "Unknown",
+                                                   "description":  "TODO: Review source code for ThingStructureChuteDigitalValveRight",
+                                                   "dataType":  "Unknown"
+                                               },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureChuteDigitalValveRight",
+        "displayName":  "Chute Digital Valve Right"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureChuteExportBin",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureChuteExportBin",
+        "displayName":  "Chute Export Bin"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureChuteBin",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureChuteBin",
+        "displayName":  "Chute Import Bin"
+    },
+    {
+        "logicDescriptions":  {
+                                  "ClearMemory":  {
+                                                      "range":  "Unknown",
+                                                      "description":  "TODO: Review source code for ThingStructureChuteInlet",
+                                                      "dataType":  "Unknown"
+                                                  },
+                                  "ImportCount":  {
+                                                      "range":  "Unknown",
+                                                      "description":  "TODO: Review source code for ThingStructureChuteInlet",
+                                                      "dataType":  "Unknown"
+                                                  },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureChuteInlet",
+        "displayName":  "Chute Inlet"
+    },
+    {
+        "logicDescriptions":  {
+                                  "ClearMemory":  {
+                                                      "range":  "Unknown",
+                                                      "description":  "TODO: Review source code for ThingStructureChuteOutlet",
+                                                      "dataType":  "Unknown"
+                                                  },
+                                  "ImportCount":  {
+                                                      "range":  "Unknown",
+                                                      "description":  "TODO: Review source code for ThingStructureChuteOutlet",
+                                                      "dataType":  "Unknown"
+                                                  },
+                                  "ExportCount":  {
+                                                      "range":  "Unknown",
+                                                      "description":  "TODO: Review source code for ThingStructureChuteOutlet",
+                                                      "dataType":  "Unknown"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureChuteOutlet",
+        "displayName":  "Chute Outlet"
+    },
+    {
+        "logicDescriptions":  {
+                                  "Mode":  {
+                                               "range":  "Unknown",
+                                               "description":  "TODO: Review source code for ThingStructureCompositeDoor",
+                                               "dataType":  "Unknown"
+                                           },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Idle":  {
+                                               "range":  "Unknown",
+                                               "description":  "TODO: Review source code for ThingStructureCompositeDoor",
+                                               "dataType":  "Unknown"
+                                           },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureCompositeDoor",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureCompositeDoor",
+        "displayName":  "Composite Door"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureCompositeWindowShutterController",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureCompositeWindowShutterController",
+        "displayName":  "Composite Window Shutter Controller"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingModularDeviceComputer",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               }
+                              },
+        "deviceKey":  "ThingModularDeviceComputer",
+        "displayName":  "Computer"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureComputerBigScreenWallMounted",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureComputerBigScreenWallMounted",
+        "displayName":  "Computer (Big Screen Wall Mounted)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureComputerBigScreen",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureComputerBigScreen",
+        "displayName":  "Computer (Big Screen)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureComputer",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureComputer",
+        "displayName":  "Computer (Modern)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureComputerUpright",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           }
+                              },
+        "deviceKey":  "ThingStructureComputerUpright",
+        "displayName":  "Computer (Retro)"
+    },
+    {
+        "logicDescriptions":  {
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Ratio":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureCondensationChamber",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "RatioCarbonDioxide":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of Carbon Dioxide in the internal atmosphere.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "RatioPollutant":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of Pollutant in the internal atmosphere.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "RatioSteam":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of Steam in the internal atmosphere.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "TotalMoles":  {
+                                                     "range":  "0+",
+                                                     "description":  "Total moles of gas in the internal atmosphere.",
+                                                     "dataType":  "Float"
+                                                 },
+                                  "RatioLiquidNitrousOxide":  {
+                                                                  "range":  "0-1",
+                                                                  "description":  "Ratio of Liquid Nitrous Oxide in the internal atmosphere.",
+                                                                  "dataType":  "Float"
+                                                              },
+                                  "Temperature":  {
+                                                      "range":  "0+",
+                                                      "description":  "Current internal temperature in Kelvin.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "RatioLiquidNitrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of Liquid Nitrogen in the internal atmosphere.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioVolatiles":  {
+                                                         "range":  "0-1",
+                                                         "description":  "Ratio of Volatiles in the internal atmosphere.",
+                                                         "dataType":  "Float"
+                                                     },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureCondensationChamber",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureCondensationChamber",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "RatioLiquidHydrogen":  {
+                                                              "range":  "0-1",
+                                                              "description":  "Ratio of Liquid Hydrogen in the internal atmosphere.",
+                                                              "dataType":  "Float"
+                                                          },
+                                  "RatioOxygen":  {
+                                                      "range":  "0-1",
+                                                      "description":  "Ratio of Oxygen in the internal atmosphere.",
+                                                      "dataType":  "Float"
+                                                  },
+                                  "Lock":  {
+                                               "range":  "0-1",
+                                               "description":  "Locks device when set to 1.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioLiquidCarbonDioxide":  {
+                                                                   "range":  "0-1",
+                                                                   "description":  "Ratio of Liquid Carbon Dioxide in the internal atmosphere.",
+                                                                   "dataType":  "Float"
+                                                               },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "Combustion":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Returns 1 if combustion is occurring.",
+                                                     "dataType":  "Boolean"
+                                                 },
+                                  "RatioNitrousOxide":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of Nitrous Oxide in the internal atmosphere.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "RatioNitrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of Nitrogen in the internal atmosphere.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioLiquidPollutant":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of Liquid Pollutant in the internal atmosphere.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "Maximum":  {
+                                                  "range":  "0+",
+                                                  "description":  "Maximum capacity or pressure setting.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "RatioLiquidVolatiles":  {
+                                                               "range":  "0-1",
+                                                               "description":  "Ratio of Liquid Volatiles in the internal atmosphere.",
+                                                               "dataType":  "Float"
+                                                           },
+                                  "RatioPollutedWater":  {
+                                                             "range":  "0-1",
+                                                             "description":  "Ratio of Polluted Water in the internal atmosphere.",
+                                                             "dataType":  "Float"
+                                                         },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "Pressure":  {
+                                                   "range":  "0+",
+                                                   "description":  "Current internal pressure in kPa.",
+                                                   "dataType":  "Float"
+                                               },
+                                  "RatioLiquidOxygen":  {
+                                                            "range":  "0-1",
+                                                            "description":  "Ratio of Liquid Oxygen in the internal atmosphere.",
+                                                            "dataType":  "Float"
+                                                        },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "RatioHydrogen":  {
+                                                        "range":  "0-1",
+                                                        "description":  "Ratio of Hydrogen in the internal atmosphere.",
+                                                        "dataType":  "Float"
+                                                    },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "RatioWater":  {
+                                                     "range":  "0-1",
+                                                     "description":  "Ratio of Water (steam) in the internal atmosphere.",
+                                                     "dataType":  "Float"
+                                                 }
+                              },
+        "deviceKey":  "ThingStructureCondensationChamber",
+        "displayName":  "Condensation Chamber"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "Maximum":  {
+                                                  "range":  "0+",
+                                                  "description":  "Maximum capacity or pressure setting.",
+                                                  "dataType":  "Float"
+                                              },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureCondensationValve",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Ratio":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureCondensationValve",
+                                                "dataType":  "Unknown"
+                                            }
+                              },
+        "deviceKey":  "ThingStructureCondensationValve",
+        "displayName":  "Condensation Valve"
+    },
+    {
+        "logicDescriptions":  {
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "Setting":  {
+                                                  "range":  "Unknown",
+                                                  "description":  "TODO: Review source code for ThingStructureConsole2x2",
+                                                  "dataType":  "Unknown"
+                                              },
+                                  "Error":  {
+                                                "range":  "Unknown",
+                                                "description":  "TODO: Review source code for ThingStructureConsole2x2",
+                                                "dataType":  "Unknown"
+                                            },
+                                  "Open":  {
+                                               "range":  "0-1",
+                                               "description":  "Device open/closed state.",
+                                               "dataType":  "Boolean"
+                                           },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsole2x2",
+        "displayName":  "Console 2x2"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleBase1",
+        "displayName":  "Console Base 1"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleBase1Double",
+        "displayName":  "Console Base 1 Double"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleBase2",
+        "displayName":  "Console Base 2"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleBase2Double",
+        "displayName":  "Console Base 2 Double"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleBase3",
+        "displayName":  "Console Base 3"
+    },
+    {
+        "logicDescriptions":  {
+                                  "On":  {
+                                             "range":  "0-1",
+                                             "description":  "Device on/off state.",
+                                             "dataType":  "Boolean"
+                                         },
+                                  "ReferenceId":  {
+                                                      "range":  "Any",
+                                                      "description":  "Unique reference ID for this specific device instance.",
+                                                      "dataType":  "Integer"
+                                                  },
+                                  "PrefabHash":  {
+                                                     "range":  "Any",
+                                                     "description":  "Unique hash identifier for the device prefab.",
+                                                     "dataType":  "Integer"
+                                                 },
+                                  "NameHash":  {
+                                                   "range":  "Any",
+                                                   "description":  "Hash of the device\u0027s custom name if set.",
+                                                   "dataType":  "Integer"
+                                               },
+                                  "Power":  {
+                                                "range":  "0-1",
+                                                "description":  "Returns 1 if device is powered.",
+                                                "dataType":  "Boolean"
+                                            },
+                                  "RequiredPower":  {
+                                                        "range":  "0+",
+                                                        "description":  "Power required by the device in Watts.",
+                                                        "dataType":  "Float"
+                                                    }
+                              },
+        "deviceKey":  "ThingStructureConsoleBase3Double",
+        "displayName":  "Console Base 3 Double"
+    }
+]

@@ -1,0 +1,1872 @@
+﻿[
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Whether combustion is occurring at input.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "CombustionInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Whether combustion is occurring at output.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "CombustionOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Whether combustion is occurring at second output.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "CombustionOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Error state: 1 if filtration system has error.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Error"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device lock state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Lock"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Maximum capacity or value.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Maximum"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Filtration mode: 0=Waste, 1=Filtration.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Mode"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Whether device is open.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Open"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ kPa",
+                                      "description":  "Pressure at input in kPa.",
+                                      "dataType":  "Float",
+                                      "logicType":  "PressureInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ kPa",
+                                      "description":  "Pressure at output in kPa.",
+                                      "dataType":  "Float",
+                                      "logicType":  "PressureOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ kPa",
+                                      "description":  "Pressure at second output in kPa.",
+                                      "dataType":  "Float",
+                                      "logicType":  "PressureOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Fill ratio or progress ratio.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Ratio"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "CarbonDioxide ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioCarbonDioxideInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "CarbonDioxide ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioCarbonDioxideOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "CarbonDioxide ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioCarbonDioxideOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidCarbonDioxide ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidCarbonDioxideInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidCarbonDioxide ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidCarbonDioxideOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidCarbonDioxide ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidCarbonDioxideOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrogen ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrogenInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrogen ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrogenOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrogen ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrogenOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrousOxide ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrousOxideInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrousOxide ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrousOxideOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrousOxide ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrousOxideOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidOxygen ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidOxygenInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidOxygen ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidOxygenOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidOxygen ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidOxygenOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidPollutant ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidPollutantInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidPollutant ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidPollutantOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidPollutant ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidPollutantOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidVolatiles ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidVolatilesInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidVolatiles ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidVolatilesOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidVolatiles ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidVolatilesOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Nitrogen ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrogenInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Nitrogen ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrogenOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Nitrogen ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrogenOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "NitrousOxide ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrousOxideInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "NitrousOxide ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrousOxideOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "NitrousOxide ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrousOxideOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Oxygen ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioOxygenInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Oxygen ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioOxygenOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Oxygen ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioOxygenOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Pollutant ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioPollutantInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Pollutant ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioPollutantOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Pollutant ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioPollutantOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Steam ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioSteamInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Steam ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioSteamOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Steam ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioSteamOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Volatiles ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioVolatilesInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Volatiles ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioVolatilesOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Volatiles ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioVolatilesOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Water ratio at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioWaterInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Water ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioWaterOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Water ratio at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioWaterOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Target gas type to filter.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ K",
+                                      "description":  "Temperature at input in Kelvin.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TemperatureInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ K",
+                                      "description":  "Temperature at output in Kelvin.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TemperatureOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ K",
+                                      "description":  "Temperature at second output in Kelvin.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TemperatureOutput2"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Total gas moles at input.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TotalMolesInput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Total gas moles at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TotalMolesOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Total gas moles at second output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TotalMolesOutput2"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureFiltration",
+        "slotDescriptions":  [
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Gas Filter.",
+                                     "slotName":  "Gas Filter"
+                                 },
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Gas Filter.",
+                                     "slotName":  "Gas Filter"
+                                 },
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for ProgrammableChip.",
+                                     "slotName":  "ProgrammableChip"
+                                 }
+                             ],
+        "displayName":  "Filtration"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Whether combustion is occurring.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Combustion"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Whether combustion is occurring at output.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "CombustionOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Maximum capacity or value.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Maximum"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Whether device is open.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Open"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ kPa",
+                                      "description":  "Pressure in kPa.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Pressure"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ kPa",
+                                      "description":  "Pressure at output in kPa.",
+                                      "dataType":  "Float",
+                                      "logicType":  "PressureOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Fill ratio or progress ratio.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Ratio"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "CarbonDioxide ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioCarbonDioxide"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "CarbonDioxide ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioCarbonDioxideOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Hydrogen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioHydrogen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidCarbonDioxide ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidCarbonDioxide"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidHydrogen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidHydrogen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrogen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrogen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidNitrousOxide ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidNitrousOxide"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidOxygen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidOxygen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidPollutant ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidPollutant"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "LiquidVolatiles ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioLiquidVolatiles"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Nitrogen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrogen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Nitrogen ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrogenOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "NitrousOxide ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrousOxide"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "NitrousOxide ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrousOxideOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Oxygen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioOxygen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Oxygen ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioOxygenOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Pollutant ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioPollutant"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Pollutant ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioPollutantOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "PollutedWater ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioPollutedWater"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Steam ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioSteam"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Volatiles ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioVolatiles"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Volatiles ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioVolatilesOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Water ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioWater"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Water ratio at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioWaterOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Target temperature setting in Kelvin.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ K",
+                                      "description":  "Temperature in Kelvin.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Temperature"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ K",
+                                      "description":  "Temperature at output in Kelvin.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TemperatureOutput"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Total gas moles in device.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TotalMoles"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Total gas moles at output.",
+                                      "dataType":  "Float",
+                                      "logicType":  "TotalMolesOutput"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureFridgeSmall",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Fridge Small"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Trigger activation.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Activate"
+                                  },
+                                  {
+                                      "access":  "Write",
+                                      "range":  "0+",
+                                      "description":  "Write 1 to clear memory.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "ClearMemory"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Manufacturing completion ratio (0-1).",
+                                      "dataType":  "Float",
+                                      "logicType":  "CompletionRatio"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Error state: 1 if recipe incomplete or slot issues.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Error"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Count of items in export slot.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "ExportCount"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Count of items in import slot.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "ImportCount"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device lock state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Lock"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Whether device is open.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Open"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Number of reagents in current recipe.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Reagents"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "Hash",
+                                      "description":  "Currently selected recipe hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "RecipeHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Stack size in current slot.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "StackSize"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureAutomatedOven",
+        "slotDescriptions":  [
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Import.",
+                                     "slotName":  "Import"
+                                 },
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Export.",
+                                     "slotName":  "Export"
+                                 }
+                             ],
+        "displayName":  "Automated Oven"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Trigger activation.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Activate"
+                                  },
+                                  {
+                                      "access":  "Write",
+                                      "range":  "0+",
+                                      "description":  "Write 1 to clear memory.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "ClearMemory"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Error state: 1 if smelting issue or insufficient resources.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Error"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Count of items in export slot.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "ExportCount"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Whether device is idle.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Idle"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Count of items in import slot.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "ImportCount"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device lock state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Lock"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Number of reagents in current recipe.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Reagents"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Currently selected recipe hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "RecipeHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureArcFurnace",
+        "slotDescriptions":  [
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Import.",
+                                     "slotName":  "Import"
+                                 },
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Export.",
+                                     "slotName":  "Export"
+                                 }
+                             ],
+        "displayName":  "Arc Furnace"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ kPa",
+                                      "description":  "Pressure in kPa.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Pressure"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Quantity of stored material.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Quantity"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "CarbonDioxide ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioCarbonDioxide"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Nitrogen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrogen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "NitrousOxide ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioNitrousOxide"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Oxygen ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioOxygen"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Pollutant ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioPollutant"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Volatiles ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioVolatiles"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Water ratio in internal atmosphere.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RatioWater"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ K",
+                                      "description":  "Temperature in Kelvin.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Temperature"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureLiquidTankStorage",
+        "slotDescriptions":  [
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Liquid Canister.",
+                                     "slotName":  "Liquid Canister"
+                                 }
+                             ],
+        "displayName":  "Liquid Tank Storage"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Error state: 1 if power issues.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Error"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device lock state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Lock"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Maximum capacity or value.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Maximum"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Fill ratio or progress ratio.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Ratio"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Power transformation ratio setting.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureTransformerSmallReversed",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Transformer Reversed (Small)"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Trigger activation.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Activate"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Error state: 1 if console has error.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Error"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Whether device is open.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Open"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Current console display mode.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureConsole",
+        "slotDescriptions":  [
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Circuitboard.",
+                                     "slotName":  "Circuitboard"
+                                 }
+                             ],
+        "displayName":  "Console"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Error state: 1 if environmental control fails.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Error"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Maximum capacity or value.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Maximum"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Fill ratio or progress ratio.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Ratio"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Pressure/temperature target setting.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureSuitStorageLocker",
+        "slotDescriptions":  [
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Helmet.",
+                                     "slotName":  "Helmet"
+                                 },
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Suit.",
+                                     "slotName":  "Suit"
+                                 },
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Back.",
+                                     "slotName":  "Back"
+                                 }
+                             ],
+        "displayName":  "Suit Storage Locker"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Current charge level.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Charge"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "-180 to 180",
+                                      "description":  "Horizontal angle setting.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Horizontal"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Maximum capacity or value.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Maximum"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Fill ratio or progress ratio.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Ratio"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "-180 to 180",
+                                      "description":  "Vertical angle setting.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Vertical"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureSolarPanelFlat",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Solar Panel (Flat)"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Error state: 1 if no valid target.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Error"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Selected reagent type to read.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureLogicReagentReader",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Reagent Reader"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Display color setting.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Color"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Display mode setting.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Mode"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  }
+                              ],
+        "deviceKey":  "ThingModularDeviceLabelDiode3",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Label Diode 3"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device lock state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Lock"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Returns 1 if device is powered.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Power"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+ W",
+                                      "description":  "Power draw in watts.",
+                                      "dataType":  "Float",
+                                      "logicType":  "RequiredPower"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureGrowLight",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Grow Light"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Trigger activation.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Activate"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device lock state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Lock"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Button press state (read-only).",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructureLogicButton",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Button"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Maximum capacity or value.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Maximum"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0-1",
+                                      "description":  "Fill ratio or progress ratio.",
+                                      "dataType":  "Float",
+                                      "logicType":  "Ratio"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Heat exchange target setting.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingStructurePassthroughHeatExchangerGasToLiquid",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "CounterFlow Heat Exchanger - Gas + Liquid"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Display color setting.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Color"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0+",
+                                      "description":  "Gauge display value.",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingModularDeviceGauge2x2",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Gauge 2x2"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Custom name hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "NameHash"
+                                  },
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Device on/off state.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "On"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Device type hash.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "PrefabHash"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "0+",
+                                      "description":  "Switch position (read-only).",
+                                      "dataType":  "Integer",
+                                      "logicType":  "Setting"
+                                  }
+                              ],
+        "deviceKey":  "ThingModularDeviceFlipSwitch",
+        "slotDescriptions":  [
+
+                             ],
+        "displayName":  "Flip Switch"
+    },
+    {
+        "logicDescriptions":  [
+                                  {
+                                      "access":  "Read Write",
+                                      "range":  "0-1",
+                                      "description":  "Whether device is open.",
+                                      "dataType":  "Boolean",
+                                      "logicType":  "Open"
+                                  },
+                                  {
+                                      "access":  "Read",
+                                      "range":  "Hash",
+                                      "description":  "Unique reference ID.",
+                                      "dataType":  "Hash",
+                                      "logicType":  "ReferenceId"
+                                  }
+                              ],
+        "deviceKey":  "ThingPortableSolarPanel",
+        "slotDescriptions":  [
+                                 {
+                                     "slotType":  "Any",
+                                     "description":  "Slot for Battery.",
+                                     "slotName":  "Battery"
+                                 }
+                             ],
+        "displayName":  "Portable Solar Panel"
+    }
+]

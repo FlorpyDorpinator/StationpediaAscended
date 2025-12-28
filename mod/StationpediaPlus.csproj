@@ -1,0 +1,97 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>StationpediaPlus</AssemblyName>
+    <RootNamespace>StationpediaPlus</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <OutputPath>bin\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <!-- Reference the Stationeers game DLLs -->
+  <PropertyGroup>
+    <!-- Update this path to your Stationeers installation -->
+    <StationeersPath>C:\Program Files (x86)\Steam\steamapps\common\Stationeers</StationeersPath>
+    <StationeersManagedPath>$(StationeersPath)\rocketstation_Data\Managed</StationeersManagedPath>
+    <BepInExPath>$(StationeersPath)\BepInEx\core</BepInExPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- BepInEx references -->
+    <Reference Include="BepInEx">
+      <HintPath>$(BepInExPath)\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(BepInExPath)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Unity references -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Game assembly -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(StationeersManagedPath)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- TextMeshPro -->
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(StationeersManagedPath)\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- StationeersMods.Interface from LaunchPad plugins -->
+    <Reference Include="StationeersMods.Interface">
+      <HintPath>$(StationeersPath)\BepInEx\plugins\StationeersLaunchPad\StationeersMods.Interface.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Newtonsoft.Json (usually bundled with Unity) -->
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(StationeersManagedPath)\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    
+    <!-- UniTask for async operations -->
+    <Reference Include="UniTask">
+      <HintPath>$(StationeersManagedPath)\UniTask.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Copy output to Stationeers mods folder after build -->
+  <Target Name="CopyToModsFolder" AfterTargets="Build">
+    <PropertyGroup>
+      <ModsFolder>$(USERPROFILE)\Documents\My Games\Stationeers\mods\StationpediaPlus</ModsFolder>
+    </PropertyGroup>
+    <MakeDir Directories="$(ModsFolder)" />
+    <MakeDir Directories="$(ModsFolder)\About" />
+    <Copy SourceFiles="$(OutputPath)StationpediaPlus.dll" DestinationFolder="$(ModsFolder)" />
+    <Copy SourceFiles="$(ProjectDir)About\About.xml" DestinationFolder="$(ModsFolder)\About" />
+    <Copy SourceFiles="$(ProjectDir)descriptions.json" DestinationFolder="$(ModsFolder)" />
+    <Message Text="Mod copied to $(ModsFolder)" Importance="high" />
+  </Target>
+
+</Project>

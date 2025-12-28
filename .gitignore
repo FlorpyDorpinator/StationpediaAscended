@@ -1,0 +1,32 @@
+# Build outputs
+mod/bin/
+mod/obj/
+
+# IDE
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# VS Code (optional - remove if you want to track settings)
+# .vscode/
+
+# Archives and backups (large files)
+coordination/archive/*.json
+
+# Temporary files
+*.tmp
+*.bak
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Reference assemblies (don't need to track game DLLs)
+*.dll
+!mod/bin/StationpediaPlus.dll
+
+# Large context folders (external reference, not part of mod)
+ModsForContext/

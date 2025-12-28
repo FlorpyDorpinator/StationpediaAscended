@@ -1,0 +1,351 @@
+{
+  "batchNumber": 13,
+  "deviceCount": 18,
+  "devices": [
+    {
+      "deviceKey": "ThingStructureTankSmallAir",
+      "title": "Small Tank (Air)",
+      "logicDescriptions": {
+        "Pressure": {"dataType": "Float", "range": "0+ kPa", "description": "Pressure in kPa of the tank's internal atmosphere."},
+        "Temperature": {"dataType": "Float", "range": "0+ K", "description": "Temperature in Kelvin of the tank's internal atmosphere."},
+        "TotalMoles": {"dataType": "Float", "range": "0+", "description": "Total moles of gas and liquid in the tank."},
+        "Volume": {"dataType": "Float", "range": "0+ L", "description": "Internal volume of the tank in liters."},
+        "VolumeOfLiquid": {"dataType": "Float", "range": "0+ L", "description": "Volume of liquids in the tank in liters."},
+        "Ratio": {"dataType": "Float", "range": "0-1", "description": "Fill ratio of tank (total moles / max capacity)."},
+        "Setting": {"dataType": "Float", "range": "0-101325 kPa", "description": "Target pressure threshold for tanks with pressure control. Write to set, read to check current setting."},
+        "Open": {"dataType": "Boolean", "range": "0-1", "description": "Whether the tank is open to external atmosphere. 1 = open, 0 = closed."},
+        "Maximum": {"dataType": "Float", "range": "0+ L", "description": "Maximum volume capacity of the tank."},
+        "RatioOxygen": {"dataType": "Float", "range": "0-1", "description": "Oxygen ratio in tank's internal atmosphere."},
+        "RatioCarbonDioxide": {"dataType": "Float", "range": "0-1", "description": "Carbon dioxide ratio in tank's internal atmosphere."},
+        "RatioNitrogen": {"dataType": "Float", "range": "0-1", "description": "Nitrogen ratio in tank's internal atmosphere."},
+        "RatioPollutant": {"dataType": "Float", "range": "0-1", "description": "Pollutant ratio in tank's internal atmosphere."},
+        "RatioVolatiles": {"dataType": "Float", "range": "0-1", "description": "Volatiles ratio in tank's internal atmosphere."},
+        "RatioWater": {"dataType": "Float", "range": "0-1", "description": "Water ratio in tank's internal atmosphere."},
+        "RatioNitrousOxide": {"dataType": "Float", "range": "0-1", "description": "Nitrous oxide ratio in tank's internal atmosphere."},
+        "Combustion": {"dataType": "Boolean", "range": "0-1", "description": "Whether combustion is occurring in the tank. 1 = combusting."},
+        "RatioLiquidOxygen": {"dataType": "Float", "range": "0-1", "description": "Liquid oxygen ratio in tank's internal atmosphere."},
+        "RatioLiquidVolatiles": {"dataType": "Float", "range": "0-1", "description": "Liquid volatiles ratio in tank's internal atmosphere."},
+        "RatioSteam": {"dataType": "Float", "range": "0-1", "description": "Steam ratio in tank's internal atmosphere."},
+        "RatioLiquidCarbonDioxide": {"dataType": "Float", "range": "0-1", "description": "Liquid carbon dioxide ratio in tank's internal atmosphere."},
+        "RatioLiquidPollutant": {"dataType": "Float", "range": "0-1", "description": "Liquid pollutant ratio in tank's internal atmosphere."},
+        "RatioLiquidNitrousOxide": {"dataType": "Float", "range": "0-1", "description": "Liquid nitrous oxide ratio in tank's internal atmosphere."},
+        "RatioLiquidNitrogen": {"dataType": "Float", "range": "0-1", "description": "Liquid nitrogen ratio in tank's internal atmosphere."},
+        "RatioHydrogen": {"dataType": "Float", "range": "0-1", "description": "Hydrogen ratio in tank's internal atmosphere."},
+        "RatioPollutedWater": {"dataType": "Float", "range": "0-1", "description": "Polluted water ratio in tank's internal atmosphere."},
+        "RatioLiquidHydrogen": {"dataType": "Float", "range": "0-1", "description": "Liquid hydrogen ratio in tank's internal atmosphere."},
+        "PressureOutput": {"dataType": "Float", "range": "0+ kPa", "description": "Pressure at tank's output connection (if applicable)."},
+        "TemperatureOutput": {"dataType": "Float", "range": "0+ K", "description": "Temperature at tank's output connection (if applicable)."},
+        "TotalMolesOutput": {"dataType": "Float", "range": "0+", "description": "Total moles at tank's output connection (if applicable)."},
+        "CombustionOutput": {"dataType": "Boolean", "range": "0-1", "description": "Whether combustion is occurring at output (if applicable)."},
+        "RatioOxygenOutput": {"dataType": "Float", "range": "0-1", "description": "Oxygen ratio at tank's output connection (if applicable)."},
+        "RatioCarbonDioxideOutput": {"dataType": "Float", "range": "0-1", "description": "Carbon dioxide ratio at tank's output connection (if applicable)."},
+        "RatioNitrogenOutput": {"dataType": "Float", "range": "0-1", "description": "Nitrogen ratio at tank's output connection (if applicable)."},
+        "RatioPollutantOutput": {"dataType": "Float", "range": "0-1", "description": "Pollutant ratio at tank's output connection (if applicable)."},
+        "RatioVolatilesOutput": {"dataType": "Float", "range": "0-1", "description": "Volatiles ratio at tank's output connection (if applicable)."},
+        "RatioWaterOutput": {"dataType": "Float", "range": "0-1", "description": "Water ratio at tank's output connection (if applicable)."},
+        "RatioNitrousOxideOutput": {"dataType": "Float", "range": "0-1", "description": "Nitrous oxide ratio at tank's output connection (if applicable)."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureLiquidTankBigInsulated",
+      "title": "Liquid Tank Big (Insulated)",
+      "logicDescriptions": {
+        "Pressure": {"dataType": "Float", "range": "0+ kPa", "description": "Pressure in kPa of the tank's internal atmosphere."},
+        "Temperature": {"dataType": "Float", "range": "0+ K", "description": "Temperature in Kelvin of the tank's internal atmosphere."},
+        "TotalMoles": {"dataType": "Float", "range": "0+", "description": "Total moles of gas and liquid in the tank."},
+        "Volume": {"dataType": "Float", "range": "0+ L", "description": "Internal volume of the tank in liters."},
+        "VolumeOfLiquid": {"dataType": "Float", "range": "0+ L", "description": "Volume of liquids in the tank in liters."},
+        "Ratio": {"dataType": "Float", "range": "0-1", "description": "Fill ratio of tank (total moles / max capacity)."},
+        "Setting": {"dataType": "Float", "range": "0-101325 kPa", "description": "Target pressure threshold for tanks with pressure control. Write to set, read to check current setting."},
+        "Maximum": {"dataType": "Float", "range": "0+ L", "description": "Maximum volume capacity of the tank."},
+        "RatioOxygen": {"dataType": "Float", "range": "0-1", "description": "Oxygen ratio in tank's internal atmosphere."},
+        "RatioCarbonDioxide": {"dataType": "Float", "range": "0-1", "description": "Carbon dioxide ratio in tank's internal atmosphere."},
+        "RatioNitrogen": {"dataType": "Float", "range": "0-1", "description": "Nitrogen ratio in tank's internal atmosphere."},
+        "RatioPollutant": {"dataType": "Float", "range": "0-1", "description": "Pollutant ratio in tank's internal atmosphere."},
+        "RatioVolatiles": {"dataType": "Float", "range": "0-1", "description": "Volatiles ratio in tank's internal atmosphere."},
+        "RatioWater": {"dataType": "Float", "range": "0-1", "description": "Water ratio in tank's internal atmosphere."},
+        "RatioNitrousOxide": {"dataType": "Float", "range": "0-1", "description": "Nitrous oxide ratio in tank's internal atmosphere."},
+        "Combustion": {"dataType": "Boolean", "range": "0-1", "description": "Whether combustion is occurring in the tank. 1 = combusting."},
+        "RatioLiquidOxygen": {"dataType": "Float", "range": "0-1", "description": "Liquid oxygen ratio in tank's internal atmosphere."},
+        "RatioLiquidVolatiles": {"dataType": "Float", "range": "0-1", "description": "Liquid volatiles ratio in tank's internal atmosphere."},
+        "RatioSteam": {"dataType": "Float", "range": "0-1", "description": "Steam ratio in tank's internal atmosphere."},
+        "RatioLiquidCarbonDioxide": {"dataType": "Float", "range": "0-1", "description": "Liquid carbon dioxide ratio in tank's internal atmosphere."},
+        "RatioLiquidPollutant": {"dataType": "Float", "range": "0-1", "description": "Liquid pollutant ratio in tank's internal atmosphere."},
+        "RatioLiquidNitrousOxide": {"dataType": "Float", "range": "0-1", "description": "Liquid nitrous oxide ratio in tank's internal atmosphere."},
+        "RatioLiquidNitrogen": {"dataType": "Float", "range": "0-1", "description": "Liquid nitrogen ratio in tank's internal atmosphere."},
+        "RatioHydrogen": {"dataType": "Float", "range": "0-1", "description": "Hydrogen ratio in tank's internal atmosphere."},
+        "RatioPollutedWater": {"dataType": "Float", "range": "0-1", "description": "Polluted water ratio in tank's internal atmosphere."},
+        "RatioLiquidHydrogen": {"dataType": "Float", "range": "0-1", "description": "Liquid hydrogen ratio in tank's internal atmosphere."},
+        "PressureOutput": {"dataType": "Float", "range": "0+ kPa", "description": "Pressure at tank's output connection (if applicable)."},
+        "TemperatureOutput": {"dataType": "Float", "range": "0+ K", "description": "Temperature at tank's output connection (if applicable)."},
+        "TotalMolesOutput": {"dataType": "Float", "range": "0+", "description": "Total moles at tank's output connection (if applicable)."},
+        "CombustionOutput": {"dataType": "Boolean", "range": "0-1", "description": "Whether combustion is occurring at output (if applicable)."},
+        "RatioOxygenOutput": {"dataType": "Float", "range": "0-1", "description": "Oxygen ratio at tank's output connection (if applicable)."},
+        "RatioCarbonDioxideOutput": {"dataType": "Float", "range": "0-1", "description": "Carbon dioxide ratio at tank's output connection (if applicable)."},
+        "RatioNitrogenOutput": {"dataType": "Float", "range": "0-1", "description": "Nitrogen ratio at tank's output connection (if applicable)."},
+        "RatioPollutantOutput": {"dataType": "Float", "range": "0-1", "description": "Pollutant ratio at tank's output connection (if applicable)."},
+        "RatioVolatilesOutput": {"dataType": "Float", "range": "0-1", "description": "Volatiles ratio at tank's output connection (if applicable)."},
+        "RatioWaterOutput": {"dataType": "Float", "range": "0-1", "description": "Water ratio at tank's output connection (if applicable)."},
+        "RatioNitrousOxideOutput": {"dataType": "Float", "range": "0-1", "description": "Nitrous oxide ratio at tank's output connection (if applicable)."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureLiquidPipeAnalyzer",
+      "title": "Liquid Pipe Analyzer",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state. Write 1 to turn on, 0 to turn off."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when active."},
+        "Error": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device has an error state (e.g., not connected to network)."},
+        "NetworkFault": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if there is a network/pipe connection fault."},
+        "Lock": {"dataType": "Boolean", "range": "0-1", "description": "Read/write lock state. Write 1 to prevent interaction, 0 to allow."},
+        "Pressure": {"dataType": "Float", "range": "0+ kPa", "description": "Pressure in kPa of the connected liquid pipe network."},
+        "Temperature": {"dataType": "Float", "range": "0+ K", "description": "Temperature in Kelvin of the connected liquid pipe network."},
+        "TotalMoles": {"dataType": "Float", "range": "0+", "description": "Total moles in the connected liquid pipe network."},
+        "Volume": {"dataType": "Float", "range": "0+ L", "description": "Volume of the connected liquid pipe network in liters."},
+        "VolumeOfLiquid": {"dataType": "Float", "range": "0+ L", "description": "Volume of liquids in the connected pipe network."},
+        "Combustion": {"dataType": "Boolean", "range": "0-1", "description": "Whether combustion is occurring in the connected network."},
+        "RatioOxygen": {"dataType": "Float", "range": "0-1", "description": "Oxygen ratio in connected liquid pipe network."},
+        "RatioCarbonDioxide": {"dataType": "Float", "range": "0-1", "description": "Carbon dioxide ratio in connected liquid pipe network."},
+        "RatioNitrogen": {"dataType": "Float", "range": "0-1", "description": "Nitrogen ratio in connected liquid pipe network."},
+        "RatioPollutant": {"dataType": "Float", "range": "0-1", "description": "Pollutant ratio in connected liquid pipe network."},
+        "RatioVolatiles": {"dataType": "Float", "range": "0-1", "description": "Volatiles ratio in connected liquid pipe network."},
+        "RatioWater": {"dataType": "Float", "range": "0-1", "description": "Water ratio in connected liquid pipe network."},
+        "RatioNitrousOxide": {"dataType": "Float", "range": "0-1", "description": "Nitrous oxide ratio in connected liquid pipe network."},
+        "RatioLiquidOxygen": {"dataType": "Float", "range": "0-1", "description": "Liquid oxygen ratio in connected liquid pipe network."},
+        "RatioLiquidVolatiles": {"dataType": "Float", "range": "0-1", "description": "Liquid volatiles ratio in connected liquid pipe network."},
+        "RatioSteam": {"dataType": "Float", "range": "0-1", "description": "Steam ratio in connected liquid pipe network."},
+        "RatioLiquidCarbonDioxide": {"dataType": "Float", "range": "0-1", "description": "Liquid carbon dioxide ratio in connected liquid pipe network."},
+        "RatioLiquidPollutant": {"dataType": "Float", "range": "0-1", "description": "Liquid pollutant ratio in connected liquid pipe network."},
+        "RatioLiquidNitrousOxide": {"dataType": "Float", "range": "0-1", "description": "Liquid nitrous oxide ratio in connected liquid pipe network."},
+        "RatioLiquidNitrogen": {"dataType": "Float", "range": "0-1", "description": "Liquid nitrogen ratio in connected liquid pipe network."},
+        "RatioHydrogen": {"dataType": "Float", "range": "0-1", "description": "Hydrogen ratio in connected liquid pipe network."},
+        "RatioPollutedWater": {"dataType": "Float", "range": "0-1", "description": "Polluted water ratio in connected liquid pipe network."},
+        "RatioLiquidHydrogen": {"dataType": "Float", "range": "0-1", "description": "Liquid hydrogen ratio in connected liquid pipe network."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureLarreDockCargo",
+      "title": "LArRE Dock (Cargo)",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state. Write 1 to turn on, 0 to turn off."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when active."},
+        "Error": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if dock has an error state (no robot, obstructed, etc)."},
+        "Idle": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if the robotic arm is idle (not moving)."},
+        "Extended": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if the robotic arm is extended."},
+        "Open": {"dataType": "Boolean", "range": "0-1", "description": "Read/write state for cargo loading. Write 1 to open/load, 0 to close."},
+        "Setting": {"dataType": "Float", "range": "Varies", "description": "Configurable setting for the dock operation. Specific usage depends on dock mode."},
+        "Activate": {"dataType": "Boolean", "range": "0-1", "description": "Write 1 to trigger the dock's primary action."},
+        "PositionX": {"dataType": "Float", "range": "Varies", "description": "X-axis position of the robotic arm."},
+        "TargetSlotIndex": {"dataType": "Integer", "range": "0+", "description": "Read/write the target slot index for cargo operations."},
+        "TargetPrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "The prefab hash of the target item/structure the dock is interacting with."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureBatteryLarge",
+      "title": "Station Battery (Large)",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state. Write 1 to turn on, 0 to turn off."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if battery has any charge remaining."},
+        "Error": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if battery has an error (e.g., input/output on same network)."},
+        "Lock": {"dataType": "Boolean", "range": "0-1", "description": "Read/write lock state. Write 1 to lock interaction, 0 to unlock."},
+        "Mode": {"dataType": "Integer", "range": "0-6", "description": "Read-only charge state: 0=Empty, 1=Critical, 2=VeryLow, 3=Low, 4=Medium, 5=High, 6=Full."},
+        "Charge": {"dataType": "Float", "range": "0+ J", "description": "Current stored energy in joules."},
+        "Maximum": {"dataType": "Float", "range": "0+ J", "description": "Maximum energy storage capacity in joules."},
+        "Ratio": {"dataType": "Float", "range": "0-1", "description": "Charge ratio (current charge / maximum capacity)."},
+        "PowerActual": {"dataType": "Float", "range": "W", "description": "Actual power flow in watts. Positive = charging, negative = discharging."},
+        "PowerPotential": {"dataType": "Float", "range": "0+ W", "description": "Potential power that could be supplied or received."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureInteriorDoorGlass",
+      "title": "Interior Door Glass",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state (power state). Write 1 to enable, 0 to disable."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when operating."},
+        "Open": {"dataType": "Boolean", "range": "0-1", "description": "Read/write door open state. Write 1 to open, 0 to close."},
+        "Idle": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if door is idle (not currently opening/closing)."},
+        "Mode": {"dataType": "Integer", "range": "0-2", "description": "Door automation mode. 0=Closed (manual), 1=Auto (opens for entities), 2=Open (stays open)."},
+        "Lock": {"dataType": "Boolean", "range": "0-1", "description": "Read/write lock state. Write 1 to lock door, 0 to unlock."},
+        "Setting": {"dataType": "Float", "range": "0-100", "description": "Door automation sensitivity or delay setting. Higher values increase trigger distance or delay."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureAirlockGate",
+      "title": "Small Hangar Door",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state (power state). Write 1 to enable, 0 to disable."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when operating."},
+        "Open": {"dataType": "Boolean", "range": "0-1", "description": "Read/write door open state. Write 1 to open, 0 to close."},
+        "Idle": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if door is idle (not currently opening/closing)."},
+        "Mode": {"dataType": "Integer", "range": "0-2", "description": "Door automation mode. 0=Closed (manual), 1=Auto (opens for entities), 2=Open (stays open)."},
+        "Lock": {"dataType": "Boolean", "range": "0-1", "description": "Read/write lock state. Write 1 to lock door, 0 to unlock."},
+        "Setting": {"dataType": "Float", "range": "0-100", "description": "Door automation sensitivity or delay setting. Higher values increase trigger distance or delay."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingDeviceStepUnit",
+      "title": "Device Step Unit",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state. Write 1 to turn on, 0 to turn off."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when active."},
+        "Error": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device has an error state."},
+        "Mode": {"dataType": "Integer", "range": "0+", "description": "Operating mode of the step unit. Specific values depend on device configuration."},
+        "Volume": {"dataType": "Float", "range": "0-100", "description": "Read/write volume or intensity level (0-100%)."},
+        "Activate": {"dataType": "Boolean", "range": "0-1", "description": "Write 1 to trigger the step unit's action."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingModularDeviceCardReader",
+      "title": "Access Card Reader",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state. Write 1 to turn on, 0 to turn off."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when active."},
+        "Mode": {"dataType": "Integer", "range": "0+", "description": "Reader operating mode. Different modes may affect validation behavior."},
+        "Color": {"dataType": "Integer", "range": "0-11", "description": "Read/write LED color. 0=White, 1=Grey, 2=Red, 3=Orange, 4=Yellow, 5=Green, 6=Blue, 7=Indigo, 8=Violet, 9=Pink, 10=Purple, 11=Brown."},
+        "Setting": {"dataType": "Float", "range": "Varies", "description": "Returns card authorization status or reader configuration value."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureSolarPanelDualReinforced",
+      "title": "Solar Panel (Heavy Dual)",
+      "logicDescriptions": {
+        "Charge": {"dataType": "Float", "range": "0+ W", "description": "Current power generation in watts."},
+        "Maximum": {"dataType": "Float", "range": "0+ W", "description": "Maximum potential power generation in watts."},
+        "Ratio": {"dataType": "Float", "range": "0-1", "description": "Generation efficiency ratio (actual / maximum potential)."},
+        "Horizontal": {"dataType": "Float", "range": "0-360°", "description": "Read/write horizontal rotation angle in degrees."},
+        "Vertical": {"dataType": "Float", "range": "15-165°", "description": "Read/write vertical tilt angle in degrees."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureSolarPanel",
+      "title": "Solar Panel",
+      "logicDescriptions": {
+        "Charge": {"dataType": "Float", "range": "0+ W", "description": "Current power generation in watts."},
+        "Maximum": {"dataType": "Float", "range": "0+ W", "description": "Maximum potential power generation in watts."},
+        "Ratio": {"dataType": "Float", "range": "0-1", "description": "Generation efficiency ratio (actual / maximum potential)."},
+        "Horizontal": {"dataType": "Float", "range": "0-360°", "description": "Read/write horizontal rotation angle in degrees."},
+        "Vertical": {"dataType": "Float", "range": "15-165°", "description": "Read/write vertical tilt angle in degrees."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingModularDeviceLabelDiode2",
+      "title": "Label Diode 2",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Device on/off state. Write 1 to turn on, 0 to turn off."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if device is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when lit."},
+        "Mode": {"dataType": "Integer", "range": "0+", "description": "Display mode affecting how the diode responds to input."},
+        "Color": {"dataType": "Integer", "range": "0-11", "description": "Read/write LED color. 0=White, 1=Grey, 2=Red, 3=Orange, 4=Yellow, 5=Green, 6=Blue, 7=Indigo, 8=Violet, 9=Pink, 10=Purple, 11=Brown."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureLightLong",
+      "title": "Wall Light (Long)",
+      "logicDescriptions": {
+        "On": {"dataType": "Boolean", "range": "0-1", "description": "Light on/off state. Write 1 to turn on, 0 to turn off."},
+        "Power": {"dataType": "Boolean", "range": "0-1", "description": "Returns 1 if light is powered."},
+        "RequiredPower": {"dataType": "Float", "range": "0+ W", "description": "Power draw in watts when lit."},
+        "Lock": {"dataType": "Boolean", "range": "0-1", "description": "Read/write lock state. Write 1 to prevent manual toggling, 0 to allow."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureSuperLargeDirectHeatExchangeGastoLiquid",
+      "title": "Super-Large Direct Heat Exchanger (Gas to Liquid)",
+      "logicDescriptions": {
+        "Setting": {"dataType": "Float", "range": "0+ W", "description": "Read/write target heat exchange rate in watts. Higher values increase energy transfer speed."},
+        "Ratio": {"dataType": "Float", "range": "0-1", "description": "Current efficiency ratio of heat exchange (actual / target)."},
+        "Maximum": {"dataType": "Float", "range": "0+ W", "description": "Maximum heat exchange capacity in watts."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructurePassiveLargeRadiatorLiquid",
+      "title": "Medium Convection Radiator Liquid",
+      "logicDescriptions": {
+        "Setting": {"dataType": "Float", "range": "0+ W", "description": "Read/write target heat dissipation rate in watts."},
+        "Ratio": {"dataType": "Float", "range": "0-1", "description": "Current efficiency ratio of heat dissipation (actual / target)."},
+        "Maximum": {"dataType": "Float", "range": "0+ W", "description": "Maximum heat dissipation capacity in watts."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingModularDeviceGauge3x3",
+      "title": "Gauge 3x3",
+      "logicDescriptions": {
+        "Setting": {"dataType": "Float", "range": "Varies", "description": "Read/write the value displayed on the gauge."},
+        "Color": {"dataType": "Integer", "range": "0-11", "description": "Read/write gauge color. 0=White, 1=Grey, 2=Red, 3=Orange, 4=Yellow, 5=Green, 6=Blue, 7=Indigo, 8=Violet, 9=Pink, 10=Purple, 11=Brown."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureLogicHashGen",
+      "title": "Logic Hash Generator",
+      "logicDescriptions": {
+        "Setting": {"dataType": "Hash", "range": "CRC32", "description": "Read-only. Returns the CRC32 hash of the configured string input."},
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    },
+    {
+      "deviceKey": "ThingStructureWaterPipeMeter",
+      "title": "Liquid Pipe Meter",
+      "logicDescriptions": {
+        "ReferenceId": {"dataType": "Hash", "range": "Unique", "description": "Unique reference ID hash for this device."},
+        "PrefabHash": {"dataType": "Hash", "range": "CRC32", "description": "Device type hash identifier (CRC32)."},
+        "NameHash": {"dataType": "Hash", "range": "CRC32", "description": "Custom name hash (if renamed)."}
+      }
+    }
+  ]
+}

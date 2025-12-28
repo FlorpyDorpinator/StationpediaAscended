@@ -1,0 +1,222 @@
+﻿[
+    {
+        "deviceKey":  "ThingStructureSolarPanel",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolarPanel45",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolarPanel45Reinforced",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolarPanelDual",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolarPanelDualReinforced",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolarPanelFlat",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolarPanelFlatReinforced",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolarPanelReinforced",
+        "reviewTypes":  "Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSmallDirectHeatExchangeGastoGas",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSmallDirectHeatExchangeLiquidtoGas",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSmallDirectHeatExchangeLiquidtoLiquid",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSuperLargeDirectHeatExchangeGastoGas",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSuperLargeDirectHeatExchangeGastoLiquid",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSuperLargeDirectHeatExchangeLiquidToLiquid",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSleeperVerticalDroid",
+        "reviewTypes":  "Error, Activate, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureSmallSatelliteDish",
+        "reviewTypes":  "Error, Activate, Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureSorter",
+        "reviewTypes":  "Mode, Error, Lock, Output"
+    },
+    {
+        "deviceKey":  "ThingStructureStacker",
+        "reviewTypes":  "Mode, Error, Activate, Lock, Setting, Output"
+    },
+    {
+        "deviceKey":  "ThingStructureStackerReverse",
+        "reviewTypes":  "Mode, Error, Activate, Lock, Setting, Output"
+    },
+    {
+        "deviceKey":  "ThingStructureStirlingEngine",
+        "reviewTypes":  "Error, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureTankSmall",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureTankSmallAir",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureTankSmallFuel",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureTankSmallInsulated",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureTankBig",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureTankBigInsulated",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureTransformer",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureTransformerMedium",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureTransformerSmall",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureTransformerSmallReversed",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureValve",
+        "reviewTypes":  "Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureVolumePump",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureTurboVolumePump",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureWallCooler",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureWallHeater",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSolidFuelGenerator",
+        "reviewTypes":  "Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureSpotlight",
+        "reviewTypes":  "Mode, Error"
+    },
+    {
+        "deviceKey":  "ThingStructureStorageLocker",
+        "reviewTypes":  "Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureSuitStorage",
+        "reviewTypes":  "Error, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSuitStorageFrame",
+        "reviewTypes":  "Error, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureSuitStorageLocker",
+        "reviewTypes":  "Error, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureToolManufactory",
+        "reviewTypes":  "Error, Activate, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureTraderWaypoint",
+        "reviewTypes":  "Error"
+    },
+    {
+        "deviceKey":  "ThingStructureUnloader",
+        "reviewTypes":  "Mode, Error, Lock, Output"
+    },
+    {
+        "deviceKey":  "ThingStructureVendingMachine",
+        "reviewTypes":  "Error, Activate, Lock, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureVendingMachineSmall",
+        "reviewTypes":  "Error, Activate, Lock, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureVeryImportantButton",
+        "reviewTypes":  "Error, Activate, Lock, Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureWallLight",
+        "reviewTypes":  "Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureWallLightBattery",
+        "reviewTypes":  "Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureWaterBottleFillerPowered",
+        "reviewTypes":  "Error, Activate"
+    },
+    {
+        "deviceKey":  "ThingStructureWaterBottleFillerPoweredBottom",
+        "reviewTypes":  "Error, Activate"
+    },
+    {
+        "deviceKey":  "ThingStructureWaterDigitalValve",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureWaterPurifier",
+        "reviewTypes":  "Error, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureWaterWallCooler",
+        "reviewTypes":  "Error, Lock, Setting, Ratio"
+    },
+    {
+        "deviceKey":  "ThingStructureWeatherStation",
+        "reviewTypes":  "Mode, Error, Activate, Lock"
+    }
+]

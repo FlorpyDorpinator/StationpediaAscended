@@ -1,0 +1,24 @@
+﻿{
+    "devices":  [
+                    "ThingStructureHydroponicsStation",
+                    "ThingStructureLiquidTankSmallInsulated",
+                    "ThingStructureGroundBasedTelescope",
+                    "ThingStructureAutolathe",
+                    "ThingStructureAreaPowerControl",
+                    "ThingStructureLiquidTurboVolumePump",
+                    "ThingStructureManualHatch",
+                    "ThingStructureBatteryMedium",
+                    "ThingStructureSleeperVerticalDroid",
+                    "ThingStructureLogicBatchSlotReader",
+                    "ThingStructureSolarPanel45",
+                    "ThingModularDeviceSliderDiode2",
+                    "ThingStructureLiquidValve",
+                    "ThingModularDeviceSwitch",
+                    "ThingStructurePassiveLargeRadiatorGas",
+                    "ThingStructureOverheadShortCornerLocker",
+                    "ThingModularDeviceEmergencyButton3x3"
+                ],
+    "missingEntries":  235,
+    "batchNumber":  11,
+    "deviceCount":  17
+}

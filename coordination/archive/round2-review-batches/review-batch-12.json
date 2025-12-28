@@ -1,0 +1,25 @@
+﻿{
+    "devices":  [
+                    "ThingStructureTankBigInsulated",
+                    "ThingStructureTankBig",
+                    "ThingStructureHydroponicsTrayData",
+                    "ThingStructureAdvancedPackagingMachine",
+                    "ThingStructureLogicPidController",
+                    "ThingStructureTurboVolumePump",
+                    "ThingStructureVolumePump",
+                    "ThingStructureDigitalValve",
+                    "ThingModularDeviceLEDdisplay3",
+                    "ThingStructureLogicBatchWriter",
+                    "ThingStructureSolidFuelGenerator",
+                    "ThingModularDeviceMeter3x3",
+                    "ThingStructurePipeIgniter",
+                    "ThingStructureSuperLargeDirectHeatExchangeLiquidToLiquid",
+                    "ThingStructureGasUmbilicalFemaleSide",
+                    "ThingStructureCamera",
+                    "ThingStructureUprightWindTurbine",
+                    "ThingRover_MkI"
+                ],
+    "missingEntries":  237,
+    "batchNumber":  12,
+    "deviceCount":  18
+}

@@ -1,0 +1,34 @@
+﻿[
+    {
+        "deviceKey":  "ThingStructurePoweredVent",
+        "reviewTypes":  "Mode, Error, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructurePoweredVentLarge",
+        "reviewTypes":  "Mode, Error, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructureProximitySensor",
+        "reviewTypes":  "Activate, Setting"
+    },
+    {
+        "deviceKey":  "ThingStructureRecycler",
+        "reviewTypes":  "Activate, Error"
+    },
+    {
+        "deviceKey":  "ThingStructurePressureRegulator",
+        "reviewTypes":  "Setting, Ratio, Error, Lock"
+    },
+    {
+        "deviceKey":  "ThingStructurePressurePlateLarge",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructurePressurePlateMedium",
+        "reviewTypes":  "Setting"
+    },
+    {
+        "deviceKey":  "ThingStructurePressurePlateSmall",
+        "reviewTypes":  "Setting"
+    }
+]

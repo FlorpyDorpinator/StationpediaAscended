@@ -1,0 +1,25 @@
+﻿{
+    "devices":  [
+                    "ThingStructureTankSmall",
+                    "ThingStructureLiquidTankSmall",
+                    "ThingStructureGovernedGasEngine",
+                    "ThingStructureLarreDockCollector",
+                    "ThingStructureDeepMiner",
+                    "ThingStructureGlassDoor",
+                    "ThingStructureBackLiquidPressureRegulator",
+                    "ThingStructureWaterPurifier",
+                    "ThingModularDeviceLEDdisplay2",
+                    "ThingStructureLogicWriter",
+                    "ThingStructureGlowLight2",
+                    "ThingStructureLightLongAngled",
+                    "ThingModularDeviceAlarm",
+                    "ThingStructureLogicRocketUplink",
+                    "ThingStructureMediumConvectionRadiator",
+                    "ThingModularDeviceUtilityButton2x2",
+                    "ThingStructureLogicMemory",
+                    "ThingStructureAngledBench"
+                ],
+    "missingEntries":  237,
+    "batchNumber":  14,
+    "deviceCount":  18
+}

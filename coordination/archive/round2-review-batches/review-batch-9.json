@@ -1,0 +1,25 @@
+﻿{
+    "devices":  [
+                    "ThingStructureFridgeBig",
+                    "ThingStructureLargeRocketLiquidFuelTank",
+                    "ThingStructureLiquidDrain",
+                    "ThingStructurePoweredVent",
+                    "ThingStructureLogicSorter",
+                    "ThingStructureCentrifuge",
+                    "ThingStructureTransformerSmall",
+                    "ThingLaunchSilo",
+                    "ThingStructureSuitStorageFrame",
+                    "ThingStructureSolarPanelFlatReinforced",
+                    "ThingStructureSolarPanel45Reinforced",
+                    "ThingStructureLiquidPipeHeater",
+                    "ThingStructureLightRoundSmall",
+                    "ThingLandingpad_ThreshholdPiece",
+                    "ThingStructureOccupancySensor",
+                    "ThingPassiveSpeaker",
+                    "ThingModularDeviceBigLever",
+                    "ThingCartridgeDebugAnalyzer"
+                ],
+    "missingEntries":  236,
+    "batchNumber":  9,
+    "deviceCount":  18
+}
