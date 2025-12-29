@@ -2,6 +2,41 @@
 
 All notable changes to Stationpedia Ascended will be documented in this file.
 
+## [0.1.2] - 2025-12-28
+
+### 🏗️ Major Code Refactoring
+Restructured the codebase from a single 2,535-line monolithic file into a clean multi-file architecture for improved maintainability and navigation.
+
+#### New File Structure
+- **`src/Data/Models.cs`** - All 9 JSON data model classes (`DescriptionsRoot`, `DeviceDescriptions`, `LogicDescription`, `ModeDescription`, `SlotDescription`, `VersionDescription`, `MemoryDescription`, `OperationalDetail`, `GenericDescriptionsData`)
+- **`src/Tooltips/SPDABaseTooltip.cs`** - Abstract base class with shared tooltip functionality (hover delay, pointer events, positioning)
+- **`src/Tooltips/SPDALogicTooltip.cs`** - Logic type tooltip component
+- **`src/Tooltips/SPDASlotTooltip.cs`** - Slot tooltip component
+- **`src/Tooltips/SPDAVersionTooltip.cs`** - Version tooltip component  
+- **`src/Tooltips/SPDAMemoryTooltip.cs`** - Memory/register tooltip component
+- **`src/Patches/HarmonyPatches.cs`** - All Harmony patch methods (`PopulateLogicSlotInserts_Postfix`, `ChangeDisplay_Postfix`, `OnDrag_Prefix`, `OnBeginDrag_Prefix`) plus `CreateOperationalDetailsCategory` helper
+- **`src/Core/TooltipState.cs`** - Centralized tooltip visibility state management
+
+#### Code Improvements
+- Reduced main file (`StationpediaAscended.cs`) from 2,535 lines to ~1,500 lines (43% reduction)
+- Eliminated code duplication in tooltip classes via shared base class
+- Improved separation of concerns between data models, UI components, and patches
+- Added proper namespace organization (`StationpediaAscended.Data`, `StationpediaAscended.Tooltips`, `StationpediaAscended.Patches`, `StationpediaAscended.Core`)
+
+### 🐛 Bug Fixes
+- **Fixed JSON deserialization for OperationalDetails** - Added `[JsonProperty]` attributes to handle case-sensitivity between JSON (`"OperationalDetails"`) and C# (`operationalDetails`)
+- **Fixed descriptions.json path resolution** - Updated hardcoded development paths from old `StationpediaPlus` folder to `StationpediaAscended`
+- **Fixed null reference in path resolution** - Added null-safety for `Path.GetDirectoryName()` which can return null
+- **Fixed VS Code build task** - Updated `.vscode/tasks.json` to use correct project name and paths
+
+### 🔧 Technical Changes
+- Renamed `StationpediaAscended.Harmony` namespace to `StationpediaAscended.Patches` to avoid conflict with `HarmonyLib.Harmony`
+- Added `using Newtonsoft.Json;` import to Models.cs for JsonProperty attributes
+- Improved console logging during JSON path search for easier debugging
+- Build task now correctly deploys `StationpediaAscended.dll` instead of `StationpediaPlus.dll`
+
+---
+
 ## [0.1.0-beta] - 2025-12-28
 
 ### 🎉 Initial Release (Beta)
