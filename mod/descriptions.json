@@ -6382,7 +6382,7 @@
           "description": "Robot unloads carried items to storage."
         }
       },
-      "specialBehaviors": [
+      "OperationalDetails": [
         {
           "title": "IC10 Execution",
           "description": "When On, has power, and contains a valid chip without compilation errors, Aimee executes up to 128 IC10 instructions per game tick. Power consumption: 2.5W per execution cycle."

@@ -13,22 +13,22 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Newtonsoft.Json;
 
-namespace StationpediaPlus
+namespace StationpediaAscended
 {
     /// <summary>
-    /// StationpediaPlus - Enhanced Stationpedia with tooltips and special behaviors
+    /// Stationpedia Ascended - Enhanced Stationpedia with tooltips and operational details
     /// Per apro: BepInPlugin attribute + BaseUnityPlugin base class is required for ScriptEngine hot-reload
     /// </summary>
-    [BepInPlugin("StationpediaPlus", "StationpediaPlus", "1.0.0")]
-    public class StationpediaPlusMod : BaseUnityPlugin
+    [BepInPlugin("StationpediaAscended", "Stationpedia Ascended", "1.0.0")]
+    public class StationpediaAscendedMod : BaseUnityPlugin
     {
-        public const string HarmonyId = "com.stationpediaplus.mod";
+        public const string HarmonyId = "com.stationpediaascended.mod";
         
         // BepInEx logger - will show in BepInEx console
         internal static ManualLogSource Log;
         
         // Static reference for tooltip component access
-        public static StationpediaPlusMod Instance { get; private set; }
+        public static StationpediaAscendedMod Instance { get; private set; }
         
         // Description databases
         public static Dictionary<string, DeviceDescriptions> DeviceDatabase { get; private set; }
@@ -53,6 +53,9 @@ namespace StationpediaPlus
         
         // Harmony instance for patching
         private Harmony _harmony;
+        
+        // Custom icon sprite (internal so nested HarmonyPatches class can access it)
+        internal static Sprite _customIconSprite;
         
         // Track created GameObjects and components for cleanup
         internal static List<GameObject> _createdGameObjects = new List<GameObject>();
@@ -101,7 +104,7 @@ namespace StationpediaPlus
                 {
                     Stationpedia.Regenerate();
                     Log.LogInfo(">>> STATIONPEDIA REGENERATED SUCCESSFULLY <<<");
-                    ConsoleWindow.Print("[StationpediaPlus] Stationpedia regenerated!");
+                    ConsoleWindow.Print("[Stationpedia Ascended] Stationpedia regenerated!");
                 }
                 catch (Exception ex)
                 {
@@ -118,7 +121,7 @@ namespace StationpediaPlus
             host.StartCoroutine(MonitorStationpediaCoroutineStatic());
             
             Log.LogInfo("InitializeFromScriptEngine complete!");
-            ConsoleWindow.Print("[StationpediaPlus] Initialized via ScriptEngine!");
+            ConsoleWindow.Print("[Stationpedia Ascended] Initialized via ScriptEngine!");
         }
         
         /// <summary>
@@ -203,7 +206,7 @@ namespace StationpediaPlus
             _scriptEngineHost = null;
             
             Log?.LogInfo("CleanupFromScriptEngine complete");
-            ConsoleWindow.Print("[StationpediaPlus] Cleaned up via ScriptEngine");
+            ConsoleWindow.Print("[Stationpedia Ascended] Cleaned up via ScriptEngine");
         }
         
         // Static Harmony instance for ScriptEngine path
@@ -213,7 +216,7 @@ namespace StationpediaPlus
         public void TriggerReload()
         {
             Log?.LogInfo("TriggerReload called - reinitializing mod...");
-            ConsoleWindow.Print("[StationpediaPlus] TriggerReload called - reinitializing...");
+            ConsoleWindow.Print("[Stationpedia Ascended] TriggerReload called - reinitializing...");
             
             // Cleanup existing state
             CleanupForReload();
@@ -270,18 +273,18 @@ namespace StationpediaPlus
         void Awake()
         {
             this.Logger.LogInfo(
-                $"Awake StationpediaPlus"
+                $"Awake Stationpedia Ascended"
             );
             
             try
             {
                 // Initialize BepInEx logger
-                Log = BepInEx.Logging.Logger.CreateLogSource("StationpediaPlus");
+                Log = BepInEx.Logging.Logger.CreateLogSource("Stationpedia Ascended");
                 Log.LogInfo("========================================");
-                Log.LogInfo("=== StationpediaPlusMod Awake() CALLED ===");
+                Log.LogInfo("=== StationpediaAscended Awake() CALLED ===");
                 Log.LogInfo("========================================");
                 
-                ConsoleWindow.Print("[StationpediaPlus] === Awake() ===");
+                ConsoleWindow.Print("[Stationpedia Ascended] === Awake() ===");
                 
                 // Clean up any existing tooltip components from previous loads (for ScriptEngine hot-reload)
                 CleanupExistingTooltips();
@@ -296,7 +299,7 @@ namespace StationpediaPlus
             catch (Exception ex)
             {
                 Log?.LogError($"ERROR in Awake: {ex}");
-                ConsoleWindow.Print($"[StationpediaPlus] ERROR in Awake: {ex.Message}");
+                ConsoleWindow.Print($"[Stationpedia Ascended] ERROR in Awake: {ex.Message}");
             }
         }
 
@@ -305,57 +308,61 @@ namespace StationpediaPlus
         {
             if (_initialized)
             {
-                Debug.Log("[StationpediaPlus] Initialize called but already initialized, skipping");
-                ConsoleWindow.Print("[StationpediaPlus] Initialize called but already initialized, skipping");
+                Debug.Log("[Stationpedia Ascended] Initialize called but already initialized, skipping");
+                ConsoleWindow.Print("[Stationpedia Ascended] Initialize called but already initialized, skipping");
                 return;
             }
             
-            Debug.Log("[StationpediaPlus] Initialize STARTING...");
-            ConsoleWindow.Print("[StationpediaPlus] Initialize called");
+            Debug.Log("[Stationpedia Ascended] Initialize STARTING...");
+            ConsoleWindow.Print("[Stationpedia Ascended] Initialize called");
+            
+            // Load custom icon
+            Debug.Log("[Stationpedia Ascended] Loading custom icon...");
+            LoadCustomIcon();
             
             // Load descriptions from JSON file
-            Debug.Log("[StationpediaPlus] Loading descriptions...");
+            Debug.Log("[Stationpedia Ascended] Loading descriptions...");
             LoadDescriptions();
             
             // Apply Harmony patches
-            Debug.Log("[StationpediaPlus] Applying Harmony patches...");
+            Debug.Log("[Stationpedia Ascended] Applying Harmony patches...");
             ApplyHarmonyPatches();
             
             // On hot-reload, skip Regenerate() - it fails because Stationpedia's internal state
             // has references to destroyed Unity objects. Pages will update when viewed.
             // We detect hot-reload by checking if Stationpedia.Instance exists (it wouldn't during cold start).
             Log?.LogInfo($"Stationpedia.Instance = {Stationpedia.Instance}");
-            Debug.Log($"[StationpediaPlus] Stationpedia.Instance = {Stationpedia.Instance}");
+            Debug.Log($"[Stationpedia Ascended] Stationpedia.Instance = {Stationpedia.Instance}");
             if (Stationpedia.Instance != null)
             {
                 // Don't call Regenerate() - it causes NullReferenceException during hot-reload
                 // because the Stationpedia's CreatedCategories list has destroyed object references.
                 // Instead, just close and re-open the Stationpedia to refresh, or navigate to a new page.
                 Log?.LogInfo(">>> Skipping Regenerate() to avoid hot-reload crash <<<");
-                Debug.Log("[StationpediaPlus] Skipping Regenerate() - pages will refresh when navigated");
-                ConsoleWindow.Print("[StationpediaPlus] Patches applied! Navigate to a page to see changes.");
+                Debug.Log("[Stationpedia Ascended] Skipping Regenerate() - pages will refresh when navigated");
+                ConsoleWindow.Print("[Stationpedia Ascended] Patches applied! Navigate to a page to see changes.");
             }
             else
             {
                 Log?.LogWarning("Stationpedia.Instance is NULL - cannot regenerate yet");
-                Debug.Log("[StationpediaPlus] Stationpedia.Instance is null - patches will apply later");
-                ConsoleWindow.Print("[StationpediaPlus] Stationpedia not yet initialized - patches will apply on first open");
+                Debug.Log("[Stationpedia Ascended] Stationpedia.Instance is null - patches will apply later");
+                ConsoleWindow.Print("[Stationpedia Ascended] Stationpedia not yet initialized - patches will apply on first open");
             }
             
             // Start the monitoring coroutine
-            Debug.Log("[StationpediaPlus] Starting monitoring coroutine...");
+            Debug.Log("[Stationpedia Ascended] Starting monitoring coroutine...");
             _monitorCoroutine = StartCoroutine(MonitorStationpediaCoroutine());
-            ConsoleWindow.Print("[StationpediaPlus] Started monitoring coroutine");
+            ConsoleWindow.Print("[Stationpedia Ascended] Started monitoring coroutine");
             
             _initialized = true;
-            Debug.Log("[StationpediaPlus] Initialize COMPLETE!");
-            ConsoleWindow.Print("[StationpediaPlus] Initialized successfully!");
+            Debug.Log("[Stationpedia Ascended] Initialize COMPLETE!");
+            ConsoleWindow.Print("[Stationpedia Ascended] Initialized successfully!");
         }
 
         // Coroutine-based monitoring (more reliable than Update() for ModBehaviour)
         private IEnumerator MonitorStationpediaCoroutine()
         {
-            ConsoleWindow.Print("[StationpediaPlus] MonitorStationpediaCoroutine started!");
+            ConsoleWindow.Print("[Stationpedia Ascended] MonitorStationpediaCoroutine started!");
             
             while (true)
             {
@@ -372,7 +379,97 @@ namespace StationpediaPlus
                     if (!_stationpediaFound)
                     {
                         _stationpediaFound = true;
-                        ConsoleWindow.Print("[StationpediaPlus] Stationpedia.Instance found! Now monitoring for page changes.");
+                        ConsoleWindow.Print("[Stationpedia Ascended] Stationpedia.Instance found! Now monitoring for page changes.");
+                        
+                        // Change the window title to Stationpedia Ascended
+                        try
+                        {
+                            var titleGO = Stationpedia.Instance.StationpediaTitleText;
+                            if (titleGO != null)
+                            {
+                                var titleText = titleGO.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                                if (titleText != null)
+                                {
+                                    titleText.text = "Stationpedia <color=#FF7A18>Ascended</color>";
+                                    ConsoleWindow.Print("[Stationpedia Ascended] Changed window title");
+                                }
+                                
+                                // The icon is likely a sibling of the title text, not a child
+                                // Search in the parent (header bar) for an Image component
+                                var headerParent = titleGO.transform.parent;
+                                if (headerParent != null)
+                                {
+                                    ConsoleWindow.Print($"[Stationpedia Ascended] Searching header parent: {headerParent.name}");
+                                    
+                                    // Check for layout components on the parent
+                                    var hlg = headerParent.GetComponent<UnityEngine.UI.HorizontalLayoutGroup>();
+                                    if (hlg != null)
+                                    {
+                                        ConsoleWindow.Print($"[Stationpedia Ascended] Parent has HorizontalLayoutGroup - spacing: {hlg.spacing}, childForceExpand: {hlg.childForceExpandWidth}x{hlg.childForceExpandHeight}");
+                                    }
+                                    
+                                    // Log all children to help debug
+                                    for (int i = 0; i < headerParent.childCount; i++)
+                                    {
+                                        var child = headerParent.GetChild(i);
+                                        var img = child.GetComponent<UnityEngine.UI.Image>();
+                                        ConsoleWindow.Print($"[Stationpedia Ascended]   Child[{i}]: {child.name}, hasImage={img != null}");
+                                        
+                                        // Look for an image that might be the book icon (not the title text itself)
+                                        if (img != null && child.gameObject != titleGO && _customIconSprite != null)
+                                        {
+                                            // Check if this looks like an icon (small, near the title)
+                                            var rt = child.GetComponent<RectTransform>();
+                                            if (rt != null)
+                                            {
+                                                ConsoleWindow.Print($"[Stationpedia Ascended]   -> Size: {rt.sizeDelta}, sprite: {img.sprite?.name ?? "null"}");
+                                            }
+                                            
+                                            // Replace the first Image we find that's not the background
+                                            if (img.sprite != null && !img.sprite.name.ToLower().Contains("background"))
+                                            {
+                                                ConsoleWindow.Print($"[Stationpedia Ascended] BEFORE: {rt?.sizeDelta}");
+                                                
+                                                // Replace the sprite
+                                                img.sprite = _customIconSprite;
+                                                img.preserveAspect = true; // Keep aspect ratio
+                                                
+                                                // Check for layout element on this specific child - CREATE ONE if missing
+                                                var layoutElement = child.GetComponent<UnityEngine.UI.LayoutElement>();
+                                                if (layoutElement == null)
+                                                {
+                                                    layoutElement = child.gameObject.AddComponent<UnityEngine.UI.LayoutElement>();
+                                                    ConsoleWindow.Print($"[Stationpedia Ascended] Added LayoutElement to control size in HorizontalLayoutGroup");
+                                                }
+                                                
+                                                // Force the LayoutElement to constrain the size
+                                                layoutElement.preferredWidth = 28;
+                                                layoutElement.preferredHeight = 28;
+                                                layoutElement.minWidth = 28;
+                                                layoutElement.minHeight = 28;
+                                                layoutElement.flexibleWidth = 0;
+                                                layoutElement.flexibleHeight = 0;
+                                                ConsoleWindow.Print($"[Stationpedia Ascended] Set LayoutElement sizes to 28x28");
+                                                
+                                                // Force back to the original small square size that the book icon used
+                                                if (rt != null)
+                                                {
+                                                    rt.sizeDelta = new Vector2(28, 28);
+                                                    rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 28);
+                                                    rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 28);
+                                                }
+                                                
+                                                ConsoleWindow.Print($"[Stationpedia Ascended] AFTER: {rt?.sizeDelta} - Replaced icon in {child.name}");
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception ex) 
+                        { 
+                            ConsoleWindow.Print($"[Stationpedia Ascended] Error setting title/icon: {ex.Message}");
+                        }
                     }
 
                     // Check if the Stationpedia is visible/active
@@ -388,7 +485,7 @@ namespace StationpediaPlus
                     // If page changed, add tooltips
                     if (!string.IsNullOrEmpty(currentPageKey) && currentPageKey != _lastPageKey)
                     {
-                        ConsoleWindow.Print($"[StationpediaPlus] Page changed to: {currentPageKey}");
+                        ConsoleWindow.Print($"[Stationpedia Ascended] Page changed to: {currentPageKey}");
                         _lastPageKey = currentPageKey;
                         
                         // Start coroutine to add tooltips after UI settles
@@ -398,7 +495,7 @@ namespace StationpediaPlus
                 catch (Exception ex)
                 {
                     // Don't spam errors - just log once
-                    ConsoleWindow.Print($"[StationpediaPlus] Error in monitor: {ex.Message}");
+                    ConsoleWindow.Print($"[Stationpedia Ascended] Error in monitor: {ex.Message}");
                 }
             }
         }
@@ -406,7 +503,7 @@ namespace StationpediaPlus
         // Unity lifecycle - called after Awake, when component is ready
         void Start()
         {
-            ConsoleWindow.Print("[StationpediaPlus] Start() called");
+            ConsoleWindow.Print("[Stationpedia Ascended] Start() called");
         }
         
         // Initialize GUI styles (must be called from OnGUI)
@@ -491,6 +588,66 @@ namespace StationpediaPlus
             }
         }
 
+        private void LoadCustomIcon()
+        {
+            try
+            {
+                // Possible paths for the custom icon
+                string[] possiblePaths = new[]
+                {
+                    // Dev folder - hardcoded for hot-reload development
+                    @"C:\Dev\12-17-25 Stationeers Respawn Update Code\StationpediaPlus\mod\icon.png",
+                    // Next to the executing assembly
+                    Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "icon.png"),
+                    // BepInEx scripts folder
+                    Path.Combine(BepInEx.Paths.BepInExRootPath, "scripts", "icon.png"),
+                };
+                
+                string iconPath = null;
+                foreach (var path in possiblePaths)
+                {
+                    if (File.Exists(path))
+                    {
+                        iconPath = path;
+                        ConsoleWindow.Print($"[Stationpedia Ascended] Found icon at: {path}");
+                        break;
+                    }
+                }
+                
+                if (iconPath == null)
+                {
+                    ConsoleWindow.Print("[Stationpedia Ascended] Custom icon not found (icon.png) - using default");
+                    return;
+                }
+                
+                // Load the image from file
+                byte[] imageData = File.ReadAllBytes(iconPath);
+                Texture2D texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+                texture.filterMode = FilterMode.Bilinear;
+                
+                if (ImageConversion.LoadImage(texture, imageData))
+                {
+                    // Create a sprite from the texture
+                    // Use standard 100 pixelsPerUnit - the Image component will scale it to fit the rect
+                    _customIconSprite = Sprite.Create(
+                        texture,
+                        new Rect(0, 0, texture.width, texture.height),
+                        new Vector2(0.5f, 0.5f),
+                        100f
+                    );
+                    ConsoleWindow.Print($"[Stationpedia Ascended] Loaded custom icon: {texture.width}x{texture.height}");
+                }
+                else
+                {
+                    ConsoleWindow.Print("[Stationpedia Ascended] Failed to load icon.png - invalid image format");
+                }
+            }
+            catch (Exception ex)
+            {
+                ConsoleWindow.Print($"[Stationpedia Ascended] Error loading custom icon: {ex.Message}");
+            }
+        }
+
         private void LoadDescriptions()
         {
             DeviceDatabase = new Dictionary<string, DeviceDescriptions>();
@@ -538,19 +695,19 @@ namespace StationpediaPlus
                         int logicCount = GenericDescriptions.logic?.Count ?? 0;
                         int slotCount = GenericDescriptions.slots?.Count ?? 0;
                         int memoryCount = GenericDescriptions.memory?.Count ?? 0;
-                        ConsoleWindow.Print($"[StationpediaPlus] Loaded generic descriptions: {logicCount} logic, {slotCount} slots, {memoryCount} memory");
+                        ConsoleWindow.Print($"[Stationpedia Ascended] Loaded generic descriptions: {logicCount} logic, {slotCount} slots, {memoryCount} memory");
                     }
                     
-                    ConsoleWindow.Print($"[StationpediaPlus] Loaded {DeviceDatabase.Count} device descriptions from JSON");
+                    ConsoleWindow.Print($"[Stationpedia Ascended] Loaded {DeviceDatabase.Count} device descriptions from JSON");
                 }
                 else
                 {
-                    ConsoleWindow.Print($"[StationpediaPlus] WARNING: descriptions.json not found at {jsonPath}");
+                    ConsoleWindow.Print($"[Stationpedia Ascended] WARNING: descriptions.json not found at {jsonPath}");
                 }
             }
             catch (Exception ex)
             {
-                ConsoleWindow.Print($"[StationpediaPlus] Error loading descriptions: {ex.Message}");
+                ConsoleWindow.Print($"[Stationpedia Ascended] Error loading descriptions: {ex.Message}");
             }
         }
 
@@ -571,14 +728,14 @@ namespace StationpediaPlus
                     var postfix = typeof(HarmonyPatches).GetMethod("PopulateLogicSlotInserts_Postfix", 
                         BindingFlags.Public | BindingFlags.Static);
                     _harmony.Patch(populateLogicSlotInserts, postfix: new HarmonyMethod(postfix));
-                    ConsoleWindow.Print("[StationpediaPlus] Patched PopulateLogicSlotInserts");
+                    ConsoleWindow.Print("[Stationpedia Ascended] Patched PopulateLogicSlotInserts");
                 }
                 else
                 {
-                    ConsoleWindow.Print("[StationpediaPlus] ERROR: Could not find PopulateLogicSlotInserts method");
+                    ConsoleWindow.Print("[Stationpedia Ascended] ERROR: Could not find PopulateLogicSlotInserts method");
                 }
                 
-                // Patch ChangeDisplay to add Special Behaviors section
+                // Patch ChangeDisplay to add Operational Details section
                 var changeDisplay = universalPageType.GetMethod("ChangeDisplay", 
                     BindingFlags.Public | BindingFlags.Instance);
                 if (changeDisplay != null)
@@ -586,18 +743,96 @@ namespace StationpediaPlus
                     var postfix = typeof(HarmonyPatches).GetMethod("ChangeDisplay_Postfix", 
                         BindingFlags.Public | BindingFlags.Static);
                     _harmony.Patch(changeDisplay, postfix: new HarmonyMethod(postfix));
-                    ConsoleWindow.Print("[StationpediaPlus] Patched ChangeDisplay");
+                    ConsoleWindow.Print("[Stationpedia Ascended] Patched ChangeDisplay");
                 }
                 else
                 {
-                    ConsoleWindow.Print("[StationpediaPlus] ERROR: Could not find ChangeDisplay method");
+                    ConsoleWindow.Print("[Stationpedia Ascended] ERROR: Could not find ChangeDisplay method");
                 }
                 
-                ConsoleWindow.Print("[StationpediaPlus] Harmony patches applied successfully");
+                // Patch OnDrag on Stationpedia to work properly in main menu (skip ClampToScreen which crashes)
+                var stationpediaType = typeof(Stationpedia);
+                var onDrag = stationpediaType.GetMethod("OnDrag", 
+                    BindingFlags.Public | BindingFlags.Instance);
+                if (onDrag != null)
+                {
+                    var prefix = typeof(HarmonyPatches).GetMethod("Stationpedia_OnDrag_Prefix", 
+                        BindingFlags.Public | BindingFlags.Static);
+                    _harmony.Patch(onDrag, prefix: new HarmonyMethod(prefix));
+                    ConsoleWindow.Print("[Stationpedia Ascended] Patched Stationpedia.OnDrag - window now draggable in main menu");
+                }
+                
+                // Also patch OnBeginDrag to capture offset
+                var onBeginDrag = stationpediaType.GetMethod("OnBeginDrag", 
+                    BindingFlags.Public | BindingFlags.Instance);
+                if (onBeginDrag != null)
+                {
+                    var prefix = typeof(HarmonyPatches).GetMethod("Stationpedia_OnBeginDrag_Prefix", 
+                        BindingFlags.Public | BindingFlags.Static);
+                    _harmony.Patch(onBeginDrag, prefix: new HarmonyMethod(prefix));
+                }
+                
+                // NOTE: We tried to fix the scrollbar visibility bug but it broke scrolling.
+                // The base game has verticalScrollbarVisibility set to AutoHide and the content
+                // size isn't being calculated correctly. This is a base game bug we can't easily fix.
+                
+                // Register console command to center Stationpedia
+                RegisterConsoleCommands();
+                
+                ConsoleWindow.Print("[Stationpedia Ascended] Harmony patches applied successfully");
             }
             catch (Exception ex)
             {
-                ConsoleWindow.Print($"[StationpediaPlus] Error applying Harmony patches: {ex.Message}");
+                ConsoleWindow.Print($"[Stationpedia Ascended] Error applying Harmony patches: {ex.Message}");
+            }
+        }
+        
+        private void RegisterConsoleCommands()
+        {
+            try
+            {
+                // Check if command already exists (for F6 reload)
+                if (Util.Commands.CommandLine.CommandsMap.ContainsKey("stationpediacenter"))
+                {
+                    return; // Already registered
+                }
+                
+                // Register "stationpediacenter" command to center the Stationpedia window
+                Util.Commands.CommandLine.AddCommand("stationpediacenter", 
+                    new Util.Commands.BasicCommand(CenterStationpediaCommand, 
+                        "Centers the Stationpedia window on screen", null, false));
+                ConsoleWindow.Print("[Stationpedia Ascended] Registered console command: stationpediacenter");
+            }
+            catch (Exception ex)
+            {
+                ConsoleWindow.Print($"[Stationpedia Ascended] Error registering console commands: {ex.Message}");
+            }
+        }
+        
+        private static string CenterStationpediaCommand(string[] args)
+        {
+            try
+            {
+                var stationpedia = Stationpedia.Instance;
+                if (stationpedia == null)
+                {
+                    return "Stationpedia instance not found";
+                }
+                
+                var rectTransform = stationpedia.RectTransform;
+                if (rectTransform == null)
+                {
+                    return "Stationpedia RectTransform not found";
+                }
+                
+                // Center on screen
+                rectTransform.localPosition = Vector3.zero;
+                
+                return "Stationpedia centered on screen";
+            }
+            catch (Exception ex)
+            {
+                return $"Error centering Stationpedia: {ex.Message}";
             }
         }
 
@@ -659,7 +894,7 @@ namespace StationpediaPlus
                     }
                     
                     Log?.LogInfo($"Loaded {DeviceDatabase.Count} device descriptions from JSON");
-                    ConsoleWindow.Print($"[StationpediaPlus] Loaded {DeviceDatabase.Count} device descriptions");
+                    ConsoleWindow.Print($"[Stationpedia Ascended] Loaded {DeviceDatabase.Count} device descriptions");
                 }
                 else
                 {
@@ -702,7 +937,7 @@ namespace StationpediaPlus
                 }
                 
                 Log?.LogInfo("Harmony patches applied successfully");
-                ConsoleWindow.Print("[StationpediaPlus] Harmony patches applied");
+                ConsoleWindow.Print("[Stationpedia Ascended] Harmony patches applied");
             }
             catch (Exception ex)
             {
@@ -717,7 +952,7 @@ namespace StationpediaPlus
         private static IEnumerator MonitorStationpediaCoroutineStatic()
         {
             Log?.LogInfo("MonitorStationpediaCoroutineStatic started!");
-            ConsoleWindow.Print("[StationpediaPlus] Monitor coroutine started!");
+            ConsoleWindow.Print("[Stationpedia Ascended] Monitor coroutine started!");
             
             while (true)
             {
@@ -745,7 +980,7 @@ namespace StationpediaPlus
                     if (!string.IsNullOrEmpty(currentPageKey) && currentPageKey != _lastPageKeyStatic)
                     {
                         Log?.LogInfo($"Page changed to: {currentPageKey}");
-                        ConsoleWindow.Print($"[StationpediaPlus] Page: {currentPageKey}");
+                        ConsoleWindow.Print($"[Stationpedia Ascended] Page: {currentPageKey}");
                         _lastPageKeyStatic = currentPageKey;
                         
                         // Add tooltips after a short delay
@@ -847,22 +1082,22 @@ namespace StationpediaPlus
                 
                 // New category types - wrapped in try-catch to prevent one failure from blocking others
                 try { totalTooltipsAdded += AddTooltipsToSlots(universalPage.SlotContents, pageKey); }
-                catch (Exception ex) { ConsoleWindow.Print($"[StationpediaPlus] Error adding slot tooltips: {ex.Message}"); }
+                catch (Exception ex) { ConsoleWindow.Print($"[Stationpedia Ascended] Error adding slot tooltips: {ex.Message}"); }
                 
                 try { totalTooltipsAdded += AddTooltipsToVersions(universalPage.StructureVersionContents, pageKey); }
-                catch (Exception ex) { ConsoleWindow.Print($"[StationpediaPlus] Error adding version tooltips: {ex.Message}"); }
+                catch (Exception ex) { ConsoleWindow.Print($"[Stationpedia Ascended] Error adding version tooltips: {ex.Message}"); }
                 
                 try { totalTooltipsAdded += AddTooltipsToMemory(universalPage.LogicInstructions, pageKey); }
-                catch (Exception ex) { ConsoleWindow.Print($"[StationpediaPlus] Error adding memory tooltips: {ex.Message}"); }
+                catch (Exception ex) { ConsoleWindow.Print($"[Stationpedia Ascended] Error adding memory tooltips: {ex.Message}"); }
 
                 if (totalTooltipsAdded > 0)
                 {
-                    ConsoleWindow.Print($"[StationpediaPlus] Added {totalTooltipsAdded} tooltips for page {pageKey}");
+                    ConsoleWindow.Print($"[Stationpedia Ascended] Added {totalTooltipsAdded} tooltips for page {pageKey}");
                 }
             }
             catch (Exception ex)
             {
-                ConsoleWindow.Print($"[StationpediaPlus] Error adding tooltips: {ex.Message}");
+                ConsoleWindow.Print($"[Stationpedia Ascended] Error adding tooltips: {ex.Message}");
             }
         }
 
@@ -1168,7 +1403,7 @@ namespace StationpediaPlus
         
         void OnDestroy()
         {
-            ConsoleWindow.Print("[StationpediaPlus] OnDestroy called - cleaning up...");
+            ConsoleWindow.Print("[Stationpedia Ascended] OnDestroy called - cleaning up...");
             
             // Stop all coroutines on this MonoBehaviour (including monitor coroutine)
             StopAllCoroutines();
@@ -1177,7 +1412,7 @@ namespace StationpediaPlus
             // Cleanup Harmony patches
             if (_harmony != null)
             {
-                ConsoleWindow.Print("[StationpediaPlus] Unpatching Harmony patches...");
+                ConsoleWindow.Print("[Stationpedia Ascended] Unpatching Harmony patches...");
                 _harmony.UnpatchSelf();
                 _harmony = null;
             }
@@ -1185,7 +1420,7 @@ namespace StationpediaPlus
             // Cleanup tooltip components we added to game objects
             if (_addedComponents != null)
             {
-                ConsoleWindow.Print($"[StationpediaPlus] Cleaning up {_addedComponents.Count} added components...");
+                ConsoleWindow.Print($"[Stationpedia Ascended] Cleaning up {_addedComponents.Count} added components...");
                 foreach (var component in _addedComponents)
                 {
                     if (component != null)
@@ -1196,7 +1431,7 @@ namespace StationpediaPlus
                         }
                         catch (Exception ex)
                         {
-                            ConsoleWindow.Print($"[StationpediaPlus] Error destroying component: {ex.Message}");
+                            ConsoleWindow.Print($"[Stationpedia Ascended] Error destroying component: {ex.Message}");
                         }
                     }
                 }
@@ -1204,10 +1439,10 @@ namespace StationpediaPlus
             }
             _addedComponents = new List<Component>();
             
-            // Cleanup GameObjects we created (Special Behaviors categories, etc.)
+            // Cleanup GameObjects we created (Operational Details categories, etc.)
             if (_createdGameObjects != null)
             {
-                ConsoleWindow.Print($"[StationpediaPlus] Cleaning up {_createdGameObjects.Count} created GameObjects...");
+                ConsoleWindow.Print($"[Stationpedia Ascended] Cleaning up {_createdGameObjects.Count} created GameObjects...");
                 foreach (var go in _createdGameObjects)
                 {
                     if (go != null)
@@ -1218,7 +1453,7 @@ namespace StationpediaPlus
                         }
                         catch (Exception ex)
                         {
-                            ConsoleWindow.Print($"[StationpediaPlus] Error destroying GameObject: {ex.Message}");
+                            ConsoleWindow.Print($"[Stationpedia Ascended] Error destroying GameObject: {ex.Message}");
                         }
                     }
                 }
@@ -1249,7 +1484,7 @@ namespace StationpediaPlus
             DeviceDatabase = null;
             GenericDescriptions = null;
             
-            ConsoleWindow.Print("[StationpediaPlus] Mod destroyed and cleaned up successfully");
+            ConsoleWindow.Print("[Stationpedia Ascended] Mod destroyed and cleaned up successfully");
         }
     }
 
@@ -1268,12 +1503,16 @@ namespace StationpediaPlus
     {
         public string deviceKey;
         public string displayName;
+        public string pageDescription;        // Replace entire description
+        public string pageDescriptionAppend;  // Add to end of existing description
+        public string pageDescriptionPrepend; // Add to beginning of existing description
         public Dictionary<string, LogicDescription> logicDescriptions;
         public Dictionary<string, ModeDescription> modeDescriptions;
         public Dictionary<string, SlotDescription> slotDescriptions;
         public Dictionary<string, VersionDescription> versionDescriptions;
         public Dictionary<string, MemoryDescription> memoryDescriptions;
-        public List<SpecialBehavior> specialBehaviors;
+        public List<OperationalDetail> operationalDetails;
+        public string operationalDetailsTitleColor; // Optional: hex color like "#FF7A18" for the category title
     }
 
     [Serializable]
@@ -1314,7 +1553,7 @@ namespace StationpediaPlus
     }
 
     [Serializable]
-    public class SpecialBehavior
+    public class OperationalDetail
     {
         public string title;
         public string description;
@@ -1371,8 +1610,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
 
         private IEnumerator ShowTooltipAfterDelay()
@@ -1384,8 +1623,8 @@ namespace StationpediaPlus
                 string tooltipText = GetTooltipText();
                 if (!string.IsNullOrEmpty(tooltipText))
                 {
-                    StationpediaPlusMod.CurrentTooltipText = tooltipText;
-                    StationpediaPlusMod.ShowTooltip = true;
+                    StationpediaAscendedMod.CurrentTooltipText = tooltipText;
+                    StationpediaAscendedMod.ShowTooltip = true;
                 }
             }
         }
@@ -1399,7 +1638,7 @@ namespace StationpediaPlus
             
             if (_categoryName == "Mode")
             {
-                var modeDesc = StationpediaPlusMod.GetModeDescription(_deviceKey, cleanName);
+                var modeDesc = StationpediaAscendedMod.GetModeDescription(_deviceKey, cleanName);
                 if (modeDesc != null)
                 {
                     _cachedTooltipText = FormatModeTooltip(cleanName, modeDesc);
@@ -1408,7 +1647,7 @@ namespace StationpediaPlus
             }
             else if (_categoryName == "Connection")
             {
-                var connDesc = StationpediaPlusMod.GetConnectionDescription(_deviceKey, cleanName);
+                var connDesc = StationpediaAscendedMod.GetConnectionDescription(_deviceKey, cleanName);
                 if (connDesc != null)
                 {
                     _cachedTooltipText = FormatTooltip(cleanName, connDesc);
@@ -1417,13 +1656,13 @@ namespace StationpediaPlus
             }
             else if (_categoryName == "LogicSlot")
             {
-                var slotLogicDesc = StationpediaPlusMod.GetSlotLogicDescription(cleanName);
+                var slotLogicDesc = StationpediaAscendedMod.GetSlotLogicDescription(cleanName);
                 if (slotLogicDesc != null)
                 {
                     _cachedTooltipText = FormatSlotLogicTooltip(cleanName, slotLogicDesc);
                     return _cachedTooltipText;
                 }
-                var desc = StationpediaPlusMod.GetLogicDescription(_deviceKey, cleanName);
+                var desc = StationpediaAscendedMod.GetLogicDescription(_deviceKey, cleanName);
                 if (desc != null)
                 {
                     _cachedTooltipText = FormatTooltip(cleanName, desc);
@@ -1432,7 +1671,7 @@ namespace StationpediaPlus
             }
             else
             {
-                var desc = StationpediaPlusMod.GetLogicDescription(_deviceKey, cleanName);
+                var desc = StationpediaAscendedMod.GetLogicDescription(_deviceKey, cleanName);
                 if (desc != null)
                 {
                     _cachedTooltipText = FormatTooltip(cleanName, desc);
@@ -1485,8 +1724,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
     }
 
@@ -1527,8 +1766,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
 
         private IEnumerator ShowTooltipAfterDelay()
@@ -1540,8 +1779,8 @@ namespace StationpediaPlus
                 string tooltipText = GetTooltipText();
                 if (!string.IsNullOrEmpty(tooltipText))
                 {
-                    StationpediaPlusMod.CurrentTooltipText = tooltipText;
-                    StationpediaPlusMod.ShowTooltip = true;
+                    StationpediaAscendedMod.CurrentTooltipText = tooltipText;
+                    StationpediaAscendedMod.ShowTooltip = true;
                 }
             }
         }
@@ -1552,7 +1791,7 @@ namespace StationpediaPlus
                 return _cachedTooltipText;
 
             string cleanName = CleanName(_slotName);
-            var desc = StationpediaPlusMod.GetSlotDescription(_deviceKey, cleanName);
+            var desc = StationpediaAscendedMod.GetSlotDescription(_deviceKey, cleanName);
             
             if (desc != null)
             {
@@ -1588,8 +1827,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
     }
 
@@ -1630,8 +1869,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
 
         private IEnumerator ShowTooltipAfterDelay()
@@ -1643,8 +1882,8 @@ namespace StationpediaPlus
                 string tooltipText = GetTooltipText();
                 if (!string.IsNullOrEmpty(tooltipText))
                 {
-                    StationpediaPlusMod.CurrentTooltipText = tooltipText;
-                    StationpediaPlusMod.ShowTooltip = true;
+                    StationpediaAscendedMod.CurrentTooltipText = tooltipText;
+                    StationpediaAscendedMod.ShowTooltip = true;
                 }
             }
         }
@@ -1655,7 +1894,7 @@ namespace StationpediaPlus
                 return _cachedTooltipText;
 
             string cleanName = CleanName(_versionName);
-            var desc = StationpediaPlusMod.GetVersionDescription(_deviceKey, cleanName);
+            var desc = StationpediaAscendedMod.GetVersionDescription(_deviceKey, cleanName);
             
             if (desc != null)
             {
@@ -1689,8 +1928,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
     }
 
@@ -1731,8 +1970,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
 
         private IEnumerator ShowTooltipAfterDelay()
@@ -1744,8 +1983,8 @@ namespace StationpediaPlus
                 string tooltipText = GetTooltipText();
                 if (!string.IsNullOrEmpty(tooltipText))
                 {
-                    StationpediaPlusMod.CurrentTooltipText = tooltipText;
-                    StationpediaPlusMod.ShowTooltip = true;
+                    StationpediaAscendedMod.CurrentTooltipText = tooltipText;
+                    StationpediaAscendedMod.ShowTooltip = true;
                 }
             }
         }
@@ -1756,7 +1995,7 @@ namespace StationpediaPlus
                 return _cachedTooltipText;
 
             string cleanName = CleanName(_instructionName);
-            var desc = StationpediaPlusMod.GetMemoryDescription(_deviceKey, cleanName);
+            var desc = StationpediaAscendedMod.GetMemoryDescription(_deviceKey, cleanName);
             
             if (desc != null)
             {
@@ -1811,8 +2050,8 @@ namespace StationpediaPlus
                 StopCoroutine(_showCoroutine);
                 _showCoroutine = null;
             }
-            StationpediaPlusMod.ShowTooltip = false;
-            StationpediaPlusMod.CurrentTooltipText = "";
+            StationpediaAscendedMod.ShowTooltip = false;
+            StationpediaAscendedMod.CurrentTooltipText = "";
         }
     }
 
@@ -1852,6 +2091,114 @@ namespace StationpediaPlus
             }
         }
         
+        // Store drag offset for our custom OnDrag
+        private static Vector3 _dragOffset;
+        
+        // Prefix to replace OnDrag entirely - the original calls ClampToScreen which crashes in main menu
+        public static bool Stationpedia_OnDrag_Prefix(Stationpedia __instance, UnityEngine.EventSystems.PointerEventData eventData)
+        {
+            try
+            {
+                // Simple drag implementation that doesn't call ClampToScreen
+                Vector3 mousePos = new Vector3(eventData.position.x, eventData.position.y, 0);
+                __instance.RectTransform.position = mousePos - _dragOffset;
+            }
+            catch { }
+            return false; // Skip original
+        }
+        
+        // We also need to patch OnBeginDrag to capture the offset
+        public static bool Stationpedia_OnBeginDrag_Prefix(Stationpedia __instance, UnityEngine.EventSystems.PointerEventData eventData)
+        {
+            try
+            {
+                Vector3 mousePos = new Vector3(eventData.position.x, eventData.position.y, 0);
+                _dragOffset = mousePos - __instance.RectTransform.position;
+            }
+            catch { }
+            return false; // Skip original
+        }
+        
+        // Track if we've already fixed the scrollbar visibility mode
+        private static bool _scrollbarVisibilityFixed = false;
+        
+        // Delayed scrollbar fix - change visibility mode from AutoHide to Permanent
+        // and fix handle position corruption that occurs in the base game
+        private static System.Collections.IEnumerator DelayedScrollbarFix()
+        {
+            // The game's FixTheScrollValue async method runs after layout rebuild
+            // We need to run our fix AFTER that completes
+            yield return new UnityEngine.WaitForEndOfFrame();
+            yield return null;
+            yield return null;
+            yield return null;
+            
+            var stationpedia = Stationpedia.Instance;
+            if (stationpedia == null) yield break;
+            
+            var scrollRect = stationpedia.GetComponentInChildren<UnityEngine.UI.ScrollRect>();
+            if (scrollRect == null) yield break;
+            
+            // Change visibility mode from AutoHide to Permanent (only need to do this once)
+            if (!_scrollbarVisibilityFixed)
+            {
+                scrollRect.verticalScrollbarVisibility = UnityEngine.UI.ScrollRect.ScrollbarVisibility.Permanent;
+                _scrollbarVisibilityFixed = true;
+                ConsoleWindow.Print("[SLP] Set scrollbar visibility to Permanent");
+            }
+            
+            var scrollbar = scrollRect.verticalScrollbar;
+            if (scrollbar == null || scrollbar.handleRect == null) yield break;
+            
+            // Apply fix multiple times over several frames to combat re-corruption
+            for (int i = 0; i < 5; i++)
+            {
+                FixHandleLocalPosition(scrollbar.handleRect, i == 0);
+                yield return null;
+            }
+        }
+        
+        private static void FixHandleLocalPosition(RectTransform handleRect, bool logFirst)
+        {
+            if (handleRect == null) return;
+            
+            try
+            {
+                Vector3 pos = handleRect.localPosition;
+                bool needsFix = float.IsNaN(pos.y) || float.IsNaN(pos.x) || 
+                               Mathf.Abs(pos.x) > 0.01f || Mathf.Abs(pos.y) > 0.01f || Mathf.Abs(pos.z) > 0.01f;
+                
+                if (needsFix)
+                {
+                    if (logFirst)
+                    {
+                        ConsoleWindow.Print($"[SLP] Fixing handle localPosition: {pos}");
+                    }
+                    
+                    // Set position directly via transform
+                    handleRect.localPosition = Vector3.zero;
+                    
+                    // Also ensure anchoredPosition is zero (for anchor-based positioning)
+                    handleRect.anchoredPosition = Vector2.zero;
+                }
+            }
+            catch { }
+        }
+        
+        // Helper to start the delayed scrollbar fix coroutine
+        private static void StartDelayedScrollbarFix()
+        {
+            try
+            {
+                // Use the mod instance to start coroutine
+                if (StationpediaAscendedMod.Instance != null)
+                {
+                    StationpediaAscendedMod.Instance.StartCoroutine(DelayedScrollbarFix());
+                }
+            }
+            catch { }
+        }
+        
         private static bool IsSlotNumberList(string text)
         {
             foreach (char c in text)
@@ -1864,6 +2211,9 @@ namespace StationpediaPlus
 
         public static void ChangeDisplay_Postfix(Assets.Scripts.UI.UniversalPage __instance, StationpediaPage page)
         {
+            // Always try to fix scrollbar visibility (base game bug)
+            StartDelayedScrollbarFix();
+            
             try
             {
                 // Unity-safe null checks - destroyed objects are "fake null"
@@ -1876,101 +2226,248 @@ namespace StationpediaPlus
                 {
                     contentTransform = __instance.Content;
                     if ((object)contentTransform == null || !contentTransform) return;
-                    // Try to access gameObject to verify it's not destroyed
                     var testGO = contentTransform.gameObject;
                     if ((object)testGO == null || !testGO) return;
                 }
                 catch
                 {
-                    return; // Content is destroyed
+                    return;
                 }
                 
                 string pageKey = page.Key;
                 if (string.IsNullOrEmpty(pageKey)) return;
 
-                if (!StationpediaPlusMod.DeviceDatabase.TryGetValue(pageKey, out var deviceDesc)) return;
-                if (deviceDesc.specialBehaviors == null || deviceDesc.specialBehaviors.Count == 0) return;
+                // Check if we have any custom data for this page
+                if (!StationpediaAscendedMod.DeviceDatabase.TryGetValue(pageKey, out var deviceDesc)) return;
+                
+                // Handle page description modifications
+                var pageDescription = __instance.PageDescription;
+                if ((object)pageDescription != null && pageDescription)
+                {
+                    if (!string.IsNullOrEmpty(deviceDesc.pageDescription))
+                    {
+                        // Complete replacement
+                        pageDescription.text = deviceDesc.pageDescription;
+                    }
+                    else
+                    {
+                        // Prepend/Append
+                        string currentText = pageDescription.text ?? "";
+                        
+                        if (!string.IsNullOrEmpty(deviceDesc.pageDescriptionPrepend))
+                        {
+                            currentText = deviceDesc.pageDescriptionPrepend + "\n\n" + currentText;
+                        }
+                        
+                        if (!string.IsNullOrEmpty(deviceDesc.pageDescriptionAppend))
+                        {
+                            currentText = currentText + "\n\n" + deviceDesc.pageDescriptionAppend;
+                        }
+                        
+                        if (!string.IsNullOrEmpty(deviceDesc.pageDescriptionPrepend) || 
+                            !string.IsNullOrEmpty(deviceDesc.pageDescriptionAppend))
+                        {
+                            pageDescription.text = currentText;
+                        }
+                    }
+                }
+                
+                // Handle operational details section
+                if (deviceDesc.operationalDetails == null || deviceDesc.operationalDetails.Count == 0) return;
+
+                // Check for existing by GameObject name - destroy and recreate
+                var existingCategory = contentTransform.Find("OperationalDetailsCategory");
+                if (existingCategory != null)
+                {
+                    UnityEngine.Object.DestroyImmediate(existingCategory.gameObject);
+                }
 
                 var stationpedia = Stationpedia.Instance;
                 if ((object)stationpedia == null || !stationpedia) return;
                 
                 var categoryPrefab = stationpedia.CategoryPrefab;
+                if ((object)categoryPrefab == null || !categoryPrefab) return;
                 
-                if ((object)categoryPrefab == null || !categoryPrefab)
-                {
-                    return;
-                }
+                // Get font/material from PageDescription (a working TMP element)
+                var sourceText = __instance.PageDescription;
+                if ((object)sourceText == null || !sourceText) return;
 
                 // Create the collapsible category container
                 StationpediaCategory category = UnityEngine.Object.Instantiate<StationpediaCategory>(
                     categoryPrefab, contentTransform);
                 if ((object)category == null || !category) return;
+                
+                // Name it so we can find it later
+                category.gameObject.name = "OperationalDetailsCategory";
+                
                 if ((object)category.Title == null || !category.Title) return;
                 if ((object)category.Contents == null || !category.Contents) return;
                 
-                category.Title.text = "Special Behaviors";
-                // Don't add to _createdGameObjects - we'll add this to CreatedCategories
-                // and the game will handle cleanup when the page changes
+                // Set the title - apply custom color if configured
+                string titleColor = !string.IsNullOrEmpty(deviceDesc.operationalDetailsTitleColor) 
+                    ? deviceDesc.operationalDetailsTitleColor 
+                    : "#FF7A18"; // Default orange
+                category.Title.text = $"<color={titleColor}>Operational Details</color>";
+                
+                // Try to add our custom phoenix icon next to the category title
+                try
+                {
+                    if (StationpediaAscendedMod._customIconSprite != null)
+                    {
+                        // Find the title's parent (usually the header bar)
+                        var titleParent = category.Title.transform.parent;
+                        if (titleParent != null)
+                        {
+                            // Create a new Image for the icon
+                            var iconGO = new UnityEngine.GameObject("OperationalDetailsIcon");
+                            iconGO.transform.SetParent(titleParent, false);
+                            iconGO.transform.SetAsFirstSibling(); // Put it before the title
+                            
+                            var iconImage = iconGO.AddComponent<UnityEngine.UI.Image>();
+                            iconImage.sprite = StationpediaAscendedMod._customIconSprite;
+                            iconImage.preserveAspect = true;
+                            
+                            // Set up the RectTransform for proper sizing
+                            var iconRT = iconGO.GetComponent<UnityEngine.RectTransform>();
+                            iconRT.sizeDelta = new UnityEngine.Vector2(20, 20);
+                            
+                            // Add a LayoutElement to work with any layout groups
+                            var iconLayout = iconGO.AddComponent<UnityEngine.UI.LayoutElement>();
+                            iconLayout.preferredWidth = 20;
+                            iconLayout.preferredHeight = 20;
+                            iconLayout.minWidth = 20;
+                            iconLayout.minHeight = 20;
+                            
+                            ConsoleWindow.Print("[Stationpedia Ascended] Added phoenix icon to Operational Details category");
+                        }
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    ConsoleWindow.Print($"[Stationpedia Ascended] Could not add icon to category: {ex.Message}");
+                }
 
-                // Create a single container for all behaviors with dark background
-                var containerGO = new UnityEngine.GameObject("SpecialBehaviorsContainer");
-                containerGO.transform.SetParent(category.Contents, false);
-                // Child of category, will be destroyed when category is destroyed
-                
-                // Add dark background image
-                var containerImage = containerGO.AddComponent<UnityEngine.UI.Image>();
-                containerImage.color = new UnityEngine.Color(0.1f, 0.1f, 0.1f, 0.8f);
-                
-                // Add layout element for proper sizing
-                var containerLayout = containerGO.AddComponent<UnityEngine.UI.LayoutElement>();
-                containerLayout.flexibleWidth = 1;
-                
-                // Add content size fitter to expand based on text
-                var containerFitter = containerGO.AddComponent<UnityEngine.UI.ContentSizeFitter>();
-                containerFitter.horizontalFit = UnityEngine.UI.ContentSizeFitter.FitMode.Unconstrained;
-                containerFitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
-                
-                // Add vertical layout for padding
-                var containerVLayout = containerGO.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();
-                containerVLayout.padding = new UnityEngine.RectOffset(15, 15, 10, 10);
-                containerVLayout.childForceExpandWidth = true;
-                containerVLayout.childForceExpandHeight = false;
-                containerVLayout.childControlWidth = true;
-                containerVLayout.childControlHeight = true;
-                
-                // Build the text content
+                // Build combined text for all operational details
                 var sb = new System.Text.StringBuilder();
                 bool first = true;
-                foreach (var behavior in deviceDesc.specialBehaviors)
+                foreach (var detail in deviceDesc.operationalDetails)
                 {
-                    if (!first) sb.AppendLine();
-                    sb.AppendLine($"<color=#FFD700><b>{behavior.title}</b></color>");
-                    sb.Append(behavior.description);
+                    if (!first) sb.AppendLine().AppendLine();
+                    sb.AppendLine($"<color=#FF7A18>{detail.title}</color>");
+                    sb.Append(detail.description);
                     first = false;
                 }
 
-                // Create text object
-                var textGO = new UnityEngine.GameObject("SpecialBehaviorsText");
-                textGO.transform.SetParent(containerGO.transform, false);
-                // Child of category, will be destroyed when category is destroyed
+                // Create a text GameObject inside the category contents
+                var textGO = new UnityEngine.GameObject("OperationalDetailsText");
+                textGO.transform.SetParent(category.Contents, false);
                 
+                // Add TextMeshProUGUI and copy settings from PageDescription
                 var textComponent = textGO.AddComponent<TMPro.TextMeshProUGUI>();
-                textComponent.text = sb.ToString();
-                textComponent.fontSize = 16;
-                textComponent.color = new UnityEngine.Color(0.85f, 0.85f, 0.85f, 1f);
+                textComponent.font = sourceText.font;
+                textComponent.fontSharedMaterial = sourceText.fontSharedMaterial;
+                textComponent.fontSize = sourceText.fontSize;
+                textComponent.color = sourceText.color;
                 textComponent.enableWordWrapping = true;
                 textComponent.overflowMode = TMPro.TextOverflowModes.Overflow;
                 textComponent.richText = true;
+                textComponent.lineSpacing = sourceText.lineSpacing; // Match line spacing from description
+                textComponent.margin = new UnityEngine.Vector4(10, 10, 10, 10); // Left, Top, Right, Bottom margins
+                textComponent.text = sb.ToString();
                 
-                // Make text expand to fit content
-                var textLayout = textGO.AddComponent<UnityEngine.UI.LayoutElement>();
-                textLayout.flexibleWidth = 1;
-
+                // Set up RectTransform - anchor to stretch horizontally
+                var rectTransform = textGO.GetComponent<UnityEngine.RectTransform>();
+                rectTransform.anchorMin = new UnityEngine.Vector2(0, 1);
+                rectTransform.anchorMax = new UnityEngine.Vector2(1, 1);
+                rectTransform.pivot = new UnityEngine.Vector2(0.5f, 1);
+                
+                // Calculate height based on text content
+                // Account for word wrapping by estimating ~45 chars per line at this width
+                string textContent = sb.ToString();
+                int explicitLineCount = textContent.Split('\n').Length;
+                int estimatedWrappedLines = textContent.Length / 40; // Rough estimate for word wrap (narrower due to margins)
+                int totalLines = System.Math.Max(explicitLineCount, estimatedWrappedLines);
+                float estimatedHeight = (totalLines * 16.8f) + 25f; // 18px per line + 40px padding for margins
+                
+                // Set the size
+                rectTransform.sizeDelta = new UnityEngine.Vector2(-20, estimatedHeight);
+                
+                // Add LayoutElement with explicit preferred height
+                var layoutElement = textGO.AddComponent<UnityEngine.UI.LayoutElement>();
+                layoutElement.flexibleWidth = 1;
+                layoutElement.preferredHeight = estimatedHeight;
+                layoutElement.minHeight = estimatedHeight;
+                
+                // The Contents has a GridLayoutGroup by default which forces fixed cell sizes
+                // We need to DESTROY it (not just disable) so we can add a VerticalLayoutGroup
+                var existingGridLayout = category.Contents.GetComponent<UnityEngine.UI.GridLayoutGroup>();
+                if (existingGridLayout != null)
+                {
+                    UnityEngine.Object.DestroyImmediate(existingGridLayout);
+                }
+                
+                // Copy the background Image settings from LogicSlotContents (which has proper styling)
+                var bgImage = category.Contents.gameObject.GetComponent<UnityEngine.UI.Image>();
+                var sourceImage = __instance.LogicSlotContents?.Contents?.GetComponent<UnityEngine.UI.Image>();
+                if (sourceImage != null)
+                {
+                    if (bgImage == null)
+                    {
+                        bgImage = category.Contents.gameObject.AddComponent<UnityEngine.UI.Image>();
+                    }
+                    bgImage.sprite = sourceImage.sprite;
+                    bgImage.color = sourceImage.color;
+                    bgImage.type = sourceImage.type;
+                    bgImage.material = sourceImage.material;
+                }
+                
+                // Now add our VerticalLayoutGroup
+                var contentsLayout = category.Contents.GetComponent<UnityEngine.UI.VerticalLayoutGroup>();
+                if (contentsLayout == null)
+                {
+                    contentsLayout = category.Contents.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();
+                    contentsLayout.childForceExpandWidth = true;
+                    contentsLayout.childForceExpandHeight = false;
+                    contentsLayout.childControlWidth = true;
+                    contentsLayout.childControlHeight = true;
+                    contentsLayout.spacing = 5;
+                    contentsLayout.padding = new UnityEngine.RectOffset(10, 10, 10, 10); // More top padding
+                }
+                
+                // Ensure category.Contents has a ContentSizeFitter to expand based on children
+                var contentsFitter = category.Contents.GetComponent<UnityEngine.UI.ContentSizeFitter>();
+                if (contentsFitter == null)
+                {
+                    contentsFitter = category.Contents.gameObject.AddComponent<UnityEngine.UI.ContentSizeFitter>();
+                    contentsFitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
+                    contentsFitter.horizontalFit = UnityEngine.UI.ContentSizeFitter.FitMode.Unconstrained;
+                }
+                
+                // Make sure contents are visible
                 category.Contents.gameObject.SetActive(true);
                 
+                // Force layout rebuild to calculate correct sizes
                 UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(category.Contents);
-                UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.Content);
+                UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(contentTransform as UnityEngine.RectTransform);
                 
+                // Move Operational Details after description/thumbnail (index 1, after DescriptionHolder which is index 0)
+                // The Content children are typically: [0]=DescriptionHolder (with thumbnail+description), [1+]=Categories
+                category.transform.SetSiblingIndex(20);
+                
+                // Default to COLLAPSED state
+                category.Contents.gameObject.SetActive(false);
+                if (category.CollapseImage != null && category.NotVisibleImage != null)
+                {
+                    category.CollapseImage.sprite = category.NotVisibleImage;
+                }
+                
+                // Force rebuild of the main content area to fix scrollbar visibility
+                if (Stationpedia.Instance?.ContentRectTransform != null)
+                {
+                    UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(Stationpedia.Instance.ContentRectTransform);
+                }
+                
+                // Add to game's category list so it handles cleanup
                 __instance.CreatedCategories.Add(category);
             }
             catch (Exception)

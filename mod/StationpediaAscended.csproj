@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <AssemblyName>StationpediaPlus</AssemblyName>
-    <RootNamespace>StationpediaPlus</RootNamespace>
+    <AssemblyName>StationpediaAscended</AssemblyName>
+    <RootNamespace>StationpediaAscended</RootNamespace>
     <LangVersion>latest</LangVersion>
     <OutputPath>bin\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -43,8 +43,16 @@
       <HintPath>$(StationeersManagedPath)\UnityEngine.UI.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
       <HintPath>$(StationeersManagedPath)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.ImageConversionModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
@@ -89,8 +97,8 @@
       <ScriptsFolder>$(StationeersPath)\BepInEx\scripts</ScriptsFolder>
     </PropertyGroup>
     <MakeDir Directories="$(ScriptsFolder)" />
-    <Copy SourceFiles="$(OutputPath)StationpediaPlus.dll" DestinationFolder="$(ScriptsFolder)" />
-    <Copy SourceFiles="$(OutputPath)StationpediaPlus.pdb" DestinationFolder="$(ScriptsFolder)" Condition="Exists('$(OutputPath)StationpediaPlus.pdb')" />
+    <Copy SourceFiles="$(OutputPath)StationpediaAscended.dll" DestinationFolder="$(ScriptsFolder)" />
+    <Copy SourceFiles="$(OutputPath)StationpediaAscended.pdb" DestinationFolder="$(ScriptsFolder)" Condition="Exists('$(OutputPath)StationpediaAscended.pdb')" />
     <Copy SourceFiles="$(ProjectDir)descriptions.json" DestinationFolder="$(ScriptsFolder)" />
     <Message Text="Mod copied to $(ScriptsFolder) for hot-reload (F6)" Importance="high" />
   </Target>
