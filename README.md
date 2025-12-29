@@ -1,0 +1,227 @@
+# 🔥 Stationpedia Ascended
+
+**An enhanced Stationpedia experience for Stationeers with comprehensive tooltips, bug fixes, and quality of life improvements.**
+
+![Stationpedia Ascended Header](assets/header-screenshot.gif)
+*The new Stationpedia Ascended interface with custom phoenix branding*
+
+## ✨ Features
+
+### 🎯 Enhanced Tooltips System
+Get detailed explanations for every aspect of your devices with our comprehensive tooltip system:
+
+- **Logic Descriptions** - Hover over logic types to understand their functionality
+- **Slot Information** - Detailed explanations of what each slot type does
+- **Memory & Registers** - Clear descriptions of memory addresses and their purposes  
+- **Device Modes** - Understand different operational modes for devices
+- **Connection Types** - Learn about different connection types and their uses
+
+![Tooltips Demo](assets/tooltips-demo.gif)
+*Comprehensive tooltips provide detailed information on hover*
+
+### 🔧 Operational Details Section
+A dedicated section for device-specific operational details and advanced functionality:
+
+- Appears at the top of device pages for immediate visibility
+- Phoenix icon displayed next to the category title
+- Configurable title color via JSON
+- Collapsible by default to maintain clean interface
+- Fully customizable via JSON configuration
+- Explains unique device behaviors not covered in standard descriptions
+
+![Operational Details](assets/operational-details.gif)
+*Operational Details section provides advanced device information*
+
+### 📝 Page Description Customization
+Complete control over Stationpedia page descriptions:
+
+- **Replace** existing descriptions entirely
+- **Append** additional information after existing content
+- **Prepend** important notes before existing descriptions
+- JSON-based configuration for easy management
+
+![Description Customization](assets/description-customization.gif)
+*Easily customize page descriptions via JSON configuration*
+
+### 🐛 Critical Bug Fixes
+
+#### Scrollbar Handle Fix
+Resolves the frustrating scrollbar handle disappearance bug that affects the base game:
+- Handles now remain visible on all Stationpedia pages
+- Fixes position corruption that caused handles to vanish
+- Implements robust 5-frame correction system
+
+![Scrollbar Fix](assets/scrollbar-fix.gif)
+*Before and after: Scrollbar handles now work correctly on all pages*
+
+#### Window Dragging Fix  
+Eliminates crashes when dragging the Stationpedia window in the main menu:
+- No more null reference exceptions
+- Smooth dragging experience in all game states
+- Maintains window bounds and positioning
+
+### 🎨 Custom Branding
+- **Phoenix Logo** - Custom phoenix icon replaces the original book icon
+- **"Stationpedia Ascended"** branding in the window header
+- **Orange Accent Colors** - Consistent theming throughout the interface
+- Maintains compatibility with existing UI elements
+
+![Custom Branding](assets/custom-branding.gif)
+*Custom phoenix logo and Stationpedia Ascended branding*
+
+## 🚀 Installation
+
+### Option 1: BepInEx (Recommended)
+1. Download the latest release from [Releases](../../releases)
+2. Extract files to `Stationeers/BepInEx/scripts/`
+3. Launch the game
+
+### Option 2: ScriptEngine Hot-Reload (Development)
+1. Place files in your ScriptEngine scripts folder
+2. Use F6 to hot-reload during development
+3. Perfect for testing and customization
+
+## ⚙️ Configuration
+
+### descriptions.json
+The mod uses a JSON configuration file for all customizations:
+
+```json
+{
+  "genericDescriptions": {
+    "logic": {
+      "Power": "Controls device power state - 1 for on, 0 for off",
+      "Setting": "Adjusts device operational parameters",
+      "Temperature": "Current temperature reading in Kelvin"
+    },
+    "slots": {
+      "Power": "Electrical power connection - provides or consumes electricity",
+      "Atmosphere": "Gas input/output for atmospheric processing"
+    },
+    "memory": {
+      "Setting": "Stores device configuration values",
+      "Temperature": "Current temperature sensor reading"
+    },
+    "modes": {
+      "0": "Device disabled/off state",
+      "1": "Standard operational mode"
+    },
+    "connections": {
+      "Power": "Electrical power delivery system",
+      "Data": "Digital communication channel"
+    }
+  },
+  "devices": {
+    "ThingAtmospherics": {
+      "operationalDetails": [
+        {"header": "Pressure Management", "body": "This device can process multiple gas types simultaneously and requires careful pressure management."}
+      ],
+      "operationalDetailsTitleColor": "#FF7A18",
+      "pageDescription": "Complete replacement of the original page description.",
+      "pageDescriptionAppend": "Additional information appended to the existing description.",
+      "pageDescriptionPrepend": "Important notice added before the existing description."
+    }
+  }
+}
+```
+
+### Customization Examples
+
+#### Adding Logic Tooltips
+```json
+"logic": {
+  "CustomValue": "Your explanation here",
+  "PowerConsumption": "Amount of power this device uses"
+}
+```
+
+#### Device-Specific Operational Details
+```json
+"devices": {
+  "YourDevicePageKey": {
+    "operationalDetails": [
+      {"header": "Special Mechanics", "body": "Explain unique mechanics, tips, or advanced usage patterns"}
+    ],
+    "operationalDetailsTitleColor": "#FFD700",
+    "pageDescriptionAppend": "Additional safety warnings or usage notes"
+  }
+}
+```
+
+## 🔄 Hot-Reload Development
+
+For modders and advanced users:
+1. Place mod files in ScriptEngine scripts folder
+2. Edit `descriptions.json` or code files
+3. Press F6 in-game to reload instantly
+4. No game restart required for configuration changes
+
+![Hot Reload](assets/hot-reload-demo.gif)
+*Live editing and testing with hot-reload support*
+
+## 🤝 Contributing
+
+We welcome contributions! Areas where you can help:
+
+- **Descriptions Database** - Add more comprehensive logic/slot/memory descriptions
+- **Device Behaviors** - Document special behaviors for various devices
+- **Bug Reports** - Report any issues or conflicts with other mods
+- **Feature Requests** - Suggest new functionality or improvements
+
+### Development Setup
+1. Clone the repository
+2. Install .NET Framework 4.8
+3. Reference Stationeers assemblies in project
+4. Use hot-reload for rapid testing
+
+## 📋 Requirements
+
+- **Stationeers** (Latest Version)
+- **BepInEx** or **ScriptEngine** mod loader
+- **.NET Framework 4.8** (usually pre-installed)
+
+## 🐛 Known Issues & Compatibility
+
+- ✅ Compatible with most other Stationpedia mods
+- ✅ Safe to install/uninstall without save corruption
+- ⚠️ Hot-reload may occasionally require game restart
+- 📝 Some complex device descriptions may need community input
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](../../issues)
+- **Discussions**: [GitHub Discussions](../../discussions)
+- **Discord**: [Stationeers Modding Community](discord-link-placeholder)
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Stationeers Development Team** - For creating an amazing game with extensive modding support
+- **BepInEx Team** - For the excellent modding framework
+- **Stationeers Modding Community** - For inspiration, feedback, and collaboration
+- **Contributors** - Thank you to everyone who helps improve this mod
+
+---
+
+### 📊 Statistics
+- **500+ Device Descriptions** loaded from JSON
+- **132 Logic Types** with detailed explanations  
+- **33 Slot Types** comprehensively documented
+- **45 Memory Addresses** clearly explained
+- **Zero Performance Impact** on game performance
+
+### 🔮 Roadmap
+- [ ] Multi-language support
+- [ ] Visual enhancement options
+- [ ] Integration with other popular Stationeers mods
+- [ ] Advanced filtering and search capabilities
+- [ ] Community-driven description database
+
+---
+
+*Made with ❤️ for the Stationeers community*
+
+![Footer Image](assets/footer-banner.gif)
