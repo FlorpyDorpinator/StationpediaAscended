@@ -1324,6 +1324,10 @@ namespace StationpediaAscended
             return result.Trim();
         }
         
+        #endregion
+
+        #region Cleanup
+        
         void OnDestroy()
         {
             // Stop all coroutines on this MonoBehaviour
@@ -1390,5 +1394,7 @@ namespace StationpediaAscended
             
             ConsoleWindow.Print("[Stationpedia Ascended] Cleaned up");
         }
+        
+        #endregion
     }
 }

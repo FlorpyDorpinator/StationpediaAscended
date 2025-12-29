@@ -7,8 +7,11 @@
     <LangVersion>latest</LangVersion>
     <OutputPath>bin\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <!-- Embedded PDB for all configurations - required for ScriptEngine hot-reload -->
     <DebugType>embedded</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <!-- Don't optimize away symbols in Release -->
+    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <!-- Reference the Stationeers game DLLs -->
