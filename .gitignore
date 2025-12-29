@@ -26,7 +26,10 @@ Thumbs.db
 
 # Reference assemblies (don't need to track game DLLs)
 *.dll
-!mod/bin/StationpediaPlus.dll
+!mod/bin/StationpediaAscended.dll
 
 # Large context folders (external reference, not part of mod)
 ModsForContext/
+
+# Ignore the Archive
+Archive/
