@@ -1,0 +1,147 @@
+Stationpedia Ascended – LLM Editing Instructions (Read Me First)
+======================================================
+
+You are editing a Stationeers mod (BepInEx + Harmony + optional ScriptEngine hot-reload).
+The code currently lives in ONE large file (StationpediaAscended.cs) that contains:
+- The plugin entrypoint + lifecycle (Awake/Initialize/OnDestroy)
+- A parallel “static” init path for ScriptEngine hot-reload
+- UI monitoring coroutine(s) and tooltip rendering via OnGUI
+- Harmony patch wiring
+- Tooltip components (SPDALogicTooltip, SPDASlotTooltip, SPDAVersionTooltip, SPDAMemoryTooltip, etc.)
+- Data models used for JSON deserialization (DeviceDescriptions, GenericDescriptionsData, etc.)
+
+The data currently lives in ONE large JSON file (descriptions.json) with ~500 devices.
+
+Your job is to improve maintainability WITHOUT changing behavior.
+
+Non‑negotiable rules
+--------------------
+1) DO NOT change gameplay/UI behavior unless the user explicitly requests it.
+2) Keep namespace StationpediaAscended.
+3) Keep the plugin id/name/version and the HarmonyId constant unchanged.
+4) Keep BOTH init paths working:
+   - Normal BepInEx load path (Awake -> Initialize)
+   - ScriptEngine hot reload path (InitializeFromScriptEngine + CleanupFromScriptEngine)
+5) Do not introduce new external dependencies. You may use existing references already in the code:
+   BepInEx, HarmonyLib, UnityEngine, Newtonsoft.Json.
+6) Prefer refactors that are “mechanical moves” (move code into new files/classes) rather than logic rewrites.
+7) Any new helper method/class must be internal unless it is clearly part of the public mod surface.
+8) If you rename a JSON field or C# property, you MUST keep backward compatibility (JsonProperty aliases) or provide a migration loader.
+
+Recommended target file/folder layout
+-------------------------------------
+Create a folder structure like this (relative to the mod project root):
+
+/src
+  /Plugin
+    StationpediaAscendedPlugin.cs          (BepInEx plugin entrypoint, lifecycle glue only)
+    ScriptEngineEntry.cs                   (InitializeFromScriptEngine + CleanupFromScriptEngine only)
+  /Core
+    StationpediaAscendedCore.cs            (single “brain” that both entry paths call)
+    StationpediaMonitor.cs                 (page change detection + AddTooltipsAfterDelay)
+    TooltipState.cs                        (CurrentTooltipText + ShowTooltip; central state)
+    IconLoader.cs                          (LoadCustomIcon + path resolution)
+    DescriptionLoader.cs                   (LoadDescriptions + path resolution + caching)
+    PathResolver.cs                        (all path probing logic in one place)
+  /Harmony
+    HarmonyInstaller.cs                    (ApplyHarmonyPatches + RegisterConsoleCommands)
+    HarmonyPatches.cs                      (the actual postfix/prefix methods)
+  /UI
+    TooltipRenderer.cs                     (OnGUI + GUIStyle init)
+  /Tooltips
+    BaseTooltip.cs                         (shared hover delay + caching pattern)
+    LogicTooltip.cs                        (SPDALogicTooltip)
+    SlotTooltip.cs                         (SPDASlotTooltip)
+    VersionTooltip.cs                      (SPDAVersionTooltip)
+    MemoryTooltip.cs                       (SPDAMemoryTooltip)
+  /Data
+    Models.cs                              (DescriptionsRoot, DeviceDescriptions, GenericDescriptionsData, etc.)
+    JsonSchemaNotes.md (optional)          (docs about fields, naming, conventions)
+
+/data
+  descriptions.json                        (runtime packed file; can remain monolithic for release)
+  /descriptions
+    generic.json                           (optional dev-only split)
+    devices/
+      ThingRobot.json                      (optional dev-only split)
+
+Important: It’s OK to keep a single release descriptions.json, but during development, splitting per-device is encouraged.
+
+Refactor approach (do in safe steps)
+------------------------------------
+Step 1 – Extract by moving code (no behavior change):
+- Move data model classes (DescriptionsRoot, DeviceDescriptions, etc.) into /src/Data/Models.cs
+- Move tooltip components into /src/Tooltips/*.cs
+- Move OnGUI tooltip rendering into /src/UI/TooltipRenderer.cs
+- Move path probing logic into /src/Core/PathResolver.cs
+- Leave StationpediaAscendedPlugin.cs as a thin facade that delegates into StationpediaAscendedCore.
+
+Step 2 – Unify duplicate logic between “instance” and “static” paths:
+- Create StationpediaAscendedCore.Initialize(ICoroutineRunner runner, ILog log) and .Cleanup()
+- Make both entry paths call the same core:
+  - BepInEx path: runner = this (MonoBehaviour), log = BepInEx log
+  - ScriptEngine path: runner = host (MonoBehaviour), log = provided log
+- Keep existing public signatures for InitializeFromScriptEngine and CleanupFromScriptEngine.
+
+Step 3 – Improve JSON maintainability (no breaking changes):
+- Create an optional dev-time split format:
+  /data/descriptions/generic.json
+  /data/descriptions/devices/*.json
+- Add a tiny “build/pack” script later (optional) that merges them into descriptions.json for release.
+- In C#, support BOTH:
+  a) single descriptions.json (current behavior)
+  b) folder-based load (if folder exists), merge into one in memory
+
+Data conventions & cleanup guidelines (for JSON)
+------------------------------------------------
+- Keep keys stable:
+  deviceKey is the primary key.
+- Prefer consistent field names:
+  Use displayName consistently (avoid mixing title/deviceTitle unless you alias them).
+- For optional fields, use null or omit them; avoid switching types (e.g. slots sometimes number, sometimes array).
+- Add a “schemaVersion” (string) at the root (the code already expects ‘version’; keep it too for compatibility).
+
+If you see inconsistent fields:
+- Add [JsonProperty] attributes to map legacy names to the canonical property.
+- Example: map “deviceTitle” and “title” to displayName without breaking existing files.
+
+Coding standards to follow
+--------------------------
+- One class per file (exceptions: small DTOs can share a Models.cs).
+- Keep methods under ~80 lines where feasible; extract helpers for repeated patterns.
+- Use regions sparingly; folder structure should replace most regions.
+- Prefer small, testable pure methods for formatting text (tooltip formatting, name cleaning).
+- Use clear naming: *Loader*, *Installer*, *Renderer*, *Monitor*, *Tooltip*.
+
+Specific hotspots to improve (keep behavior!)
+---------------------------------------------
+1) Path resolution is currently duplicated and includes hardcoded dev paths.
+   Centralize this in PathResolver with an ordered list of candidates.
+
+2) Tooltip creation is repeated for multiple categories.
+   Extract a helper that:
+   - iterates children
+   - checks existing tooltip component
+   - attaches + initializes + tracks added components
+
+3) Static/global state:
+   Keep the existing public static tooltip state, but put it behind TooltipState so code has ONE place to touch it.
+
+4) Cleanup:
+   Ensure cleanup destroys components created during the session and unpatches Harmony.
+   Keep the current “destroy old tooltip components by type name” behavior intact.
+
+What to output after edits
+--------------------------
+When you make changes, always provide:
+- The list of files changed/created
+- Any breaking changes (should be none unless explicitly requested)
+- A short test checklist:
+  - Cold start: open Stationpedia, hover items, see tooltip.
+  - Page change: tooltips reattach on new page.
+  - ScriptEngine hot-reload: F6 reload -> tooltips still work, no duplicates.
+  - Cleanup: OnDestroy/cleanup unpatches Harmony, removes components, no lingering tooltips.
+
+Stop conditions
+---------------
+If a requested change would require altering game logic or patch behavior, STOP and ask for confirmation (or propose a safer alternative).
