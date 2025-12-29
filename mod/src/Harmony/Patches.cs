@@ -318,7 +318,7 @@ namespace StationpediaAscended.Patches
             int explicitLineCount = textContent.Split('\n').Length;
             int estimatedWrappedLines = textContent.Length / 40;
             int totalLines = Math.Max(explicitLineCount, estimatedWrappedLines);
-            float estimatedHeight = (totalLines * 16.8f) + 25f;
+            float estimatedHeight = (totalLines * 17f) + 25f;
             
             // Set the size
             rectTransform.sizeDelta = new Vector2(-20, estimatedHeight);
