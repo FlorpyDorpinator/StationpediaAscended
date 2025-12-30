@@ -2,6 +2,33 @@
 
 All notable changes to Stationpedia Ascended will be documented in this file.
 
+## [0.2.2] - 2025-12-30
+
+### ⚡ Search Performance Optimizations
+- **O(1) Title Index Lookups** - Built cached title/word indexes for instant lookups instead of O(n) full scans
+- **Reduced Search Latency** - Replaced 1-second polling loop with 2-frame delay for near-instant results
+- **Category Cache** - Added category lookup cache to avoid triple-nested loops during reorganization
+- **Template Caching** - Cached font, sprite, and color references to avoid repeated lookups
+
+### 🏷️ New Property Tooltips
+Hover over gas, material, and device properties to see detailed explanations:
+- **Gas/Material Properties**: Flashpoint, Autoignition, Thermal Convection, Thermal Radiation, Solar Heating, Specific Heat, Freeze Temperature, Boiling Temperature, Max Liquid Temperature, Min Liquid Pressure, Latent Heat, Moles Per Litre
+- **Device Properties**: Max Pressure, Volume, Base Power, Power Storage, Power Generation
+- **Plant/Food Properties**: Growth Time, Nutrition, Nutrition Quality, Mood Bonus
+- **Rocket Properties**: Placeable In Rocket, Rocket Mass
+
+### 🎮 IC10 Helper Tooltips
+- **Prefab Name Tooltip** - Shows full name (in case truncated), "click to copy" instruction, and IC10 usage example
+- **Prefab Hash Tooltip** - Shows hash value with IC10 code example (`lb r0 <hash> Setting`)
+- Explains that Prefab Name and Hash are interchangeable for IC10 programming
+
+### 🔧 Bug Fixes & Polish
+- **Prefab Name Truncation** - Fixed truncation to prevent overlap with Stack Size field
+- **Removed Debug Spam** - Cleaned up console logs by removing verbose debug output
+- **New Tooltip Classes** - Added `SPDAPrefabInfoTooltip` and `SPDAPropertyTooltip`
+
+---
+
 ## [0.2.1] - 2025-12-29
 
 ### ✨ Enhanced Search Results

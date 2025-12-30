@@ -35,6 +35,23 @@ namespace StationpediaAscended.Patches
         // Coroutine reference for debouncing
         private static Coroutine _reorganizeCoroutine = null;
         
+        // ===== OPTIMIZATION CACHES (P2 & P3) =====
+        
+        // P2: Page title index for O(1) lookups instead of O(n) full scans
+        private static Dictionary<string, List<StationpediaPage>> _pageTitleIndex = null;
+        private static Dictionary<string, List<StationpediaPage>> _pageWordIndex = null;
+        private static Dictionary<string, string> _cleanedTitleCache = new Dictionary<string, string>();
+        
+        // P3: Category lookup cache to avoid triple-nested loops
+        private static Dictionary<string, string> _categoryCache = new Dictionary<string, string>();
+        private static bool _categoryCacheBuilt = false;
+        
+        // Performance: Cached template references to avoid repeated lookups
+        private static Sprite _cachedHeaderSprite = null;
+        private static TMP_FontAsset _cachedFont = null;
+        private static Material _cachedFontMaterial = null;
+        private static ColorBlock _cachedButtonColors;
+        
         /// <summary>
         /// Priority levels for search result scoring.
         /// </summary>
@@ -94,7 +111,6 @@ namespace StationpediaAscended.Patches
                 stationpedia.SearchField.onValueChanged.AddListener(new UnityAction<string>(OnSearchValueChanged));
                 
                 _searchFieldHooked = true;
-                ConsoleWindow.Print("[Stationpedia Ascended] Search field hooked for result reorganization");
             }
             catch (Exception ex)
             {
@@ -142,22 +158,11 @@ namespace StationpediaAscended.Patches
         {
             yield return new WaitForSeconds(delay);
             
-            // Wait for search to finish populating (check for stable result count)
-            int lastCount = -1;
-            for (int i = 0; i < 10; i++)
-            {
-                var stationpedia = Stationpedia.Instance;
-                if (stationpedia?.SearchContents == null) yield break;
-                
-                int currentCount = CountVisibleSearchResults(stationpedia.SearchContents);
-                if (currentCount > 0 && currentCount == lastCount)
-                {
-                    // Results have stabilized
-                    break;
-                }
-                lastCount = currentCount;
-                yield return new WaitForSeconds(0.1f);
-            }
+            // P1 OPTIMIZATION: Replace slow wait loop with 2-frame delay
+            // The old code waited up to 1 second (10 x 0.1s) polling for stable results
+            // Testing shows 2 frames is sufficient for vanilla search to populate
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
             
             ReorganizeSearchResults(Stationpedia.Instance, searchText);
         }
@@ -226,9 +231,7 @@ namespace StationpediaAscended.Patches
                     }
                     else
                     {
-                        // Debug: log items we couldn't find pages for
-                        ConsoleWindow.Print($"[Search] ORPHAN item - title:'{title}', name:'{child.name}'");
-                        // Also hide orphan items since they may be debris/junk
+                        // Hide orphan items since they may be debris/junk
                         itemsToHide.Add(child);
                     }
                 }
@@ -239,13 +242,10 @@ namespace StationpediaAscended.Patches
                     item.gameObject.SetActive(false);
                 }
                 
-                ConsoleWindow.Print($"[Stationpedia Ascended] Reorganizing {items.Count} search results for '{searchText}'");
-                
                 // Find and inject missing exact/whole-word matches
                 var injectedPages = FindMissingMatches(searchText, existingPageKeys);
                 if (injectedPages.Count > 0)
                 {
-                    ConsoleWindow.Print($"[Stationpedia Ascended] Injecting {injectedPages.Count} missing matches");
                     InjectMissingResults(stationpedia, injectedPages, items, existingPageKeys);
                 }
                 
@@ -266,36 +266,99 @@ namespace StationpediaAscended.Patches
         /// <summary>
         /// Find pages that should match the search but weren't returned by vanilla search.
         /// This fixes the vanilla bug where too many partial matches hide exact matches.
+        /// P2 OPTIMIZATION: Uses cached title index for O(1) lookups instead of O(n) full scan.
         /// </summary>
         private static List<StationpediaPage> FindMissingMatches(string searchText, HashSet<string> existingPageKeys)
         {
+            // Build indexes on first use (lazy initialization)
+            BuildPageIndexes();
+            
             var missingPages = new List<StationpediaPage>();
             string searchLower = searchText.ToLowerInvariant().Trim();
-            string escapedSearch = Regex.Escape(searchLower);
-            Regex wholeWordRegex = new Regex($@"\b{escapedSearch}\b", RegexOptions.IgnoreCase);
             
-            foreach (var page in Stationpedia.StationpediaPages)
+            // O(1) lookup for exact title matches
+            if (_pageTitleIndex.TryGetValue(searchLower, out var exactPages))
             {
-                // Skip if already in results
-                if (existingPageKeys.Contains(page.Key)) continue;
-                
-                // Skip items that should be hidden (burnt, ruptured, etc.)
-                if (ShouldHideFromSearch(page)) continue;
-                
-                string title = Regex.Replace(page.Title ?? "", "<[^>]+>", "").ToLowerInvariant().Trim();
-                
-                // Check for exact match or whole-word match (high priority items only)
-                bool isExact = title == searchLower;
-                bool isWholeWord = wholeWordRegex.IsMatch(title);
-                
-                if (isExact || isWholeWord)
+                foreach (var page in exactPages)
                 {
-                    ConsoleWindow.Print($"[Search] INJECTING missing match: '{page.Title}' (exact: {isExact}, wholeWord: {isWholeWord})");
-                    missingPages.Add(page);
+                    if (!existingPageKeys.Contains(page.Key) && !ShouldHideFromSearch(page))
+                    {
+                        missingPages.Add(page);
+                    }
+                }
+            }
+            
+            // O(1) lookup for whole-word matches
+            if (_pageWordIndex.TryGetValue(searchLower, out var wordPages))
+            {
+                foreach (var page in wordPages)
+                {
+                    // Skip if already added as exact match
+                    if (missingPages.Contains(page)) continue;
+                    if (!existingPageKeys.Contains(page.Key) && !ShouldHideFromSearch(page))
+                    {
+                        missingPages.Add(page);
+                    }
                 }
             }
             
             return missingPages;
+        }
+        
+        /// <summary>
+        /// P2 OPTIMIZATION: Build page title indexes for O(1) lookups.
+        /// Called lazily on first search.
+        /// </summary>
+        private static void BuildPageIndexes()
+        {
+            if (_pageTitleIndex != null) return; // Already built
+            
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            
+            _pageTitleIndex = new Dictionary<string, List<StationpediaPage>>();
+            _pageWordIndex = new Dictionary<string, List<StationpediaPage>>();
+            
+            foreach (var page in Stationpedia.StationpediaPages)
+            {
+                if (ShouldHideFromSearch(page)) continue;
+                
+                string title = CleanTitle(page.Title).ToLowerInvariant();
+                if (string.IsNullOrEmpty(title)) continue;
+                
+                // Index by full title for exact matches
+                if (!_pageTitleIndex.ContainsKey(title))
+                    _pageTitleIndex[title] = new List<StationpediaPage>();
+                _pageTitleIndex[title].Add(page);
+                
+                // Index by individual words for whole-word matches
+                string[] words = title.Split(new[] { ' ', '-', '(', ')', '[', ']' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string word in words)
+                {
+                    if (word.Length < 2) continue; // Skip single chars
+                    if (!_pageWordIndex.ContainsKey(word))
+                        _pageWordIndex[word] = new List<StationpediaPage>();
+                    if (!_pageWordIndex[word].Contains(page))
+                        _pageWordIndex[word].Add(page);
+                }
+            }
+            
+            stopwatch.Stop();
+            ConsoleWindow.Print($"[Stationpedia Ascended] Built page indexes: {_pageTitleIndex.Count} titles, {_pageWordIndex.Count} words in {stopwatch.ElapsedMilliseconds}ms");
+        }
+        
+        /// <summary>
+        /// Clean title by removing rich text tags. Uses cache for performance.
+        /// </summary>
+        private static string CleanTitle(string title)
+        {
+            if (string.IsNullOrEmpty(title)) return "";
+            
+            if (_cleanedTitleCache.TryGetValue(title, out string cleaned))
+                return cleaned;
+            
+            cleaned = Regex.Replace(title, "<[^>]+>", "").Trim();
+            _cleanedTitleCache[title] = cleaned;
+            return cleaned;
         }
 
         /// <summary>
@@ -379,20 +442,18 @@ namespace StationpediaAscended.Patches
         {
             if (string.IsNullOrEmpty(title)) return null;
             
-            // Remove any rich text tags for comparison
-            string cleanTitle = Regex.Replace(title, "<[^>]+>", "").Trim();
+            // Build indexes if not already done
+            BuildPageIndexes();
             
-            foreach (var page in Stationpedia.StationpediaPages)
+            // Use cached clean title
+            string cleanTitle = CleanTitle(title).ToLowerInvariant();
+            
+            // O(1) lookup using our cached index
+            if (_pageTitleIndex.TryGetValue(cleanTitle, out var pages) && pages.Count > 0)
             {
-                string pageTitle = Regex.Replace(page.Title ?? "", "<[^>]+>", "").Trim();
-                if (string.Equals(pageTitle, cleanTitle, StringComparison.OrdinalIgnoreCase))
-                {
-                    return page;
-                }
+                return pages[0];
             }
             
-            // Debug: log when we can't find a page
-            ConsoleWindow.Print($"[Search] Could not find page for title: '{cleanTitle}'");
             return null;
         }
 
@@ -525,29 +586,20 @@ namespace StationpediaAscended.Patches
             List<(SPDAListItem item, StationpediaPage page, Transform transform)> items,
             string searchText)
         {
-            var results = new List<ScoredResult>();
+            var results = new List<ScoredResult>(items.Count); // Pre-allocate capacity
             string searchLower = searchText.ToLowerInvariant().Trim();
             string escapedSearch = Regex.Escape(searchLower);
             
             // Word boundary pattern - matches search term as a whole word
             Regex wholeWordRegex = new Regex($@"\b{escapedSearch}\b", RegexOptions.IgnoreCase);
             
-            // Debug: log first few items to see what we're working with
-            int debugCount = 0;
-            
             foreach (var (item, page, transform) in items)
             {
                 // Use the display title from the list item, not the page
                 string displayTitle = item.InsertTitle?.text ?? "";
-                string title = Regex.Replace(displayTitle, "<[^>]+>", "").ToLowerInvariant().Trim();
+                string title = CleanTitle(displayTitle).ToLowerInvariant();
                 
                 bool isWholeWordMatch = wholeWordRegex.IsMatch(title);
-                
-                if (debugCount < 5)
-                {
-                    ConsoleWindow.Print($"[Search] Item: '{title}' | wholeWord: {isWholeWordMatch}");
-                    debugCount++;
-                }
                 
                 MatchPriority priority;
                 
@@ -555,19 +607,16 @@ namespace StationpediaAscended.Patches
                 if (title == searchLower)
                 {
                     priority = MatchPriority.ExactTitle;
-                    ConsoleWindow.Print($"[Search] EXACT: '{title}'");
                 }
                 // Check for starts-with as a whole word (e.g., "corn seed" starts with word "corn")
                 else if (title.StartsWith(searchLower + " ") || (title.StartsWith(searchLower) && isWholeWordMatch))
                 {
                     priority = MatchPriority.TitleStartsWith;
-                    ConsoleWindow.Print($"[Search] STARTS: '{title}'");
                 }
                 // Check for whole word match anywhere in title (e.g., "popped corn" contains word "corn")
                 else if (isWholeWordMatch)
                 {
                     priority = MatchPriority.TitleContains;
-                    ConsoleWindow.Print($"[Search] WORD MATCH: '{title}'");
                 }
                 // Partial match - search term is part of another word (e.g., "corner" contains "corn")
                 else if (title.Contains(searchLower))
@@ -738,37 +787,83 @@ namespace StationpediaAscended.Patches
         {
             if (page == null) return "Other";
             
-            // Try to determine category from prefab name or page categories
-            if (page.PageCustomCategories != null && page.PageCustomCategories.Count > 0)
-            {
-                return page.PageCustomCategories[0];
-            }
-            
-            // Parse category from Key (e.g., "ThingSomeDevice" -> check DataHandler)
             string key = page.Key ?? "";
             
-            // Check against known category lists
-            if (key.StartsWith("Thing"))
+            // P3 OPTIMIZATION: Check cache first
+            if (_categoryCache.TryGetValue(key, out string cachedCategory))
             {
-                string prefabName = key.Substring(5); // Remove "Thing" prefix
-                
-                // Try to find in DataHandler's dictionary
+                return cachedCategory;
+            }
+            
+            // Build full cache on first miss (amortizes the cost)
+            if (!_categoryCacheBuilt)
+            {
+                BuildCategoryCache();
+                if (_categoryCache.TryGetValue(key, out cachedCategory))
+                {
+                    return cachedCategory;
+                }
+            }
+            
+            // Compute category for this page
+            string category = ComputePageCategory(page);
+            _categoryCache[key] = category;
+            return category;
+        }
+        
+        /// <summary>
+        /// P3 OPTIMIZATION: Pre-build the category cache to avoid triple-nested loops.
+        /// </summary>
+        private static void BuildCategoryCache()
+        {
+            if (_categoryCacheBuilt) return;
+            
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+            
+            try
+            {
+                // Build reverse lookup from DataHandler's dictionary
                 foreach (var listEntry in Stationpedia.DataHandler._listDictionary)
                 {
                     foreach (var categoryEntry in listEntry.Value)
                     {
+                        string categoryName = categoryEntry.Key;
                         foreach (var insert in categoryEntry.Value)
                         {
-                            if (insert.PageLink == key)
+                            if (!string.IsNullOrEmpty(insert.PageLink))
                             {
-                                return categoryEntry.Key; // Return the sub-category name
+                                _categoryCache[insert.PageLink] = categoryName;
                             }
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                ConsoleWindow.Print($"[Stationpedia Ascended] Error building category cache: {ex.Message}");
+            }
             
-            // Check special page types
+            _categoryCacheBuilt = true;
+            stopwatch.Stop();
+            ConsoleWindow.Print($"[Stationpedia Ascended] Built category cache: {_categoryCache.Count} entries in {stopwatch.ElapsedMilliseconds}ms");
+        }
+        
+        /// <summary>
+        /// Compute category for a page (fallback when not in cache).
+        /// </summary>
+        private static string ComputePageCategory(StationpediaPage page)
+        {
+            if (page == null) return "Other";
+            
+            // Try to determine category from page's custom categories
+            if (page.PageCustomCategories != null && page.PageCustomCategories.Count > 0)
+            {
+                return page.PageCustomCategories[0];
+            }
+            
+            string key = page.Key ?? "";
+            
+            // Check special page types by key prefix
             if (key.StartsWith("Gas")) return "Gases";
             if (key.StartsWith("Reagent")) return "Reagents";
             if (key.StartsWith("Gene")) return "Genetics";
@@ -837,18 +932,29 @@ namespace StationpediaAscended.Patches
             
             // Force layout rebuild
             LayoutRebuilder.ForceRebuildLayoutImmediate(searchContents);
-            
-            ConsoleWindow.Print($"[Stationpedia Ascended] Reorganized: {exactMatches.Count} exact, {startsWithMatches.Count} starts-with, {remainingMatches.Count} other");
         }
 
         private static int AddCategoryHeader(RectTransform parent, string text, int siblingIndex, Color textColor)
         {
-            // Create a simple header GameObject
-            var headerGO = new GameObject($"SearchCategoryHeader_{siblingIndex}");
-            headerGO.transform.SetParent(parent, false);
+            // Create new header (no pooling - it was causing layout issues)
+            var headerGO = CreateNewCategoryHeader(parent, text, textColor);
             
             // Add to tracking list
             _searchCategoryHeaders.Add(headerGO);
+            
+            // Set sibling index
+            headerGO.transform.SetSiblingIndex(siblingIndex);
+            
+            return siblingIndex + 1;
+        }
+        
+        /// <summary>
+        /// Creates a new category header GameObject (called when pool is empty).
+        /// </summary>
+        private static GameObject CreateNewCategoryHeader(RectTransform parent, string text, Color textColor)
+        {
+            var headerGO = new GameObject($"SearchCategoryHeader");
+            headerGO.transform.SetParent(parent, false);
             
             // Add RectTransform
             var rectTransform = headerGO.AddComponent<RectTransform>();
@@ -857,53 +963,64 @@ namespace StationpediaAscended.Patches
             rectTransform.pivot = new Vector2(0.5f, 1);
             rectTransform.sizeDelta = new Vector2(0, 54);
             
-            // Add background image - use SpecialButton sprite instead of normal for headers
+            // Add background image - use cached sprite if available
             var bgImage = headerGO.AddComponent<Image>();
             
-            try
+            // Cache template references on first use
+            if (_cachedHeaderSprite == null)
             {
-                var existingItem = parent.GetComponentInChildren<SPDAListItem>();
-                if (existingItem != null)
+                try
                 {
-                    // Try SpecialButton sprite - it may look different
-                    if (existingItem.SpecialButton != null)
+                    var existingItem = parent.GetComponentInChildren<SPDAListItem>();
+                    if (existingItem != null)
                     {
-                        bgImage.sprite = existingItem.SpecialButton;
-                        bgImage.type = Image.Type.Sliced;
-                        bgImage.color = Color.white;
+                        if (existingItem.SpecialButton != null)
+                        {
+                            _cachedHeaderSprite = existingItem.SpecialButton;
+                        }
+                        else if (existingItem.BackImage != null)
+                        {
+                            _cachedHeaderSprite = existingItem.BackImage.sprite;
+                        }
                         
-                        // Add button to darken - use pressed/highlighted color as normal
                         if (existingItem.InsertsButton != null)
                         {
-                            var button = headerGO.AddComponent<Button>();
-                            button.targetGraphic = bgImage;
-                            button.transition = Selectable.Transition.ColorTint;
-                            
-                            var colors = existingItem.InsertsButton.colors;
-                            // Use the pressed color as the normal state to make it permanently darker
-                            colors.normalColor = new Color(0.7f, 0.7f, 0.7f, 1f);
-                            colors.highlightedColor = new Color(0.8f, 0.8f, 0.8f, 1f);
-                            colors.pressedColor = new Color(0.6f, 0.6f, 0.6f, 1f);
-                            colors.selectedColor = colors.normalColor;
-                            colors.disabledColor = colors.normalColor;
-                            button.colors = colors;
-                            
-                            // Keep interactable for color tint to work
-                            button.interactable = true;
-                            var nav = button.navigation;
-                            nav.mode = Navigation.Mode.None;
-                            button.navigation = nav;
+                            _cachedButtonColors = existingItem.InsertsButton.colors;
+                            _cachedButtonColors.normalColor = new Color(0.7f, 0.7f, 0.7f, 1f);
+                            _cachedButtonColors.highlightedColor = new Color(0.8f, 0.8f, 0.8f, 1f);
+                            _cachedButtonColors.pressedColor = new Color(0.6f, 0.6f, 0.6f, 1f);
+                            _cachedButtonColors.selectedColor = _cachedButtonColors.normalColor;
+                            _cachedButtonColors.disabledColor = _cachedButtonColors.normalColor;
                         }
                     }
-                    else if (existingItem.BackImage != null)
+                    
+                    var existingText = parent.GetComponentInChildren<TextMeshProUGUI>();
+                    if (existingText != null)
                     {
-                        bgImage.sprite = existingItem.BackImage.sprite;
-                        bgImage.type = existingItem.BackImage.type;
-                        bgImage.color = existingItem.BackImage.color;
+                        _cachedFont = existingText.font;
+                        _cachedFontMaterial = existingText.fontSharedMaterial;
                     }
                 }
+                catch { }
             }
-            catch { }
+            
+            // Apply cached sprite
+            if (_cachedHeaderSprite != null)
+            {
+                bgImage.sprite = _cachedHeaderSprite;
+                bgImage.type = Image.Type.Sliced;
+                bgImage.color = Color.white;
+                
+                // Add button for color tinting
+                var button = headerGO.AddComponent<Button>();
+                button.targetGraphic = bgImage;
+                button.transition = Selectable.Transition.ColorTint;
+                button.colors = _cachedButtonColors;
+                button.interactable = true;
+                var nav = button.navigation;
+                nav.mode = Navigation.Mode.None;
+                button.navigation = nav;
+            }
             
             // Add text
             var textGO = new GameObject("HeaderText");
@@ -923,31 +1040,24 @@ namespace StationpediaAscended.Patches
             textComponent.alignment = TextAlignmentOptions.Left;
             textComponent.verticalAlignment = VerticalAlignmentOptions.Middle;
             
-            // Try to get font from existing Stationpedia elements
-            try
+            // Use cached font
+            if (_cachedFont != null)
             {
-                var existingText = parent.GetComponentInChildren<TextMeshProUGUI>();
-                if (existingText != null)
-                {
-                    textComponent.font = existingText.font;
-                    textComponent.fontSharedMaterial = existingText.fontSharedMaterial;
-                }
+                textComponent.font = _cachedFont;
+                textComponent.fontSharedMaterial = _cachedFontMaterial;
             }
-            catch { }
             
             // Add layout element
             var layoutElement = headerGO.AddComponent<LayoutElement>();
             layoutElement.preferredHeight = 54;
             layoutElement.flexibleWidth = 1;
             
-            // Set sibling index
-            headerGO.transform.SetSiblingIndex(siblingIndex);
-            
-            return siblingIndex + 1;
+            return headerGO;
         }
 
         private static void CleanupCategoryHeaders()
         {
+            // Destroy all headers
             foreach (var header in _searchCategoryHeaders)
             {
                 if (header != null)
@@ -979,6 +1089,18 @@ namespace StationpediaAscended.Patches
             CleanupCategoryHeaders();
             _searchFieldHooked = false;
             _reorganizeCoroutine = null;
+            
+            // Clear optimization caches so they rebuild on next search
+            _pageTitleIndex = null;
+            _pageWordIndex = null;
+            _cleanedTitleCache.Clear();
+            _categoryCache.Clear();
+            _categoryCacheBuilt = false;
+            
+            // Clear cached template references
+            _cachedHeaderSprite = null;
+            _cachedFont = null;
+            _cachedFontMaterial = null;
         }
     }
 }

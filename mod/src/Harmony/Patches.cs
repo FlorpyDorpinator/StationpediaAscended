@@ -124,12 +124,18 @@ namespace StationpediaAscended.Patches
                 string pageKey = page.Key;
                 if (string.IsNullOrEmpty(pageKey)) return;
 
+                // Fix long prefab names overlapping with Stack Size (only when needed)
+                TruncateLongPrefabName(__instance);
+                
+                // Add tooltips to Prefab Name and Prefab Hash for IC10 users
+                AddPrefabTooltips(__instance);
+
                 // Check if we have any custom data for this page
                 if (!StationpediaAscendedMod.DeviceDatabase.TryGetValue(pageKey, out var deviceDesc)) return;
-                
+
                 // Handle page description modifications
                 HandlePageDescriptionModifications(__instance, deviceDesc);
-                
+
                 // Handle operational details section
                 if (deviceDesc.operationalDetails == null || deviceDesc.operationalDetails.Count == 0) return;
 
@@ -139,6 +145,122 @@ namespace StationpediaAscended.Patches
             {
                 // Silently ignore errors in patch
             }
+        }
+
+        /// <summary>
+        /// Truncates long prefab names to prevent overlap with Stack Size.
+        /// Uses TextMeshPro's built-in Ellipsis mode with LayoutElement constraints.
+        /// </summary>
+        private static void TruncateLongPrefabName(UniversalPage page)
+        {
+            try
+            {
+                if (page.PrefabNameText == null || string.IsNullOrEmpty(page.PrefabNameText.text))
+                    return;
+                
+                // Configure TextMeshPro to handle overflow dynamically
+                page.PrefabNameText.overflowMode = TMPro.TextOverflowModes.Ellipsis;
+                page.PrefabNameText.enableWordWrapping = false; // Keep on single line
+                
+                // Add a LayoutElement to constrain the maximum width
+                var layoutElement = page.PrefabNameText.gameObject.GetComponent<UnityEngine.UI.LayoutElement>();
+                if (layoutElement == null)
+                {
+                    layoutElement = page.PrefabNameText.gameObject.AddComponent<UnityEngine.UI.LayoutElement>();
+                }
+                
+                // Set a maximum preferred width
+                // This allows the text field to shrink if needed but not grow beyond this width
+                layoutElement.preferredWidth = 300f;
+                layoutElement.flexibleWidth = 0f; // Don't allow it to expand beyond preferred width
+                
+                // Also constrain the RectTransform's sizeDelta
+                var rectTransform = page.PrefabNameText.rectTransform;
+                if (rectTransform != null)
+                {
+                    // Get current size
+                    Vector2 currentSize = rectTransform.sizeDelta;
+                    
+                    // Constrain width if it's too large (but keep original if smaller)
+                    if (currentSize.x > 300f || currentSize.x == 0)
+                    {
+                        rectTransform.sizeDelta = new Vector2(300f, currentSize.y);
+                    }
+                }
+            }
+            catch
+            {
+                // Silently ignore errors
+            }
+        }
+
+        /// <summary>
+        /// Adds tooltip components to Prefab Name and Prefab Hash text elements.
+        /// Tooltips show full value, click-to-copy instruction, and IC10 usage info.
+        /// </summary>
+        private static void AddPrefabTooltips(UniversalPage page)
+        {
+            try
+            {
+                string pageKey = Stationpedia.CurrentPageKey;
+                
+                // Add tooltip to Prefab Name
+                if (page.PrefabNameText != null && !string.IsNullOrEmpty(page.PrefabNameText.text))
+                {
+                    var prefabNameParent = page.PrefabNameText.transform.parent;
+                    if (prefabNameParent != null)
+                    {
+                        // Get or add tooltip component to the parent (the row containing label + value)
+                        var tooltip = prefabNameParent.gameObject.GetComponent<Tooltips.SPDAPrefabInfoTooltip>();
+                        if (tooltip == null)
+                        {
+                            tooltip = prefabNameParent.gameObject.AddComponent<Tooltips.SPDAPrefabInfoTooltip>();
+                        }
+                        
+                        // Extract clean prefab name (remove link formatting)
+                        string cleanName = ExtractPrefabValue(page.PrefabNameText.text);
+                        tooltip.Initialize(pageKey ?? "", cleanName, false);
+                    }
+                }
+                
+                // Add tooltip to Prefab Hash
+                if (page.PrefabHashText != null && !string.IsNullOrEmpty(page.PrefabHashText.text))
+                {
+                    var prefabHashParent = page.PrefabHashText.transform.parent;
+                    if (prefabHashParent != null)
+                    {
+                        // Get or add tooltip component to the parent (the row containing label + value)
+                        var tooltip = prefabHashParent.gameObject.GetComponent<Tooltips.SPDAPrefabInfoTooltip>();
+                        if (tooltip == null)
+                        {
+                            tooltip = prefabHashParent.gameObject.AddComponent<Tooltips.SPDAPrefabInfoTooltip>();
+                        }
+                        
+                        // Extract clean prefab hash (remove link formatting)
+                        string cleanHash = ExtractPrefabValue(page.PrefabHashText.text);
+                        tooltip.Initialize(pageKey ?? "", cleanHash, true);
+                    }
+                }
+            }
+            catch
+            {
+                // Silently ignore errors
+            }
+        }
+
+        /// <summary>
+        /// Extracts the actual value from TMP link-formatted text.
+        /// Input like: <link=Clipboard><color=#008AE6>StructurePressureFedLiquidRocketEngine</color></link>
+        /// Output: StructurePressureFedLiquidRocketEngine
+        /// </summary>
+        private static string ExtractPrefabValue(string formattedText)
+        {
+            if (string.IsNullOrEmpty(formattedText))
+                return formattedText;
+            
+            // Remove all tags
+            string result = System.Text.RegularExpressions.Regex.Replace(formattedText, "<[^>]+>", "");
+            return result.Trim();
         }
 
         private static void HandlePageDescriptionModifications(UniversalPage page, DeviceDescriptions deviceDesc)
@@ -412,7 +534,6 @@ namespace StationpediaAscended.Patches
             {
                 scrollRect.verticalScrollbarVisibility = UnityEngine.UI.ScrollRect.ScrollbarVisibility.Permanent;
                 _scrollbarVisibilityFixed = true;
-                ConsoleWindow.Print("[SLP] Set scrollbar visibility to Permanent");
             }
             
             var scrollbar = scrollRect.verticalScrollbar;
@@ -438,11 +559,6 @@ namespace StationpediaAscended.Patches
                 
                 if (needsFix)
                 {
-                    if (logFirst)
-                    {
-                        ConsoleWindow.Print($"[SLP] Fixing handle localPosition: {pos}");
-                    }
-                    
                     // Set position directly via transform
                     handleRect.localPosition = Vector3.zero;
                     

@@ -833,12 +833,6 @@ namespace StationpediaAscended
                     
                     if (shouldHide)
                     {
-                        // Debug: log what we're hiding
-                        if (hiddenCount < 10)
-                        {
-                            ConsoleWindow.Print($"[SLP] Hiding: '{prefabName}' / '{displayName}'");
-                        }
-                        
                         hiddenPedia[prefabName] = true;
                         thing.HideInStationpedia = true;
                         hiddenCount++;
@@ -860,8 +854,6 @@ namespace StationpediaAscended
                         pagesRemoved++;
                     }
                 }
-                
-                ConsoleWindow.Print($"[Stationpedia Ascended] Hidden {hiddenCount} debris items, removed {pagesRemoved} pages from search (burnt cables, wreckage, etc.)");
             }
             catch (Exception ex)
             {
@@ -1126,6 +1118,9 @@ namespace StationpediaAscended
                 totalTooltipsAdded += AddTooltipsToCategoryStatic(universalPage.LogicSlotContents, pageKey, "LogicSlot");
                 totalTooltipsAdded += AddTooltipsToCategoryStatic(universalPage.ModeContents, pageKey, "Mode");
                 totalTooltipsAdded += AddTooltipsToCategoryStatic(universalPage.ConnectionContents, pageKey, "Connection");
+
+                try { totalTooltipsAdded += AddTooltipsToPropertiesStatic(universalPage); }
+                catch { }
             }
             catch (Exception ex)
             {
@@ -1156,7 +1151,81 @@ namespace StationpediaAscended
             }
             return added;
         }
-        
+
+        private static int AddTooltipsToPropertiesStatic(UniversalPage universalPage)
+        {
+            if (universalPage == null)
+            {
+                return 0;
+            }
+
+            int added = 0;
+
+            // Helper to add tooltip to parent GameObject (covers both label and value)
+            void AddPropertyTooltip(TMPro.TextMeshProUGUI textElement, string propertyName)
+            {
+                if (textElement != null && textElement.gameObject != null && !string.IsNullOrEmpty(textElement.text))
+                {
+                    // Add tooltip to the PARENT GameObject so it covers both label and value
+                    var parentObject = textElement.transform.parent?.gameObject;
+                    if (parentObject != null)
+                    {
+                        // CRITICAL: Parent needs a Graphic component to receive pointer events
+                        // Add transparent Image if no Graphic exists
+                        var graphic = parentObject.GetComponent<UnityEngine.UI.Graphic>();
+                        if (graphic == null)
+                        {
+                            var image = parentObject.AddComponent<UnityEngine.UI.Image>();
+                            image.color = new Color(0, 0, 0, 0); // Fully transparent
+                            image.raycastTarget = true; // Enable raycasting
+                        }
+
+                        var existingTooltip = parentObject.GetComponent<SPDAPropertyTooltip>();
+                        if (existingTooltip == null)
+                        {
+                            var tooltip = parentObject.AddComponent<SPDAPropertyTooltip>();
+                            tooltip.Initialize(propertyName);
+                            _addedComponents.Add(tooltip);
+                            added++;
+                        }
+                    }
+                }
+            }
+
+            // Gas/Material properties
+            AddPropertyTooltip(universalPage.FlashPointText, "Flashpoint");
+            AddPropertyTooltip(universalPage.AutoIgniteText, "Autoignition");
+            AddPropertyTooltip(universalPage.HeatTransferConvectionText, "Thermal Convection");
+            AddPropertyTooltip(universalPage.HeatTransferRadiationText, "Thermal Radiation");
+            AddPropertyTooltip(universalPage.SolarHeatingFactorText, "Solar Heating");
+            AddPropertyTooltip(universalPage.SpecificHeat, "Specific Heat");
+            AddPropertyTooltip(universalPage.FreezeTemperature, "Freeze Temperature");
+            AddPropertyTooltip(universalPage.BoilingTemperature, "Boiling Temperature");
+            AddPropertyTooltip(universalPage.MaxLiquidTemperature, "Max Liquid Temperature");
+            AddPropertyTooltip(universalPage.MinLiquidPressure, "Min Liquid Pressure");
+            AddPropertyTooltip(universalPage.LatentHeat, "Latent Heat");
+            AddPropertyTooltip(universalPage.MolesPerLitre, "Moles Per Litre");
+
+            // Device/Structure properties
+            AddPropertyTooltip(universalPage.MaxPressure, "Max Pressure");
+            AddPropertyTooltip(universalPage.Volume, "Volume");
+            AddPropertyTooltip(universalPage.DeviceBasePower, "Base Power");
+            AddPropertyTooltip(universalPage.DevicePowerStorage, "Power Storage");
+            AddPropertyTooltip(universalPage.DevicePowerGeneration, "Power Generation");
+
+            // Plant/Food properties
+            AddPropertyTooltip(universalPage.GrowthTime, "Growth Time");
+            AddPropertyTooltip(universalPage.Nutrition, "Nutrition");
+            AddPropertyTooltip(universalPage.NutritionQuality, "Nutrition Quality");
+            AddPropertyTooltip(universalPage.MoodBonus, "Mood Bonus");
+
+            // Rocket properties
+            AddPropertyTooltip(universalPage.PlaceableInRocket, "Placeable In Rocket");
+            AddPropertyTooltip(universalPage.RocketMass, "Rocket Mass");
+
+            return added;
+        }
+
         #endregion
 
         #region Tooltip Adding
@@ -1193,11 +1262,14 @@ namespace StationpediaAscended
                 // New category types - wrapped in try-catch to prevent one failure from blocking others
                 try { totalTooltipsAdded += AddTooltipsToSlots(universalPage.SlotContents, pageKey); }
                 catch { }
-                
+
                 try { totalTooltipsAdded += AddTooltipsToVersions(universalPage.StructureVersionContents, pageKey); }
                 catch { }
-                
+
                 try { totalTooltipsAdded += AddTooltipsToMemory(universalPage.LogicInstructions, pageKey); }
+                catch { }
+
+                try { totalTooltipsAdded += AddTooltipsToProperties(universalPage); }
                 catch { }
             }
             catch (Exception ex)
@@ -1313,7 +1385,81 @@ namespace StationpediaAscended
             }
             return added;
         }
-        
+
+        private int AddTooltipsToProperties(UniversalPage universalPage)
+        {
+            if (universalPage == null)
+            {
+                return 0;
+            }
+
+            int added = 0;
+
+            // Helper to add tooltip to parent GameObject (covers both label and value)
+            void AddPropertyTooltip(TMPro.TextMeshProUGUI textElement, string propertyName)
+            {
+                if (textElement != null && textElement.gameObject != null && !string.IsNullOrEmpty(textElement.text))
+                {
+                    // Add tooltip to the PARENT GameObject so it covers both label and value
+                    var parentObject = textElement.transform.parent?.gameObject;
+                    if (parentObject != null)
+                    {
+                        // CRITICAL: Parent needs a Graphic component to receive pointer events
+                        // Add transparent Image if no Graphic exists
+                        var graphic = parentObject.GetComponent<UnityEngine.UI.Graphic>();
+                        if (graphic == null)
+                        {
+                            var image = parentObject.AddComponent<UnityEngine.UI.Image>();
+                            image.color = new Color(0, 0, 0, 0); // Fully transparent
+                            image.raycastTarget = true; // Enable raycasting
+                        }
+
+                        var existingTooltip = parentObject.GetComponent<SPDAPropertyTooltip>();
+                        if (existingTooltip == null)
+                        {
+                            var tooltip = parentObject.AddComponent<SPDAPropertyTooltip>();
+                            tooltip.Initialize(propertyName);
+                            _addedComponents.Add(tooltip);
+                            added++;
+                        }
+                    }
+                }
+            }
+
+            // Gas/Material properties
+            AddPropertyTooltip(universalPage.FlashPointText, "Flashpoint");
+            AddPropertyTooltip(universalPage.AutoIgniteText, "Autoignition");
+            AddPropertyTooltip(universalPage.HeatTransferConvectionText, "Thermal Convection");
+            AddPropertyTooltip(universalPage.HeatTransferRadiationText, "Thermal Radiation");
+            AddPropertyTooltip(universalPage.SolarHeatingFactorText, "Solar Heating");
+            AddPropertyTooltip(universalPage.SpecificHeat, "Specific Heat");
+            AddPropertyTooltip(universalPage.FreezeTemperature, "Freeze Temperature");
+            AddPropertyTooltip(universalPage.BoilingTemperature, "Boiling Temperature");
+            AddPropertyTooltip(universalPage.MaxLiquidTemperature, "Max Liquid Temperature");
+            AddPropertyTooltip(universalPage.MinLiquidPressure, "Min Liquid Pressure");
+            AddPropertyTooltip(universalPage.LatentHeat, "Latent Heat");
+            AddPropertyTooltip(universalPage.MolesPerLitre, "Moles Per Litre");
+
+            // Device/Structure properties
+            AddPropertyTooltip(universalPage.MaxPressure, "Max Pressure");
+            AddPropertyTooltip(universalPage.Volume, "Volume");
+            AddPropertyTooltip(universalPage.DeviceBasePower, "Base Power");
+            AddPropertyTooltip(universalPage.DevicePowerStorage, "Power Storage");
+            AddPropertyTooltip(universalPage.DevicePowerGeneration, "Power Generation");
+
+            // Plant/Food properties
+            AddPropertyTooltip(universalPage.GrowthTime, "Growth Time");
+            AddPropertyTooltip(universalPage.Nutrition, "Nutrition");
+            AddPropertyTooltip(universalPage.NutritionQuality, "Nutrition Quality");
+            AddPropertyTooltip(universalPage.MoodBonus, "Mood Bonus");
+
+            // Rocket properties
+            AddPropertyTooltip(universalPage.PlaceableInRocket, "Placeable In Rocket");
+            AddPropertyTooltip(universalPage.RocketMass, "Rocket Mass");
+
+            return added;
+        }
+
         #endregion
 
         #region Description Lookup Helpers
@@ -1442,13 +1588,27 @@ namespace StationpediaAscended
         public static string GetSlotLogicDescription(string slotLogicType)
         {
             string cleanName = CleanLogicTypeName(slotLogicType);
-            
+
             // Check genericDescriptions.slots for slot logic types
             if (GenericDescriptions?.slots != null && GenericDescriptions.slots.TryGetValue(cleanName, out var desc))
             {
                 return desc;
             }
-            
+
+            return null;
+        }
+
+        // Static helper for property descriptions (Flashpoint, Autoignition, Thermal Convection, etc.)
+        public static PropertyDescription GetPropertyDescription(string propertyName)
+        {
+            string cleanName = CleanLogicTypeName(propertyName);
+
+            // Check genericDescriptions.properties for property descriptions
+            if (GenericDescriptions?.properties != null && GenericDescriptions.properties.TryGetValue(cleanName, out var desc))
+            {
+                return desc;
+            }
+
             return null;
         }
 

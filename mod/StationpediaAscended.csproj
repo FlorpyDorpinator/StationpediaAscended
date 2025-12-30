@@ -120,21 +120,30 @@
   <Target Name="Package">
     <PropertyGroup>
       <ModsFolder>$(USERPROFILE)\Documents\My Games\Stationeers\mods\StationpediaAscended</ModsFolder>
+      <LocalModsFolder>$(StationeersPath)\mods\StationpediaAscended</LocalModsFolder>
       <BuildOutputFolder>$(ProjectDir)build_release</BuildOutputFolder>
     </PropertyGroup>
     
     <!-- Create mod folder structure -->
     <MakeDir Directories="$(ModsFolder)" />
     <MakeDir Directories="$(ModsFolder)\About" />
+    <MakeDir Directories="$(LocalModsFolder)" />
+    <MakeDir Directories="$(LocalModsFolder)\About" />
     
-    <!-- Copy mod files -->
+    <!-- Copy mod files to Documents mods folder -->
     <Copy SourceFiles="$(BuildOutputFolder)\StationpediaAscended.dll" DestinationFolder="$(ModsFolder)" />
     <Copy SourceFiles="$(ProjectDir)About\About.xml" DestinationFolder="$(ModsFolder)\About" />
-    <Copy SourceFiles="$(ProjectDir)thumb.png" DestinationFolder="$(ModsFolder)\About" />
+    <Copy SourceFiles="$(ProjectDir)About\Preview.png" DestinationFolder="$(ModsFolder)\About" />
+    
+    <!-- Also copy to Stationeers local mods folder for Workshop uploads -->
+    <Copy SourceFiles="$(BuildOutputFolder)\StationpediaAscended.dll" DestinationFolder="$(LocalModsFolder)" />
+    <Copy SourceFiles="$(ProjectDir)About\About.xml" DestinationFolder="$(LocalModsFolder)\About" />
+    <Copy SourceFiles="$(ProjectDir)About\Preview.png" DestinationFolder="$(LocalModsFolder)\About" />
     
     <Message Text="============================================" Importance="high" />
     <Message Text="Mod packaged to: $(ModsFolder)" Importance="high" />
-    <Message Text="Ready for testing as SLP mod!" Importance="high" />
+    <Message Text="Mod packaged to: $(LocalModsFolder)" Importance="high" />
+    <Message Text="Ready for testing and Workshop upload!" Importance="high" />
     <Message Text="============================================" Importance="high" />
   </Target>
 

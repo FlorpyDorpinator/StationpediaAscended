@@ -703,6 +703,146 @@
       "Three": "Klaxon countdown: Three.",
       "Four": "Klaxon countdown: Four.",
       "Five": "Klaxon countdown: Five."
+    },
+    "properties": {
+      "Flashpoint": {
+        "type": "Temperature (Kelvin)",
+        "threshold": "Must be in burning atmosphere",
+        "description": "The temperature this material needs to reach to catch fire from nearby flames. If there's already a fire burning in the atmosphere and this material gets hot enough, it will ignite. Lower atmospheric pressure makes it harder to ignite (needs higher temperature). Think of it like paper near a campfire - it won't burn until it's hot enough.",
+        "formula": "Effective Flashpoint = Listed Value ÷ PressureRatio\nWhere PressureRatio = Current Pressure ÷ 101.325kPa (1 atm)\nExample: At 50kPa (half pressure), effective flashpoint doubles"
+      },
+      "Autoignition": {
+        "type": "Temperature (Kelvin)",
+        "threshold": "Requires dense, energetic atmosphere",
+        "description": "The temperature at which this material will spontaneously burst into flames WITHOUT any spark or nearby fire. CRITICAL: The atmosphere must also have enough total energy (>10M joules). What does 10M joules mean? Roughly 20+ moles of gas at 500K, or 100+ moles at room temperature. In practice: thin atmospheres WON'T autoignite even when hot enough - you need thick, hot gas. This is why things don't randomly combust in space despite being at high temperature.",
+        "formula": "Ignites when BOTH conditions met:\n1) Atmosphere Temperature > This Temperature\n2) Total Atmosphere Energy > 10,000,000 joules\nEnergy ≈ Moles × Temperature × 20.6 (rough estimate)\nExample: 50 moles at 500K ≈ 500,000J (won't ignite)"
+      },
+      "Thermal Convection": {
+        "type": "Heat Transfer Rate",
+        "threshold": "Needs atmosphere to work",
+        "description": "How fast this object exchanges heat with surrounding gas. Higher number = faster temperature equalization with the atmosphere around it. This is your main cooling/heating mechanism when in atmosphere. The number shown is already multiplied by surface area. Almost useless in vacuum because there's no gas to transfer heat with.",
+        "formula": "Heat Transfer per Tick = 100 × Area × TempDiff × (Listed Value ÷ Area) × PressureRatio\nWhere:\n- Area = Object's surface area (m²)\n- TempDiff = Your Temp - Outside Temp (K)\n- Listed Value = The number shown (already includes area)\n- PressureRatio = How thick the gas is (1.0 at 101kPa)"
+      },
+      "Thermal Radiation": {
+        "type": "Heat Loss Rate",
+        "threshold": "Works even in vacuum",
+        "description": "How fast this object loses heat to space/surroundings when it's hotter than its environment. This is your ONLY cooling method in vacuum. Higher number = faster cooling. The number shown is already multiplied by surface area. Limited to losing max 50% of total energy per tick to prevent instant freezing.",
+        "formula": "Heat Loss per Tick = (Listed Value ÷ Area) × Area × PressureRatio × TempCurve\nWhere:\n- Listed Value = The number shown (already includes area)\n- PressureRatio = Internal pressure factor (higher pressure = more radiation)\n- TempCurve = Game curve that increases with temperature difference\nMax loss = 50% of object's total energy per tick"
+      },
+      "Solar Heating": {
+        "type": "Heat Gain Rate",
+        "threshold": "Needs sunlight exposure",
+        "description": "How much heat this object absorbs from the sun when exposed to direct sunlight. Higher number = faster heating from sun. The number shown is already multiplied by surface area. Effectiveness drops dramatically when already hot (at 450K it's only 50% effective, at 900K only ~9%). Blocked by walls, dust storms reduce it.",
+        "formula": "Heat Gain per Tick = (Area ÷ 24) × SolarPower × (Listed Value ÷ Area) × EffectivenessCurve\nWhere:\n- Area = Object's surface area (m²)\n- SolarPower = Varies by planet/time (Mars ~580W/m²)\n- Listed Value = The number shown (already includes area)\n- EffectivenessCurve = 1 ÷ (1 + (CurrentTemp ÷ 450)^3.2)\nAt 450K: 50% effective, At 900K: ~9% effective"
+      },
+      "Max Pressure": {
+        "type": "Pressure (kPa)",
+        "threshold": "Device will break if exceeded",
+        "description": "The maximum internal pressure this device can handle before it breaks or explodes. Exceeding this will damage or destroy the device. For gas canisters and tanks, this is your safety limit. Always leave safety margin below this value. Standard atmosphere is 101.325 kPa for reference.",
+        "formula": "Breaks when: Internal Pressure > This Value\nSafety margin recommended: Stay below 90% of max"
+      },
+      "Base Power": {
+        "type": "Power (Watts)",
+        "threshold": "Continuous power draw when ON",
+        "description": "How much power this device constantly uses when turned on and idle (not actively processing). This is your baseline power consumption. Some devices use MORE power when actively working. Calculate your total power needs by adding up all devices' base power draws. 1 Small Battery stores 360,000J (360kW for 1 second).",
+        "formula": "Total Power Grid Needed = Sum of all devices' Base Power\nBattery runtime = Battery Capacity (J) ÷ Total Power (W)\nExample: 1000W device runs 360 seconds on Small Battery"
+      },
+      "Growth Time": {
+        "type": "Time (seconds)",
+        "threshold": "Time from planting to maturity",
+        "description": "How long it takes this plant to grow from freshly planted to fully mature (harvestable). This is under ideal conditions - actual time can be longer if temperature, atmosphere, or light aren't optimal. Use this to plan your farming schedules and calculate crop yields. Growth Rate logic can speed this up.",
+        "formula": "Real Time = Listed Time ÷ Growth Rate\nWhere:\n- Listed Time = This value (seconds under ideal conditions)\n- Growth Rate = Affected by temperature, atmosphere, light (shown in plant logic)\nIdeal conditions = Growth Rate of 1.0 (100%)"
+      },
+      "Specific Heat": {
+        "type": "Energy per Temperature (J/mol·K)",
+        "threshold": "Higher = harder to heat/cool",
+        "description": "How much energy is needed to change this gas's temperature by 1 Kelvin per mole. Think of it as thermal inertia - gases with high specific heat take more energy to heat up but also take longer to cool down. Water vapor has very high specific heat (72), while most other gases are around 20-30.",
+        "formula": "Energy Change = Moles × Specific Heat × Temperature Change\nExample: Heating 10 moles of O₂ (SH=21.1) by 100K needs 21,100 joules"
+      },
+      "Freeze Temperature": {
+        "type": "Temperature (Kelvin)",
+        "threshold": "Gas becomes solid below this",
+        "description": "The temperature at which this gas freezes directly into a solid (skipping liquid phase). When gas temperature drops below this and hits a surface, it deposits as ice/frost. This is how you get ice formation on pipes in cold environments. Most gases freeze between 50-90K.",
+        "formula": "Freezes when: Gas Temperature < Freeze Temperature\nDeposits ice on contact with cold surfaces"
+      },
+      "Boiling Temperature": {
+        "type": "Temperature (Kelvin)",
+        "threshold": "Liquid becomes gas above this",
+        "description": "The temperature where this liquid boils and turns into gas at normal pressure (101.325 kPa). In the game, this happens when liquids get too hot. Different pressures change the boiling point. Water boils at 373K (100°C) at normal pressure but higher in pressure cookers.",
+        "formula": "Boiling point varies with pressure (lower pressure = lower boiling temp)"
+      },
+      "Max Liquid Temperature": {
+        "type": "Temperature (Kelvin)",
+        "threshold": "Absolute limit for liquid state",
+        "description": "The maximum temperature this substance can reach while still being liquid, regardless of pressure. Above this temperature, it MUST be gas. This is the critical point temperature. For most gases in the game, this is well above normal operating temperatures.",
+        "formula": "Above this temp: always gas, never liquid (even at high pressure)"
+      },
+      "Min Liquid Pressure": {
+        "type": "Pressure (kPa)",
+        "threshold": "Minimum pressure to stay liquid",
+        "description": "The minimum pressure needed to keep this substance in liquid form at a given temperature. Below this pressure, it will instantly boil into gas (flash boiling). This is why liquids boil in vacuum - there's no pressure to keep them liquid. Critical for handling liquid gases.",
+        "formula": "Below this pressure at current temp: liquid → gas instantly"
+      },
+      "Latent Heat": {
+        "type": "Energy per Mole (J/mol)",
+        "threshold": "Energy absorbed/released during phase change",
+        "description": "How much energy is absorbed when this substance melts (ice→liquid) or released when it freezes (liquid→ice). This is why ice keeps things cold - it absorbs energy as it melts without changing temperature. Water's latent heat is very high (6008 J/mol), making ice excellent for cooling.",
+        "formula": "Energy for phase change = Moles × Latent Heat\nExample: Melting 10 moles of ice absorbs 60,080 joules"
+      },
+      "Moles Per Litre": {
+        "type": "Moles/Litre (mol/L)",
+        "threshold": "Gas density at standard conditions",
+        "description": "How many moles of this gas fit in 1 liter of volume at standard pressure (101.325 kPa) and temperature. This tells you how 'dense' the gas is. All gases have roughly similar values (~44 mol/L) because they follow similar physics. Use this to calculate how much gas fits in tanks.",
+        "formula": "Moles in container = Volume (L) × Moles Per Litre\nExample: 100L tank holds ~4,400 moles at standard pressure"
+      },
+      "Volume": {
+        "type": "Volume (Litres)",
+        "threshold": "Internal capacity",
+        "description": "The internal volume capacity of this device or container in liters. This determines how much gas or liquid it can hold. Larger volume = more stuff fits. Use this with Moles Per Litre to calculate how many moles a container can hold at a given pressure and temperature.",
+        "formula": "Max Moles = Volume × Pressure Ratio × Moles Per Litre\nWhere Pressure Ratio = Current Pressure ÷ 101.325 kPa"
+      },
+      "Power Storage": {
+        "type": "Energy (Joules)",
+        "threshold": "Battery capacity",
+        "description": "How much energy this battery can store in total, measured in joules. Small Battery: 360,000J, Large Battery: 1,800,000J. To calculate runtime: divide this by the power draw in watts. Example: 360,000J ÷ 1,000W = 360 seconds (6 minutes) of power.",
+        "formula": "Runtime (seconds) = Power Storage (J) ÷ Power Draw (W)\nExample: Large Battery (1.8M J) ÷ 5kW draw = 360 seconds"
+      },
+      "Power Generation": {
+        "type": "Power (Watts)",
+        "threshold": "Maximum power output",
+        "description": "The maximum power this generator can produce per second in watts. Solar panels, gas generators, and other power sources have this rating. Total grid capacity is the sum of all generators. Make sure your total generation exceeds your total consumption or batteries will drain.",
+        "formula": "Grid Surplus = Total Generation - Total Consumption\nBatteries charge when Surplus > 0, drain when < 0"
+      },
+      "Nutrition": {
+        "type": "Nutrition Points",
+        "threshold": "How much hunger it satisfies",
+        "description": "How many nutrition points this food provides when eaten. Your astronaut needs nutrition to survive. Higher values = more filling. Different foods have different nutrition values - meals are typically more nutritious than raw ingredients. Plan food production to match crew consumption rate.",
+        "formula": "Hunger restored = Nutrition value of food eaten"
+      },
+      "Nutrition Quality": {
+        "type": "Quality Rating",
+        "threshold": "Affects mood and efficiency",
+        "description": "The quality rating of this food item. Higher quality food improves astronaut mood and may provide bonuses. Fresh, properly prepared meals have higher quality than processed or stale food. Quality can degrade over time if food is stored improperly.",
+        "formula": "Mood bonus typically scales with quality rating"
+      },
+      "Mood Bonus": {
+        "type": "Mood Points",
+        "threshold": "Mood improvement from consumption",
+        "description": "How much this item improves astronaut mood when consumed. Positive mood increases work efficiency and reduces stress. Quality food, recreational items, and comfortable living spaces all provide mood bonuses. Negative mood can lead to reduced productivity.",
+        "formula": "Astronaut mood increases by this amount when consumed/used"
+      },
+      "Placeable In Rocket": {
+        "type": "Yes/No",
+        "threshold": "Rocket cargo compatibility",
+        "description": "Whether this item can be placed inside a rocket's cargo bay for transport. Some large structures or devices can't fit in rockets and must be built on-site. Items marked 'Yes' can be loaded into rocket cargo for transport between planets or bases.",
+        "formula": "Yes = Can load into rocket cargo, No = Must build on-site"
+      },
+      "Rocket Mass": {
+        "type": "Mass (kg)",
+        "threshold": "Affects fuel requirements",
+        "description": "How much this item weighs in the rocket's cargo, measured in kilograms. Total rocket mass (cargo + structure) determines fuel consumption and thrust requirements. Heavier cargo needs more fuel for the same delta-v. Plan your cargo carefully to avoid running out of fuel mid-flight.",
+        "formula": "Total Rocket Mass = Rocket Structure + All Cargo Mass\nFuel needed increases with mass"
+      }
     }
   },
   "devices": [
@@ -21997,6 +22137,20 @@
           "description": "ANY mode - passes items matching ANY of the specified criteria."
         }
       },
+      "slotDescriptions": {
+        "Export": {
+          "slotType": "Export",
+          "description": "Non-matching items exit through this slot. Located on the LEFT side when facing the export slots."
+        },
+        "Export2": {
+          "slotType": "Export",
+          "description": "Matching items exit through this slot. Located on the RIGHT side when facing the export slots."
+        },
+        "Export 2": {
+          "slotType": "Export",
+          "description": "Matching items exit through this slot. Located on the RIGHT side when facing the export slots."
+        }
+      },
       "OperationalDetails": [
         {
           "title": "Memory Stack",
@@ -22016,7 +22170,7 @@
         },
         {
           "title": "Slot Layout",
-          "description": "Slot 0 (Import): Items enter here. Slot 1 (Export): Non-matching items exit here. Slot 2 (Export2): Matching items exit here. Slot 3 (Chip): Accepts IC10 programmable chip for automation."
+          "description": "Slot 0 (Import): Items enter here. Slot 1 (Export - LEFT side): Non-matching items exit here. Slot 2 (Export2 - RIGHT side): Matching items exit here. Slot 3 (Chip): Accepts IC10 programmable chip for automation. When facing the export slots: Export is on the LEFT, Export2 is on the RIGHT."
         }
       ]
     },
