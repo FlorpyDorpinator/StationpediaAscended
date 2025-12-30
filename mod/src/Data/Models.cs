@@ -80,6 +80,15 @@ namespace StationpediaAscended.Data
     }
 
     [Serializable]
+    public class PropertyDescription
+    {
+        public string type;
+        public string threshold;
+        public string description;
+        public string formula;
+    }
+
+    [Serializable]
     public class GenericDescriptionsData
     {
         public Dictionary<string, string> logic;
@@ -89,5 +98,6 @@ namespace StationpediaAscended.Data
         public Dictionary<string, string> versions;
         public Dictionary<string, string> connections;
         public Dictionary<string, MemoryDescription> memory;
+        public Dictionary<string, PropertyDescription> properties;
     }
 }
