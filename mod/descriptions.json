@@ -710,31 +710,31 @@
         "type": "Temperature (Kelvin)",
         "threshold": "Must be in burning atmosphere",
         "description": "The temperature this material needs to reach to catch fire from nearby flames. If there's already a fire burning in the atmosphere and this material gets hot enough, it will ignite. Lower atmospheric pressure makes it harder to ignite (needs higher temperature). Think of it like paper near a campfire - it won't burn until it's hot enough.",
-        "formula": "Effective Flashpoint = Listed Value ÷ PressureRatio\nWhere PressureRatio = Current Pressure ÷ 101.325kPa (1 atm)\nExample: At 50kPa (half pressure), effective flashpoint doubles"
+        "formula": "Effective Flashpoint = Listed Value \u00f7 PressureRatio\nWhere PressureRatio = Current Pressure \u00f7 101.325kPa (1 atm)\nExample: At 50kPa (half pressure), effective flashpoint doubles"
       },
       "Autoignition": {
         "type": "Temperature (Kelvin)",
         "threshold": "Requires dense, energetic atmosphere",
         "description": "The temperature at which this material will spontaneously burst into flames WITHOUT any spark or nearby fire. CRITICAL: The atmosphere must also have enough total energy (>10M joules). What does 10M joules mean? Roughly 20+ moles of gas at 500K, or 100+ moles at room temperature. In practice: thin atmospheres WON'T autoignite even when hot enough - you need thick, hot gas. This is why things don't randomly combust in space despite being at high temperature.",
-        "formula": "Ignites when BOTH conditions met:\n1) Atmosphere Temperature > This Temperature\n2) Total Atmosphere Energy > 10,000,000 joules\nEnergy ≈ Moles × Temperature × 20.6 (rough estimate)\nExample: 50 moles at 500K ≈ 500,000J (won't ignite)"
+        "formula": "Ignites when BOTH conditions met:\n1) Atmosphere Temperature > This Temperature\n2) Total Atmosphere Energy > 10,000,000 joules\nEnergy \u2248 Moles \u00d7 Temperature \u00d7 20.6 (rough estimate)\nExample: 50 moles at 500K \u2248 500,000J (won't ignite)"
       },
       "Thermal Convection": {
         "type": "Heat Transfer Rate",
         "threshold": "Needs atmosphere to work",
         "description": "How fast this object exchanges heat with surrounding gas. Higher number = faster temperature equalization with the atmosphere around it. This is your main cooling/heating mechanism when in atmosphere. The number shown is already multiplied by surface area. Almost useless in vacuum because there's no gas to transfer heat with.",
-        "formula": "Heat Transfer per Tick = 100 × Area × TempDiff × (Listed Value ÷ Area) × PressureRatio\nWhere:\n- Area = Object's surface area (m²)\n- TempDiff = Your Temp - Outside Temp (K)\n- Listed Value = The number shown (already includes area)\n- PressureRatio = How thick the gas is (1.0 at 101kPa)"
+        "formula": "Heat Transfer per Tick = 100 \u00d7 Area \u00d7 TempDiff \u00d7 (Listed Value \u00f7 Area) \u00d7 PressureRatio\nWhere:\n- Area = Object's surface area (m\u00b2)\n- TempDiff = Your Temp - Outside Temp (K)\n- Listed Value = The number shown (already includes area)\n- PressureRatio = How thick the gas is (1.0 at 101kPa)"
       },
       "Thermal Radiation": {
         "type": "Heat Loss Rate",
         "threshold": "Works even in vacuum",
         "description": "How fast this object loses heat to space/surroundings when it's hotter than its environment. This is your ONLY cooling method in vacuum. Higher number = faster cooling. The number shown is already multiplied by surface area. Limited to losing max 50% of total energy per tick to prevent instant freezing.",
-        "formula": "Heat Loss per Tick = (Listed Value ÷ Area) × Area × PressureRatio × TempCurve\nWhere:\n- Listed Value = The number shown (already includes area)\n- PressureRatio = Internal pressure factor (higher pressure = more radiation)\n- TempCurve = Game curve that increases with temperature difference\nMax loss = 50% of object's total energy per tick"
+        "formula": "Heat Loss per Tick = (Listed Value \u00f7 Area) \u00d7 Area \u00d7 PressureRatio \u00d7 TempCurve\nWhere:\n- Listed Value = The number shown (already includes area)\n- PressureRatio = Internal pressure factor (higher pressure = more radiation)\n- TempCurve = Game curve that increases with temperature difference\nMax loss = 50% of object's total energy per tick"
       },
       "Solar Heating": {
         "type": "Heat Gain Rate",
         "threshold": "Needs sunlight exposure",
         "description": "How much heat this object absorbs from the sun when exposed to direct sunlight. Higher number = faster heating from sun. The number shown is already multiplied by surface area. Effectiveness drops dramatically when already hot (at 450K it's only 50% effective, at 900K only ~9%). Blocked by walls, dust storms reduce it.",
-        "formula": "Heat Gain per Tick = (Area ÷ 24) × SolarPower × (Listed Value ÷ Area) × EffectivenessCurve\nWhere:\n- Area = Object's surface area (m²)\n- SolarPower = Varies by planet/time (Mars ~580W/m²)\n- Listed Value = The number shown (already includes area)\n- EffectivenessCurve = 1 ÷ (1 + (CurrentTemp ÷ 450)^3.2)\nAt 450K: 50% effective, At 900K: ~9% effective"
+        "formula": "Heat Gain per Tick = (Area \u00f7 24) \u00d7 SolarPower \u00d7 (Listed Value \u00f7 Area) \u00d7 EffectivenessCurve\nWhere:\n- Area = Object's surface area (m\u00b2)\n- SolarPower = Varies by planet/time (Mars ~580W/m\u00b2)\n- Listed Value = The number shown (already includes area)\n- EffectivenessCurve = 1 \u00f7 (1 + (CurrentTemp \u00f7 450)^3.2)\nAt 450K: 50% effective, At 900K: ~9% effective"
       },
       "Max Pressure": {
         "type": "Pressure (kPa)",
@@ -746,19 +746,19 @@
         "type": "Power (Watts)",
         "threshold": "Continuous power draw when ON",
         "description": "How much power this device constantly uses when turned on and idle (not actively processing). This is your baseline power consumption. Some devices use MORE power when actively working. Calculate your total power needs by adding up all devices' base power draws. 1 Small Battery stores 360,000J (360kW for 1 second).",
-        "formula": "Total Power Grid Needed = Sum of all devices' Base Power\nBattery runtime = Battery Capacity (J) ÷ Total Power (W)\nExample: 1000W device runs 360 seconds on Small Battery"
+        "formula": "Total Power Grid Needed = Sum of all devices' Base Power\nBattery runtime = Battery Capacity (J) \u00f7 Total Power (W)\nExample: 1000W device runs 360 seconds on Small Battery"
       },
       "Growth Time": {
         "type": "Time (seconds)",
         "threshold": "Time from planting to maturity",
         "description": "How long it takes this plant to grow from freshly planted to fully mature (harvestable). This is under ideal conditions - actual time can be longer if temperature, atmosphere, or light aren't optimal. Use this to plan your farming schedules and calculate crop yields. Growth Rate logic can speed this up.",
-        "formula": "Real Time = Listed Time ÷ Growth Rate\nWhere:\n- Listed Time = This value (seconds under ideal conditions)\n- Growth Rate = Affected by temperature, atmosphere, light (shown in plant logic)\nIdeal conditions = Growth Rate of 1.0 (100%)"
+        "formula": "Real Time = Listed Time \u00f7 Growth Rate\nWhere:\n- Listed Time = This value (seconds under ideal conditions)\n- Growth Rate = Affected by temperature, atmosphere, light (shown in plant logic)\nIdeal conditions = Growth Rate of 1.0 (100%)"
       },
       "Specific Heat": {
-        "type": "Energy per Temperature (J/mol·K)",
+        "type": "Energy per Temperature (J/mol\u00b7K)",
         "threshold": "Higher = harder to heat/cool",
         "description": "How much energy is needed to change this gas's temperature by 1 Kelvin per mole. Think of it as thermal inertia - gases with high specific heat take more energy to heat up but also take longer to cool down. Water vapor has very high specific heat (72), while most other gases are around 20-30.",
-        "formula": "Energy Change = Moles × Specific Heat × Temperature Change\nExample: Heating 10 moles of O₂ (SH=21.1) by 100K needs 21,100 joules"
+        "formula": "Energy Change = Moles \u00d7 Specific Heat \u00d7 Temperature Change\nExample: Heating 10 moles of O\u2082 (SH=21.1) by 100K needs 21,100 joules"
       },
       "Freeze Temperature": {
         "type": "Temperature (Kelvin)",
@@ -769,7 +769,7 @@
       "Boiling Temperature": {
         "type": "Temperature (Kelvin)",
         "threshold": "Liquid becomes gas above this",
-        "description": "The temperature where this liquid boils and turns into gas at normal pressure (101.325 kPa). In the game, this happens when liquids get too hot. Different pressures change the boiling point. Water boils at 373K (100°C) at normal pressure but higher in pressure cookers.",
+        "description": "The temperature where this liquid boils and turns into gas at normal pressure (101.325 kPa). In the game, this happens when liquids get too hot. Different pressures change the boiling point. Water boils at 373K (100\u00b0C) at normal pressure but higher in pressure cookers.",
         "formula": "Boiling point varies with pressure (lower pressure = lower boiling temp)"
       },
       "Max Liquid Temperature": {
@@ -782,31 +782,31 @@
         "type": "Pressure (kPa)",
         "threshold": "Minimum pressure to stay liquid",
         "description": "The minimum pressure needed to keep this substance in liquid form at a given temperature. Below this pressure, it will instantly boil into gas (flash boiling). This is why liquids boil in vacuum - there's no pressure to keep them liquid. Critical for handling liquid gases.",
-        "formula": "Below this pressure at current temp: liquid → gas instantly"
+        "formula": "Below this pressure at current temp: liquid \u2192 gas instantly"
       },
       "Latent Heat": {
         "type": "Energy per Mole (J/mol)",
         "threshold": "Energy absorbed/released during phase change",
-        "description": "How much energy is absorbed when this substance melts (ice→liquid) or released when it freezes (liquid→ice). This is why ice keeps things cold - it absorbs energy as it melts without changing temperature. Water's latent heat is very high (6008 J/mol), making ice excellent for cooling.",
-        "formula": "Energy for phase change = Moles × Latent Heat\nExample: Melting 10 moles of ice absorbs 60,080 joules"
+        "description": "How much energy is absorbed when this substance melts (ice\u2192liquid) or released when it freezes (liquid\u2192ice). This is why ice keeps things cold - it absorbs energy as it melts without changing temperature. Water's latent heat is very high (6008 J/mol), making ice excellent for cooling.",
+        "formula": "Energy for phase change = Moles \u00d7 Latent Heat\nExample: Melting 10 moles of ice absorbs 60,080 joules"
       },
       "Moles Per Litre": {
         "type": "Moles/Litre (mol/L)",
         "threshold": "Gas density at standard conditions",
         "description": "How many moles of this gas fit in 1 liter of volume at standard pressure (101.325 kPa) and temperature. This tells you how 'dense' the gas is. All gases have roughly similar values (~44 mol/L) because they follow similar physics. Use this to calculate how much gas fits in tanks.",
-        "formula": "Moles in container = Volume (L) × Moles Per Litre\nExample: 100L tank holds ~4,400 moles at standard pressure"
+        "formula": "Moles in container = Volume (L) \u00d7 Moles Per Litre\nExample: 100L tank holds ~4,400 moles at standard pressure"
       },
       "Volume": {
         "type": "Volume (Litres)",
         "threshold": "Internal capacity",
         "description": "The internal volume capacity of this device or container in liters. This determines how much gas or liquid it can hold. Larger volume = more stuff fits. Use this with Moles Per Litre to calculate how many moles a container can hold at a given pressure and temperature.",
-        "formula": "Max Moles = Volume × Pressure Ratio × Moles Per Litre\nWhere Pressure Ratio = Current Pressure ÷ 101.325 kPa"
+        "formula": "Max Moles = Volume \u00d7 Pressure Ratio \u00d7 Moles Per Litre\nWhere Pressure Ratio = Current Pressure \u00f7 101.325 kPa"
       },
       "Power Storage": {
         "type": "Energy (Joules)",
         "threshold": "Battery capacity",
-        "description": "How much energy this battery can store in total, measured in joules. Small Battery: 360,000J, Large Battery: 1,800,000J. To calculate runtime: divide this by the power draw in watts. Example: 360,000J ÷ 1,000W = 360 seconds (6 minutes) of power.",
-        "formula": "Runtime (seconds) = Power Storage (J) ÷ Power Draw (W)\nExample: Large Battery (1.8M J) ÷ 5kW draw = 360 seconds"
+        "description": "How much energy this battery can store in total, measured in joules. Small Battery: 360,000J, Large Battery: 1,800,000J. To calculate runtime: divide this by the power draw in watts. Example: 360,000J \u00f7 1,000W = 360 seconds (6 minutes) of power.",
+        "formula": "Runtime (seconds) = Power Storage (J) \u00f7 Power Draw (W)\nExample: Large Battery (1.8M J) \u00f7 5kW draw = 360 seconds"
       },
       "Power Generation": {
         "type": "Power (Watts)",
@@ -849,119 +849,119 @@
   "devices": [
     {
       "deviceKey": "ThingStructureSolidFuelGenerator",
-      "displayName": " EXAMPLE ENTRY  Solid Fuel Generator",
-      "pageDescriptionPrepend": "<color=#00FF00> THIS IS A TEST PAGE </color>\nThis page demonstrates ALL features of Stationpedia Ascended.\n\n",
+      "displayName": "\ud83d\udcd6 GUIDE FORMAT TEST - Solid Fuel Generator",
+      "pageDescriptionPrepend": "<color=#00FF00><b>\ud83e\uddea GUIDE FORMAT ADDITIONS TEST PAGE</b></color>\nThis page demonstrates ALL new features including nested collapsibles, TOC, and images.\n\n",
+      "generateToc": true,
+      "tocTitle": "\ud83d\udcda Quick Navigation",
+      "operationalDetailsTitleColor": "#FF7A18",
+      "operationalDetailsBackgroundColor": "#0A1520",
       "OperationalDetails": [
         {
-          "title": "Overview",
-          "description": "This section shows a simple title + description combo. The Solid Fuel Generator burns coal or biomass to produce electricity."
-        },
-        {
-          "title": "Bullet List Example (items)",
-          "description": "Below is a bullet list using the 'items' property:",
+          "title": "Basic Overview",
+          "tocId": "overview",
+          "collapsible": true,
+          "description": "This is a COLLAPSIBLE section! Click the icon to expand/collapse.\n\nThe Solid Fuel Generator burns coal, biomass, or other solid fuels to produce electricity.",
           "items": [
-            "First bullet point",
-            "Second bullet point with <b>bold text</b>",
-            "Third bullet with <color=#FF0000>red color</color>",
-            "Fourth bullet with <i>italic text</i>"
+            "Input: Coal, Charcoal, or Biomass",
+            "Output: Up to 5kW of power",
+            "Requires: Oxygen atmosphere"
           ]
         },
         {
-          "title": "Numbered List Example (steps)",
-          "description": "Below is a numbered list using the 'steps' property:",
-          "steps": [
-            "First step - place the generator",
-            "Second step - connect power cables",
-            "Third step - load coal or biomass",
-            "Fourth step - turn it on!"
-          ]
-        },
-        {
-          "title": "Nested Sections Example (children)",
-          "description": "This section has nested children. Notice the indentation and dimmer title colors:",
+          "title": "Fuel Types",
+          "tocId": "fuels",
+          "collapsible": true,
+          "description": "Different fuels have different burn rates and efficiency:",
           "children": [
             {
-              "title": "Child Section 1",
-              "description": "This is a nested child section.",
+              "title": "Coal",
+              "tocId": "coal",
+              "imageFile": "test_image.png",
+              "collapsible": true,
+              "description": "Primary fuel source, obtained from mining coal ore.",
               "items": [
-                "Nested bullets work too!",
-                "See how they're indented"
+                "Burn time: ~180 seconds",
+                "Power output: 5kW",
+                "Pollution: High"
               ]
             },
             {
-              "title": "Child Section 2",
-              "description": "Another child section.",
-              "steps": [
-                "Nested steps also work",
-                "With proper numbering"
+              "title": "Charcoal",
+              "tocId": "charcoal",
+              "collapsible": true,
+              "description": "Made by processing wood in a furnace.",
+              "items": [
+                "Burn time: ~120 seconds",
+                "Power output: 4kW",
+                "Pollution: Medium"
               ]
             },
             {
-              "title": "Deep Nesting",
-              "description": "You can nest even deeper:",
-              "children": [
-                {
-                  "title": "Level 3 Section",
-                  "description": "This is three levels deep! Notice the title gets even dimmer.",
-                  "items": [
-                    "Deep nested bullets",
-                    "Maximum recommended depth"
-                  ]
-                }
+              "title": "Biomass",
+              "tocId": "biomass",
+              "collapsible": true,
+              "description": "Renewable fuel from plants.",
+              "items": [
+                "Burn time: ~60 seconds",
+                "Power output: 2kW",
+                "Pollution: Low"
               ]
             }
           ]
         },
         {
-          "title": "Rich Text Formatting Examples",
-          "description": "<b>Bold text</b> | <i>Italic text</i> | <u>Underlined</u> | <s>Strikethrough</s>\n\n<color=#FF0000>Red</color> | <color=#00FF00>Green</color> | <color=#0088FF>Blue</color> | <color=#FFA500>Orange</color>\n\n<size=120%>Bigger text</size> | <size=80%>Smaller text</size>\n\nH<sub>2</sub>O (subscript) | x<sup>2</sup> (superscript)"
-        },
-        {
-          "title": "Combined Features",
-          "description": "You can combine description text with lists:",
-          "items": [
-            "<b>Power Output:</b> 5kW maximum",
-            "<b>Fuel Types:</b> Coal, Charcoal, Biomass",
-            "<b>Efficiency:</b> Varies by fuel type"
-          ],
+          "title": "Setup Guide",
+          "tocId": "setup",
+          "collapsible": true,
+          "description": "Follow these steps to set up your generator:",
           "steps": [
-            "Check fuel level via <color=#FFA500>Ratio</color> logic",
-            "Monitor <color=#FFA500>PowerGeneration</color> output",
-            "Use <color=#FFA500>Activate</color> to turn on/off"
+            "Place the Solid Fuel Generator on a solid surface",
+            "Connect power cables to the generator",
+            "Ensure the room has oxygen (required for combustion)",
+            "Insert fuel into the generator slot",
+            "Set the generator to ON using logic or manual switch"
           ]
         },
         {
-          "title": "Tips",
-          "items": [
-            " Manual bullets in items work too (just adds extra bullet)",
-            "Coal burns longer than biomass",
-            "Connect multiple generators for redundancy",
-            "Use logic to automate fuel loading"
+          "title": "Inline Text Section (Non-Collapsible)",
+          "description": "This section is NOT collapsible because 'collapsible' is not set to true. It appears as inline text with TMP formatting support.\n\n<color=#FFAA00>Note:</color> Use collapsible sections for longer content that users may want to hide."
+        },
+        {
+          "title": "Troubleshooting",
+          "tocId": "troubleshooting",
+          "collapsible": true,
+          "description": "Common issues and solutions:",
+          "children": [
+            {
+              "title": "Generator Won't Start",
+              "collapsible": true,
+              "items": [
+                "Check if fuel is loaded",
+                "Verify oxygen level in room (needs O2 for combustion)",
+                "Ensure 'On' state is set to 1"
+              ]
+            },
+            {
+              "title": "Low Power Output",
+              "collapsible": true,
+              "items": [
+                "Check fuel type (coal > charcoal > biomass)",
+                "Verify cable connections",
+                "Check for power network overload"
+              ]
+            }
           ]
-        }
-      ],
-      "logicDescriptions": {
-        "Activate": {
-          "dataType": "Boolean",
-          "range": "0-1",
-          "description": "TEST TOOLTIP: Set to 1 to turn generator on, 0 to turn off."
         },
-        "PowerGeneration": {
-          "dataType": "Float",
-          "range": "0-5000",
-          "description": "TEST TOOLTIP: Current power output in watts."
+        {
+          "title": "Video Test",
+          "tocId": "video",
+          "collapsible": true,
+          "description": "This section demonstrates the YouTube link feature. Click the button below to watch a tutorial video in your browser.",
+          "youtubeUrl": "https://www.youtube.com/watch?v=ekH076f-4HM",
+          "youtubeLabel": "Watch Tutorial Video",
+            "videoFile": "Test3.gif"
         }
-      },
-      "modeDescriptions": {
-        "Mode0": {
-          "modeValue": "0",
-          "description": "TEST MODE: Generator is idle."
-        },
-        "Mode1": {
-          "modeValue": "1",
-          "description": "TEST MODE: Generator is running."
-        }
-      }
+      ]
     },
     {
       "deviceKey": "ThingBattery_Wireless_cell",
@@ -7806,7 +7806,7 @@
       "OperationalDetails": [
         {
           "title": "Heat Pump Operation",
-          "description": "The Air Conditioner is a heat pump that moves thermal energy between its 100L internal volume and the waste output. It heats or cools the internal atmosphere toward the Setting temperature (default 293.15K / 20°C)."
+          "description": "The Air Conditioner is a heat pump that moves thermal energy between its 100L internal volume and the waste output. It heats or cools the internal atmosphere toward the Setting temperature (default 293.15K / 20\u00b0C)."
         },
         {
           "title": "Idle Power Draw",
@@ -7822,7 +7822,7 @@
         },
         {
           "title": "Heat Exchange",
-          "description": "Energy transferred = (TargetTemp - CurrentTemp) × HeatCapacity × EfficiencyFactors. The waste output receives the opposite thermal load - if cooling input, waste heats up; if heating input, waste cools down."
+          "description": "Energy transferred = (TargetTemp - CurrentTemp) \u00d7 HeatCapacity \u00d7 EfficiencyFactors. The waste output receives the opposite thermal load - if cooling input, waste heats up; if heating input, waste cools down."
         }
       ]
     },
@@ -13903,22 +13903,22 @@
         },
         "SolarAngle": {
           "dataType": "Float",
-          "range": "0-360Â°",
+          "range": "0-360\u00c2\u00b0",
           "description": "Current angle of the sun in degrees."
         },
         "SolarIrradiance": {
           "dataType": "Float",
-          "range": "0+ W/mÂ²",
+          "range": "0+ W/m\u00c2\u00b2",
           "description": "Solar irradiance (power per square meter) at sensor location."
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "-180 to 180Â°",
+          "range": "-180 to 180\u00c2\u00b0",
           "description": "Horizontal angle to the sun in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "-90 to 90Â°",
+          "range": "-90 to 90\u00c2\u00b0",
           "description": "Vertical angle to the sun in degrees."
         }
       },
@@ -13934,11 +13934,11 @@
         },
         {
           "title": "Solar Tracking Data",
-          "description": "Horizontal: Azimuth angle to sun (-180° to 180°). Vertical: Elevation angle to sun. SolarAngle: Angle between sensor forward and sun direction. Use for solar panel tracking."
+          "description": "Horizontal: Azimuth angle to sun (-180\u00b0 to 180\u00b0). Vertical: Elevation angle to sun. SolarAngle: Angle between sensor forward and sun direction. Use for solar panel tracking."
         },
         {
           "title": "Solar Irradiance",
-          "description": "Returns current solar power (W/m²) accounting for weather events. Weather storms reduce this value via SolarRatio multiplier. Returns 0 when not in sunlight."
+          "description": "Returns current solar power (W/m\u00b2) accounting for weather events. Weather storms reduce this value via SolarRatio multiplier. Returns 0 when not in sunlight."
         },
         {
           "title": "Motherboard Integration",
@@ -16030,7 +16030,7 @@
         },
         {
           "title": "Steel Smelting (Most Common Use)",
-          "description": "Ores: Iron Ore (Fe) + Coal Ore in 3:1 ratio. Standard batch: 15 Iron + 5 Coal = 5 Steel ingots. Requires temperature above 900K (627°C) and pressure above ~100 kPa (can go very high, 100+ MPa is fine)."
+          "description": "Ores: Iron Ore (Fe) + Coal Ore in 3:1 ratio. Standard batch: 15 Iron + 5 Coal = 5 Steel ingots. Requires temperature above 900K (627\u00b0C) and pressure above ~100 kPa (can go very high, 100+ MPa is fine)."
         },
         {
           "title": "Fuel Recipe",
@@ -18912,7 +18912,7 @@
         },
         {
           "title": "Rotation Range",
-          "description": "360° horizontal rotation (-180 to 180°), 90° vertical range (0 to 90°). Write Horizontal and Vertical logic values to aim the dish."
+          "description": "360\u00b0 horizontal rotation (-180 to 180\u00b0), 90\u00b0 vertical range (0 to 90\u00b0). Write Horizontal and Vertical logic values to aim the dish."
         },
         {
           "title": "Power Requirements",
@@ -18920,7 +18920,7 @@
         },
         {
           "title": "Signal Strength vs Angle",
-          "description": "Narrower beam = more power: 2° beam = 100% efficiency, 5° = 90%, 22.5° = 10%, 45° = 5%, 90° = 1%, 180° = 0.1%. Tighter focus dramatically increases effective range."
+          "description": "Narrower beam = more power: 2\u00b0 beam = 100% efficiency, 5\u00b0 = 90%, 22.5\u00b0 = 10%, 45\u00b0 = 5%, 90\u00b0 = 1%, 180\u00b0 = 0.1%. Tighter focus dramatically increases effective range."
         },
         {
           "title": "Contact Acquisition",
@@ -21634,15 +21634,15 @@
         },
         "Multiply": {
           "modeValue": "Multiply",
-          "description": "Multiplication: Output = Input1 × Input2. Basic arithmetic product."
+          "description": "Multiplication: Output = Input1 \u00d7 Input2. Basic arithmetic product."
         },
         "Divide": {
           "modeValue": "Divide",
-          "description": "Division: Output = Input1 ÷ Input2. Returns 0 if Input2 is 0."
+          "description": "Division: Output = Input1 \u00f7 Input2. Returns 0 if Input2 is 0."
         },
         "Mod": {
           "modeValue": "Mod",
-          "description": "Modulo: Output = remainder of Input1 ÷ Input2. Useful for cycling values."
+          "description": "Modulo: Output = remainder of Input1 \u00f7 Input2. Useful for cycling values."
         },
         "Pow": {
           "modeValue": "Pow",
@@ -21724,7 +21724,7 @@
         },
         "Sqrt": {
           "modeValue": "Sqrt",
-          "description": "Square root: Output = √Input. Returns 0 for negative inputs."
+          "description": "Square root: Output = \u221aInput. Returns 0 for negative inputs."
         },
         "Sin": {
           "modeValue": "Sin",
@@ -21760,11 +21760,11 @@
         },
         "Ceil": {
           "modeValue": "Ceil",
-          "description": "Ceiling: Output = smallest integer ≥ Input. Rounds up."
+          "description": "Ceiling: Output = smallest integer \u2265 Input. Rounds up."
         },
         "Floor": {
           "modeValue": "Floor",
-          "description": "Floor: Output = largest integer ≤ Input. Rounds down."
+          "description": "Floor: Output = largest integer \u2264 Input. Rounds down."
         },
         "Round": {
           "modeValue": "Round",
@@ -26577,7 +26577,7 @@
         },
         {
           "title": "Arm States",
-          "description": "ArmState cycles: Up (idle) → AnimatingDown → Down (interacting) → AnimatingUp → Up. Extended returns 1 when arm is Down. Idle returns 1 when arm is Up and not moving."
+          "description": "ArmState cycles: Up (idle) \u2192 AnimatingDown \u2192 Down (interacting) \u2192 AnimatingUp \u2192 Up. Extended returns 1 when arm is Down. Idle returns 1 when arm is Up and not moving."
         },
         {
           "title": "Obstruction Detection",
@@ -28041,11 +28041,11 @@
         },
         {
           "title": "Dish Movement",
-          "description": "360° horizontal rotation, 90° vertical range. Medium speed dish - faster than Large but slower than Small. Use Horizontal and Vertical logic values to aim."
+          "description": "360\u00b0 horizontal rotation, 90\u00b0 vertical range. Medium speed dish - faster than Large but slower than Small. Use Horizontal and Vertical logic values to aim."
         },
         {
           "title": "Signal Strength vs Angle",
-          "description": "Same efficiency curve as all dishes: 2° = 100%, 5° = 90%, 22.5° = 10%, 45° = 5%, 90° = 1%, 180° = 0.1%. Narrower beam = stronger signal."
+          "description": "Same efficiency curve as all dishes: 2\u00b0 = 100%, 5\u00b0 = 90%, 22.5\u00b0 = 10%, 45\u00b0 = 5%, 90\u00b0 = 1%, 180\u00b0 = 0.1%. Narrower beam = stronger signal."
         },
         {
           "title": "Contact Resolution",
@@ -29299,12 +29299,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "0-360Â°",
+          "range": "0-360\u00c2\u00b0",
           "description": "Horizontal rotation angle in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "0-90Â°",
+          "range": "0-90\u00c2\u00b0",
           "description": "Vertical rotation angle in degrees."
         },
         "Idle": {
@@ -29314,7 +29314,7 @@
         },
         "SignalStrength": {
           "dataType": "Float",
-          "range": "-1 or 0-180Â°",
+          "range": "-1 or 0-180\u00c2\u00b0",
           "description": "Angle offset to strongest contact in degrees. -1 if no contact or still resolving."
         },
         "SignalID": {
@@ -29390,11 +29390,11 @@
         },
         {
           "title": "Rotation Range",
-          "description": "360° horizontal rotation (lerped from -90° to 270° internal), 90° vertical range (0 to 90°). Uses DishTransform.up for forward direction."
+          "description": "360\u00b0 horizontal rotation (lerped from -90\u00b0 to 270\u00b0 internal), 90\u00b0 vertical range (0 to 90\u00b0). Uses DishTransform.up for forward direction."
         },
         {
           "title": "Signal Strength vs Angle",
-          "description": "Same efficiency curve: 2° = 100%, 5° = 90%, 22.5° = 10%, 45° = 5%, 90° = 1%, 180° = 0.1%. Setting controls output wattage (50-200W range)."
+          "description": "Same efficiency curve: 2\u00b0 = 100%, 5\u00b0 = 90%, 22.5\u00b0 = 10%, 45\u00b0 = 5%, 90\u00b0 = 1%, 180\u00b0 = 0.1%. Setting controls output wattage (50-200W range)."
         },
         {
           "title": "Contact Resolution",
@@ -29427,12 +29427,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "0-360Â°",
+          "range": "0-360\u00c2\u00b0",
           "description": "Read/write horizontal rotation angle in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "15-165Â°",
+          "range": "15-165\u00c2\u00b0",
           "description": "Read/write vertical tilt angle in degrees."
         },
         "ReferenceId": {
@@ -29512,7 +29512,7 @@
         "Vertical": {
           "dataType": "Float",
           "range": "0-1",
-          "description": "Vertical rotation value as ratio (0-1 maps to -75Â° to +75Â°)."
+          "description": "Vertical rotation value as ratio (0-1 maps to -75\u00c2\u00b0 to +75\u00c2\u00b0)."
         },
         "Ratio": {
           "dataType": "Float",
@@ -29582,12 +29582,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "-180 to 180Â°",
+          "range": "-180 to 180\u00c2\u00b0",
           "description": "Horizontal angle setting for solar tracking. Can be set via logic."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "-90 to 90Â°",
+          "range": "-90 to 90\u00c2\u00b0",
           "description": "Vertical angle setting for solar tracking. Can be set via logic."
         }
       },
@@ -29614,12 +29614,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "0-360Â°",
+          "range": "0-360\u00c2\u00b0",
           "description": "Read/write horizontal rotation angle in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "15-165Â°",
+          "range": "15-165\u00c2\u00b0",
           "description": "Read/write vertical tilt angle in degrees."
         },
         "ReferenceId": {
@@ -29658,7 +29658,7 @@
         "Vertical": {
           "dataType": "Float",
           "range": "0-1",
-          "description": "Vertical rotation value as ratio (0-1 maps to -75Â° to +75Â°)."
+          "description": "Vertical rotation value as ratio (0-1 maps to -75\u00c2\u00b0 to +75\u00c2\u00b0)."
         },
         "Ratio": {
           "dataType": "Float",
@@ -29703,12 +29703,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "-180 to 180Â°",
+          "range": "-180 to 180\u00c2\u00b0",
           "description": "Horizontal angle to sun in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "-180 to 180Â°",
+          "range": "-180 to 180\u00c2\u00b0",
           "description": "Vertical angle to sun in degrees."
         },
         "Maximum": {

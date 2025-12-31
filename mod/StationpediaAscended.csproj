@@ -72,6 +72,10 @@
       <HintPath>$(StationeersManagedPath)\UnityEngine.TextRenderingModule.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>$(StationeersManagedPath)\UnityEngine.VideoModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
 
     <!-- Game assembly -->
     <Reference Include="Assembly-CSharp">
