@@ -710,31 +710,31 @@
         "type": "Temperature (Kelvin)",
         "threshold": "Must be in burning atmosphere",
         "description": "The temperature this material needs to reach to catch fire from nearby flames. If there's already a fire burning in the atmosphere and this material gets hot enough, it will ignite. Lower atmospheric pressure makes it harder to ignite (needs higher temperature). Think of it like paper near a campfire - it won't burn until it's hot enough.",
-        "formula": "Effective Flashpoint = Listed Value \u00f7 PressureRatio\nWhere PressureRatio = Current Pressure \u00f7 101.325kPa (1 atm)\nExample: At 50kPa (half pressure), effective flashpoint doubles"
+        "formula": "Effective Flashpoint = Listed Value ÷ PressureRatio\nWhere PressureRatio = Current Pressure ÷ 101.325kPa (1 atm)\nExample: At 50kPa (half pressure), effective flashpoint doubles"
       },
       "Autoignition": {
         "type": "Temperature (Kelvin)",
         "threshold": "Requires dense, energetic atmosphere",
         "description": "The temperature at which this material will spontaneously burst into flames WITHOUT any spark or nearby fire. CRITICAL: The atmosphere must also have enough total energy (>10M joules). What does 10M joules mean? Roughly 20+ moles of gas at 500K, or 100+ moles at room temperature. In practice: thin atmospheres WON'T autoignite even when hot enough - you need thick, hot gas. This is why things don't randomly combust in space despite being at high temperature.",
-        "formula": "Ignites when BOTH conditions met:\n1) Atmosphere Temperature > This Temperature\n2) Total Atmosphere Energy > 10,000,000 joules\nEnergy \u2248 Moles \u00d7 Temperature \u00d7 20.6 (rough estimate)\nExample: 50 moles at 500K \u2248 500,000J (won't ignite)"
+        "formula": "Ignites when BOTH conditions met:\n1) Atmosphere Temperature > This Temperature\n2) Total Atmosphere Energy > 10,000,000 joules\nEnergy ≈ Moles × Temperature × 20.6 (rough estimate)\nExample: 50 moles at 500K ≈ 500,000J (won't ignite)"
       },
       "Thermal Convection": {
         "type": "Heat Transfer Rate",
         "threshold": "Needs atmosphere to work",
         "description": "How fast this object exchanges heat with surrounding gas. Higher number = faster temperature equalization with the atmosphere around it. This is your main cooling/heating mechanism when in atmosphere. The number shown is already multiplied by surface area. Almost useless in vacuum because there's no gas to transfer heat with.",
-        "formula": "Heat Transfer per Tick = 100 \u00d7 Area \u00d7 TempDiff \u00d7 (Listed Value \u00f7 Area) \u00d7 PressureRatio\nWhere:\n- Area = Object's surface area (m\u00b2)\n- TempDiff = Your Temp - Outside Temp (K)\n- Listed Value = The number shown (already includes area)\n- PressureRatio = How thick the gas is (1.0 at 101kPa)"
+        "formula": "Heat Transfer per Tick = 100 × Area × TempDiff × (Listed Value ÷ Area) × PressureRatio\nWhere:\n- Area = Object's surface area (m²)\n- TempDiff = Your Temp - Outside Temp (K)\n- Listed Value = The number shown (already includes area)\n- PressureRatio = How thick the gas is (1.0 at 101kPa)"
       },
       "Thermal Radiation": {
         "type": "Heat Loss Rate",
         "threshold": "Works even in vacuum",
         "description": "How fast this object loses heat to space/surroundings when it's hotter than its environment. This is your ONLY cooling method in vacuum. Higher number = faster cooling. The number shown is already multiplied by surface area. Limited to losing max 50% of total energy per tick to prevent instant freezing.",
-        "formula": "Heat Loss per Tick = (Listed Value \u00f7 Area) \u00d7 Area \u00d7 PressureRatio \u00d7 TempCurve\nWhere:\n- Listed Value = The number shown (already includes area)\n- PressureRatio = Internal pressure factor (higher pressure = more radiation)\n- TempCurve = Game curve that increases with temperature difference\nMax loss = 50% of object's total energy per tick"
+        "formula": "Heat Loss per Tick = (Listed Value ÷ Area) × Area × PressureRatio × TempCurve\nWhere:\n- Listed Value = The number shown (already includes area)\n- PressureRatio = Internal pressure factor (higher pressure = more radiation)\n- TempCurve = Game curve that increases with temperature difference\nMax loss = 50% of object's total energy per tick"
       },
       "Solar Heating": {
         "type": "Heat Gain Rate",
         "threshold": "Needs sunlight exposure",
         "description": "How much heat this object absorbs from the sun when exposed to direct sunlight. Higher number = faster heating from sun. The number shown is already multiplied by surface area. Effectiveness drops dramatically when already hot (at 450K it's only 50% effective, at 900K only ~9%). Blocked by walls, dust storms reduce it.",
-        "formula": "Heat Gain per Tick = (Area \u00f7 24) \u00d7 SolarPower \u00d7 (Listed Value \u00f7 Area) \u00d7 EffectivenessCurve\nWhere:\n- Area = Object's surface area (m\u00b2)\n- SolarPower = Varies by planet/time (Mars ~580W/m\u00b2)\n- Listed Value = The number shown (already includes area)\n- EffectivenessCurve = 1 \u00f7 (1 + (CurrentTemp \u00f7 450)^3.2)\nAt 450K: 50% effective, At 900K: ~9% effective"
+        "formula": "Heat Gain per Tick = (Area ÷ 24) × SolarPower × (Listed Value ÷ Area) × EffectivenessCurve\nWhere:\n- Area = Object's surface area (m²)\n- SolarPower = Varies by planet/time (Mars ~580W/m²)\n- Listed Value = The number shown (already includes area)\n- EffectivenessCurve = 1 ÷ (1 + (CurrentTemp ÷ 450)^3.2)\nAt 450K: 50% effective, At 900K: ~9% effective"
       },
       "Max Pressure": {
         "type": "Pressure (kPa)",
@@ -746,19 +746,19 @@
         "type": "Power (Watts)",
         "threshold": "Continuous power draw when ON",
         "description": "How much power this device constantly uses when turned on and idle (not actively processing). This is your baseline power consumption. Some devices use MORE power when actively working. Calculate your total power needs by adding up all devices' base power draws. 1 Small Battery stores 360,000J (360kW for 1 second).",
-        "formula": "Total Power Grid Needed = Sum of all devices' Base Power\nBattery runtime = Battery Capacity (J) \u00f7 Total Power (W)\nExample: 1000W device runs 360 seconds on Small Battery"
+        "formula": "Total Power Grid Needed = Sum of all devices' Base Power\nBattery runtime = Battery Capacity (J) ÷ Total Power (W)\nExample: 1000W device runs 360 seconds on Small Battery"
       },
       "Growth Time": {
         "type": "Time (seconds)",
         "threshold": "Time from planting to maturity",
         "description": "How long it takes this plant to grow from freshly planted to fully mature (harvestable). This is under ideal conditions - actual time can be longer if temperature, atmosphere, or light aren't optimal. Use this to plan your farming schedules and calculate crop yields. Growth Rate logic can speed this up.",
-        "formula": "Real Time = Listed Time \u00f7 Growth Rate\nWhere:\n- Listed Time = This value (seconds under ideal conditions)\n- Growth Rate = Affected by temperature, atmosphere, light (shown in plant logic)\nIdeal conditions = Growth Rate of 1.0 (100%)"
+        "formula": "Real Time = Listed Time ÷ Growth Rate\nWhere:\n- Listed Time = This value (seconds under ideal conditions)\n- Growth Rate = Affected by temperature, atmosphere, light (shown in plant logic)\nIdeal conditions = Growth Rate of 1.0 (100%)"
       },
       "Specific Heat": {
-        "type": "Energy per Temperature (J/mol\u00b7K)",
+        "type": "Energy per Temperature (J/mol·K)",
         "threshold": "Higher = harder to heat/cool",
         "description": "How much energy is needed to change this gas's temperature by 1 Kelvin per mole. Think of it as thermal inertia - gases with high specific heat take more energy to heat up but also take longer to cool down. Water vapor has very high specific heat (72), while most other gases are around 20-30.",
-        "formula": "Energy Change = Moles \u00d7 Specific Heat \u00d7 Temperature Change\nExample: Heating 10 moles of O\u2082 (SH=21.1) by 100K needs 21,100 joules"
+        "formula": "Energy Change = Moles × Specific Heat × Temperature Change\nExample: Heating 10 moles of O₂ (SH=21.1) by 100K needs 21,100 joules"
       },
       "Freeze Temperature": {
         "type": "Temperature (Kelvin)",
@@ -769,7 +769,7 @@
       "Boiling Temperature": {
         "type": "Temperature (Kelvin)",
         "threshold": "Liquid becomes gas above this",
-        "description": "The temperature where this liquid boils and turns into gas at normal pressure (101.325 kPa). In the game, this happens when liquids get too hot. Different pressures change the boiling point. Water boils at 373K (100\u00b0C) at normal pressure but higher in pressure cookers.",
+        "description": "The temperature where this liquid boils and turns into gas at normal pressure (101.325 kPa). In the game, this happens when liquids get too hot. Different pressures change the boiling point. Water boils at 373K (100°C) at normal pressure but higher in pressure cookers.",
         "formula": "Boiling point varies with pressure (lower pressure = lower boiling temp)"
       },
       "Max Liquid Temperature": {
@@ -782,31 +782,31 @@
         "type": "Pressure (kPa)",
         "threshold": "Minimum pressure to stay liquid",
         "description": "The minimum pressure needed to keep this substance in liquid form at a given temperature. Below this pressure, it will instantly boil into gas (flash boiling). This is why liquids boil in vacuum - there's no pressure to keep them liquid. Critical for handling liquid gases.",
-        "formula": "Below this pressure at current temp: liquid \u2192 gas instantly"
+        "formula": "Below this pressure at current temp: liquid → gas instantly"
       },
       "Latent Heat": {
         "type": "Energy per Mole (J/mol)",
         "threshold": "Energy absorbed/released during phase change",
-        "description": "How much energy is absorbed when this substance melts (ice\u2192liquid) or released when it freezes (liquid\u2192ice). This is why ice keeps things cold - it absorbs energy as it melts without changing temperature. Water's latent heat is very high (6008 J/mol), making ice excellent for cooling.",
-        "formula": "Energy for phase change = Moles \u00d7 Latent Heat\nExample: Melting 10 moles of ice absorbs 60,080 joules"
+        "description": "How much energy is absorbed when this substance melts (ice→liquid) or released when it freezes (liquid→ice). This is why ice keeps things cold - it absorbs energy as it melts without changing temperature. Water's latent heat is very high (6008 J/mol), making ice excellent for cooling.",
+        "formula": "Energy for phase change = Moles × Latent Heat\nExample: Melting 10 moles of ice absorbs 60,080 joules"
       },
       "Moles Per Litre": {
         "type": "Moles/Litre (mol/L)",
         "threshold": "Gas density at standard conditions",
         "description": "How many moles of this gas fit in 1 liter of volume at standard pressure (101.325 kPa) and temperature. This tells you how 'dense' the gas is. All gases have roughly similar values (~44 mol/L) because they follow similar physics. Use this to calculate how much gas fits in tanks.",
-        "formula": "Moles in container = Volume (L) \u00d7 Moles Per Litre\nExample: 100L tank holds ~4,400 moles at standard pressure"
+        "formula": "Moles in container = Volume (L) × Moles Per Litre\nExample: 100L tank holds ~4,400 moles at standard pressure"
       },
       "Volume": {
         "type": "Volume (Litres)",
         "threshold": "Internal capacity",
         "description": "The internal volume capacity of this device or container in liters. This determines how much gas or liquid it can hold. Larger volume = more stuff fits. Use this with Moles Per Litre to calculate how many moles a container can hold at a given pressure and temperature.",
-        "formula": "Max Moles = Volume \u00d7 Pressure Ratio \u00d7 Moles Per Litre\nWhere Pressure Ratio = Current Pressure \u00f7 101.325 kPa"
+        "formula": "Max Moles = Volume × Pressure Ratio × Moles Per Litre\nWhere Pressure Ratio = Current Pressure ÷ 101.325 kPa"
       },
       "Power Storage": {
         "type": "Energy (Joules)",
         "threshold": "Battery capacity",
-        "description": "How much energy this battery can store in total, measured in joules. Small Battery: 360,000J, Large Battery: 1,800,000J. To calculate runtime: divide this by the power draw in watts. Example: 360,000J \u00f7 1,000W = 360 seconds (6 minutes) of power.",
-        "formula": "Runtime (seconds) = Power Storage (J) \u00f7 Power Draw (W)\nExample: Large Battery (1.8M J) \u00f7 5kW draw = 360 seconds"
+        "description": "How much energy this battery can store in total, measured in joules. Small Battery: 360,000J, Large Battery: 1,800,000J. To calculate runtime: divide this by the power draw in watts. Example: 360,000J ÷ 1,000W = 360 seconds (6 minutes) of power.",
+        "formula": "Runtime (seconds) = Power Storage (J) ÷ Power Draw (W)\nExample: Large Battery (1.8M J) ÷ 5kW draw = 360 seconds"
       },
       "Power Generation": {
         "type": "Power (Watts)",
@@ -849,10 +849,10 @@
   "devices": [
     {
       "deviceKey": "ThingStructureSolidFuelGenerator",
-      "displayName": "\ud83d\udcd6 GUIDE FORMAT TEST - Solid Fuel Generator",
-      "pageDescriptionPrepend": "<color=#00FF00><b>\ud83e\uddea GUIDE FORMAT ADDITIONS TEST PAGE</b></color>\nThis page demonstrates ALL new features including nested collapsibles, TOC, and images.\n\n",
+      "displayName": "📖 GUIDE FORMAT TEST - Solid Fuel Generator",
+      "pageDescriptionPrepend": "<color=#00FF00><b>🧪 GUIDE FORMAT ADDITIONS TEST PAGE</b></color>\nThis page demonstrates ALL new features including nested collapsibles, TOC, and images.\n\n",
       "generateToc": true,
-      "tocTitle": "\ud83d\udcda Quick Navigation",
+      "tocTitle": "Quick Navigation",
       "operationalDetailsTitleColor": "#FF7A18",
       "operationalDetailsBackgroundColor": "#0A1520",
       "OperationalDetails": [
@@ -959,7 +959,7 @@
           "description": "This section demonstrates the YouTube link feature. Click the button below to watch a tutorial video in your browser.",
           "youtubeUrl": "https://www.youtube.com/watch?v=ekH076f-4HM",
           "youtubeLabel": "Watch Tutorial Video",
-            "videoFile": "Test3.gif"
+          "videoFile": "Test3.mp4"
         }
       ]
     },
@@ -6413,262 +6413,484 @@
         "On": {
           "dataType": "Boolean",
           "range": "0-1",
-          "description": "Robot on/off state.",
+          "description": "Robot on/off state. Must be 1 for robot to operate.",
           "access": "Read Write"
         },
         "Power": {
           "dataType": "Boolean",
           "range": "0-1",
-          "description": "Returns 1 if robot battery has charge.",
+          "description": "Returns 1 if battery has charge remaining. Returns 0 if battery is empty or missing.",
           "access": "Read"
         },
         "Mode": {
           "dataType": "Integer",
           "range": "0-6",
-          "description": "Robot operating mode: 0=Inactive, 1=MoveToTarget, 2=FollowTarget, 3=RoamArea, 4=Mine, 5=PathToTarget, 6=SmartMining.",
+          "description": "Robot operating mode. 0=None (idle), 1=Follow (nearest human), 2=MoveToTarget (direct), 3=Roam (autonomous mining), 4=Unload (deposit to chute), 5=PathToTarget (A* navigation), 6=StorageFull (automatic).",
           "access": "Read Write"
         },
         "Error": {
           "dataType": "Boolean",
           "range": "0-1",
-          "description": "Returns 1 if robot is in error state (stuck, no path, battery dead, etc).",
+          "description": "Returns 1 if robot has an error: missing chip, compilation error, or code-raised error state.",
           "access": "Read"
         },
         "ReferenceId": {
           "dataType": "Hash",
           "range": "Unique",
-          "description": "Unique reference ID.",
+          "description": "Unique reference ID for this specific robot instance.",
           "access": "Read"
         },
         "PositionX": {
           "dataType": "Float",
-          "range": "Any",
+          "range": "World Coords",
           "description": "Robot's current X world position.",
           "access": "Read"
         },
         "PositionY": {
           "dataType": "Float",
-          "range": "Any",
-          "description": "Robot's current Y world position.",
+          "range": "World Coords",
+          "description": "Robot's current Y world position (vertical).",
           "access": "Read"
         },
         "PositionZ": {
           "dataType": "Float",
-          "range": "Any",
+          "range": "World Coords",
           "description": "Robot's current Z world position.",
           "access": "Read"
         },
         "TargetX": {
           "dataType": "Float",
-          "range": "Any",
-          "description": "Target X world position for robot to move to.",
-          "access": "Write"
+          "range": "World Coords",
+          "description": "Target X coordinate for movement modes. Reset to 0 when new chip inserted.",
+          "access": "Read Write"
         },
         "TargetY": {
           "dataType": "Float",
-          "range": "Any",
-          "description": "Target Y world position for robot to move to.",
+          "range": "World Coords",
+          "description": "Target Y coordinate (vertical) for movement modes. Reset to 0 when new chip inserted.",
           "access": "Write"
         },
         "TargetZ": {
           "dataType": "Float",
-          "range": "Any",
-          "description": "Target Z world position for robot to move to.",
-          "access": "Write"
+          "range": "World Coords",
+          "description": "Target Z coordinate for movement modes. Reset to 0 when new chip inserted.",
+          "access": "Read Write"
         },
         "VelocityX": {
           "dataType": "Float",
           "range": "Any",
-          "description": "Robot's velocity in X direction.",
+          "description": "Robot's absolute velocity in X direction (world space).",
           "access": "Read"
         },
         "VelocityY": {
           "dataType": "Float",
           "range": "Any",
-          "description": "Robot's velocity in Y direction.",
+          "description": "Robot's absolute velocity in Y direction (world space).",
           "access": "Read"
         },
         "VelocityZ": {
           "dataType": "Float",
           "range": "Any",
-          "description": "Robot's velocity in Z direction.",
+          "description": "Robot's absolute velocity in Z direction (world space).",
           "access": "Read"
         },
         "VelocityMagnitude": {
           "dataType": "Float",
           "range": "0+",
-          "description": "Robot's total velocity magnitude.",
+          "description": "Robot's total speed (length of velocity vector). Useful for detecting if robot is moving.",
           "access": "Read"
         },
         "VelocityRelativeX": {
           "dataType": "Float",
           "range": "Any",
-          "description": "Robot's velocity in X relative to robot's forward direction.",
+          "description": "Velocity relative to robot's forward direction (positive = forward/right).",
           "access": "Read"
         },
         "VelocityRelativeY": {
           "dataType": "Float",
           "range": "Any",
-          "description": "Robot's velocity in Y relative to robot's forward direction.",
+          "description": "Velocity relative to robot's vertical axis.",
           "access": "Read"
         },
         "VelocityRelativeZ": {
           "dataType": "Float",
           "range": "Any",
-          "description": "Robot's velocity in Z relative to robot's forward direction.",
+          "description": "Velocity relative to robot's forward direction (positive = forward).",
           "access": "Read"
         },
         "ForwardX": {
           "dataType": "Float",
           "range": "-1 to 1",
-          "description": "X component of robot's forward direction vector.",
+          "description": "X component of robot's forward facing direction unit vector.",
           "access": "Read"
         },
         "ForwardY": {
           "dataType": "Float",
           "range": "-1 to 1",
-          "description": "Y component of robot's forward direction vector.",
+          "description": "Y component of robot's forward facing direction unit vector.",
           "access": "Read"
         },
         "ForwardZ": {
           "dataType": "Float",
           "range": "-1 to 1",
-          "description": "Z component of robot's forward direction vector.",
+          "description": "Z component of robot's forward facing direction unit vector.",
           "access": "Read"
         },
         "Orientation": {
           "dataType": "Float",
           "range": "0-360",
-          "description": "Robot's rotation in degrees.",
+          "description": "Robot's horizontal rotation in degrees (yaw). 0=North, 90=East, etc.",
           "access": "Read"
         },
         "MineablesInVicinity": {
           "dataType": "Integer",
           "range": "0+",
-          "description": "Number of mineable rocks detected nearby.",
+          "description": "Number of mineable ore nodes detected within 32 blocks horizontally and 2 blocks deep. Triggers ore vein generation.",
           "access": "Read"
         },
         "MineablesInQueue": {
           "dataType": "Integer",
           "range": "0+",
-          "description": "Number of mineable rocks in robot's mining queue.",
+          "description": "Number of ore nodes currently queued for mining. Note: This value comes from WheeledBase parent class.",
           "access": "Read"
         },
         "TemperatureExternal": {
           "dataType": "Float",
           "range": "0+ K",
-          "description": "External atmospheric temperature in Kelvin.",
+          "description": "External atmospheric temperature in Kelvin at robot's position.",
           "access": "Read"
         },
         "PressureExternal": {
           "dataType": "Float",
           "range": "0+ kPa",
-          "description": "External atmospheric pressure in kPa.",
+          "description": "External atmospheric pressure in kPa at robot's position (includes gases and liquids).",
           "access": "Read"
         }
       },
       "slots": [
         {
           "name": "Battery",
-          "type": "Battery"
+          "type": "BatteryCell",
+          "description": "Powers all robot operations. Drains 5W idle + 10W×MotorPower when moving + 2.5W per IC10 execution cycle."
         },
         {
           "name": "ProgrammableChip",
-          "type": "ProgrammableChip"
+          "type": "ProgrammableChip",
+          "description": "IC10 chip for automation. Inserting resets Mode to 0 and TargetX/Y/Z to 0."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 1",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 2",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 3",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 4",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 5",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 6",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 7",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         },
         {
-          "name": "Ore",
-          "type": "Ore"
+          "name": "Ore 8",
+          "type": "Ore",
+          "description": "Storage slot for mined ore."
         }
       ],
       "modeDescriptions": {
         "None": {
-          "modeValue": "None",
-          "description": "Robot is idle, awaiting commands."
+          "modeValue": 0,
+          "description": "Idle state. Robot brakes and awaits commands. Target cleared, no movement."
         },
         "Follow": {
-          "modeValue": "Follow",
-          "description": "Robot follows the player who owns it."
-        },
-        "Roam": {
-          "modeValue": "Roam",
-          "description": "Robot roams the area autonomously."
+          "modeValue": 1,
+          "description": "Follows nearest human player. Uses direct line movement (no pathfinding). Applies stuck detection."
         },
         "MoveToTarget": {
-          "modeValue": "MoveToTarget",
-          "description": "Robot moves directly to target coordinates."
+          "modeValue": 2,
+          "description": "Moves directly toward TargetX/Y/Z coordinates. No pathfinding - will get stuck on obstacles. Reverts to Mode 0 on arrival."
         },
-        "PathToTarget": {
-          "modeValue": "PathToTarget",
-          "description": "Robot pathfinds to target, avoiding obstacles."
-        },
-        "Mine": {
-          "modeValue": "Mine",
-          "description": "Robot mines ore from terrain."
+        "Roam": {
+          "modeValue": 3,
+          "description": "Autonomous mining mode. Wanders randomly while searching for ore within 32 blocks. Auto-mines when ore found. Switches to Mode 6 when storage full."
         },
         "Unload": {
-          "modeValue": "Unload",
-          "description": "Robot unloads carried items to storage."
+          "modeValue": 4,
+          "description": "Searches for Chute Inlet or Bin within 3 meters. Deposits one ore stack every 3 seconds. Returns to Mode 0 when empty or no input found."
+        },
+        "PathToTarget": {
+          "modeValue": 5,
+          "description": "Uses A* pathfinding to navigate to TargetX/Y/Z. Can navigate around obstacles and through rooms. Returns to Mode 0 when path completed or fails."
+        },
+        "StorageFull": {
+          "modeValue": 6,
+          "description": "Automatic mode set when all 8 ore slots are occupied. Robot stops operations until storage is cleared. Set Mode to 4 (Unload) to deposit."
         }
       },
       "OperationalDetails": [
         {
-          "title": "IC10 Execution",
-          "description": "When On, has power, and contains a valid chip without compilation errors, Aimee executes up to 128 IC10 instructions per game tick. Power consumption: 2.5W per execution cycle."
+          "title": "Operating Modes",
+          "tocId": "aimee-modes",
+          "collapsible": true,
+          "description": "AIMeE has 7 operating modes controlled by the Mode logic variable:",
+          "children": [
+            {
+              "title": "Mode 0 - None (Idle)",
+              "tocId": "aimee-mode-none",
+              "collapsible": true,
+              "description": "Default idle state. The robot applies brakes and waits for commands.",
+              "items": [
+                "Clears current target data",
+                "Applies full brake power",
+                "No power consumption beyond idle 5W",
+                "Set after completing MoveToTarget, PathToTarget, or Unload operations"
+              ]
+            },
+            {
+              "title": "Mode 1 - Follow",
+              "tocId": "aimee-mode-follow",
+              "collapsible": true,
+              "description": "Robot follows the nearest human player using direct line-of-sight movement.",
+              "items": [
+                "Targets closest human via Human.GetNearest()",
+                "Uses direct movement (no pathfinding)",
+                "Will get stuck on obstacles",
+                "Stuck detection active (60s timeout)",
+                "Maintains 1 meter following distance"
+              ]
+            },
+            {
+              "title": "Mode 2 - MoveToTarget",
+              "tocId": "aimee-mode-movetotarget",
+              "collapsible": true,
+              "description": "Direct movement to TargetX/Y/Z coordinates without pathfinding.",
+              "items": [
+                "Moves in straight line toward target",
+                "No obstacle avoidance - will collide",
+                "Reverts to Mode 0 when within 1m of target",
+                "Stuck detection active",
+                "Useful for open terrain navigation"
+              ]
+            },
+            {
+              "title": "Mode 3 - Roam (Autonomous Mining)",
+              "tocId": "aimee-mode-roam",
+              "collapsible": true,
+              "description": "Fully autonomous mining mode. Wanders, discovers ore, and mines automatically.",
+              "items": [
+                "Wanders with random steering changes every 1-3 seconds",
+                "Searches for ore within 32 blocks horizontal, 2 blocks deep",
+                "Automatically navigates to and mines discovered ore",
+                "Triggers ore vein generation as it moves (just like player exploration)",
+                "Reverses for 5 seconds when hitting terrain obstacles",
+                "Auto-switches to Mode 6 (StorageFull) when all slots occupied"
+              ]
+            },
+            {
+              "title": "Mode 4 - Unload",
+              "tocId": "aimee-mode-unload",
+              "collapsible": true,
+              "description": "Deposits stored ore into nearby Chute Inlets or Bins.",
+              "items": [
+                "Searches for IRobotInput devices within 3 meters",
+                "Compatible targets: Chute Inlet, Bin",
+                "Deposits one ore stack every 3 seconds",
+                "Returns to Mode 0 when storage is empty",
+                "Returns to Mode 0 if no valid input device found"
+              ]
+            },
+            {
+              "title": "Mode 5 - PathToTarget",
+              "tocId": "aimee-mode-pathtotarget",
+              "collapsible": true,
+              "description": "Intelligent pathfinding to TargetX/Y/Z using A* algorithm.",
+              "items": [
+                "Uses room-based pathfinding grid",
+                "Can navigate around obstacles and through rooms",
+                "Path recalculates if stuck for 5 seconds",
+                "May hop slightly when path requires height changes",
+                "Returns to Mode 0 when destination reached or path fails",
+                "Best for structured base navigation"
+              ]
+            },
+            {
+              "title": "Mode 6 - StorageFull",
+              "tocId": "aimee-mode-storagefull",
+              "collapsible": true,
+              "description": "Automatic state set when all 8 ore storage slots are occupied.",
+              "items": [
+                "Cannot be manually set via IC10",
+                "Automatically triggered by Roam mode when full",
+                "Robot stops all operations",
+                "Set Mode to 4 (Unload) to deposit ore",
+                "Or manually remove ore to continue"
+              ]
+            }
+          ]
         },
         {
-          "title": "Chip Reset Behavior",
-          "description": "When a new ProgrammableChip is inserted: TargetX, TargetY, TargetZ are reset to 0, Mode is set to 0 (None), and the chip's program counter is reset to line 0."
+          "title": "IC10 Programming",
+          "tocId": "aimee-ic10",
+          "collapsible": true,
+          "description": "AIMeE executes IC10 programs from an inserted ProgrammableChip:",
+          "children": [
+            {
+              "title": "Execution Details",
+              "tocId": "aimee-execution",
+              "collapsible": true,
+              "description": "How the IC10 chip executes on AIMeE:",
+              "items": [
+                "Executes 128 instructions per game tick",
+                "Costs 2.5W per execution cycle (deducted from battery)",
+                "Only executes when: On=1, Powered, has chip, no compilation errors",
+                "Pauses execution when game is paused"
+              ]
+            },
+            {
+              "title": "Chip Reset Behavior",
+              "tocId": "aimee-chipreset",
+              "collapsible": true,
+              "description": "When inserting a new ProgrammableChip, AIMeE automatically resets:",
+              "items": [
+                "Mode is set to 0 (None)",
+                "TargetX, TargetY, TargetZ are set to 0",
+                "Chip program counter is reset to line 0",
+                "Any existing path data is cleared",
+                "Error state is cleared"
+              ]
+            },
+            {
+              "title": "Device Addressing",
+              "tocId": "aimee-addressing",
+              "collapsible": true,
+              "description": "How to reference the robot and its slots in IC10:",
+              "items": [
+                "Use 'db' to reference AIMeE herself (d0 equivalent)",
+                "Slot 0: Battery (BatteryCell)",
+                "Slot 1: ProgrammableChip (the running chip)",
+                "Slots 2-9: Ore storage slots",
+                "Use 'ls' and 'ss' for slot operations"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Power Management",
+          "tocId": "aimee-power",
+          "collapsible": true,
+          "description": "AIMeE is battery-powered with multiple consumption sources:",
+          "children": [
+            {
+              "title": "Power Consumption",
+              "tocId": "aimee-consumption",
+              "collapsible": true,
+              "description": "Power draw varies based on activity:",
+              "items": [
+                "Base: 5W constant when On=1",
+                "IC10 Execution: 2.5W per tick when program runs",
+                "Motor Power: 10W × CurrentMotorPower when wheels turning",
+                "Total moving: Approximately 15-25W depending on speed"
+              ]
+            },
+            {
+              "title": "Battery Indicator",
+              "tocId": "aimee-battery",
+              "collapsible": true,
+              "description": "The Power logic variable shows 5 charge levels:",
+              "items": [
+                "Level 1: Battery <= 20%",
+                "Level 2: Battery <= 40%",
+                "Level 3: Battery <= 60%",
+                "Level 4: Battery <= 80%",
+                "Level 5: Battery > 80%"
+              ]
+            }
+          ]
         },
         {
           "title": "Stuck Detection & Recovery",
-          "description": "If Aimee moves less than 0.1 meters over 60 seconds while in an active movement mode (Follow, MoveToTarget, Roam, or PathToTarget), she automatically attempts to unstick herself by teleporting slightly in a random direction."
+          "tocId": "aimee-stuck",
+          "collapsible": true,
+          "description": "AIMeE has built-in stuck detection for movement modes:",
+          "items": [
+            "Checks position every 60 seconds while moving",
+            "If moved less than 0.1 meters in 60 seconds, considered stuck",
+            "Recovery: Teleports slightly in random direction",
+            "Active in modes: Follow (1), MoveToTarget (2), Roam (3), PathToTarget (5)",
+            "PathToTarget has additional 5-second path recalculation on stuck"
+          ]
         },
         {
-          "title": "Mining Behavior (Roam Mode)",
-          "description": "In Roam mode, Aimee searches for ore within 32 blocks horizontally and 2 blocks below surface. When ore is found, she navigates to it and mines automatically. Mined ore fills internal storage slots. When storage is full, Mode automatically changes to 6 (StorageFull)."
+          "title": "Mining System (Roam Mode)",
+          "tocId": "aimee-mining",
+          "collapsible": true,
+          "description": "How AIMeE discovers and mines ore in Roam mode:",
+          "children": [
+            {
+              "title": "Ore Detection",
+              "tocId": "aimee-detection",
+              "collapsible": true,
+              "description": "Ore search parameters:",
+              "items": [
+                "Horizontal search radius: 32 blocks",
+                "Vertical search depth: 2 blocks below surface",
+                "Uses same ore vein generation as player exploration",
+                "Reading MineablesInVicinity triggers ore vein generation"
+              ]
+            },
+            {
+              "title": "Mining Process",
+              "tocId": "aimee-mineprocess",
+              "collapsible": true,
+              "description": "What happens when ore is found:",
+              "items": [
+                "Navigates to within 2 meters of ore node",
+                "Triggers mining animation via InteractImport",
+                "Ore is automatically added to first available slot",
+                "Stacks with existing ore of same type",
+                "Sets Mode to 6 (StorageFull) when all 8 slots filled"
+              ]
+            }
+          ]
         },
         {
-          "title": "Unload Behavior",
-          "description": "In Unload mode, Aimee searches for Robot Input devices (Chute Inlet, Bin) within 3 meters. She deposits one ore stack every 3 seconds. Returns to Mode 0 when storage is empty or no input device is found."
-        },
-        {
-          "title": "Ore Generation",
-          "description": "Aimee triggers procedural ore vein generation in a 32x32x32 block area around herself as she moves. This is the same system used by players exploring on foot - she literally discovers ore by being present."
-        },
-        {
-          "title": "Power Consumption",
-          "description": "Idle (On): 5W constant draw. Motor Power: Additional 10W x CurrentMotorPower when moving. Battery indicator shows 5 levels: 20% or less (1), 40% or less (2), 60% or less (3), 80% or less (4), over 80% (5)."
+          "title": "Tips & Best Practices",
+          "tocId": "aimee-tips",
+          "collapsible": true,
+          "description": "Recommendations for effective AIMeE operation:",
+          "items": [
+            "Use PathToTarget (Mode 5) in bases, MoveToTarget (Mode 2) outdoors",
+            "Position Chute Inlets within 3m of AIMeE's patrol area for Unload",
+            "Monitor battery charge - robot stops all operations when empty",
+            "Reading MineablesInVicinity generates ore veins - useful for exploration",
+            "TargetX/Y/Z persist through mode changes until new chip inserted"
+          ]
         }
-      ]
+      ],
+      "generateToc": true,
+      "tocTitle": "AIMeE Guide Contents"
     },
     {
       "deviceKey": "ThingRover_MkI",
@@ -7806,7 +8028,7 @@
       "OperationalDetails": [
         {
           "title": "Heat Pump Operation",
-          "description": "The Air Conditioner is a heat pump that moves thermal energy between its 100L internal volume and the waste output. It heats or cools the internal atmosphere toward the Setting temperature (default 293.15K / 20\u00b0C)."
+          "description": "The Air Conditioner is a heat pump that moves thermal energy between its 100L internal volume and the waste output. It heats or cools the internal atmosphere toward the Setting temperature (default 293.15K / 20°C)."
         },
         {
           "title": "Idle Power Draw",
@@ -7822,7 +8044,7 @@
         },
         {
           "title": "Heat Exchange",
-          "description": "Energy transferred = (TargetTemp - CurrentTemp) \u00d7 HeatCapacity \u00d7 EfficiencyFactors. The waste output receives the opposite thermal load - if cooling input, waste heats up; if heating input, waste cools down."
+          "description": "Energy transferred = (TargetTemp - CurrentTemp) × HeatCapacity × EfficiencyFactors. The waste output receives the opposite thermal load - if cooling input, waste heats up; if heating input, waste cools down."
         }
       ]
     },
@@ -13903,22 +14125,22 @@
         },
         "SolarAngle": {
           "dataType": "Float",
-          "range": "0-360\u00c2\u00b0",
+          "range": "0-360Â°",
           "description": "Current angle of the sun in degrees."
         },
         "SolarIrradiance": {
           "dataType": "Float",
-          "range": "0+ W/m\u00c2\u00b2",
+          "range": "0+ W/mÂ²",
           "description": "Solar irradiance (power per square meter) at sensor location."
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "-180 to 180\u00c2\u00b0",
+          "range": "-180 to 180Â°",
           "description": "Horizontal angle to the sun in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "-90 to 90\u00c2\u00b0",
+          "range": "-90 to 90Â°",
           "description": "Vertical angle to the sun in degrees."
         }
       },
@@ -13934,11 +14156,11 @@
         },
         {
           "title": "Solar Tracking Data",
-          "description": "Horizontal: Azimuth angle to sun (-180\u00b0 to 180\u00b0). Vertical: Elevation angle to sun. SolarAngle: Angle between sensor forward and sun direction. Use for solar panel tracking."
+          "description": "Horizontal: Azimuth angle to sun (-180° to 180°). Vertical: Elevation angle to sun. SolarAngle: Angle between sensor forward and sun direction. Use for solar panel tracking."
         },
         {
           "title": "Solar Irradiance",
-          "description": "Returns current solar power (W/m\u00b2) accounting for weather events. Weather storms reduce this value via SolarRatio multiplier. Returns 0 when not in sunlight."
+          "description": "Returns current solar power (W/m²) accounting for weather events. Weather storms reduce this value via SolarRatio multiplier. Returns 0 when not in sunlight."
         },
         {
           "title": "Motherboard Integration",
@@ -16030,7 +16252,7 @@
         },
         {
           "title": "Steel Smelting (Most Common Use)",
-          "description": "Ores: Iron Ore (Fe) + Coal Ore in 3:1 ratio. Standard batch: 15 Iron + 5 Coal = 5 Steel ingots. Requires temperature above 900K (627\u00b0C) and pressure above ~100 kPa (can go very high, 100+ MPa is fine)."
+          "description": "Ores: Iron Ore (Fe) + Coal Ore in 3:1 ratio. Standard batch: 15 Iron + 5 Coal = 5 Steel ingots. Requires temperature above 900K (627°C) and pressure above ~100 kPa (can go very high, 100+ MPa is fine)."
         },
         {
           "title": "Fuel Recipe",
@@ -18912,7 +19134,7 @@
         },
         {
           "title": "Rotation Range",
-          "description": "360\u00b0 horizontal rotation (-180 to 180\u00b0), 90\u00b0 vertical range (0 to 90\u00b0). Write Horizontal and Vertical logic values to aim the dish."
+          "description": "360° horizontal rotation (-180 to 180°), 90° vertical range (0 to 90°). Write Horizontal and Vertical logic values to aim the dish."
         },
         {
           "title": "Power Requirements",
@@ -18920,7 +19142,7 @@
         },
         {
           "title": "Signal Strength vs Angle",
-          "description": "Narrower beam = more power: 2\u00b0 beam = 100% efficiency, 5\u00b0 = 90%, 22.5\u00b0 = 10%, 45\u00b0 = 5%, 90\u00b0 = 1%, 180\u00b0 = 0.1%. Tighter focus dramatically increases effective range."
+          "description": "Narrower beam = more power: 2° beam = 100% efficiency, 5° = 90%, 22.5° = 10%, 45° = 5%, 90° = 1%, 180° = 0.1%. Tighter focus dramatically increases effective range."
         },
         {
           "title": "Contact Acquisition",
@@ -21634,15 +21856,15 @@
         },
         "Multiply": {
           "modeValue": "Multiply",
-          "description": "Multiplication: Output = Input1 \u00d7 Input2. Basic arithmetic product."
+          "description": "Multiplication: Output = Input1 × Input2. Basic arithmetic product."
         },
         "Divide": {
           "modeValue": "Divide",
-          "description": "Division: Output = Input1 \u00f7 Input2. Returns 0 if Input2 is 0."
+          "description": "Division: Output = Input1 ÷ Input2. Returns 0 if Input2 is 0."
         },
         "Mod": {
           "modeValue": "Mod",
-          "description": "Modulo: Output = remainder of Input1 \u00f7 Input2. Useful for cycling values."
+          "description": "Modulo: Output = remainder of Input1 ÷ Input2. Useful for cycling values."
         },
         "Pow": {
           "modeValue": "Pow",
@@ -21724,7 +21946,7 @@
         },
         "Sqrt": {
           "modeValue": "Sqrt",
-          "description": "Square root: Output = \u221aInput. Returns 0 for negative inputs."
+          "description": "Square root: Output = √Input. Returns 0 for negative inputs."
         },
         "Sin": {
           "modeValue": "Sin",
@@ -21760,11 +21982,11 @@
         },
         "Ceil": {
           "modeValue": "Ceil",
-          "description": "Ceiling: Output = smallest integer \u2265 Input. Rounds up."
+          "description": "Ceiling: Output = smallest integer ≥ Input. Rounds up."
         },
         "Floor": {
           "modeValue": "Floor",
-          "description": "Floor: Output = largest integer \u2264 Input. Rounds down."
+          "description": "Floor: Output = largest integer ≤ Input. Rounds down."
         },
         "Round": {
           "modeValue": "Round",
@@ -26577,7 +26799,7 @@
         },
         {
           "title": "Arm States",
-          "description": "ArmState cycles: Up (idle) \u2192 AnimatingDown \u2192 Down (interacting) \u2192 AnimatingUp \u2192 Up. Extended returns 1 when arm is Down. Idle returns 1 when arm is Up and not moving."
+          "description": "ArmState cycles: Up (idle) → AnimatingDown → Down (interacting) → AnimatingUp → Up. Extended returns 1 when arm is Down. Idle returns 1 when arm is Up and not moving."
         },
         {
           "title": "Obstruction Detection",
@@ -28041,11 +28263,11 @@
         },
         {
           "title": "Dish Movement",
-          "description": "360\u00b0 horizontal rotation, 90\u00b0 vertical range. Medium speed dish - faster than Large but slower than Small. Use Horizontal and Vertical logic values to aim."
+          "description": "360° horizontal rotation, 90° vertical range. Medium speed dish - faster than Large but slower than Small. Use Horizontal and Vertical logic values to aim."
         },
         {
           "title": "Signal Strength vs Angle",
-          "description": "Same efficiency curve as all dishes: 2\u00b0 = 100%, 5\u00b0 = 90%, 22.5\u00b0 = 10%, 45\u00b0 = 5%, 90\u00b0 = 1%, 180\u00b0 = 0.1%. Narrower beam = stronger signal."
+          "description": "Same efficiency curve as all dishes: 2° = 100%, 5° = 90%, 22.5° = 10%, 45° = 5%, 90° = 1%, 180° = 0.1%. Narrower beam = stronger signal."
         },
         {
           "title": "Contact Resolution",
@@ -29299,12 +29521,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "0-360\u00c2\u00b0",
+          "range": "0-360Â°",
           "description": "Horizontal rotation angle in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "0-90\u00c2\u00b0",
+          "range": "0-90Â°",
           "description": "Vertical rotation angle in degrees."
         },
         "Idle": {
@@ -29314,7 +29536,7 @@
         },
         "SignalStrength": {
           "dataType": "Float",
-          "range": "-1 or 0-180\u00c2\u00b0",
+          "range": "-1 or 0-180Â°",
           "description": "Angle offset to strongest contact in degrees. -1 if no contact or still resolving."
         },
         "SignalID": {
@@ -29390,11 +29612,11 @@
         },
         {
           "title": "Rotation Range",
-          "description": "360\u00b0 horizontal rotation (lerped from -90\u00b0 to 270\u00b0 internal), 90\u00b0 vertical range (0 to 90\u00b0). Uses DishTransform.up for forward direction."
+          "description": "360° horizontal rotation (lerped from -90° to 270° internal), 90° vertical range (0 to 90°). Uses DishTransform.up for forward direction."
         },
         {
           "title": "Signal Strength vs Angle",
-          "description": "Same efficiency curve: 2\u00b0 = 100%, 5\u00b0 = 90%, 22.5\u00b0 = 10%, 45\u00b0 = 5%, 90\u00b0 = 1%, 180\u00b0 = 0.1%. Setting controls output wattage (50-200W range)."
+          "description": "Same efficiency curve: 2° = 100%, 5° = 90%, 22.5° = 10%, 45° = 5%, 90° = 1%, 180° = 0.1%. Setting controls output wattage (50-200W range)."
         },
         {
           "title": "Contact Resolution",
@@ -29427,12 +29649,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "0-360\u00c2\u00b0",
+          "range": "0-360Â°",
           "description": "Read/write horizontal rotation angle in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "15-165\u00c2\u00b0",
+          "range": "15-165Â°",
           "description": "Read/write vertical tilt angle in degrees."
         },
         "ReferenceId": {
@@ -29512,7 +29734,7 @@
         "Vertical": {
           "dataType": "Float",
           "range": "0-1",
-          "description": "Vertical rotation value as ratio (0-1 maps to -75\u00c2\u00b0 to +75\u00c2\u00b0)."
+          "description": "Vertical rotation value as ratio (0-1 maps to -75Â° to +75Â°)."
         },
         "Ratio": {
           "dataType": "Float",
@@ -29582,12 +29804,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "-180 to 180\u00c2\u00b0",
+          "range": "-180 to 180Â°",
           "description": "Horizontal angle setting for solar tracking. Can be set via logic."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "-90 to 90\u00c2\u00b0",
+          "range": "-90 to 90Â°",
           "description": "Vertical angle setting for solar tracking. Can be set via logic."
         }
       },
@@ -29614,12 +29836,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "0-360\u00c2\u00b0",
+          "range": "0-360Â°",
           "description": "Read/write horizontal rotation angle in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "15-165\u00c2\u00b0",
+          "range": "15-165Â°",
           "description": "Read/write vertical tilt angle in degrees."
         },
         "ReferenceId": {
@@ -29658,7 +29880,7 @@
         "Vertical": {
           "dataType": "Float",
           "range": "0-1",
-          "description": "Vertical rotation value as ratio (0-1 maps to -75\u00c2\u00b0 to +75\u00c2\u00b0)."
+          "description": "Vertical rotation value as ratio (0-1 maps to -75Â° to +75Â°)."
         },
         "Ratio": {
           "dataType": "Float",
@@ -29703,12 +29925,12 @@
         },
         "Horizontal": {
           "dataType": "Float",
-          "range": "-180 to 180\u00c2\u00b0",
+          "range": "-180 to 180Â°",
           "description": "Horizontal angle to sun in degrees."
         },
         "Vertical": {
           "dataType": "Float",
-          "range": "-180 to 180\u00c2\u00b0",
+          "range": "-180 to 180Â°",
           "description": "Vertical angle to sun in degrees."
         },
         "Maximum": {

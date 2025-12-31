@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using StationpediaAscended.Data;
 using StationpediaAscended.Tooltips;
 using StationpediaAscended.Patches;
+using StationpediaAscended.UI;
 
 namespace StationpediaAscended
 {
@@ -31,7 +32,7 @@ namespace StationpediaAscended
         // Plugin metadata
         public const string PluginGuid = "com.florpydorp.stationpediaascended";
         public const string PluginName = "Stationpedia Ascended";
-        public const string PluginVersion = "0.2.1";
+        public const string PluginVersion = "0.3.0";
         
         public const string HarmonyId = "com.stationpediaascended.mod";
         
@@ -350,19 +351,21 @@ namespace StationpediaAscended
                         // Hide unwanted items from Stationpedia searches (burnt cables, wreckage, etc.)
                         PopulateHiddenItems();
                         
-                        // Change the window title to Stationpedia Ascended
+                        // Change the window title to Stationpedia Ascended and make it clickable
                         try
                         {
                             var titleGO = Stationpedia.Instance.StationpediaTitleText;
                             if (titleGO != null)
                             {
+                                _headerTitleObject = titleGO;
                                 var titleText = titleGO.GetComponentInChildren<TMPro.TextMeshProUGUI>();
                                 if (titleText != null)
                                 {
-                                    titleText.text = "Stationpedia <color=#FF7A18>Ascended</color>";
+                                    _headerTitleText = titleText;
+                                    UpdateHeaderAppearance(); // Set initial appearance based on mode
                                 }
                                 
-                                // Replace the icon in the header
+                                // Find and store the icon in the header (for Ascended mode styling)
                                 var headerParent = titleGO.transform.parent;
                                 if (headerParent != null)
                                 {
@@ -371,13 +374,25 @@ namespace StationpediaAscended
                                         var child = headerParent.GetChild(i);
                                         var img = child.GetComponent<UnityEngine.UI.Image>();
                                         
-                                        if (img != null && child.gameObject != titleGO && _customIconSprite != null)
+                                        if (img != null && child.gameObject != titleGO)
                                         {
                                             if (img.sprite != null && !img.sprite.name.ToLower().Contains("background"))
                                             {
-                                                // Replace the sprite
-                                                img.sprite = _customIconSprite;
-                                                img.preserveAspect = true;
+                                                // Store reference to the icon
+                                                _headerIconImage = img;
+                                                
+                                                // Store original sprite so we can restore it in vanilla mode
+                                                if (_originalHeaderIconSprite == null)
+                                                {
+                                                    _originalHeaderIconSprite = img.sprite;
+                                                }
+                                                
+                                                // Only replace sprite if in Ascended mode
+                                                if (!UI.VanillaModeManager.IsVanillaMode && _customIconSprite != null)
+                                                {
+                                                    img.sprite = _customIconSprite;
+                                                    img.preserveAspect = true;
+                                                }
                                                 
                                                 // Add LayoutElement if missing to control size
                                                 var layoutElement = child.GetComponent<UnityEngine.UI.LayoutElement>();
@@ -401,6 +416,8 @@ namespace StationpediaAscended
                                                     rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 28);
                                                     rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 28);
                                                 }
+                                                
+                                                break; // Found the icon
                                             }
                                         }
                                     }
@@ -410,6 +427,26 @@ namespace StationpediaAscended
                         catch (Exception ex) 
                         { 
                             Log?.LogWarning($"Error setting title/icon: {ex.Message}");
+                        }
+                        
+                        // Setup header as clickable toggle for Ascended mode (easter egg)
+                        try
+                        {
+                            SetupHeaderToggle();
+                        }
+                        catch (Exception ex)
+                        {
+                            Log?.LogWarning($"Error setting up header toggle: {ex.Message}");
+                        }
+                        
+                        // Initialize search system early for instant first search
+                        try
+                        {
+                            Patches.SearchPatches.InitializeSearchSystem(Stationpedia.Instance);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log?.LogWarning($"Error initializing search system: {ex.Message}");
                         }
                     }
 
@@ -568,12 +605,12 @@ namespace StationpediaAscended
                     
 #if DEBUG
                     // Dev folder - only included in Debug builds for hot-reload development
-                    possiblePaths.Add(@"C:\Dev\12-17-25 Stationeers Respawn Update Code\StationpediaAscended\mod\phoenix-icon.png");
+                    possiblePaths.Add(@"C:\Dev\12-17-25 Stationeers Respawn Update Code\StationpediaAscended\mod\images\phoenix-icon.png");
 #endif
-                    // Next to the executing assembly (works for both SLP mods folder and BepInEx scripts)
-                    possiblePaths.Add(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "phoenix-icon.png"));
-                    // BepInEx scripts folder
-                    possiblePaths.Add(Path.Combine(BepInEx.Paths.BepInExRootPath, "scripts", "phoenix-icon.png"));
+                    // Images subfolder next to the executing assembly
+                    possiblePaths.Add(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "images", "phoenix-icon.png"));
+                    // BepInEx scripts/images folder
+                    possiblePaths.Add(Path.Combine(BepInEx.Paths.BepInExRootPath, "scripts", "images", "phoenix-icon.png"));
                     
                     foreach (var path in possiblePaths)
                     {
@@ -635,17 +672,28 @@ namespace StationpediaAscended
                 {
                     if (string.IsNullOrEmpty(basePath) || !Directory.Exists(basePath)) continue;
                     
+                    // Try custom icon files first, then fall back to phoenix/book icons
                     string expandedPath = Path.Combine(basePath, "icon_expanded.png");
                     string collapsedPath = Path.Combine(basePath, "icon_collapsed.png");
+                    string phoenixPath = Path.Combine(basePath, "phoenix-icon.png");
+                    string bookClosedPath = Path.Combine(basePath, "Book-Closed.png");
                     
-                    if (File.Exists(expandedPath) && _iconExpanded == null)
+                    // Expanded icon: try icon_expanded.png, then phoenix-icon.png
+                    if (_iconExpanded == null)
                     {
-                        _iconExpanded = LoadSpriteFromFile(expandedPath);
+                        if (File.Exists(expandedPath))
+                            _iconExpanded = LoadSpriteFromFile(expandedPath);
+                        else if (File.Exists(phoenixPath))
+                            _iconExpanded = LoadSpriteFromFile(phoenixPath);
                     }
                     
-                    if (File.Exists(collapsedPath) && _iconCollapsed == null)
+                    // Collapsed icon: try icon_collapsed.png, then Book-Closed.png
+                    if (_iconCollapsed == null)
                     {
-                        _iconCollapsed = LoadSpriteFromFile(collapsedPath);
+                        if (File.Exists(collapsedPath))
+                            _iconCollapsed = LoadSpriteFromFile(collapsedPath);
+                        else if (File.Exists(bookClosedPath))
+                            _iconCollapsed = LoadSpriteFromFile(bookClosedPath);
                     }
                     
                     if (_iconExpanded != null && _iconCollapsed != null)
@@ -665,6 +713,148 @@ namespace StationpediaAscended
             catch (Exception ex)
             {
                 Log?.LogError($"Error loading custom icons: {ex.Message}");
+            }
+        }
+
+        // Track header references for easter egg toggle
+        private static GameObject _headerTitleObject = null;
+        private static TMPro.TextMeshProUGUI _headerTitleText = null;
+        private static UnityEngine.UI.Image _headerIconImage = null;
+        private static UnityEngine.UI.Button _headerButton = null;
+        private static Sprite _originalHeaderIconSprite = null;  // Store original sprite for vanilla mode
+        
+        /// <summary>
+        /// Make the header title/icon clickable to toggle Ascended mode (easter egg)
+        /// </summary>
+        private void SetupHeaderToggle()
+        {
+            if (_headerTitleObject == null) return;
+            
+            // Find the header parent that contains title and icon
+            var headerParent = _headerTitleObject.transform.parent;
+            if (headerParent == null) return;
+            
+            // Check if button already exists
+            var existingButton = headerParent.GetComponent<UnityEngine.UI.Button>();
+            if (existingButton != null)
+            {
+                _headerButton = existingButton;
+                _headerButton.onClick.RemoveAllListeners();
+                _headerButton.onClick.AddListener(OnHeaderClicked);
+                return;
+            }
+            
+            // Make the header parent clickable by adding a Button component
+            // First ensure it has a Graphic for raycast
+            var graphic = headerParent.GetComponent<UnityEngine.UI.Graphic>();
+            if (graphic == null)
+            {
+                var img = headerParent.gameObject.AddComponent<UnityEngine.UI.Image>();
+                img.color = new Color(0, 0, 0, 0); // Fully transparent
+                img.raycastTarget = true;
+                graphic = img;
+            }
+            
+            _headerButton = headerParent.gameObject.AddComponent<UnityEngine.UI.Button>();
+            _headerButton.targetGraphic = graphic;
+            
+            // Set up button colors (subtle highlight)
+            var colors = _headerButton.colors;
+            colors.normalColor = Color.white;
+            colors.highlightedColor = new Color(1f, 0.9f, 0.8f, 1f);  // Subtle warm highlight
+            colors.pressedColor = new Color(1f, 0.7f, 0.5f, 1f);
+            colors.selectedColor = Color.white;
+            _headerButton.colors = colors;
+            
+            // Add click handler
+            _headerButton.onClick.AddListener(OnHeaderClicked);
+        }
+        
+        /// <summary>
+        /// Handle header click - toggle Ascended mode (easter egg)
+        /// </summary>
+        private void OnHeaderClicked()
+        {
+            UI.VanillaModeManager.Toggle();
+            UpdateHeaderAppearance();
+            
+            // Force refresh the current page to apply new styling
+            RefreshCurrentPage();
+        }
+        
+        /// <summary>
+        /// Update header appearance based on current mode
+        /// </summary>
+        private void UpdateHeaderAppearance()
+        {
+            if (_headerTitleText != null)
+            {
+                if (UI.VanillaModeManager.IsVanillaMode)
+                {
+                    // Vanilla mode - just "Stationpedia"
+                    _headerTitleText.text = "Stationpedia";
+                }
+                else
+                {
+                    // Ascended mode - "Stationpedia Ascended" with orange styling
+                    _headerTitleText.text = "Stationpedia <color=#FF7A18>Ascended</color>";
+                }
+            }
+            
+            if (_headerIconImage != null)
+            {
+                if (UI.VanillaModeManager.IsVanillaMode)
+                {
+                    // Restore original sprite and color in vanilla mode
+                    if (_originalHeaderIconSprite != null)
+                    {
+                        _headerIconImage.sprite = _originalHeaderIconSprite;
+                    }
+                    _headerIconImage.color = Color.white;
+                }
+                else
+                {
+                    // Custom sprite with orange tint in Ascended mode
+                    if (_customIconSprite != null)
+                    {
+                        _headerIconImage.sprite = _customIconSprite;
+                        _headerIconImage.preserveAspect = true;
+                    }
+                    _headerIconImage.color = new Color(1f, 0.6f, 0.2f, 1f);
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Force refresh the current Stationpedia page to apply mode changes
+        /// </summary>
+        private void RefreshCurrentPage()
+        {
+            try
+            {
+                // Force page to re-render by navigating away and back
+                if (Stationpedia.Instance != null && !string.IsNullOrEmpty(Stationpedia.CurrentPageKey))
+                {
+                    string currentKey = Stationpedia.CurrentPageKey;
+                    _lastPageKey = "";  // Reset tracking so our patches will re-run
+                    
+                    // Navigate to Home briefly then back to force re-render
+                    Stationpedia.Instance.SetPage("Home", false);
+                    StartCoroutine(DelayedSetPage(currentKey));
+                }
+            }
+            catch (Exception ex)
+            {
+                Log?.LogWarning($"Error refreshing page: {ex.Message}");
+            }
+        }
+        
+        private IEnumerator DelayedSetPage(string pageKey)
+        {
+            yield return null;  // Wait one frame
+            if (Stationpedia.Instance != null)
+            {
+                Stationpedia.Instance.SetPage(pageKey, false);
             }
         }
 
@@ -753,6 +943,7 @@ namespace StationpediaAscended
         
         // Cached rounded background sprite
         private static Sprite _roundedBgSprite = null;
+        private static Sprite _windowBgSprite = null;
         
         /// <summary>
         /// Get the rounded background sprite (cached)
@@ -766,6 +957,21 @@ namespace StationpediaAscended
                 _roundedBgSprite = LoadSlicedSprite("rounded-bg.png", 12);
             }
             return _roundedBgSprite;
+        }
+        
+        /// <summary>
+        /// Get the fancy window background sprite (Inv-window-bg.png) - cached
+        /// This is the game's native window background with nice borders
+        /// </summary>
+        public static Sprite GetWindowBackgroundSprite()
+        {
+            if (_windowBgSprite == null)
+            {
+                // Load Inv-window-bg.png with 9-slice borders
+                // The border area is typically around 8-12 pixels
+                _windowBgSprite = LoadSlicedSprite("Inv-window-bg.png", 10);
+            }
+            return _windowBgSprite;
         }
 
         /// <summary>

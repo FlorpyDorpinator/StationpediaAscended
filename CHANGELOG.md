@@ -2,6 +2,37 @@
 
 All notable changes to Stationpedia Ascended will be documented in this file.
 
+## [0.3.0] - 2025-12-31
+
+### 🤖 Comprehensive AIMeE Documentation
+- **Full AIMeE Guide** - Added extensive documentation for the AIMeE (ThingRobot) companion robot
+- **Mode Explanations** - Detailed descriptions for all AIMeE modes: None, Follow, MoveToTarget, Roam, Unload, PathToTarget, StorageFull
+- **IC10 Programming Guide** - Complete guide for programming AIMeE with example code snippets
+- **Navigation & Mining** - Documented pathfinding behavior, mining mechanics, and coordinate systems
+- **Table of Contents** - Added navigable TOC with clickable links to each section
+
+### 📑 Multi-Column Table of Contents
+- **Column Layout** - TOC now displays in columns (max 8 rows per column) instead of a long vertical list
+- **Dynamic Columns** - Automatically creates additional columns when entries exceed 8
+- **Improved Readability** - Better use of horizontal space for guides with many sections
+
+### 🎨 Vanilla Mode Default & Easter Egg Toggle
+- **Vanilla by Default** - Mod now starts in vanilla Stationpedia styling mode
+- **Header Toggle** - Click the "Stationpedia" header to toggle Ascended mode (easter egg)
+- **Visual Feedback** - Header changes to "Stationpedia Ascended" with orange styling when enabled
+- **Icon Swap** - Custom phoenix icon only appears in Ascended mode
+- **Removed Book Button** - Simplified UI by removing the mode toggle button
+
+### 🔧 Bug Fixes
+- **Fixed JSON Syntax Error** - Resolved corrupted line in descriptions.json that broke tooltip parsing
+- **Fixed Brace Mismatch** - Corrected code structure issues in icon replacement logic
+
+### 📝 New Files
+- `VanillaModeManager.cs` - Static manager for vanilla/ascended mode state
+- `CategoryHeaderHandler.cs` - Handler for category header interactions
+
+---
+
 ## [0.2.2] - 2025-12-30
 
 ### ⚡ Search Performance Optimizations
