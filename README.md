@@ -7,6 +7,20 @@
 
 ## ✨ Features
 
+### 🤖 AIMeE Robot Documentation
+Comprehensive guide for the AIMeE (Autonomous Integrated Mining and Exploration Entity) companion robot:
+
+- **All Mode Explanations** - Detailed documentation for None, Follow, MoveToTarget, Roam, Unload, PathToTarget, and StorageFull modes
+- **IC10 Programming Guide** - Complete examples for controlling AIMeE programmatically
+- **Navigation Behavior** - How AIMeE pathfinds, mines, and handles obstacles
+- **Coordinate Systems** - Understanding TargetX, TargetY, TargetZ for programming
+
+### 📑 Multi-Column Table of Contents
+For guides with many sections, the TOC now automatically arranges into columns:
+- Maximum 8 entries per column
+- Automatically expands horizontally for large guides
+- Clickable links scroll to each section
+
 ### 🎯 Enhanced Tooltips System
 Get detailed explanations for every aspect of your devices with our comprehensive tooltip system:
 

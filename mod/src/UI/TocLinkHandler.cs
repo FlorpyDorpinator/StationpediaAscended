@@ -22,22 +22,27 @@ namespace StationpediaAscended.UI
         private static Dictionary<string, RectTransform> _sectionRegistry = new Dictionary<string, RectTransform>();
         private static Dictionary<string, StationpediaCategory> _categoryRegistry = new Dictionary<string, StationpediaCategory>();
         
+        // Parent chain registry - maps a tocId to its parent tocId for nested items
+        private static Dictionary<string, string> _parentRegistry = new Dictionary<string, string>();
+        
         // Track currently hovered link for highlight effect
         private int _lastHoveredLinkIndex = -1;
         
         // Colors for link states
-        private static readonly Color NormalLinkColor = new Color(0f, 0.54f, 0.9f, 1f);   // #008AE6
-        private static readonly Color HoverLinkColor = new Color(0.4f, 0.8f, 1f, 1f);     // Brighter cyan-blue
+        private static readonly Color NormalLinkColor = new Color(1f, 1f, 1f, 1f);       // #FFFFFF white
+        private static readonly Color HoverLinkColor = new Color(0.6f, 0.6f, 0.6f, 1f);   // Darker grey on hover
         
         /// <summary>
         /// Register a section for TOC navigation
         /// </summary>
-        public static void RegisterSection(string tocId, RectTransform rectTransform, StationpediaCategory category = null)
+        public static void RegisterSection(string tocId, RectTransform rectTransform, StationpediaCategory category = null, string parentTocId = null)
         {
             if (string.IsNullOrEmpty(tocId)) return;
             _sectionRegistry[tocId] = rectTransform;
             if (category != null)
                 _categoryRegistry[tocId] = category;
+            if (!string.IsNullOrEmpty(parentTocId))
+                _parentRegistry[tocId] = parentTocId;
         }
         
         /// <summary>
@@ -47,6 +52,7 @@ namespace StationpediaAscended.UI
         {
             _sectionRegistry.Clear();
             _categoryRegistry.Clear();
+            _parentRegistry.Clear();
         }
         
         public void OnPointerClick(PointerEventData eventData)
@@ -155,7 +161,10 @@ namespace StationpediaAscended.UI
                 return;
             }
             
-            // Expand the target category if it's collapsed
+            // First, expand all parent categories in the chain
+            ExpandParentChain(sectionId);
+            
+            // Then expand the target category if it's collapsed
             if (_categoryRegistry.TryGetValue(sectionId, out var category))
             {
                 if (category.Contents != null && !category.Contents.gameObject.activeSelf)
@@ -168,6 +177,34 @@ namespace StationpediaAscended.UI
             if (StationpediaAscendedMod.Instance != null)
             {
                 StationpediaAscendedMod.Instance.StartCoroutine(ScrollToTargetCoroutine(targetRect));
+            }
+        }
+        
+        /// <summary>
+        /// Recursively expand all parent categories from root to the target
+        /// </summary>
+        private void ExpandParentChain(string tocId)
+        {
+            // Build the chain from root to target
+            var chain = new List<string>();
+            string current = tocId;
+            
+            while (_parentRegistry.TryGetValue(current, out string parentId))
+            {
+                chain.Insert(0, parentId); // Insert at beginning to build root-first order
+                current = parentId;
+            }
+            
+            // Expand from root to target
+            foreach (string id in chain)
+            {
+                if (_categoryRegistry.TryGetValue(id, out var category))
+                {
+                    if (category.Contents != null && !category.Contents.gameObject.activeSelf)
+                    {
+                        category.ToggleContentVisibility();
+                    }
+                }
             }
         }
         

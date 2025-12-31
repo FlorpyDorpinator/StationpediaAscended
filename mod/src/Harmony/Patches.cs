@@ -22,10 +22,15 @@ namespace StationpediaAscended.Patches
         // Track if we've already fixed the scrollbar visibility mode
         private static bool _scrollbarVisibilityFixed = false;
         
-        // Default Stationeers blue color for backgrounds (inner color)
-        private static readonly Color StationeersBlue = new Color(0.05f, 0.15f, 0.25f, 0.85f);
+        // Default Stationeers blue color for backgrounds (inner color) - more pronounced blue
+        private static readonly Color StationeersBlue = new Color(0.06f, 0.12f, 0.22f, 0.92f);
         // Lighter border color for backgrounds (outer edge)
         private static readonly Color StationeersBlueBorder = new Color(0.15f, 0.30f, 0.45f, 0.7f);
+        
+        // Cache the game's native panel sprite (has built-in borders)
+        private static Sprite _nativePanelSprite = null;
+        private static Material _nativePanelMaterial = null;
+        private static UnityEngine.UI.Image.Type _nativePanelType = UnityEngine.UI.Image.Type.Sliced;
 
         #region PopulateLogicSlotInserts Patch
 
@@ -336,10 +341,20 @@ namespace StationpediaAscended.Patches
             if ((object)category.Title == null || !category.Title) return;
             if ((object)category.Contents == null || !category.Contents) return;
             
-            // Set the title - apply custom color if configured
-            string titleColor = !string.IsNullOrEmpty(deviceDesc.operationalDetailsTitleColor) 
-                ? deviceDesc.operationalDetailsTitleColor 
-                : "#FF7A18"; // Default orange
+            // Set the title - use VanillaModeManager for color (white in vanilla, orange in ascended)
+            string titleColor;
+            if (VanillaModeManager.IsVanillaMode)
+            {
+                titleColor = "#FFFFFF";  // White in vanilla mode
+            }
+            else if (!string.IsNullOrEmpty(deviceDesc.operationalDetailsTitleColor))
+            {
+                titleColor = deviceDesc.operationalDetailsTitleColor;
+            }
+            else
+            {
+                titleColor = "#FF7A18";  // Default orange in ascended mode
+            }
             category.Title.text = $"<color={titleColor}>Operational Details</color>";
             
             // Apply custom collapse/expand icons with animator
@@ -395,15 +410,20 @@ namespace StationpediaAscended.Patches
             {
                 if (category.CollapseImage == null) return;
                 
-                // Apply custom sprites if available
-                if (StationpediaAscendedMod._iconExpanded != null)
+                // In vanilla mode, keep native icons; in Ascended mode, use custom icons
+                if (!VanillaModeManager.IsVanillaMode)
                 {
-                    category.VisibleImage = StationpediaAscendedMod._iconExpanded;
+                    // Apply custom sprites if available
+                    if (StationpediaAscendedMod._iconExpanded != null)
+                    {
+                        category.VisibleImage = StationpediaAscendedMod._iconExpanded;
+                    }
+                    if (StationpediaAscendedMod._iconCollapsed != null)
+                    {
+                        category.NotVisibleImage = StationpediaAscendedMod._iconCollapsed;
+                    }
                 }
-                if (StationpediaAscendedMod._iconCollapsed != null)
-                {
-                    category.NotVisibleImage = StationpediaAscendedMod._iconCollapsed;
-                }
+                // If vanilla mode, the category keeps its original native sprites
                 
                 // Add IconAnimator component for smooth transitions
                 var animator = category.gameObject.GetComponent<IconAnimator>();
@@ -414,6 +434,50 @@ namespace StationpediaAscended.Patches
                 animator.TargetImage = category.CollapseImage;
                 animator.ExpandedSprite = category.VisibleImage;
                 animator.CollapsedSprite = category.NotVisibleImage;
+                
+                // Make the entire header clickable for toggle
+                // Find or create header area (parent of Title and CollapseImage)
+                Transform headerTransform = category.Title?.transform.parent;
+                if (headerTransform == null)
+                {
+                    headerTransform = category.CollapseImage?.transform.parent;
+                }
+                if (headerTransform != null)
+                {
+                    // Add CategoryHeaderHandler to handle clicks and hover on the header
+                    var headerHandler = headerTransform.gameObject.GetComponent<CategoryHeaderHandler>();
+                    if (headerHandler == null)
+                    {
+                        headerHandler = headerTransform.gameObject.AddComponent<CategoryHeaderHandler>();
+                    }
+                    headerHandler.Initialize(category, animator);
+                    
+                    // Ensure header has a graphic for raycasting (needs Image or similar)
+                    var headerGraphic = headerTransform.GetComponent<UnityEngine.UI.Graphic>();
+                    if (headerGraphic == null)
+                    {
+                        // Add invisible image for raycast
+                        var headerImage = headerTransform.gameObject.AddComponent<UnityEngine.UI.Image>();
+                        headerImage.color = new Color(0, 0, 0, 0); // Fully transparent
+                        headerImage.raycastTarget = true;
+                    }
+                    else
+                    {
+                        headerGraphic.raycastTarget = true;
+                    }
+                    
+                    // Disable raycast on Title so clicks pass through to header
+                    if (category.Title != null)
+                    {
+                        category.Title.raycastTarget = false;
+                    }
+                    
+                    // Disable raycast on CollapseImage so clicks pass through to header
+                    if (category.CollapseImage != null)
+                    {
+                        category.CollapseImage.raycastTarget = false;
+                    }
+                }
                 
                 // Hook into the toggle to trigger animation
                 // We can't easily hook the button click, so we'll check state in Update via coroutine
@@ -455,13 +519,22 @@ namespace StationpediaAscended.Patches
         {
             try
             {
+                // Guard against null operationalDetails
+                if (deviceDesc.operationalDetails == null || deviceDesc.operationalDetails.Count == 0)
+                {
+                    ConsoleWindow.Print("[Stationpedia Ascended] TOC: No operational details found");
+                    return;
+                }
+                
                 // Create outer container with horizontal layout (TOC on left, thumbnail on right)
                 var outerGO = new GameObject("TableOfContentsOuter");
+                
+                // Add RectTransform BEFORE setting parent to ensure proper UI setup
+                var outerRT = outerGO.AddComponent<RectTransform>();
                 outerGO.transform.SetParent(parentCategory.Contents, false);
                 outerGO.transform.SetAsFirstSibling(); // Put at top
                 
                 // Set up outer RectTransform
-                var outerRT = outerGO.GetComponent<RectTransform>();
                 outerRT.anchorMin = new Vector2(0, 1);
                 outerRT.anchorMax = new Vector2(1, 1);
                 outerRT.pivot = new Vector2(0.5f, 1);
@@ -484,20 +557,20 @@ namespace StationpediaAscended.Patches
                 var tocGO = new GameObject("TableOfContents");
                 tocGO.transform.SetParent(outerGO.transform, false);
                 
-                // Add background panel to TOC - use rounded sprite if available, with color tint
+                // Add background panel to TOC - use fancy window background with transparent grey
                 var bgImage = tocGO.AddComponent<UnityEngine.UI.Image>();
-                var roundedSprite = StationpediaAscendedMod.GetRoundedBackgroundSprite();
-                if (roundedSprite != null)
+                var windowSprite = StationpediaAscendedMod.GetWindowBackgroundSprite();
+                if (windowSprite != null)
                 {
-                    bgImage.sprite = roundedSprite;
+                    bgImage.sprite = windowSprite;
                     bgImage.type = UnityEngine.UI.Image.Type.Sliced;
                 }
-                bgImage.color = new Color(0.06f, 0.10f, 0.16f, 0.95f); // Dark blue-gray tint
+                bgImage.color = new Color(0.4f, 0.4f, 0.4f, 0.08f); // Fully transparent
                 
-                // TOC takes flexible width but not too much
+                // TOC should fit its content width, not expand
                 var tocLayoutElement = tocGO.AddComponent<UnityEngine.UI.LayoutElement>();
-                tocLayoutElement.flexibleWidth = 1f;
-                tocLayoutElement.minWidth = 150f;
+                tocLayoutElement.flexibleWidth = 0f; // Don't expand
+                tocLayoutElement.minWidth = 120f;
                 
                 // Add padding layout for TOC content
                 var tocLayout = tocGO.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();
@@ -508,9 +581,9 @@ namespace StationpediaAscended.Patches
                 tocLayout.childControlWidth = true;
                 tocLayout.childControlHeight = true;
                 
-                // Auto-size height for TOC
+                // Auto-size for TOC - fit both width and height to content
                 var tocFitter = tocGO.AddComponent<UnityEngine.UI.ContentSizeFitter>();
-                tocFitter.horizontalFit = UnityEngine.UI.ContentSizeFitter.FitMode.Unconstrained;
+                tocFitter.horizontalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
                 tocFitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
                 
                 // Create title
@@ -520,57 +593,91 @@ namespace StationpediaAscended.Patches
                 titleText.font = sourceText.font;
                 titleText.fontSharedMaterial = sourceText.fontSharedMaterial;
                 titleText.fontSize = sourceText.fontSize * 0.9f;
-                titleText.color = new Color(1f, 0.6f, 0.2f, 1f); // Orange
+                // Use VanillaModeManager for color (white in vanilla, orange in ascended)
+                titleText.color = VanillaModeManager.IsVanillaMode ? Color.white : new Color(1f, 0.6f, 0.2f, 1f);
+                // No box character - just the title text
                 titleText.text = string.IsNullOrEmpty(deviceDesc.tocTitle) ? "<b>Contents</b>" : $"<b>{deviceDesc.tocTitle}</b>";
                 titleText.enableWordWrapping = false;
                 
                 var titleFitter = titleGO.AddComponent<UnityEngine.UI.ContentSizeFitter>();
                 titleFitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
                 
-                // Create links container
-                var linksGO = new GameObject("TOCLinks");
-                linksGO.transform.SetParent(tocGO.transform, false);
-                var linksText = linksGO.AddComponent<TMPro.TextMeshProUGUI>();
-                linksText.font = sourceText.font;
-                linksText.fontSharedMaterial = sourceText.fontSharedMaterial;
-                linksText.fontSize = sourceText.fontSize * 0.85f;
-                linksText.color = sourceText.color;
-                linksText.enableWordWrapping = true;
-                linksText.richText = true;
-                
-                // Build TOC links from operational details with tocId
-                var sb = new System.Text.StringBuilder();
-                int index = 0;
+                // Collect all TOC entries first to determine column layout
+                var tocEntries = new List<(string tocId, string title, int depth)>();
                 foreach (var detail in deviceDesc.operationalDetails)
                 {
-                    BuildTocLinks(sb, detail, ref index);
+                    CollectTocEntries(tocEntries, detail);
                 }
-                linksText.text = sb.ToString().TrimEnd();
                 
-                var linksFitter = linksGO.AddComponent<UnityEngine.UI.ContentSizeFitter>();
-                linksFitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
+                const int MAX_ROWS = 8;
+                int totalEntries = tocEntries.Count;
+                int numColumns = (totalEntries + MAX_ROWS - 1) / MAX_ROWS; // Ceiling division
+                numColumns = Math.Max(1, numColumns); // At least 1 column
                 
-                // Add click handler for TOC links
-                var linkHandler = linksGO.AddComponent<TocLinkHandler>();
-                linkHandler.TextComponent = linksText;
+                // Create horizontal container for columns
+                var columnsGO = new GameObject("TOCColumns");
+                columnsGO.transform.SetParent(tocGO.transform, false);
                 
-                // Create thumbnail container (right side)
-                var thumbGO = new GameObject("TOCThumbnail");
-                thumbGO.transform.SetParent(outerGO.transform, false);
+                var columnsLayout = columnsGO.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();
+                columnsLayout.spacing = 20;
+                columnsLayout.childForceExpandWidth = false;
+                columnsLayout.childForceExpandHeight = false;
+                columnsLayout.childControlWidth = true;
+                columnsLayout.childControlHeight = true;
+                columnsLayout.childAlignment = UnityEngine.TextAnchor.UpperLeft;
                 
-                // Load thumbnail image
-                var thumbSprite = StationpediaAscendedMod.LoadImageFromModFolder("toc_thumbnail.png");
-                if (thumbSprite != null)
+                var columnsFitter = columnsGO.AddComponent<UnityEngine.UI.ContentSizeFitter>();
+                columnsFitter.horizontalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
+                columnsFitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
+                
+                // Create each column
+                int entryIndex = 0;
+                for (int col = 0; col < numColumns && entryIndex < totalEntries; col++)
                 {
-                    var thumbImage = thumbGO.AddComponent<UnityEngine.UI.Image>();
-                    thumbImage.sprite = thumbSprite;
-                    thumbImage.preserveAspect = true;
+                    var columnGO = new GameObject($"TOCColumn{col}");
+                    columnGO.transform.SetParent(columnsGO.transform, false);
                     
-                    // Fixed size for thumbnail
-                    var thumbLayoutElement = thumbGO.AddComponent<UnityEngine.UI.LayoutElement>();
-                    thumbLayoutElement.preferredWidth = 150f;
-                    thumbLayoutElement.preferredHeight = 150f;
-                    thumbLayoutElement.flexibleWidth = 0f;
+                    var linksText = columnGO.AddComponent<TMPro.TextMeshProUGUI>();
+                    linksText.font = sourceText.font;
+                    linksText.fontSharedMaterial = sourceText.fontSharedMaterial;
+                    linksText.fontSize = sourceText.fontSize * 0.85f;
+                    linksText.color = sourceText.color;
+                    linksText.enableWordWrapping = false; // No wrapping within columns
+                    linksText.richText = true;
+                    linksText.overflowMode = TMPro.TextOverflowModes.Overflow;
+                    
+                    // Build this column's entries
+                    var sb = new System.Text.StringBuilder();
+                    int rowsInColumn = 0;
+                    while (entryIndex < totalEntries && rowsInColumn < MAX_ROWS)
+                    {
+                        var entry = tocEntries[entryIndex];
+                        string indent = entry.depth > 0 ? new string(' ', entry.depth * 2) : "";
+                        string bullet = entry.depth > 0 ? "- " : "";
+                        string bulletColor = VanillaModeManager.IsVanillaMode ? "#888888" : "#CC6600";
+                        string textColor = "#FFFFFF";
+                        
+                        if (entry.depth > 0)
+                        {
+                            sb.AppendLine($"{indent}<color={bulletColor}>{bullet}</color><link=toc_{entry.tocId}><color={textColor}>{entry.title}</color></link>");
+                        }
+                        else
+                        {
+                            sb.AppendLine($"<link=toc_{entry.tocId}><color={textColor}>{entry.title}</color></link>");
+                        }
+                        
+                        entryIndex++;
+                        rowsInColumn++;
+                    }
+                    linksText.text = sb.ToString().TrimEnd();
+                    
+                    var linksFitter = columnGO.AddComponent<UnityEngine.UI.ContentSizeFitter>();
+                    linksFitter.horizontalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
+                    linksFitter.verticalFit = UnityEngine.UI.ContentSizeFitter.FitMode.PreferredSize;
+                    
+                    // Add click handler for TOC links
+                    var linkHandler = columnGO.AddComponent<TocLinkHandler>();
+                    linkHandler.TextComponent = linksText;
                 }
             }
             catch (Exception ex)
@@ -587,8 +694,20 @@ namespace StationpediaAscended.Patches
             if (!string.IsNullOrEmpty(detail.tocId) && !string.IsNullOrEmpty(detail.title))
             {
                 string indent = depth > 0 ? new string(' ', depth * 3) : "";
-                string bullet = depth == 0 ? "▸" : "›";
-                sb.AppendLine($"{indent}{bullet} <link=toc_{detail.tocId}><color=#008AE6>{detail.title}</color></link>");
+                // Use dash for sub-items, no bullet for top-level
+                string bullet = depth > 0 ? "- " : "";
+                // Use VanillaModeManager for colors - grey bullets, white text
+                string bulletColor = VanillaModeManager.IsVanillaMode ? "#888888" : "#CC6600";
+                string textColor = "#FFFFFF";  // Always white text
+                if (depth > 0)
+                {
+                    sb.AppendLine($"{indent}<color={bulletColor}>{bullet}</color><link=toc_{detail.tocId}><color={textColor}>{detail.title}</color></link>");
+                }
+                else
+                {
+                    sb.AppendLine($"<link=toc_{detail.tocId}><color={textColor}>{detail.title}</color></link>");
+                }
+                index++;
             }
             
             if (detail.children != null)
@@ -598,7 +717,25 @@ namespace StationpediaAscended.Patches
                     BuildTocLinks(sb, child, ref index, depth + 1);
                 }
             }
-            index++;
+        }
+        
+        /// <summary>
+        /// Collect TOC entries into a flat list for column layout
+        /// </summary>
+        private static void CollectTocEntries(List<(string tocId, string title, int depth)> entries, OperationalDetail detail, int depth = 0)
+        {
+            if (!string.IsNullOrEmpty(detail.tocId) && !string.IsNullOrEmpty(detail.title))
+            {
+                entries.Add((detail.tocId, detail.title, depth));
+            }
+            
+            if (detail.children != null)
+            {
+                foreach (var child in detail.children)
+                {
+                    CollectTocEntries(entries, child, depth + 1);
+                }
+            }
         }
 
         /// <summary>
@@ -617,24 +754,24 @@ namespace StationpediaAscended.Patches
         /// Render a single operational detail element - either as collapsible category or inline content
         /// </summary>
         private static void RenderOperationalDetailElement(StationpediaCategory parentCategory, TMPro.TextMeshProUGUI sourceText,
-            OperationalDetail detail, StationpediaCategory categoryPrefab, UniversalPage page, int depth)
+            OperationalDetail detail, StationpediaCategory categoryPrefab, UniversalPage page, int depth, string parentTocId = null)
         {
             if (detail.collapsible && !string.IsNullOrEmpty(detail.title))
             {
                 // Create a nested collapsible category
-                CreateNestedCollapsibleCategory(parentCategory, sourceText, detail, categoryPrefab, page, depth);
+                CreateNestedCollapsibleCategory(parentCategory, sourceText, detail, categoryPrefab, page, depth, parentTocId);
             }
             else
             {
                 // Create inline content (text, items, steps, image)
                 CreateInlineContent(parentCategory.Contents, sourceText, detail, depth);
                 
-                // Recursively render non-collapsible children
+                // Recursively render non-collapsible children (pass current tocId as parent)
                 if (detail.children != null)
                 {
                     foreach (var child in detail.children)
                     {
-                        RenderOperationalDetailElement(parentCategory, sourceText, child, categoryPrefab, page, depth + 1);
+                        RenderOperationalDetailElement(parentCategory, sourceText, child, categoryPrefab, page, depth + 1, detail.tocId);
                     }
                 }
             }
@@ -644,7 +781,7 @@ namespace StationpediaAscended.Patches
         /// Create a nested collapsible category within parent's Contents
         /// </summary>
         private static void CreateNestedCollapsibleCategory(StationpediaCategory parentCategory, TMPro.TextMeshProUGUI sourceText,
-            OperationalDetail detail, StationpediaCategory categoryPrefab, UniversalPage page, int depth)
+            OperationalDetail detail, StationpediaCategory categoryPrefab, UniversalPage page, int depth, string parentTocId = null)
         {
             try
             {
@@ -655,20 +792,20 @@ namespace StationpediaAscended.Patches
                 string safeTocId = detail.tocId ?? detail.title?.Replace(" ", "_") ?? $"section_{depth}";
                 nestedCategory.gameObject.name = $"NestedCategory_{safeTocId}";
                 
-                // Set title with depth-based coloring
-                string titleColor = depth == 0 ? "#FF7A18" : (depth == 1 ? "#E09030" : "#C08040");
+                // Set title with depth-based coloring (uses VanillaModeManager)
+                string titleColor = VanillaModeManager.GetTitleColor(depth);
                 nestedCategory.Title.text = $"<color={titleColor}>{detail.title}</color>";
                 
-                // Apply custom icons
+                // Apply custom icons (respects vanilla mode)
                 ApplyCustomCategoryIcons(nestedCategory);
                 
-                // Configure layout
-                ConfigureNestedCategoryLayout(nestedCategory, detail);
+                // Configure layout (respects vanilla mode) - pass depth to skip backgrounds for deep nesting
+                ConfigureNestedCategoryLayout(nestedCategory, detail, depth);
                 
-                // Register for TOC navigation
+                // Register for TOC navigation - include parent tocId for hierarchy expansion
                 if (!string.IsNullOrEmpty(detail.tocId))
                 {
-                    TocLinkHandler.RegisterSection(detail.tocId, nestedCategory.GetComponent<RectTransform>(), nestedCategory);
+                    TocLinkHandler.RegisterSection(detail.tocId, nestedCategory.GetComponent<RectTransform>(), nestedCategory, parentTocId);
                 }
                 
                 // Add image if specified (before text content)
@@ -699,9 +836,11 @@ namespace StationpediaAscended.Patches
                 {
                     var sb = new System.Text.StringBuilder();
                     int stepNum = 1;
+                    // Step number color - white in vanilla, orange in ascended
+                    string stepColor = VanillaModeManager.IsVanillaMode ? "#FFFFFF" : "#FFA500";
                     foreach (var step in detail.steps)
                     {
-                        sb.AppendLine($"  <color=#FFA500>{stepNum}.</color> {step}");
+                        sb.AppendLine($"  <color={stepColor}>{stepNum}.</color> {step}");
                         stepNum++;
                     }
                     CreateTextElement(nestedCategory.Contents, sourceText, sb.ToString().TrimEnd());
@@ -719,12 +858,12 @@ namespace StationpediaAscended.Patches
                     CreateInlineVideo(nestedCategory.Contents, detail.videoFile);
                 }
                 
-                // Recursively render children
+                // Recursively render children - pass current tocId as parent for TOC hierarchy
                 if (detail.children != null)
                 {
                     foreach (var child in detail.children)
                     {
-                        RenderOperationalDetailElement(nestedCategory, sourceText, child, categoryPrefab, page, depth + 1);
+                        RenderOperationalDetailElement(nestedCategory, sourceText, child, categoryPrefab, page, depth + 1, detail.tocId);
                     }
                 }
                 
@@ -754,7 +893,7 @@ namespace StationpediaAscended.Patches
         /// <summary>
         /// Configure layout for nested collapsible categories
         /// </summary>
-        private static void ConfigureNestedCategoryLayout(StationpediaCategory category, OperationalDetail detail)
+        private static void ConfigureNestedCategoryLayout(StationpediaCategory category, OperationalDetail detail, int depth = 0)
         {
             // Remove GridLayoutGroup if present
             var existingGridLayout = category.Contents.GetComponent<UnityEngine.UI.GridLayoutGroup>();
@@ -763,70 +902,59 @@ namespace StationpediaAscended.Patches
                 UnityEngine.Object.DestroyImmediate(existingGridLayout);
             }
             
-            // Get the rounded sprite
-            var roundedSprite = StationpediaAscendedMod.GetRoundedBackgroundSprite();
-            
-            // Determine colors
-            Color innerColor = StationeersBlue;
-            Color borderColor = StationeersBlueBorder;
-            if (!string.IsNullOrEmpty(detail.backgroundColor))
+            // Remove the old border layer approach - it doesn't work well
+            var oldBorderLayer = category.Contents.gameObject.transform.Find("BorderLayer");
+            if (oldBorderLayer != null)
             {
-                if (ColorUtility.TryParseHtmlString(detail.backgroundColor, out Color customColor))
+                UnityEngine.Object.DestroyImmediate(oldBorderLayer.gameObject);
+            }
+            
+            // Only add background for first level (depth 0 only)
+            // Depth 1+ (like Coal, Charcoal under Fuel Types) won't have backgrounds
+            if (depth == 0)
+            {
+                // Get or add background Image
+                var bgImage = category.Contents.gameObject.GetComponent<UnityEngine.UI.Image>();
+                if (bgImage == null)
                 {
-                    innerColor = customColor;
-                    // Create a lighter version for the border
-                    borderColor = new Color(
-                        Mathf.Min(1f, customColor.r + 0.15f),
-                        Mathf.Min(1f, customColor.g + 0.15f),
-                        Mathf.Min(1f, customColor.b + 0.15f),
-                        customColor.a * 0.7f
-                    );
+                    bgImage = category.Contents.gameObject.AddComponent<UnityEngine.UI.Image>();
                 }
-            }
-            
-            // Add BORDER layer first (behind the inner background)
-            var borderGO = category.Contents.gameObject.transform.Find("BorderLayer");
-            if (borderGO == null)
-            {
-                var borderObj = new GameObject("BorderLayer");
-                borderObj.transform.SetParent(category.Contents.gameObject.transform, false);
-                borderObj.transform.SetAsFirstSibling();
                 
-                var borderImage = borderObj.AddComponent<UnityEngine.UI.Image>();
-                if (roundedSprite != null)
+                if (VanillaModeManager.IsVanillaMode)
                 {
-                    borderImage.sprite = roundedSprite;
-                    borderImage.type = UnityEngine.UI.Image.Type.Sliced;
+                    // Vanilla mode - use native sprite with no tint (grey border like Mode section)
+                    if (_nativePanelSprite != null)
+                    {
+                        bgImage.sprite = _nativePanelSprite;
+                        bgImage.type = _nativePanelType;
+                        bgImage.material = _nativePanelMaterial;
+                    }
+                    bgImage.color = Color.white;  // No tint - let native sprite show through
                 }
-                borderImage.color = borderColor;
-                borderImage.raycastTarget = false;
-                
-                // Make it fill the parent but extend slightly beyond
-                var borderRT = borderObj.GetComponent<RectTransform>();
-                borderRT.anchorMin = Vector2.zero;
-                borderRT.anchorMax = Vector2.one;
-                borderRT.offsetMin = new Vector2(-2, -2); // Extend 2px in each direction
-                borderRT.offsetMax = new Vector2(2, 2);
-            }
-            
-            // Add inner background layer
-            var bgImage = category.Contents.gameObject.GetComponent<UnityEngine.UI.Image>();
-            if (bgImage == null)
-            {
-                bgImage = category.Contents.gameObject.AddComponent<UnityEngine.UI.Image>();
-            }
-            
-            if (roundedSprite != null)
-            {
-                bgImage.sprite = roundedSprite;
-                bgImage.type = UnityEngine.UI.Image.Type.Sliced;
+                else
+                {
+                    // Ascended mode - use fancy window background with color tint
+                    Color bgColor = VanillaModeManager.GetBackgroundColor(detail.backgroundColor);
+                    
+                    var windowSprite = StationpediaAscendedMod.GetWindowBackgroundSprite();
+                    if (windowSprite != null)
+                    {
+                        bgImage.sprite = windowSprite;
+                        bgImage.type = UnityEngine.UI.Image.Type.Sliced;
+                        bgImage.material = null;
+                    }
+                    bgImage.color = bgColor;
+                }
             }
             else
             {
-                bgImage.sprite = null;
-                bgImage.type = UnityEngine.UI.Image.Type.Simple;
+                // Depth 1+ - remove any existing background image
+                var existingBgImage = category.Contents.gameObject.GetComponent<UnityEngine.UI.Image>();
+                if (existingBgImage != null)
+                {
+                    UnityEngine.Object.DestroyImmediate(existingBgImage);
+                }
             }
-            bgImage.color = innerColor;
             
             // Add VerticalLayoutGroup with increased padding for more room around text
             var layout = category.Contents.GetComponent<UnityEngine.UI.VerticalLayoutGroup>();
@@ -858,7 +986,10 @@ namespace StationpediaAscended.Patches
         {
             string indent = depth > 0 ? $"<indent={depth * 5}%>" : "";
             string indentEnd = depth > 0 ? "</indent>" : "";
-            string titleColor = depth == 0 ? "#FF7A18" : (depth == 1 ? "#E06810" : "#C05808");
+            // Use VanillaModeManager for title color
+            string titleColor = VanillaModeManager.GetTitleColor(depth);
+            // Step number color - white in vanilla, orange in ascended
+            string stepColor = VanillaModeManager.IsVanillaMode ? "#FFFFFF" : "#FFA500";
             
             var sb = new System.Text.StringBuilder();
             
@@ -896,7 +1027,7 @@ namespace StationpediaAscended.Patches
                 foreach (var step in detail.steps)
                 {
                     sb.Append(indent);
-                    sb.AppendLine($"  <color=#FFA500>{stepNum}.</color> {step}");
+                    sb.AppendLine($"  <color={stepColor}>{stepNum}.</color> {step}");
                     sb.Append(indentEnd);
                     stepNum++;
                 }
@@ -1085,28 +1216,82 @@ namespace StationpediaAscended.Patches
                     return;
                 }
                 
-                // Create container for video player
-                var videoContainerGO = new GameObject("VideoContainer");
-                videoContainerGO.transform.SetParent(parent, false);
+                // Video dimensions (16:9 aspect ratio) - larger size
+                float videoWidth = 400f;
+                float videoHeight = 225f;
+                float borderPadding = 6f;
+                float buttonHeight = 28f;
+                float buttonSpacing = 6f;
                 
-                // Set up RectTransform
+                // Total container height: video + border + spacing + button
+                float totalHeight = videoHeight + borderPadding * 2 + buttonSpacing + buttonHeight;
+                float totalWidth = videoWidth + borderPadding * 2;
+                
+                // Create outer container (holds video frame + button below)
+                var outerContainerGO = new GameObject("VideoOuterContainer");
+                outerContainerGO.transform.SetParent(parent, false);
+                
+                var outerRT = outerContainerGO.GetComponent<RectTransform>();
+                if (outerRT == null) outerRT = outerContainerGO.AddComponent<RectTransform>();
+                
+                // Add LayoutElement to control size in parent layout
+                var outerLayout = outerContainerGO.AddComponent<UnityEngine.UI.LayoutElement>();
+                outerLayout.preferredWidth = totalWidth;
+                outerLayout.preferredHeight = totalHeight;
+                outerLayout.flexibleWidth = 0;
+                outerLayout.flexibleHeight = 0;
+                
+                // Add vertical layout to stack video frame and button
+                var vertLayout = outerContainerGO.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();
+                vertLayout.spacing = buttonSpacing;
+                vertLayout.childForceExpandWidth = false;
+                vertLayout.childForceExpandHeight = false;
+                vertLayout.childControlWidth = false;
+                vertLayout.childControlHeight = false;
+                vertLayout.childAlignment = UnityEngine.TextAnchor.UpperCenter;
+                
+                // Create video frame container (border + video)
+                var frameContainerGO = new GameObject("VideoFrameContainer");
+                frameContainerGO.transform.SetParent(outerContainerGO.transform, false);
+                
+                var frameRT = frameContainerGO.GetComponent<RectTransform>();
+                if (frameRT == null) frameRT = frameContainerGO.AddComponent<RectTransform>();
+                frameRT.sizeDelta = new Vector2(totalWidth, videoHeight + borderPadding * 2);
+                
+                // Add frame layout element
+                var frameLayout = frameContainerGO.AddComponent<UnityEngine.UI.LayoutElement>();
+                frameLayout.preferredWidth = totalWidth;
+                frameLayout.preferredHeight = videoHeight + borderPadding * 2;
+                
+                // Add border/frame background using native sprite for proper borders
+                var frameImage = frameContainerGO.AddComponent<UnityEngine.UI.Image>();
+                if (_nativePanelSprite != null)
+                {
+                    frameImage.sprite = _nativePanelSprite;
+                    frameImage.type = _nativePanelType;
+                    frameImage.material = _nativePanelMaterial;
+                }
+                else
+                {
+                    var roundedSprite = StationpediaAscendedMod.GetRoundedBackgroundSprite();
+                    if (roundedSprite != null)
+                    {
+                        frameImage.sprite = roundedSprite;
+                        frameImage.type = UnityEngine.UI.Image.Type.Sliced;
+                    }
+                }
+                frameImage.color = new Color(0.02f, 0.04f, 0.08f, 1f); // Very dark blue-black
+                
+                // Create video container inside frame
+                var videoContainerGO = new GameObject("VideoContainer");
+                videoContainerGO.transform.SetParent(frameContainerGO.transform, false);
+                
                 var containerRT = videoContainerGO.GetComponent<RectTransform>();
                 if (containerRT == null) containerRT = videoContainerGO.AddComponent<RectTransform>();
-                containerRT.anchorMin = new Vector2(0, 1);
-                containerRT.anchorMax = new Vector2(1, 1);
-                containerRT.pivot = new Vector2(0.5f, 1);
-                
-                // Video dimensions (16:9 aspect ratio)
-                float videoWidth = 320f;
-                float videoHeight = 180f;
+                containerRT.anchorMin = new Vector2(0.5f, 0.5f);
+                containerRT.anchorMax = new Vector2(0.5f, 0.5f);
+                containerRT.pivot = new Vector2(0.5f, 0.5f);
                 containerRT.sizeDelta = new Vector2(videoWidth, videoHeight);
-                
-                // Add LayoutElement for proper sizing in layout groups
-                var layoutElement = videoContainerGO.AddComponent<UnityEngine.UI.LayoutElement>();
-                layoutElement.preferredWidth = videoWidth;
-                layoutElement.preferredHeight = videoHeight;
-                layoutElement.flexibleWidth = 0;
-                layoutElement.flexibleHeight = 0;
                 
                 // Create RenderTexture for video output
                 var renderTexture = new RenderTexture((int)videoWidth * 2, (int)videoHeight * 2, 0);
@@ -1123,30 +1308,48 @@ namespace StationpediaAscended.Patches
                 videoPlayer.isLooping = true;
                 videoPlayer.renderMode = VideoRenderMode.RenderTexture;
                 videoPlayer.targetTexture = renderTexture;
-                videoPlayer.audioOutputMode = VideoAudioOutputMode.None; // Mute by default
+                videoPlayer.audioOutputMode = VideoAudioOutputMode.Direct; // Enable audio playback
                 videoPlayer.url = "file://" + videoPath.Replace("\\", "/");
+                videoPlayer.skipOnDrop = true;
                 
-                // Create play button overlay
+                // Set volume (0-1 range)
+                videoPlayer.SetDirectAudioVolume(0, 0.5f); // 50% volume on track 0
+                
+                // Prepare video to show first frame
+                videoPlayer.prepareCompleted += (source) => {
+                    videoPlayer.frame = 0;
+                };
+                videoPlayer.Prepare();
+                
+                // Create play button BELOW the video frame
                 var playButtonGO = new GameObject("PlayButton");
-                playButtonGO.transform.SetParent(videoContainerGO.transform, false);
+                playButtonGO.transform.SetParent(outerContainerGO.transform, false);
                 
                 var playButtonRT = playButtonGO.GetComponent<RectTransform>();
                 if (playButtonRT == null) playButtonRT = playButtonGO.AddComponent<RectTransform>();
-                playButtonRT.anchorMin = new Vector2(0.5f, 0.5f);
-                playButtonRT.anchorMax = new Vector2(0.5f, 0.5f);
-                playButtonRT.pivot = new Vector2(0.5f, 0.5f);
-                playButtonRT.sizeDelta = new Vector2(60, 60);
+                playButtonRT.sizeDelta = new Vector2(80, buttonHeight);
+                
+                // Add layout element for button
+                var buttonLayoutElem = playButtonGO.AddComponent<UnityEngine.UI.LayoutElement>();
+                buttonLayoutElem.preferredWidth = 80;
+                buttonLayoutElem.preferredHeight = buttonHeight;
                 
                 var playButtonBg = playButtonGO.AddComponent<UnityEngine.UI.Image>();
-                playButtonBg.color = new Color(0, 0, 0, 0.6f);
-                
-                // Use rounded sprite if available
-                var roundedSprite = StationpediaAscendedMod.GetRoundedBackgroundSprite();
-                if (roundedSprite != null)
+                if (_nativePanelSprite != null)
                 {
-                    playButtonBg.sprite = roundedSprite;
-                    playButtonBg.type = UnityEngine.UI.Image.Type.Sliced;
+                    playButtonBg.sprite = _nativePanelSprite;
+                    playButtonBg.type = _nativePanelType;
                 }
+                else
+                {
+                    var roundedSprite = StationpediaAscendedMod.GetRoundedBackgroundSprite();
+                    if (roundedSprite != null)
+                    {
+                        playButtonBg.sprite = roundedSprite;
+                        playButtonBg.type = UnityEngine.UI.Image.Type.Sliced;
+                    }
+                }
+                playButtonBg.color = new Color(0.1f, 0.2f, 0.35f, 1f); // Blue button
                 
                 // Add play symbol text
                 var playSymbolGO = new GameObject("PlaySymbol");
@@ -1166,14 +1369,14 @@ namespace StationpediaAscended.Patches
                 playText.alignment = TMPro.TextAlignmentOptions.Center;
                 playText.enableWordWrapping = false;
                 
-                // Add button component for play/pause toggle
+                // Add button component
                 var playButton = playButtonGO.AddComponent<UnityEngine.UI.Button>();
                 playButton.targetGraphic = playButtonBg;
                 
                 var buttonColors = playButton.colors;
-                buttonColors.normalColor = new Color(0, 0, 0, 0.6f);
-                buttonColors.highlightedColor = new Color(0.2f, 0.2f, 0.2f, 0.8f);
-                buttonColors.pressedColor = new Color(0, 0, 0, 0.9f);
+                buttonColors.normalColor = new Color(0.1f, 0.2f, 0.35f, 1f);
+                buttonColors.highlightedColor = new Color(0.15f, 0.3f, 0.5f, 1f);
+                buttonColors.pressedColor = new Color(0.05f, 0.15f, 0.25f, 1f);
                 playButton.colors = buttonColors;
                 
                 // Track play state
@@ -1184,20 +1387,17 @@ namespace StationpediaAscended.Patches
                     {
                         videoPlayer.Pause();
                         playText.text = "PLAY";
-                        playButtonBg.color = new Color(0, 0, 0, 0.6f);
+                        playButtonBg.color = new Color(0.1f, 0.2f, 0.35f, 1f);
                         isPlaying = false;
                     }
                     else
                     {
                         videoPlayer.Play();
-                        playText.text = "PAUSE";
-                        playButtonBg.color = new Color(0, 0, 0, 0.3f);
+                        playText.text = "STOP";
+                        playButtonBg.color = new Color(0.1f, 0.4f, 0.2f, 1f); // Green when playing
                         isPlaying = true;
                     }
                 });
-                
-                // Prepare the video
-                videoPlayer.Prepare();
                 
                 ConsoleWindow.Print($"[Stationpedia Ascended] Video player created for: {videoFile}");
             }
@@ -1260,29 +1460,60 @@ namespace StationpediaAscended.Patches
             var sourceImage = page.LogicSlotContents?.Contents?.GetComponent<UnityEngine.UI.Image>();
             if (sourceImage != null)
             {
+                // Cache the native sprite for use in nested categories
+                if (_nativePanelSprite == null)
+                {
+                    _nativePanelSprite = sourceImage.sprite;
+                    _nativePanelMaterial = sourceImage.material;
+                    _nativePanelType = sourceImage.type;
+                }
+                
                 if (bgImage == null)
                 {
                     bgImage = category.Contents.gameObject.AddComponent<UnityEngine.UI.Image>();
                 }
-                bgImage.sprite = sourceImage.sprite;
-                bgImage.type = sourceImage.type;
-                bgImage.material = sourceImage.material;
                 
-                // Apply custom background color or use Stationeers blue
-                if (deviceDesc != null && !string.IsNullOrEmpty(deviceDesc.operationalDetailsBackgroundColor))
+                if (VanillaModeManager.IsVanillaMode)
                 {
-                    if (ColorUtility.TryParseHtmlString(deviceDesc.operationalDetailsBackgroundColor, out Color customColor))
+                    // Vanilla mode - use native sprite with native styling (no color tint)
+                    bgImage.sprite = sourceImage.sprite;
+                    bgImage.type = sourceImage.type;
+                    bgImage.material = sourceImage.material;
+                    bgImage.color = Color.white;  // No tint - let native sprite show through
+                }
+                else
+                {
+                    // Ascended mode - use fancy sprite with custom color
+                    var windowSprite = StationpediaAscendedMod.GetWindowBackgroundSprite();
+                    if (windowSprite != null)
                     {
-                        bgImage.color = customColor;
+                        bgImage.sprite = windowSprite;
+                        bgImage.type = UnityEngine.UI.Image.Type.Sliced;
+                        bgImage.material = null;
+                    }
+                    else
+                    {
+                        bgImage.sprite = sourceImage.sprite;
+                        bgImage.type = sourceImage.type;
+                        bgImage.material = sourceImage.material;
+                    }
+                    
+                    // Apply custom background color or use Stationeers blue
+                    if (deviceDesc != null && !string.IsNullOrEmpty(deviceDesc.operationalDetailsBackgroundColor))
+                    {
+                        if (ColorUtility.TryParseHtmlString(deviceDesc.operationalDetailsBackgroundColor, out Color customColor))
+                        {
+                            bgImage.color = customColor;
+                        }
+                        else
+                        {
+                            bgImage.color = StationeersBlue;
+                        }
                     }
                     else
                     {
                         bgImage.color = StationeersBlue;
                     }
-                }
-                else
-                {
-                    bgImage.color = StationeersBlue;
                 }
             }
             
@@ -1309,7 +1540,7 @@ namespace StationpediaAscended.Patches
             }
             
             // Make sure contents are visible
-            category.Contents.gameObject.SetActive(true);
+            category.Contents.gameObject.SetActive(true);;
             
             // Force layout rebuild to calculate correct sizes
             UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(category.Contents);
