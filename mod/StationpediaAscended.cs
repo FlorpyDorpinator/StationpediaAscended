@@ -72,6 +72,10 @@ namespace StationpediaAscended
         // Custom icon sprite (internal so nested HarmonyPatches class can access it)
         internal static Sprite _customIconSprite;
         
+        // Custom icons for collapsible sections
+        internal static Sprite _iconExpanded;   // Icon shown when category is expanded
+        internal static Sprite _iconCollapsed;  // Icon shown when category is collapsed
+        
         // Track created GameObjects and components for cleanup
         internal static List<GameObject> _createdGameObjects = new List<GameObject>();
         internal static List<Component> _addedComponents = new List<Component>();
@@ -307,6 +311,9 @@ namespace StationpediaAscended
             
             // Load custom icon
             LoadCustomIcon();
+            
+            // Load custom expand/collapse icons
+            LoadCustomIcons();
             
             // Load descriptions from JSON file
             LoadDescriptions();
@@ -606,6 +613,214 @@ namespace StationpediaAscended
             {
                 Log?.LogError($"Error loading custom icon: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// Load custom icons for expand/collapse buttons from images folder
+        /// </summary>
+        private void LoadCustomIcons()
+        {
+            try
+            {
+                // Paths to check for custom icons
+                var basePaths = new List<string>();
+                
+#if DEBUG
+                basePaths.Add(@"C:\Dev\12-17-25 Stationeers Respawn Update Code\StationpediaAscended\mod\images");
+#endif
+                basePaths.Add(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "images"));
+                basePaths.Add(Path.Combine(BepInEx.Paths.BepInExRootPath, "scripts", "images"));
+                
+                foreach (var basePath in basePaths)
+                {
+                    if (string.IsNullOrEmpty(basePath) || !Directory.Exists(basePath)) continue;
+                    
+                    string expandedPath = Path.Combine(basePath, "icon_expanded.png");
+                    string collapsedPath = Path.Combine(basePath, "icon_collapsed.png");
+                    
+                    if (File.Exists(expandedPath) && _iconExpanded == null)
+                    {
+                        _iconExpanded = LoadSpriteFromFile(expandedPath);
+                    }
+                    
+                    if (File.Exists(collapsedPath) && _iconCollapsed == null)
+                    {
+                        _iconCollapsed = LoadSpriteFromFile(collapsedPath);
+                    }
+                    
+                    if (_iconExpanded != null && _iconCollapsed != null)
+                        break;
+                }
+                
+                // Fallback: Use phoenix icon for both states if custom icons not found
+                if (_iconExpanded == null && _customIconSprite != null)
+                {
+                    _iconExpanded = _customIconSprite;
+                }
+                if (_iconCollapsed == null && _customIconSprite != null)
+                {
+                    _iconCollapsed = _customIconSprite;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log?.LogError($"Error loading custom icons: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Helper to load a sprite from a PNG file
+        /// </summary>
+        private static Sprite LoadSpriteFromFile(string path)
+        {
+            try
+            {
+                byte[] imageData = File.ReadAllBytes(path);
+                Texture2D texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+                texture.filterMode = FilterMode.Bilinear;
+                
+                if (ImageConversion.LoadImage(texture, imageData))
+                {
+                    return Sprite.Create(
+                        texture,
+                        new Rect(0, 0, texture.width, texture.height),
+                        new Vector2(0.5f, 0.5f),
+                        100f
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                Log?.LogWarning($"Failed to load sprite from {path}: {ex.Message}");
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Load a sprite with 9-slice borders for proper scaling (used for rounded rectangles)
+        /// </summary>
+        /// <param name="relativePath">Path relative to images folder</param>
+        /// <param name="borderSize">Size of the border in pixels (same on all sides)</param>
+        public static Sprite LoadSlicedSprite(string relativePath, int borderSize = 10)
+        {
+            var basePaths = new List<string>();
+            
+#if DEBUG
+            basePaths.Add(@"C:\Dev\12-17-25 Stationeers Respawn Update Code\StationpediaAscended\mod\images");
+#endif
+            basePaths.Add(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "images"));
+            basePaths.Add(Path.Combine(BepInEx.Paths.BepInExRootPath, "scripts", "images"));
+            
+            foreach (var basePath in basePaths)
+            {
+                if (string.IsNullOrEmpty(basePath)) continue;
+                string fullPath = Path.Combine(basePath, relativePath);
+                if (File.Exists(fullPath))
+                {
+                    try
+                    {
+                        byte[] imageData = File.ReadAllBytes(fullPath);
+                        Texture2D texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+                        texture.filterMode = FilterMode.Bilinear;
+                        
+                        if (ImageConversion.LoadImage(texture, imageData))
+                        {
+                            // Create sprite with 9-slice border
+                            // Border: left, bottom, right, top (in pixels)
+                            Vector4 border = new Vector4(borderSize, borderSize, borderSize, borderSize);
+                            
+                            return Sprite.Create(
+                                texture,
+                                new Rect(0, 0, texture.width, texture.height),
+                                new Vector2(0.5f, 0.5f),
+                                100f,
+                                0,
+                                SpriteMeshType.FullRect,
+                                border
+                            );
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log?.LogWarning($"Failed to load sliced sprite from {fullPath}: {ex.Message}");
+                    }
+                }
+            }
+            
+            Log?.LogWarning($"Sliced sprite not found: {relativePath}");
+            return null;
+        }
+        
+        // Cached rounded background sprite
+        private static Sprite _roundedBgSprite = null;
+        
+        /// <summary>
+        /// Get the rounded background sprite (cached)
+        /// </summary>
+        public static Sprite GetRoundedBackgroundSprite()
+        {
+            if (_roundedBgSprite == null)
+            {
+                // Try to load rounded-bg.png with 9-slice borders
+                // Assuming the rounded corners are about 10-15 pixels
+                _roundedBgSprite = LoadSlicedSprite("rounded-bg.png", 12);
+            }
+            return _roundedBgSprite;
+        }
+
+        /// <summary>
+        /// Public method to load a sprite from the mod's images folder
+        /// </summary>
+        public static Sprite LoadImageFromModFolder(string relativePath)
+        {
+            var basePaths = new List<string>();
+            
+#if DEBUG
+            basePaths.Add(@"C:\Dev\12-17-25 Stationeers Respawn Update Code\StationpediaAscended\mod\images");
+#endif
+            basePaths.Add(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "images"));
+            basePaths.Add(Path.Combine(BepInEx.Paths.BepInExRootPath, "scripts", "images"));
+            
+            foreach (var basePath in basePaths)
+            {
+                if (string.IsNullOrEmpty(basePath)) continue;
+                string fullPath = Path.Combine(basePath, relativePath);
+                if (File.Exists(fullPath))
+                {
+                    return LoadSpriteFromFile(fullPath);
+                }
+            }
+            
+            Log?.LogWarning($"Image not found: {relativePath}");
+            return null;
+        }
+
+        /// <summary>
+        /// Get the full file path for a file in the mod's images folder.
+        /// Returns null if file doesn't exist.
+        /// </summary>
+        public static string GetImageFilePath(string relativePath)
+        {
+            var basePaths = new List<string>();
+            
+#if DEBUG
+            basePaths.Add(@"C:\Dev\12-17-25 Stationeers Respawn Update Code\StationpediaAscended\mod\images");
+#endif
+            basePaths.Add(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "images"));
+            basePaths.Add(Path.Combine(BepInEx.Paths.BepInExRootPath, "scripts", "images"));
+            
+            foreach (var basePath in basePaths)
+            {
+                if (string.IsNullOrEmpty(basePath)) continue;
+                string fullPath = Path.Combine(basePath, relativePath);
+                if (File.Exists(fullPath))
+                {
+                    return fullPath;
+                }
+            }
+            
+            Log?.LogWarning($"File not found: {relativePath}");
+            return null;
         }
 
         /// <summary>

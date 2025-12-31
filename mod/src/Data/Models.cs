@@ -33,6 +33,15 @@ namespace StationpediaAscended.Data
         public List<OperationalDetail> OperationalDetailsAlt { set { operationalDetails = value; } }
         
         public string operationalDetailsTitleColor; // Optional: hex color like "#FF7A18" for the category title
+        
+        /// <summary>If true, generates a Table of Contents panel at the top of Operational Details</summary>
+        public bool generateToc { get; set; } = false;
+        
+        /// <summary>Custom title for the TOC panel (default: "Contents")</summary>
+        public string tocTitle { get; set; }
+        
+        /// <summary>Custom background color for operational details sections (hex format)</summary>
+        public string operationalDetailsBackgroundColor { get; set; }
     }
 
     [Serializable]
@@ -82,6 +91,28 @@ namespace StationpediaAscended.Data
         public List<OperationalDetail> children;  // Nested subsections
         public List<string> items;                 // Bullet list items
         public List<string> steps;                 // Numbered step list
+        
+        // Advanced features
+        /// <summary>If true, this detail renders as a collapsible StationpediaCategory instead of inline text</summary>
+        public bool collapsible { get; set; } = false;
+        
+        /// <summary>If set, this section appears in the Table of Contents with this ID for scroll-to linking</summary>
+        public string tocId { get; set; }
+        
+        /// <summary>If set, displays this image file (relative to mod images folder) inline</summary>
+        public string imageFile { get; set; }
+        
+        /// <summary>Custom background color for this section (hex format like "#1A2B3C")</summary>
+        public string backgroundColor { get; set; }
+        
+        /// <summary>If set, displays a clickable YouTube link that opens in the system browser</summary>
+        public string youtubeUrl { get; set; }
+        
+        /// <summary>Custom label for the YouTube link (default: "Watch on YouTube")</summary>
+        public string youtubeLabel { get; set; }
+        
+        /// <summary>If set, displays an embedded video player for this MP4/video file (relative to mod images folder)</summary>
+        public string videoFile { get; set; }
     }
 
     [Serializable]
