@@ -79,7 +79,7 @@ Eliminates crashes when dragging the Stationpedia window in the main menu:
 ### Method 1: Via StationeersLaunchPad (Recommended)
 
 1. Install [StationeersLaunchPad](https://github.com/StationeersLaunchPad/StationeersLaunchPad/releases) (follow the instructions on that GitHub to install Bepinex etc.)
-2. Go to Steam Workshop and subscribe to Stationpedia Ascended 
+2. Go to Steam Workshop and subscribe to Stationpedia Ascended [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3634225688)
 3. Start the game and make sure you see the StationeersLaunchPad black window during load
 4. If you hit f1 you should see Stationpedia Ascended & our logo at the top of your Stationpedia!
 
