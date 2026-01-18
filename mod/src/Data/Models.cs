@@ -9,7 +9,62 @@ namespace StationpediaAscended.Data
     {
         public string version;
         public List<DeviceDescriptions> devices;
+        public List<GuideDescription> guides;  // Custom guides that appear under the Guides button
         public GenericDescriptionsData genericDescriptions;
+    }
+
+    /// <summary>
+    /// A custom guide page that appears under the "Guides" button in Stationpedia.
+    /// Uses the same OperationalDetails format as devices for consistent editing.
+    /// </summary>
+    [Serializable]
+    public class GuideDescription
+    {
+        /// <summary>Unique key for this guide (e.g., "DaylightSensorGuide")</summary>
+        public string guideKey;
+        
+        /// <summary>Display name shown on the guide button (e.g., "Daylight Sensor Guide")</summary>
+        public string displayName;
+        
+        /// <summary>Main description text at the top of the guide page</summary>
+        public string pageDescription;
+        
+        /// <summary>Text to prepend to the page description</summary>
+        public string pageDescriptionPrepend;
+        
+        /// <summary>Text to append to the page description</summary>
+        public string pageDescriptionAppend;
+        
+        /// <summary>Image file to display at the top of the guide (like vanilla guides)</summary>
+        public string pageImage;
+        
+        /// <summary>Operational details sections for the guide content</summary>
+        [JsonProperty("operationalDetails")]
+        public List<OperationalDetail> operationalDetails;
+        
+        [JsonProperty("OperationalDetails")]
+        public List<OperationalDetail> OperationalDetailsAlt { set { operationalDetails = value; } }
+        
+        /// <summary>Optional: hex color for section titles</summary>
+        public string operationalDetailsTitleColor;
+        
+        /// <summary>If true, generates a Table of Contents</summary>
+        public bool generateToc { get; set; } = false;
+        
+        /// <summary>Custom title for the TOC panel</summary>
+        public string tocTitle { get; set; }
+        
+        /// <summary>If true, TOC entries are flat (no nested indentation for children)</summary>
+        public bool tocFlat { get; set; } = false;
+        
+        /// <summary>Custom background color for sections</summary>
+        public string operationalDetailsBackgroundColor { get; set; }
+        
+        /// <summary>Button color: "blue" (default, like Universe), "orange" (like Guides), or hex color</summary>
+        public string buttonColor { get; set; } = "blue";
+        
+        /// <summary>Sort order - lower numbers appear first</summary>
+        public int sortOrder { get; set; } = 100;
     }
 
     [Serializable]
@@ -20,6 +75,7 @@ namespace StationpediaAscended.Data
         public string pageDescription;        // Replace entire description
         public string pageDescriptionAppend;  // Add to end of existing description
         public string pageDescriptionPrepend; // Add to beginning of existing description
+        public string pageImage;              // Image to display at top of page (like vanilla guides)
         public Dictionary<string, LogicDescription> logicDescriptions;
         public Dictionary<string, ModeDescription> modeDescriptions;
         public Dictionary<string, SlotDescription> slotDescriptions;
@@ -39,6 +95,9 @@ namespace StationpediaAscended.Data
         
         /// <summary>Custom title for the TOC panel (default: "Contents")</summary>
         public string tocTitle { get; set; }
+        
+        /// <summary>If true, TOC entries are flat (no nested indentation for children)</summary>
+        public bool tocFlat { get; set; } = false;
         
         /// <summary>Custom background color for operational details sections (hex format)</summary>
         public string operationalDetailsBackgroundColor { get; set; }
@@ -93,8 +152,8 @@ namespace StationpediaAscended.Data
         public List<string> steps;                 // Numbered step list
         
         // Advanced features
-        /// <summary>If true, this detail renders as a collapsible StationpediaCategory instead of inline text</summary>
-        public bool collapsible { get; set; } = false;
+        /// <summary>If true (default), this detail renders as a collapsible StationpediaCategory. Set to false for inline headers.</summary>
+        public bool collapsible { get; set; } = true;
         
         /// <summary>If set, this section appears in the Table of Contents with this ID for scroll-to linking</summary>
         public string tocId { get; set; }

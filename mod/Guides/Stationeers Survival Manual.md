@@ -753,11 +753,11 @@ In Part 3, we'll cover:
 
 ---
 
-*Next: Part 3 - Not Dying Tonight (Power, Temperature, and Atmosphere)*
+*Next: Part 3 - Not Dying Tonight (Power, Temp, Atmos)*
 
 ---
 
-# Part 3: Not Dying Tonight (Power, Temperature, and Atmosphere)
+# Part 3: Not Dying Tonight (Power, Temp, Atmos)
 
 ---
 

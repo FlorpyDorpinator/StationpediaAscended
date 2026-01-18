@@ -19,7 +19,6 @@ namespace StationpediaAscended.Diagnostics
         
         private Canvas _tooltipCanvas;
         private GameObject _tooltipPanel;
-        private GameObject _columnsContainer;
         private List<TextMeshProUGUI> _columnTexts = new List<TextMeshProUGUI>();
         private RectTransform _tooltipRect;
         private LayoutElement _panelLayoutElement;
