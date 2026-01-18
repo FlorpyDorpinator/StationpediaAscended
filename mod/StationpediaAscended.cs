@@ -410,20 +410,20 @@ namespace StationpediaAscended
                                                     layoutElement = child.gameObject.AddComponent<UnityEngine.UI.LayoutElement>();
                                                 }
                                                 
-                                                // Force size to 28x28
-                                                layoutElement.preferredWidth = 28;
-                                                layoutElement.preferredHeight = 28;
-                                                layoutElement.minWidth = 28;
-                                                layoutElement.minHeight = 28;
+                                                // Force size to 32x32 (15% larger than original 28x28)
+                                                layoutElement.preferredWidth = 32;
+                                                layoutElement.preferredHeight = 32;
+                                                layoutElement.minWidth = 32;
+                                                layoutElement.minHeight = 32;
                                                 layoutElement.flexibleWidth = 0;
                                                 layoutElement.flexibleHeight = 0;
                                                 
                                                 var rt = child.GetComponent<RectTransform>();
                                                 if (rt != null)
                                                 {
-                                                    rt.sizeDelta = new Vector2(28, 28);
-                                                    rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 28);
-                                                    rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 28);
+                                                    rt.sizeDelta = new Vector2(32, 32);
+                                                    rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 32);
+                                                    rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 32);
                                                 }
                                                 
                                                 break; // Found the icon
@@ -476,6 +476,36 @@ namespace StationpediaAscended
                         catch (Exception ex)
                         {
                             Log?.LogWarning($"Error initializing search system: {ex.Message}");
+                        }
+                        
+                        // Initialize home page layout (Survival Manual & Game Mechanics buttons)
+                        try
+                        {
+                            UI.HomePageLayoutManager.Initialize();
+                        }
+                        catch (Exception ex)
+                        {
+                            Log?.LogWarning($"Error initializing home page layout: {ex.Message}");
+                        }
+                        
+                        // Register Survival Manual page
+                        try
+                        {
+                            Data.SurvivalManualLoader.RegisterSurvivalManualPage();
+                        }
+                        catch (Exception ex)
+                        {
+                            Log?.LogWarning($"Error registering Survival Manual: {ex.Message}");
+                        }
+                        
+                        // Register Daylight Sensor Guide page
+                        try
+                        {
+                            Data.DaylightSensorGuideLoader.RegisterDaylightSensorGuidePage();
+                        }
+                        catch (Exception ex)
+                        {
+                            Log?.LogWarning($"Error registering Daylight Sensor Guide: {ex.Message}");
                         }
                     }
 
@@ -1213,6 +1243,12 @@ namespace StationpediaAscended
                     {
                         GenericDescriptions = data.genericDescriptions;
                     }
+                    
+                    // Load custom guides from JSON
+                    if (data?.guides != null && data.guides.Count > 0)
+                    {
+                        Data.JsonGuideLoader.LoadGuides(data);
+                    }
                 }
                 else
                 {
@@ -1302,6 +1338,36 @@ namespace StationpediaAscended
                     var postfix = typeof(SearchPatches).GetMethod("ClearPreviousSearch_Postfix", 
                         BindingFlags.Public | BindingFlags.Static);
                     _harmony.Patch(clearPreviousSearch, postfix: new HarmonyMethod(postfix));
+                }
+                
+                // Patch SetPage to handle Game Mechanics navigation
+                var setPage = stationpediaType.GetMethod("SetPage", 
+                    BindingFlags.Public | BindingFlags.Instance);
+                if (setPage != null)
+                {
+                    var prefix = typeof(HarmonyPatches).GetMethod("Stationpedia_SetPage_Prefix", 
+                        BindingFlags.Public | BindingFlags.Static);
+                    _harmony.Patch(setPage, prefix: new HarmonyMethod(prefix));
+                }
+                
+                // Patch SetPageGuides to modify button layout
+                var setPageGuides = stationpediaType.GetMethod("SetPageGuides", 
+                    BindingFlags.NonPublic | BindingFlags.Instance);
+                if (setPageGuides != null)
+                {
+                    var postfix = typeof(HarmonyPatches).GetMethod("Stationpedia_SetPageGuides_Postfix", 
+                        BindingFlags.Public | BindingFlags.Static);
+                    _harmony.Patch(setPageGuides, postfix: new HarmonyMethod(postfix));
+                }
+                
+                // Patch SetPageLore to modify button layout
+                var setPageLore = stationpediaType.GetMethod("SetPageLore", 
+                    BindingFlags.Public | BindingFlags.Instance);
+                if (setPageLore != null)
+                {
+                    var postfix = typeof(HarmonyPatches).GetMethod("Stationpedia_SetPageLore_Postfix", 
+                        BindingFlags.Public | BindingFlags.Static);
+                    _harmony.Patch(setPageLore, postfix: new HarmonyMethod(postfix));
                 }
                 
                 // Register console command to center Stationpedia
@@ -1628,6 +1694,12 @@ namespace StationpediaAscended
                     if (data?.genericDescriptions != null)
                     {
                         GenericDescriptions = data.genericDescriptions;
+                    }
+                    
+                    // Load custom guides from JSON
+                    if (data?.guides != null && data.guides.Count > 0)
+                    {
+                        Data.JsonGuideLoader.LoadGuides(data);
                     }
                 }
                 else

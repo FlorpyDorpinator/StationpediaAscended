@@ -153,7 +153,10 @@ namespace StationpediaAscended.UI
             }
         }
         
-        private void ScrollToSection(string sectionId)
+        /// <summary>
+        /// Public static method to scroll to a section from anywhere
+        /// </summary>
+        public static void ScrollToSectionStatic(string sectionId)
         {
             if (!_sectionRegistry.TryGetValue(sectionId, out var targetRect))
             {
@@ -162,7 +165,7 @@ namespace StationpediaAscended.UI
             }
             
             // First, expand all parent categories in the chain
-            ExpandParentChain(sectionId);
+            ExpandParentChainStatic(sectionId);
             
             // Then expand the target category if it's collapsed
             if (_categoryRegistry.TryGetValue(sectionId, out var category))
@@ -176,14 +179,19 @@ namespace StationpediaAscended.UI
             // Start scroll coroutine
             if (StationpediaAscendedMod.Instance != null)
             {
-                StationpediaAscendedMod.Instance.StartCoroutine(ScrollToTargetCoroutine(targetRect));
+                StationpediaAscendedMod.Instance.StartCoroutine(ScrollToTargetCoroutineStatic(targetRect));
             }
         }
         
+        private void ScrollToSection(string sectionId)
+        {
+            ScrollToSectionStatic(sectionId);
+        }
+        
         /// <summary>
-        /// Recursively expand all parent categories from root to the target
+        /// Static version of ExpandParentChain
         /// </summary>
-        private void ExpandParentChain(string tocId)
+        private static void ExpandParentChainStatic(string tocId)
         {
             // Build the chain from root to target
             var chain = new List<string>();
@@ -208,7 +216,15 @@ namespace StationpediaAscended.UI
             }
         }
         
-        private IEnumerator ScrollToTargetCoroutine(RectTransform target)
+        /// <summary>
+        /// Recursively expand all parent categories from root to the target
+        /// </summary>
+        private void ExpandParentChain(string tocId)
+        {
+            ExpandParentChainStatic(tocId);
+        }
+        
+        private static IEnumerator ScrollToTargetCoroutineStatic(RectTransform target)
         {
             // Wait for layout to update after potential expand
             yield return null;
